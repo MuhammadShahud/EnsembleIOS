@@ -30,6 +30,8 @@ export const frameLogo = require('./Frame.png')
 export const checkLogo = require('./check.png')
 export const yellowLine = require('./Line.png')
 export const appLogo = require('./AppLogo.png')
+export const ensembleLogo = require('./ensembleLogo.png')
+export const checkMark = require('./checkMark.png')
 
 
 

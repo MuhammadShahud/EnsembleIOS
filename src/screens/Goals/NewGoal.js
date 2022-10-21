@@ -62,7 +62,7 @@ const NewGoal = () => {
                 </View>
             </View>
             <View>
-                <Footer onPress={()=>navigation.navigate('calender')} />
+                <Footer onPress={()=>navigation.navigate('calender')} iconName={'chevron-right'}/>
                 </View>
 
         </View>

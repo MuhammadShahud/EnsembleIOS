@@ -1,21 +1,24 @@
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Dimensions, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import SetGoals from '../../components/Goals/SetGoals'
 import OngoingCompleted from '../../components/Goals/OngoingCompleted'
-import Header from '../../components/Header/headerNotification'
+import Header from '../../components/Header/header'
 import RBSheet from 'react-native-raw-bottom-sheet';
 import { useRef } from 'react';
+
 
 
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import Button from '../../components/Button'
 import { useNavigation } from '@react-navigation/native'
-import { awardlogo, loadingLine, timelogo } from '../../../assets/images/images'
+import { awardLogo, checkMark, loading, notiLogo, timeLogo } from '../../../assets/images/images'
+import { ButtonColor } from '../../../assets/colors/colors'
 const PersonalGoals = () => {
   const navigation = useNavigation()
   const [show, setShow] = useState(true)
   const refRBSheet = useRef();
   const height = Dimensions.get('screen').height;
+
 
   useEffect(() => {
     refRBSheet.current.open()
@@ -23,6 +26,25 @@ const PersonalGoals = () => {
 
   }, [])
 
+  const laptop = [
+
+    {
+      id: 1,
+      title: 'Are you happy with the hp laptop?',
+      date: '07-08-2022',
+    },
+    {
+      id: 2,
+      title: 'Are you happy with the hp laptop?',
+      date: '07-08-2022',
+    },
+
+    {
+      id: 3,
+      title: 'Are you happy with the hp laptop?',
+      date: '07-08-2022',
+    },
+  ]
 
 
   const data = [
@@ -65,37 +87,70 @@ const PersonalGoals = () => {
     <View style={styles.mainView}>
       <View>
 
-        <Header />
+        <Header title={'The Plum Tree Group '}
+          source={notiLogo} />
         <SetGoals />
-        <OngoingCompleted />
+
+        <OngoingCompleted onPress={() => setShow(!show)}
+          CompletedtextColor={show ? ButtonColor : 'white'}
+          OngoingtextColor={show ? 'white' : ButtonColor}
+          CompletedbackgroundColor={show ? 'white' : ButtonColor}
+          OngoingbackgroundColor={show ? ButtonColor : 'white'}
+        />
       </View>
-      <Text style={styles.personalText}>Personal Goals</Text>
-      
+                <Text style={styles.personalText}>Personal Goals</Text> 
 
-      <FlatList
-        style={styles.flatList}
-        data={data}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => {
-          return (
-            <View style={styles.box}>
+      {show ?
+        <ScrollView>
+          <FlatList
+            style={styles.flatList}
+            data={data}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+              return (
+                <TouchableOpacity style={styles.box} onPress={() => navigation.navigate('duedate')} >
+                  <View style={styles.imageView}>
+                    <Image source={awardLogo} />
+                  </View>
+                  <View>
+                    <Text style={styles.title}>{item.title}</Text>
+                    <View style={styles.dateView}>
 
-              <View style={styles.imageView}>
-                <Image source={awardlogo} />
-              </View>
-              <View>
-                <Text style={styles.title}>{item.title}</Text>
-                <View style={styles.dateView}>
+                      <Image source={timeLogo} />
+                      <Text style={styles.date}>{item.date}</Text>
+                    </View>
+                    <Image style={styles.loadingline} source={loading} />
+                  </View>
+                </TouchableOpacity>
+              );
+            }}
+          />
+        </ScrollView> :
+        <ScrollView>
+          <FlatList
+            style={styles.flatListCompleted}
+            data={laptop}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+              return (
+                <TouchableOpacity style={styles.laptopBox} onPress={() => navigation.navigate('duedate')} >
+                  <View style={styles.checkView}>
+                    <Image source={checkMark} />
+                  </View>
+                  <View>
+                    <Text style={styles.laptopTitle}>{item.title}</Text>
+                    <View style={styles.laptopDateView}>
 
-                  <Image source={timelogo} />
-                  <Text style={styles.date}>{item.date}</Text>
-                </View>
-                <Image style={styles.loadingline} source={loadingLine} />
-              </View>
-            </View>
-          );
-        }}
-      />
+                      <Text style={styles.laptopDate}>{item.date}</Text>
+                    </View>
+                  </View>
+                </TouchableOpacity>
+              );
+            }}
+          />
+        </ScrollView>
+      }
+
 
       <RBSheet
         ref={refRBSheet}
@@ -126,6 +181,11 @@ const PersonalGoals = () => {
           <Text style={styles.goalParagraph}>A SMART goal is used to help guide goal setting. SMART is an acronym that stands for <Text style={styles.oneword}>S</Text>pecific, <Text style={styles.oneword}>M</Text>easurable, <Text style={styles.oneword}>A</Text>chievable, <Text style={styles.oneword}>R</Text>ealistic, and <Text style={styles.oneword}>T</Text>imely. </Text>
           <Button title={'Lets Go'} buttonStyle={styles.button} onPress={() => refRBSheet.current.close()} />
         </View>
+
+
+
+
+
       </RBSheet>
 
 
@@ -144,7 +204,7 @@ const styles = StyleSheet.create({
     color: 'black',
     marginHorizontal: scale(20),
     marginTop: verticalScale(20),
-    marginBottom: verticalScale(10),
+    marginBottom: verticalScale(5),
     fontSize: moderateScale(20),
     fontWeight: 'bold'
   },
@@ -155,13 +215,14 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(7),
     borderRadius: moderateScale(20),
     marginHorizontal: scale(20),
-    
+    // alignItems:'center'
+
   },
   title: {
     color: 'black',
     fontSize: moderateScale(17),
     fontWeight: 'bold',
-    paddingTop: verticalScale(10)
+    paddingTop: verticalScale(5)
   },
   date: {
     color: 'black',
@@ -171,14 +232,16 @@ const styles = StyleSheet.create({
   dateView: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: verticalScale(10),
+    marginTop: verticalScale(15),
 
   },
   imageView: {
     paddingTop: verticalScale(10),
   },
-  flatList: {
-    marginBottom: verticalScale(20)
+  flatListCompleted: {
+    // marginBottom: verticalScale(20)
+    // height:'90%'
+    marginTop:verticalScale(20)
   },
   loadingline: {
     marginTop: verticalScale(5)
@@ -215,7 +278,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     borderRadius: moderateScale(30),
     width: '100%',
-    paddingVertical: verticalScale(10)
+    paddingVertical: verticalScale(10),
+    marginTop:verticalScale(20)
   },
   sheetContainer: {
     backgroundColor: 'white',
@@ -223,5 +287,33 @@ const styles = StyleSheet.create({
     borderTopRightRadius: moderateScale(45),
     paddingHorizontal: scale(20),
     zIndex: 1,
+  },
+  // ensemble:{
+  //   fontWeight:'bold',
+  //   color:'#8C8C8C',
+  //   fontSize:moderateScale(20)
+  // },
+  checkView:{
+    paddingHorizontal:scale(10),
+    paddingVertical:verticalScale(10)
+  },
+  laptopBox:{
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    marginVertical: verticalScale(7),
+    borderRadius: moderateScale(20),
+    marginHorizontal: scale(20),
+    alignItems:'center',
+    paddingVertical:verticalScale(10)
+  },
+  laptopDateView:{
+    paddingTop:verticalScale(5)
+  },
+  laptopTitle:{
+    color:'black',
+    // fontSize:moderateScale(15)
+  },
+  laptopDate:{
+    fontSize:moderateScale(10)
   }
 })

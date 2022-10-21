@@ -5,6 +5,7 @@ import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 import {ButtonColor} from '../../../assets/colors/colors';
 import Button from '../Button';
 import {frameLogo} from '../../../assets/images/images';
+import Entypo from 'react-native-vector-icons/Entypo'
 
 const SetGoalModaal = props => {
   const navigation = useNavigation();
@@ -20,9 +21,7 @@ const SetGoalModaal = props => {
         animationType="slide"
         transparent={true}
         visible={props.modalVisible}
-        onRequestClose={() => {
-          setModalVisible(false);
-        }}>
+        onRequestClose={props.requestClose}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.imageView}>
@@ -33,8 +32,9 @@ const SetGoalModaal = props => {
               buttonStyle={styles.setButtton}
               onPress={navigateNewGoal}
             />
+            <Entypo name='plus' size={20} style={styles.entypoIcon}/>
 
-            <Button title="Browse Goals" buttonStyle={styles.browseButton} />
+            <Button title="Browse Goals" buttonStyle={styles.browseButton} onPress={()=>navigation.navigate('discovergoals')} />
           </View>
         </View>
       </Modal>
@@ -95,23 +95,35 @@ const styles = StyleSheet.create({
   },
   imageView: {
     marginVertical: verticalScale(10),
-    alignSelf: 'center',
+    // alignSelf: 'center',
     marginBottom: verticalScale(20),
+    width:'50%',
+    height:'50%',
+    backgroundColor:'rgba(43, 47, 134, 0.04)',
+    borderRadius:moderateScale(200)
   },
   setButtton: {
     backgroundColor: ButtonColor,
     marginBottom: verticalScale(10),
-    paddingHorizontal: scale(50),
+    paddingHorizontal: scale(60),
+    borderRadius: moderateScale(30),
+
   },
   browseButton: {
     backgroundColor: 'white',
     color: ButtonColor,
     borderWidth: 1,
     borderColor: ButtonColor,
-    borderRadius: moderateScale(20),
+    borderRadius: moderateScale(30),
     width: '100%',
-    paddingHorizontal: scale(50),
+    paddingHorizontal: scale(60),
   },
+  entypoIcon:{
+    color:'white',
+    position:'absolute',
+    bottom:97,
+    right:195
+  }
 });
 
 export default SetGoalModaal;

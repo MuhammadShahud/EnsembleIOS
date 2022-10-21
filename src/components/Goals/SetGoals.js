@@ -6,6 +6,8 @@ import {
   ButtonColor,
 } from '../../../assets/colors/colors';
 import SetGoalModaal from '../Modaal/SetGoalModaal';
+import Entypo from 'react-native-vector-icons/Entypo'
+
 
 const SetGoals = () => {
   const [visible, setVisible] = useState(false);
@@ -25,10 +27,13 @@ const SetGoals = () => {
             title="Set A New Goal"
             buttonStyle={styles.button}
             onPress={() => setVisible(true)}
+
           />
+
         </View>
       </View>
-      <SetGoalModaal modalVisible={visible} setModalVisible={setVisible} />
+                  <Entypo name='plus' size={15} style={styles.absoluteIcon}/>
+      <SetGoalModaal modalVisible={visible} setModalVisible={setVisible} requestClose={()=>setVisible(false)}/>
     </View>
   );
 };
@@ -37,7 +42,7 @@ export default SetGoals;
 
 const styles = StyleSheet.create({
   mainView: {
-    marginTop: verticalScale(30),
+    marginTop: verticalScale(10),
   },
 
   GoalText: {
@@ -54,7 +59,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '100%',
-    paddingHorizontal: scale(10),
+    paddingHorizontal: scale(25),
     backgroundColor: ButtonColor,
     borderRadius: moderateScale(30),
   },
@@ -67,4 +72,11 @@ const styles = StyleSheet.create({
   setNewGoal: {
     flexDirection: 'row',
   },
+  absoluteIcon:{
+    position:'absolute',
+    right:157,
+    top:26,
+    color:'white'
+
+  }
 });

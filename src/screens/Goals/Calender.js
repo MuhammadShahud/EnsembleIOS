@@ -51,7 +51,7 @@ const Calen = () => {
       </View>
       <View>
 
-        <Footer onPress={()=>navigation.navigate('successGoal')} />
+        <Footer onPress={()=>navigation.navigate('successGoal')} iconName={'check'}/>
       </View>
     </View>
   );
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     elevation: 1,
-    // backgroundColor: 'white',
+    backgroundColor: '#F1F1F1',
     justifyContent:'space-between'
 
   },

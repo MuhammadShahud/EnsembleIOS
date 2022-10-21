@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     color: ButtonColor,
     fontSize: moderateScale(50),
     fontWeight: 'bold',
+    letterSpacing:6
   },
   newGoal: {
     textAlign: 'center',
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(30),
   },
   buttonView: {
-    marginTop: verticalScale(10),
+    marginTop: verticalScale(50),
   },
   image: {
     alignSelf: 'center',

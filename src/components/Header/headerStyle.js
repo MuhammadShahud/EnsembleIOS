@@ -10,7 +10,7 @@ export const style = StyleSheet.create({
     width: wp('100%'),
     alignSelf: 'center',
     justifyContent: 'space-between',
-    height: hp('13%'),
+    height: hp('10%'),
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomColor: '#C6C6C6',

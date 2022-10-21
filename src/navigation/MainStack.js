@@ -12,6 +12,9 @@ import SuccessGoal from '../screens/Goals/SuccessGoal';
 import PersonalGoals from '../screens/Goals/PersonalGoals';
 import Calen from '../screens/Goals/Calender';
 import Footer from '../components/footer/Footer';
+import DiscoverGoals from '../screens/Goals/DiscoverGoals';
+import GoalsDueDate from '../screens/Goals/GoalsDueDate';
+import EditGoal from '../screens/Goals/EditGoal';
 
 const Main = createNativeStackNavigator();
 const Goal = createNativeStackNavigator();
@@ -59,6 +62,21 @@ const MainStack = () => {
        <Main.Screen
         name="footer"
         component={Footer}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
+        name="discovergoals"
+        component={DiscoverGoals}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
+        name="duedate"
+        component={GoalsDueDate}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
+        name="editgoal"
+        component={EditGoal}
         options={{headerShown: false}}
       />
     </Main.Navigator>

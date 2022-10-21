@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import  { PRIMARYCOLOR } from '../../assets/colors/colors'
+import Feather from 'react-native-vector-icons/Feather'
 
 const Button = (props) => {
   console.log(props.onPress,"ONnnPRess");
@@ -10,6 +11,7 @@ const Button = (props) => {
         <TouchableOpacity onPress={props.onPress}>
 
       <Text style={[styles.button,props.buttonStyle]}>{props.title}</Text>
+          {/* <Feather name='plus' size={15}/> */}
         </TouchableOpacity>
     </View>
   )

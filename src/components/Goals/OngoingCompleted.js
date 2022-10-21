@@ -1,19 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { ButtonColor } from '../../../assets/colors/colors'
 
-const OngoingCompleted = () => {
+const OngoingCompleted = (props) => {
     return (
         <View style={styles.view}>
             <View style={styles.container}>
-                <View style={styles.ongoing}>
-
-                    <Text style={styles.whiteText}>Ongoing</Text>
-                </View>
-                <View style={styles.completed}>
-                    <Text style={styles.greyText}>Completed</Text>
-                </View>
+                <TouchableOpacity onPress={props.onPress} style={[styles.ongoing , {backgroundColor : props.OngoingbackgroundColor}]}>
+                    <Text style={[styles.whiteText , {color : props.OngoingtextColor}]}>Ongoing</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={props.onPress} style={[styles.ongoing, {
+                    borderBottomRightRadius: 30,
+                    borderTopRightRadius: 30, borderBottomLeftRadius: 0,
+                    borderTopLeftRadius: 0, backgroundColor: props.CompletedbackgroundColor
+                }]}>
+                    <Text style={[styles.greyText , {color : props.CompletedtextColor}]}>Completed</Text>
+                </TouchableOpacity>
             </View>
         </View>
     )
@@ -23,30 +26,31 @@ export default OngoingCompleted
 
 const styles = StyleSheet.create({
     view: {
-        marginTop: verticalScale(30)
+        marginTop: verticalScale(20)
     },
     container: {
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginHorizontal: scale(20),
-        },
+    },
     ongoing: {
         backgroundColor: ButtonColor,
         width: '50%',
         alignItems: 'center',
-        borderBottomLeftRadius:30,
-        borderTopLeftRadius:30,
-        borderWidth:1,
-        borderColor:ButtonColor
-
+        borderBottomLeftRadius: 30,
+        borderTopLeftRadius: 30,
+        borderWidth: 1,
+        borderColor: ButtonColor,
     },
     completed: {
-        // backgroundColor:'blue',
+        backgroundColor: 'white',
         width: '50%',
         alignItems: 'center',
         borderWidth: 1,
-        borderBottomRightRadius:30,
-        borderTopRightRadius:30
+        borderBottomRightRadius: 30,
+        borderTopRightRadius: 30,
+        borderLeftColor: ButtonColor
+
 
 
 
@@ -55,12 +59,12 @@ const styles = StyleSheet.create({
     },
     whiteText: {
         color: 'white',
-        paddingVertical: verticalScale(15)
+        paddingVertical: verticalScale(10)
     },
     greyText: {
         color: ButtonColor,
-        paddingVertical: verticalScale(15),
-        color:'#858585'
+        paddingVertical: verticalScale(10),
+        color: '#858585'
 
 
 

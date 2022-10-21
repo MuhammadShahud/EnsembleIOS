@@ -1,5 +1,5 @@
 import { Image, Text, View } from 'react-native'
-import { onBoardLogo } from '../../../assets/images/images'
+import { ensembleLogo, onBoardLogo } from '../../../assets/images/images'
 import { boat } from '../../../assets/images/images'
 import PrimaryButton from '../../components/PrimaryButton'
 import { styles } from './splashStyle'
@@ -11,7 +11,7 @@ const Splash = () => {
 
   const onStart = () => {
     console.log('working')
-    navigation.navigate('login')
+    navigation.navigate('drawer')
   }
 
   return (
@@ -20,7 +20,7 @@ const Splash = () => {
         <Image
           style={styles.imageStyle2}
           resizeMode="contain"
-          source={onBoardLogo}
+          source={ensembleLogo}
         />
         <Image style={styles.imageStyle} source={boat} />
         <View style={styles.btn}>

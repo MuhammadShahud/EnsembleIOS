@@ -16,7 +16,7 @@ const Header = props => {
   const navigation = useNavigation()
 
   return (
-    <View style={style.BackHeaderBG}>
+    <View style={[style.BackHeaderBG,props.BackHeaderBG]}>
       <View style={style.halfHeader}>
         <Image
           style={{ marginRight: wp('3%') }}
@@ -24,15 +24,16 @@ const Header = props => {
           source={ptLogo}
         />
         <Text style={[styles.large, style.companyName]}>
-          The Plum Tree Group
+
+          {props.title}
         </Text>
       </View>
       <View style={style.halfHeader}>
-        {/* <Image
+        <Image
           style={{ marginRight: wp('3%') }}
           resizeMode="contain"
-          source={require('../../../assets/images/notificationlogo.png')}
-        /> */}
+          source={props.source}
+        />
         <TouchableOpacity onPress={()=>navigation.openDrawer()}>
         <Image resizeMode="contain" source={menuLogo} />
         </TouchableOpacity>

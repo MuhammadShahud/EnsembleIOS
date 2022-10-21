@@ -13,7 +13,7 @@ const Footer = (props) => {
       <Text style={styles.ensemble}>ENSEMBLE</Text>
         </View>
         <TouchableOpacity style={styles.arrow} onPress={props.onPress}>
-            <Feather style={styles.iconarrow} name='chevron-right' size={25} color={'white'}/>
+            <Feather style={styles.iconarrow} name={props.iconName} size={25} color={'white'}/>
         </TouchableOpacity>
 
     </View>
