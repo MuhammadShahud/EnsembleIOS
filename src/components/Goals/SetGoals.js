@@ -9,8 +9,8 @@ import SetGoalModaal from '../Modaal/SetGoalModaal';
 import Entypo from 'react-native-vector-icons/Entypo'
 
 
-const SetGoals = () => {
-  const [visible, setVisible] = useState(false);
+const SetGoals = ({visible , setVisible}) => {
+ 
 
   return (
     <View style={styles.mainView}>

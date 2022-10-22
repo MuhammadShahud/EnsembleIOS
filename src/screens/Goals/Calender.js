@@ -24,7 +24,11 @@ const Calen = () => {
         <View style={styles.calender}>
           <Text style={styles.selectDate}>Set a due date for your goal</Text>
           <Calendar
+
             enableSwipeMonths={true}
+            style={{
+              backgroundColor :'#F1F1F1',
+            }}
             
             selectedColor="red"
             onDayPress={day => {

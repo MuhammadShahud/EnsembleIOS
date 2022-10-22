@@ -1,16 +1,18 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Dimensions, ScrollView } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import SetGoals from '../../components/Goals/SetGoals'
 import OngoingCompleted from '../../components/Goals/OngoingCompleted'
 import Header from '../../components/Header/header'
 import RBSheet from 'react-native-raw-bottom-sheet';
 import { useRef } from 'react';
+import { ProgressBar, MD3Colors } from 'react-native-paper';
+
 
 
 
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import Button from '../../components/Button'
-import { useNavigation } from '@react-navigation/native'
+import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import { awardLogo, checkMark, loading, notiLogo, timeLogo } from '../../../assets/images/images'
 import { ButtonColor } from '../../../assets/colors/colors'
 const PersonalGoals = () => {
@@ -19,7 +21,7 @@ const PersonalGoals = () => {
   const refRBSheet = useRef();
   const height = Dimensions.get('screen').height;
 
-
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
     refRBSheet.current.open()
 
@@ -82,6 +84,14 @@ const PersonalGoals = () => {
     },
   ]
 
+  useFocusEffect(
+    useCallback(() => {
+      setShow(true)
+      setVisible(false)
+    }, [])
+  )
+
+
 
   return (
     <View style={styles.mainView}>
@@ -89,7 +99,7 @@ const PersonalGoals = () => {
 
         <Header title={'The Plum Tree Group '}
           source={notiLogo} />
-        <SetGoals />
+        <SetGoals visible={visible} setVisible={setVisible} />
 
         <OngoingCompleted onPress={() => setShow(!show)}
           CompletedtextColor={show ? ButtonColor : 'white'}
@@ -98,7 +108,7 @@ const PersonalGoals = () => {
           OngoingbackgroundColor={show ? ButtonColor : 'white'}
         />
       </View>
-                <Text style={styles.personalText}>Personal Goals</Text> 
+      <Text style={styles.personalText}>Personal Goals</Text>
 
       {show ?
         <ScrollView>
@@ -119,7 +129,9 @@ const PersonalGoals = () => {
                       <Image source={timeLogo} />
                       <Text style={styles.date}>{item.date}</Text>
                     </View>
-                    <Image style={styles.loadingline} source={loading} />
+                    <ProgressBar style={styles.progressBar} progress={0.3} color={'black'} />
+
+                    {/* <Image style={styles.loadingline} source={loading} /> */}
                   </View>
                 </TouchableOpacity>
               );
@@ -241,7 +253,7 @@ const styles = StyleSheet.create({
   flatListCompleted: {
     // marginBottom: verticalScale(20)
     // height:'90%'
-    marginTop:verticalScale(20)
+    marginTop: verticalScale(20)
   },
   loadingline: {
     marginTop: verticalScale(5)
@@ -279,7 +291,7 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(30),
     width: '100%',
     paddingVertical: verticalScale(10),
-    marginTop:verticalScale(20)
+    marginTop: verticalScale(20)
   },
   sheetContainer: {
     backgroundColor: 'white',
@@ -293,27 +305,34 @@ const styles = StyleSheet.create({
   //   color:'#8C8C8C',
   //   fontSize:moderateScale(20)
   // },
-  checkView:{
-    paddingHorizontal:scale(10),
-    paddingVertical:verticalScale(10)
+  checkView: {
+    paddingHorizontal: scale(10),
+    paddingVertical: verticalScale(10)
   },
-  laptopBox:{
+  laptopBox: {
     flexDirection: 'row',
     backgroundColor: 'white',
     marginVertical: verticalScale(7),
     borderRadius: moderateScale(20),
     marginHorizontal: scale(20),
-    alignItems:'center',
-    paddingVertical:verticalScale(10)
+    alignItems: 'center',
+    paddingVertical: verticalScale(10)
   },
-  laptopDateView:{
-    paddingTop:verticalScale(5)
+  laptopDateView: {
+    paddingTop: verticalScale(5)
   },
-  laptopTitle:{
-    color:'black',
+  laptopTitle: {
+    color: 'black',
     // fontSize:moderateScale(15)
   },
-  laptopDate:{
-    fontSize:moderateScale(10)
-  }
+  laptopDate: {
+    fontSize: moderateScale(10)
+  },
+  progressBar: {
+    borderRadius: 20,
+    height: verticalScale(7),
+    backgroundColor: '#EBEBEB',
+    width: '80%',
+    marginTop:verticalScale(5)
+},
 })

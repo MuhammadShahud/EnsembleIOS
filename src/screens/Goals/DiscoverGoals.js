@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Dimensions } from 'react-native'
 import React, {useState } from 'react'
 import Header from '../../components/Header/header'
+import { ProgressBar, MD3Colors } from 'react-native-paper';
+
 
 
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
@@ -78,7 +80,9 @@ const PersonalGoals = () => {
                   <Image source={timeLogo} />
                   <Text style={styles.date}>{item.date}</Text>
                 </View>
-                <Image style={styles.loadingline} source={loading} />
+                {/* <Image style={styles.loadingline} source={loading} /> */}
+                <ProgressBar style={styles.progressBar} progress={0.3} color={'black'} />
+
               </View>
             </View>
           );
@@ -139,6 +143,13 @@ const styles = StyleSheet.create({
   loadingline: {
     marginTop: verticalScale(5)
   },
+  progressBar: {
+    borderRadius: 20,
+    height: verticalScale(7),
+    backgroundColor: '#EBEBEB',
+    width: '80%',
+    marginTop:verticalScale(5)
+},
  
  
 })

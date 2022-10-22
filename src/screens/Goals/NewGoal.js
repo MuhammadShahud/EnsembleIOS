@@ -1,16 +1,55 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native'
+import { StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity } from 'react-native'
 import { RadioButton } from 'react-native-paper';
 import * as React from 'react';
 import Header from '../../components/Header/header';
 import Footer from '../../components/footer/Footer';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Entypo from 'react-native-vector-icons/Entypo'
+import AntDesign from 'react-native-vector-icons/AntDesign'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { useNavigation } from '@react-navigation/native';
+import { ButtonColor } from '../../../assets/colors/colors';
+// import Entypo from 'react-native-vector-icons/Entypo'
 
 const NewGoal = () => {
-    const navigation=useNavigation()
+    const navigation = useNavigation()
     const [checked, setChecked] = React.useState('first');
+    const [value, setValue] = React.useState('');
+    const [addStep, setAddStep] = React.useState(false)
+    const [indexes, setIndex] = React.useState([])
+    const [data, setData] = React.useState([
+        {
+            title: 'Add step one',
+        },
+        {
+            title: 'Add step two',
+        },
+        {
+            title: 'Add step three',
+        },
+    ])
+
+
+    const Remove_Item = (ind) => {
+        const inititial_state = data.filter((item, index) => {
+            return index != ind
+        })
+        setData(inititial_state)
+    }
+
+    const addItem = async () => {
+        setData((prev) => [...prev, { title: value }])
+        setAddStep(false)
+        setValue('')
+    }
+
+    const radioValue = (ind) => {
+        if (indexes.includes(ind)) {
+            setIndex(prev => prev.filter((e, index) => ind !== index));
+        }
+        setIndex(form => form.concat(indexes))
+    };
+
     return (
         <View style={styles.mainView}>
             <View>
@@ -23,47 +62,66 @@ const NewGoal = () => {
                     <Text style={styles.planText}>Plan the steps to achieve your goal</Text>
                 </View>
                 <View style={styles.stepView}>
+                    <FlatList
 
-                    <View style={styles.radioView}>
-                        <RadioButton
-                            color='black'
-                            value="first"
-                            status={checked === 'first' ? 'checked' : 'unchecked'}
-                            onPress={() => setChecked('first')}
-                        />
-                        <Text style={styles.step}>Add Step One</Text>
+                        data={data}
+                        keyExtractor={item => Math.random()}
+                        renderItem={({ item, index }) => {
+                            console.log(index)
+                            return (
+                                <View style={styles.radioButtonView}>
+                                    <View style={styles.radioView}>
+                                        <RadioButton
+                                            color='black'
+                                            value="first"
+                                            status={indexes.includes(index) ? 'checked' : 'unchecked'}
+                                            onPress={() => radioValue(index)}
+                                        />
+                                        <Text style={styles.step}>{item.title}</Text>
+                                    </View>
+                                    <TouchableOpacity onPress={() => Remove_Item(index)}>
+                                        <Entypo name='cross' size={20} style={styles.crossIcon} />
+                                    </TouchableOpacity>
+                                </View>
+                            );
+                        }}
+                    />
 
-                    </View>
-
-                    <View style={styles.radioView}>
-                        <RadioButton
-                            color='black'
-                            value="second"
-                            status={checked === 'second' ? 'checked' : 'unchecked'}
-                            onPress={() => setChecked('second')}
-                        />
-                        <Text style={styles.step}>Add Step two</Text>
-
-                    </View>
-                    <View style={styles.icon}>
-
-                        <Ionicons name='add-circle'
-                            size={25}
-                            color='black'
-                        />
-
-                        <Text style={styles.anotherstep}>Add another step</Text>
-                    </View>
-
+                    {addStep ?
+                        <View style={styles.textInputView}>
+                            <RadioButton
+                                color='black'
+                                value="first"
+                                status={indexes.includes() ? 'checked' : 'unchecked'}
+                                onPress={() => radioValue()}
+                            />
+                            <TextInput
+                                placeholder='Type'
+                                onChangeText={(text) => setValue(text)}
+                                value={value}
+                                style={styles.stepInput}
+                            />
+                            <TouchableOpacity onPress={addItem}>
+                                <AntDesign name='check' size={20} style={styles.checkIcon} />
+                            </TouchableOpacity>
+                        </View>
+                        :
+                        <TouchableOpacity onPress={() => setAddStep(true)} style={styles.icon}>
+                            <Ionicons name='add-circle-outline'
+                                size={25}
+                                style={styles.circleIcon}
+                            />
+                            <Text style={styles.anotherstep}>Add another step</Text>
+                        </TouchableOpacity>
+                    }
                 </View>
-
 
                 <View>
                 </View>
             </View>
             <View>
-                <Footer onPress={()=>navigation.navigate('calender')} iconName={'chevron-right'}/>
-                </View>
+                <Footer onPress={() => navigation.navigate('calender')} iconName={'chevron-right'} />
+            </View>
 
         </View>
     )
@@ -72,9 +130,9 @@ const NewGoal = () => {
 export default NewGoal
 
 const styles = StyleSheet.create({
-    mainView:{
-        flex:1,
-justifyContent:'space-between'
+    mainView: {
+        flex: 1,
+        justifyContent: 'space-between'
     },
     goal: {
         color: 'black',
@@ -84,7 +142,7 @@ justifyContent:'space-between'
 
     },
     firstView: {
-        marginTop: verticalScale(70)
+        marginTop: verticalScale(50)
     },
     setGoal: {
         color: 'black',
@@ -96,9 +154,9 @@ justifyContent:'space-between'
         backgroundColor: 'white',
         marginHorizontal: scale(20),
         borderColor: 'white',
-        borderRadius: moderateScale(15),
+        borderRadius: moderateScale(20),
         paddingLeft: scale(20),
-        height:'35%',
+        height: '30%',
         // paddingVertical: scale(30),
         // height:verticalScale(100),
         marginTop: verticalScale(10),
@@ -122,7 +180,9 @@ justifyContent:'space-between'
         color: 'black'
     },
     stepView: {
-        marginTop: verticalScale(20)
+        // marginTop: verticalScale(20),
+        // height: verticalScale(120)
+        marginTop: verticalScale(-30)
     },
     icon: {
         flexDirection: 'row',
@@ -135,5 +195,42 @@ justifyContent:'space-between'
     anotherstep: {
         color: 'black',
         paddingLeft: scale(5),
+
+    },
+    stepInput: {
+        // backgroundColor: 'white', 
+        color: 'black',
+        width: '80%',
+        // borderWidth: 1,
+        borderRadius: moderateScale(20),
+        // borderColor: 'red',
+        // marginHorizontal:10,
+        paddingLeft: 0
+    },
+    textInputView: {
+        // borderWidth: 1, 
+        marginRight: scale(20),
+        marginLeft: scale(20),
+        // marginTop:20,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    crossIcon: {
+        color: 'black'
+    },
+    checkIcon: {
+        color: ButtonColor
+    },
+    radioButtonView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginRight: scale(20)
+
+    },
+    circleIcon: {
+        marginLeft: 2,
+        color: 'black',
     }
 })

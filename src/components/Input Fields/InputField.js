@@ -25,11 +25,9 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderRadius: moderateScale(25),
     paddingLeft: scale(20),
-    height:'45%',
-    // paddingVertical: scale(30),
-    // height:verticalScale(100),
     marginTop: verticalScale(10),
-    textAlignVertical: 'top'
+    textAlignVertical: 'top',
+    paddingBottom:verticalScale(35)
 
 
 },

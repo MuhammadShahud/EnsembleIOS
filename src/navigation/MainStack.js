@@ -50,6 +50,11 @@ const MainStack = () => {
         options={{headerShown: false}}
       />
        <Main.Screen
+        name="personalgoals"
+        component={PersonalGoals}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
         name="successGoal"
         component={SuccessGoal}
         options={{headerShown: false}}

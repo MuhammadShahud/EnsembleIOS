@@ -7,13 +7,14 @@ import { awardLogo, timeLogo, loading } from '../../../assets/images/images'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Feather from 'react-native-vector-icons/Feather'
 import { useNavigation } from '@react-navigation/native'
+import { ProgressBar, MD3Colors } from 'react-native-paper';
 
 
 
 
 
 const GoalsDueDate = () => {
-    const navigation= useNavigation();
+    const navigation = useNavigation();
 
     const [form, setForm] = useState([])
     const options = ['Read Employ Handbook', 'Fill Employ Information Form', 'Submit Attested Documents', 'Submit Passport Size Image'];
@@ -27,7 +28,7 @@ const GoalsDueDate = () => {
     }
     return (
         <View>
-        <Header/>
+            <Header />
             <Text style={styles.duedateText}>Due Date</Text>
             <View style={styles.container}>
 
@@ -53,30 +54,29 @@ const GoalsDueDate = () => {
                     </View>
                 </View>
             </View>
+
+
+
             <View style={styles.progressView}>
-
                 <Text style={styles.progress}>Progress</Text>
-                <View style={styles.loadingView}>
-
-                    <Image source={loading} />
-                    <Text>0%</Text>
+                <View style={styles.mainProgressView}>
+                    <View style={styles.progressBarView}>
+                        <ProgressBar style={styles.progressBar} progress={0.4} color={'black'} />
+                    </View>
+                    <Text>50%</Text>
                 </View>
             </View>
             <View style={styles.editView}>
                 <View>
                     <Text style={styles.steps}>Steps</Text>
                 </View>
-                <TouchableOpacity onPress={()=>navigation.navigate('editgoal')}>
+                <TouchableOpacity onPress={() => navigation.navigate('editgoal')}>
                     <Feather name='edit-2' size={18} style={styles.editIcon} />
                     <Text style={styles.edit}>Edit</Text>
                 </TouchableOpacity>
             </View>
-            {/* <View key={options} style={styles.checkBox}>
 
-           </View> */}
             <View style={styles.select}>
-
-
 
                 {options.map(option => (
                     <View key={option} style={styles.checkboxView}>
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
         // paddingVertical:verticalScale(15),
         borderRadius: moderateScale(20),
         marginTop: verticalScale(20),
-        height:verticalScale(80)
+        height: verticalScale(80)
     },
 
     design: {
@@ -207,36 +207,55 @@ const styles = StyleSheet.create({
     },
     tick: {
         color: 'white',
-        width:23,
-        height:23,
+        width: 23,
+        height: 23,
         borderRadius: moderateScale(50),
         // borderWidth:1,
         // borderColor:'black',
 
         textAlign: 'center',
-        backgroundColor:ButtonColor,
+        backgroundColor: ButtonColor,
         // borderRadius:moderateScale(100)
     },
     checkboxView: {
         flexDirection: 'row',
         marginHorizontal: scale(20),
         marginVertical: verticalScale(5),
-        
+
     },
     optionText: {
         color: 'black',
         paddingLeft: scale(15),
         fontSize: moderateScale(15),
     },
-  
+
     progressView: {
-        marginHorizontal: scale(20),
+        marginHorizontal: scale(25),
         marginTop: verticalScale(15)
     },
     loadingView: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-    }
+        backgroundColor: 'white'
+    },
+    progressBar: {
+        borderRadius: 20,
+        height: verticalScale(7),
+        backgroundColor: '#EBEBEB',
+        width: '80%'
+    },
+    progressBarView: {
+        width: '85%',
+        // marginTop: verticalScale(10)
+    },
+    mainProgressView:{
+        flexDirection: 'row',
+         justifyContent: 'space-between', 
+        alignItems: 'center',
+        marginTop:verticalScale(5)
+        
+    },
+
 
 })
