@@ -38,7 +38,7 @@ const Calen = () => {
             markedDates={{
               [date]: {
                 selected: true,
-                selectedColor: 'blue',
+                selectedColor: ButtonColor,
                 
 
               },

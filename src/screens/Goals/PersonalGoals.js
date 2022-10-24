@@ -102,10 +102,12 @@ const PersonalGoals = () => {
         <SetGoals visible={visible} setVisible={setVisible} />
 
         <OngoingCompleted onPress={() => setShow(!show)}
-          CompletedtextColor={show ? ButtonColor : 'white'}
-          OngoingtextColor={show ? 'white' : ButtonColor}
-          CompletedbackgroundColor={show ? 'white' : ButtonColor}
-          OngoingbackgroundColor={show ? ButtonColor : 'white'}
+          CompletedtextColor={show ? '#858585' : 'white'}
+          OngoingtextColor={show ? 'white' : '#858585'}
+          CompletedbackgroundColor={show ? 'white' : ButtonColor }
+          OngoingbackgroundColor={show ? ButtonColor : 'white'  }
+          completedborderColor={show? '#9F9F9F' : ButtonColor}
+          ongoingbordercolor={show? ButtonColor : '#9F9F9F'}
         />
       </View>
       <Text style={styles.personalText}>Personal Goals</Text>

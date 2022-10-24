@@ -6,6 +6,7 @@ import {ButtonColor} from '../../../assets/colors/colors';
 import Button from '../Button';
 import {frameLogo} from '../../../assets/images/images';
 import Entypo from 'react-native-vector-icons/Entypo'
+import GoalButton from '../GoalButton/GoalButton';
 
 const SetGoalModaal = props => {
   const navigation = useNavigation();
@@ -27,12 +28,11 @@ const SetGoalModaal = props => {
             <View style={styles.imageView}>
               <Image source={frameLogo} />
             </View>
-            <Button
-              title="Set New Goal"
-              buttonStyle={styles.setButtton}
-              onPress={navigateNewGoal}
-            />
-            <Entypo name='plus' size={20} style={styles.entypoIcon}/>
+          
+              <GoalButton
+           title="Set New Goals"
+           onPress={navigateNewGoal}
+           buttonViewStyle={styles.buttonStyle}/>
 
             <Button title="Browse Goals" buttonStyle={styles.browseButton} onPress={()=>navigation.navigate('discovergoals')} />
           </View>
@@ -118,11 +118,10 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: scale(60),
   },
-  entypoIcon:{
-    color:'white',
-    position:'absolute',
-    bottom:97,
-    right:195
+  
+  buttonStyle:{
+    paddingHorizontal:scale(45),
+    marginBottom:verticalScale(10),
   }
 });
 

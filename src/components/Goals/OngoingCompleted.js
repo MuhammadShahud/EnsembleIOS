@@ -7,13 +7,13 @@ const OngoingCompleted = (props) => {
     return (
         <View style={styles.view}>
             <View style={styles.container}>
-                <TouchableOpacity onPress={props.onPress} style={[styles.ongoing , {backgroundColor : props.OngoingbackgroundColor}]}>
-                    <Text style={[styles.whiteText , {color : props.OngoingtextColor}]}>Ongoing</Text>
+                <TouchableOpacity onPress={props.onPress} style={[styles.ongoing , {backgroundColor : props.OngoingbackgroundColor, borderColor: props.ongoingbordercolor}]}>
+                    <Text style={[styles.whiteText , {color : props.OngoingtextColor,}]}>Ongoing</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={props.onPress} style={[styles.ongoing, {
                     borderBottomRightRadius: 30,
                     borderTopRightRadius: 30, borderBottomLeftRadius: 0,
-                    borderTopLeftRadius: 0, backgroundColor: props.CompletedbackgroundColor
+                    borderTopLeftRadius: 0,backgroundColor: props.CompletedbackgroundColor,borderColor: props.completedborderColor
                 }]}>
                     <Text style={[styles.greyText , {color : props.CompletedtextColor}]}>Completed</Text>
                 </TouchableOpacity>
@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderBottomRightRadius: 30,
         borderTopRightRadius: 30,
-        borderLeftColor: ButtonColor
+        borderLeftColor: ButtonColor,
+        // borderColor:'#9F9F9F'
 
 
 
@@ -68,5 +69,6 @@ const styles = StyleSheet.create({
 
 
 
-    }
+    },
+    
 })

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,FlatList ,TouchableOpacity,TextInput} from 'react-native'
+import { StyleSheet, Text, View,FlatList ,TouchableOpacity,TextInput,Image} from 'react-native'
 import React,{useState} from 'react'
 import { RadioButton } from 'react-native-paper';
 
@@ -12,6 +12,7 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { ButtonColor } from '../../../assets/colors/colors';
 import GoalUpdateModaal from '../../components/Modaal/GoalUpdateModaal'
+import { addIcon, cross } from '../../../assets/images/images';
 
 
 const EditGoal = () => {
@@ -24,12 +25,7 @@ const EditGoal = () => {
         {
             title: 'Read Employ Handbook',
         },
-        {
-            title: 'Fill Employ Information Form',
-        },
-        {
-            title: 'Submit Attested Documents',
-        },
+       
      
     ])
 
@@ -88,7 +84,8 @@ const EditGoal = () => {
                                         <Text style={styles.step}>{item.title}</Text>
                                     </View>
                                     <TouchableOpacity onPress={() => Remove_Item(index)}>
-                                        <Entypo name='cross' size={20} style={styles.crossIcon} />
+                                        {/* <Entypo name='cross' size={20} style={styles.crossIcon} /> */}
+                                        <Image source={cross}/>
                                     </TouchableOpacity>
                                 </View>
                             );
@@ -115,10 +112,11 @@ const EditGoal = () => {
                         </View>
                         :
                         <TouchableOpacity onPress={() => setAddStep(true)} style={styles.icon}>
-                            <Ionicons name='add-circle-outline'
+                            {/* <Ionicons name='add-circle-outline'
                                 size={25}
                                 style={styles.circleIcon}
-                            />
+                            /> */}
+                            <Image source={addIcon}/>
                             <Text style={styles.anotherstep}>Add another step</Text>
                         </TouchableOpacity>
                     }
@@ -138,9 +136,12 @@ const EditGoal = () => {
 
 
                 <Text style={styles.steps}>Edit your goal</Text>
-                <InputField placeholder={'Complete UX Design Course'}/>
+                <InputField placeholder={'Complete UX Design Course'} inputStyle={styles.input}/>
                 {/* <Text>AAA</Text> */}
-                <Text onPress={()=>navigation.navigate('calender')} style={styles.editGoalDate}>Click To Edit Goal Due Date</Text>
+                <View style={styles.goaldueDate}>
+
+                <Text onPress={()=>navigation.navigate('calender')} style={styles.editGoalDate}>Click To Edit Due Date</Text>
+                </View>
             </View>
 
             <View>
@@ -186,11 +187,12 @@ const styles = StyleSheet.create({
     },
     editGoalDate:{
         color:'black',
-        textAlign:'right',
-        marginHorizontal:scale(20),
+        textAlign:'center',
         fontWeight:'500',
-        marginVertical:verticalScale(30)
-        // borderBottomWidth:1,
+        marginVertical:verticalScale(60),
+        width:'38%',
+        borderBottomWidth:1,
+        marginLeft:'53%'
         // width:'50%'
     },
     stepView: {
@@ -248,5 +250,9 @@ const styles = StyleSheet.create({
     },
     anotherstep:{
         paddingLeft:scale(5)
-    }
+    },
+    input:{
+        paddingBottom:verticalScale(50)
+    },
+   
 })

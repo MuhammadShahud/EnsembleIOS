@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity , Image} from 'react-native'
 import { RadioButton } from 'react-native-paper';
 import * as React from 'react';
 import Header from '../../components/Header/header';
@@ -9,6 +9,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { useNavigation } from '@react-navigation/native';
 import { ButtonColor } from '../../../assets/colors/colors';
+import { addIcon, cross } from '../../../assets/images/images';
 // import Entypo from 'react-native-vector-icons/Entypo'
 
 const NewGoal = () => {
@@ -17,16 +18,13 @@ const NewGoal = () => {
     const [value, setValue] = React.useState('');
     const [addStep, setAddStep] = React.useState(false)
     const [indexes, setIndex] = React.useState([])
-    const [data, setData] = React.useState([
-        {
-            title: 'Add step one',
-        },
-        {
-            title: 'Add step two',
-        },
-        {
-            title: 'Add step three',
-        },
+    const [data, setData] = React.useState([{
+            id: 1,
+            title: 'Add',     
+
+    },
+        
+    
     ])
 
 
@@ -80,7 +78,8 @@ const NewGoal = () => {
                                         <Text style={styles.step}>{item.title}</Text>
                                     </View>
                                     <TouchableOpacity onPress={() => Remove_Item(index)}>
-                                        <Entypo name='cross' size={20} style={styles.crossIcon} />
+                                        <Image source={cross}/>
+                                        {/* <Entypo name='cross' size={20} style={styles.crossIcon} /> */}
                                     </TouchableOpacity>
                                 </View>
                             );
@@ -96,7 +95,7 @@ const NewGoal = () => {
                                 onPress={() => radioValue()}
                             />
                             <TextInput
-                                placeholder='Type'
+                                placeholder='Add'
                                 onChangeText={(text) => setValue(text)}
                                 value={value}
                                 style={styles.stepInput}
@@ -107,10 +106,11 @@ const NewGoal = () => {
                         </View>
                         :
                         <TouchableOpacity onPress={() => setAddStep(true)} style={styles.icon}>
-                            <Ionicons name='add-circle-outline'
+                            {/* <Ionicons name='add-circle-outline'
                                 size={25}
                                 style={styles.circleIcon}
-                            />
+                            /> */}
+                            <Image source ={addIcon}/>
                             <Text style={styles.anotherstep}>Add another step</Text>
                         </TouchableOpacity>
                     }

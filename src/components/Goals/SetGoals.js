@@ -7,6 +7,9 @@ import {
 } from '../../../assets/colors/colors';
 import SetGoalModaal from '../Modaal/SetGoalModaal';
 import Entypo from 'react-native-vector-icons/Entypo'
+import AntDesign from 'react-native-vector-icons/AntDesign'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import GoalButton from '../GoalButton/GoalButton';
 
 
 const SetGoals = ({visible , setVisible}) => {
@@ -19,20 +22,15 @@ const SetGoals = ({visible , setVisible}) => {
           <Text style={styles.GoalText}>Goals</Text>
           <Text style={styles.SetGoalText}>Let set your goals</Text>
         </View>
-        <View style={styles.setNewGoal}>
-          {/* <AntDesign name='plus' size={10}
-             /> */}
+      
+          <GoalButton
+           title="Set A New Goal"
+           onPress={() => setVisible(true)}/>
 
-          <Button
-            title="Set A New Goal"
-            buttonStyle={styles.button}
-            onPress={() => setVisible(true)}
 
-          />
 
-        </View>
+
       </View>
-                  <Entypo name='plus' size={15} style={styles.absoluteIcon}/>
       <SetGoalModaal modalVisible={visible} setModalVisible={setVisible} requestClose={()=>setVisible(false)}/>
     </View>
   );

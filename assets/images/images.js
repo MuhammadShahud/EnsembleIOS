@@ -32,6 +32,9 @@ export const yellowLine = require('./Line.png')
 export const appLogo = require('./AppLogo.png')
 export const ensembleLogo = require('./ensembleLogo.png')
 export const checkMark = require('./checkMark.png')
+export const greenMedal = require('./greenMedal.png')
+export const addIcon = require('./addIcon.png')
+export const cross = require('./cross.png')
 
 
 

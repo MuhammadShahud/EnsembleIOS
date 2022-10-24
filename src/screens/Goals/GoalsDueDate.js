@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Header from '../../components/Header/header'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { ButtonColor } from '../../../assets/colors/colors'
-import { awardLogo, timeLogo, loading } from '../../../assets/images/images'
+import { awardLogo, timeLogo, loading, greenMedal } from '../../../assets/images/images'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Feather from 'react-native-vector-icons/Feather'
 import { useNavigation } from '@react-navigation/native'
@@ -42,7 +42,7 @@ const GoalsDueDate = () => {
 
             <View style={styles.boxView}>
                 <View style={styles.circle}>
-                    <Image source={awardLogo} style={styles.imageLogo} />
+                    <Image source={greenMedal} style={styles.imageLogo} />
                 </View>
                 <View style={styles.boxContainer}>
 
@@ -63,7 +63,7 @@ const GoalsDueDate = () => {
                     <View style={styles.progressBarView}>
                         <ProgressBar style={styles.progressBar} progress={0.4} color={'black'} />
                     </View>
-                    <Text>50%</Text>
+                    <Text style={styles.progressNumber}>50%</Text>
                 </View>
             </View>
             <View style={styles.editView}>
@@ -186,16 +186,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         // alignItems: 'center',
         justifyContent: 'space-between',
-        marginHorizontal: scale(20),
+        marginHorizontal: scale(25),
         marginBottom: verticalScale(5),
         marginTop: verticalScale(15)
     },
     edit: {
         color: ButtonColor,
         fontWeight: '500',
+        // fontSize:moderateScale(15)
     },
     editIcon: {
-        color: ButtonColor
+        color: ButtonColor,
     },
     checkBox: {
         width: 25,
@@ -243,19 +244,25 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         height: verticalScale(7),
         backgroundColor: '#EBEBEB',
-        width: '80%'
+        width: '85%'
     },
     progressBarView: {
         width: '85%',
         // marginTop: verticalScale(10)
     },
-    mainProgressView:{
+    mainProgressView: {
         flexDirection: 'row',
-         justifyContent: 'space-between', 
+        justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop:verticalScale(5)
-        
+        marginTop: verticalScale(5)
+
     },
+    select:{
+        marginHorizontal:scale(5)
+    },
+    progressNumber:{
+        color:'black'
+    }
 
 
 })
