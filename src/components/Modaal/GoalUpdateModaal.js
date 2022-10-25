@@ -4,7 +4,7 @@ import {Modal, StyleSheet, View, Image,Text} from 'react-native';
 import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 import {ButtonColor} from '../../../assets/colors/colors';
 import Button from '../Button';
-import {frameLogo} from '../../../assets/images/images';
+import {frameLogo, greenCheck} from '../../../assets/images/images';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
 const SetGoalModaal = props => {
@@ -25,8 +25,9 @@ const SetGoalModaal = props => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.imageView}>
-                <AntDesign name='checkcircleo' size={50} color={ButtonColor} style={styles.icon}/>
-              {/* <Image source={frameLogo} /> */}
+                {/* <AntDesign name='checkcircleo' size={50} color={ButtonColor} style={styles.icon}/> */}
+              <Image source={greenCheck} style={{alignSelf:'center'}}/>
+              
             </View>
             <Text style={styles.text}>Goals Updated Successfully</Text>
             <Button
@@ -96,9 +97,9 @@ const styles = StyleSheet.create({
   imageView: {
     // marginVertical: verticalScale(10),
     // alignSelf: 'center',
-    marginBottom: verticalScale(20),
-    width:'45%',
-    height:'45%',
+    marginBottom: verticalScale(15),
+    width:'50%',
+    height:'50%',
     backgroundColor:'rgba(43, 47, 134, 0.04)',
     borderRadius:moderateScale(200),
     justifyContent:'center'

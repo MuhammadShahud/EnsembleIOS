@@ -35,6 +35,8 @@ export const checkMark = require('./checkMark.png')
 export const greenMedal = require('./greenMedal.png')
 export const addIcon = require('./addIcon.png')
 export const cross = require('./cross.png')
+export const greenCheck = require('./greenCheck.png')
+export const backArrow = require('./backArrow.png')
 
 
 

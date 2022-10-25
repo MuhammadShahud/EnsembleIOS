@@ -7,7 +7,7 @@ const InputField = (props) => {
     <View>
       
 
-      <TextInput style={[styles.input,props.inputStyle]} placeholder={props.placeholder} />      
+      <TextInput  placeholderTextColor={props.placeholderTextColor}  style={[styles.input,props.inputStyle]} placeholder={props.placeholder} />      
       
     </View>
   )

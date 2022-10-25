@@ -15,6 +15,7 @@ import Footer from '../components/footer/Footer';
 import DiscoverGoals from '../screens/Goals/DiscoverGoals';
 import GoalsDueDate from '../screens/Goals/GoalsDueDate';
 import EditGoal from '../screens/Goals/EditGoal';
+import Name from '../screens/InitialQuestion/Name';
 
 const Main = createNativeStackNavigator();
 const Goal = createNativeStackNavigator();
@@ -44,6 +45,13 @@ const MainStack = () => {
         component={DrawerStack}
         options={{headerShown: false}}
       />
+      
+      <Main.Screen
+        name="name"
+        component={Name}
+        options={{headerShown: false}}
+      />
+
        <Main.Screen
         name="newGoal"
         component={NewGoal}
