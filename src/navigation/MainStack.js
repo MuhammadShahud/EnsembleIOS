@@ -16,6 +16,15 @@ import DiscoverGoals from '../screens/Goals/DiscoverGoals';
 import GoalsDueDate from '../screens/Goals/GoalsDueDate';
 import EditGoal from '../screens/Goals/EditGoal';
 import Name from '../screens/InitialQuestion/Name';
+import JobTitle from '../screens/InitialQuestion/JobTitle';
+import DescribeYourself from '../screens/InitialQuestion/DescribeYourself';
+import Skills from '../screens/InitialQuestion/Skills';
+import EnjoyDoing from '../screens/InitialQuestion/EnjoyDoing';
+import DescribeYourJob from '../screens/InitialQuestion/DescribeYourJob';
+import Achievements from '../screens/InitialQuestion/Achievements';
+import About from '../screens/InitialQuestion/About';
+import Camera from '../screens/InitialQuestion/Camera';
+import RetakePhoto from '../screens/InitialQuestion/RetakePhoto';
 
 const Main = createNativeStackNavigator();
 const Goal = createNativeStackNavigator();
@@ -51,10 +60,55 @@ const MainStack = () => {
         component={Name}
         options={{headerShown: false}}
       />
+      <Main.Screen
+        name="describeyourself"
+        component={DescribeYourself}
+        options={{headerShown: false}}
+      />
+      <Main.Screen
+        name="achievements"
+        component={Achievements}
+        options={{headerShown: false}}
+      />
+      <Main.Screen
+        name="describeyourjob"
+        component={DescribeYourJob}
+        options={{headerShown: false}}
+      />
+      <Main.Screen
+        name="jobtitle"
+        component={JobTitle}
+        options={{headerShown: false}}
+      />
+      <Main.Screen
+        name="enjoy"
+        component={EnjoyDoing}
+        options={{headerShown: false}}
+      />
+      <Main.Screen
+        name="skills"
+        component={Skills}
+        options={{headerShown: false}}
+      />
+      <Main.Screen
+        name="camera"
+        component={Camera}
+        options={{headerShown: false}}
+      />
+      <Main.Screen
+        name="about"
+        component={About}
+        options={{headerShown: false}}
+      />
 
        <Main.Screen
         name="newGoal"
         component={NewGoal}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
+        name="retake"
+        component={RetakePhoto}
         options={{headerShown: false}}
       />
        <Main.Screen

@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View ,TextInput} from 'react-native'
 import React from 'react'
+import Fontisto from 'react-native-vector-icons/Fontisto'
+
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 
 const InputField = (props) => {
@@ -8,7 +10,6 @@ const InputField = (props) => {
       
 
       <TextInput  placeholderTextColor={props.placeholderTextColor}  style={[styles.input,props.inputStyle]} placeholder={props.placeholder} />      
-      
     </View>
   )
 }
@@ -24,10 +25,10 @@ const styles = StyleSheet.create({
     marginHorizontal: scale(20),
     borderColor: 'white',
     borderRadius: moderateScale(25),
-    paddingLeft: scale(20),
+   paddingHorizontal:scale(20),
     marginTop: verticalScale(10),
     textAlignVertical: 'top',
-    paddingBottom:verticalScale(35)
+    paddingBottom:verticalScale(35),
 
 
 },

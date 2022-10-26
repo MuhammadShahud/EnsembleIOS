@@ -37,6 +37,9 @@ export const addIcon = require('./addIcon.png')
 export const cross = require('./cross.png')
 export const greenCheck = require('./greenCheck.png')
 export const backArrow = require('./backArrow.png')
+export const first = require('./first.png')
+export const second = require('./second.png')
+export const camera = require('./camera.png')
 
 
 

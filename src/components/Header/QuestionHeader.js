@@ -14,7 +14,7 @@ const QuestionHeader = (props) => {
       <Image source={backArrow}  resizeMode="contain"/>
       <View style={styles.header}>
         <Image source={ptLogo}  resizeMode="contain" />
-        <Text style={styles.text}>{props.title} </Text>
+        <Text style={styles.text}>The Plum Tree Group </Text>
       </View>
     </View>
   )
