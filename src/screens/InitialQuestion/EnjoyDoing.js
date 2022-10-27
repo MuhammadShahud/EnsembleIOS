@@ -5,7 +5,7 @@ import Footer from '../../components/footer/Footer'
 import { useNavigation } from '@react-navigation/native'
 import Questions from '../../components/Question Text/Questions'
 import RockstarSkills from '../../components/Skills/RockstarSkills'
-import { communication, idea, leadership, management, profession, team, thinking } from '../../../assets/images/images'
+import { communication, gaming, hiking, idea, leadership, management, movies, network, photography, profession, reading, team, thinking, videography } from '../../../assets/images/images'
 
 const Skills = () => {
     const navigation=useNavigation();
@@ -13,15 +13,15 @@ const Skills = () => {
     <View style={styles.mainView}>
         <View>
             <QuestionHeader/>
-            <Questions title='What are your rockstar skills?'/>
-            <RockstarSkills firstTitle='COMMUNICATION' secondTitle='MANAGEMENT' firstImage={communication} secondImage={management}/>
-            <RockstarSkills firstTitle='PROBLEM SOLVING' secondTitle='PROFESSIONALISM' firstImage={idea} secondImage={profession}/>
-            <RockstarSkills firstTitle='CRITICAL THINKING' secondTitle='LEADERSHIP' firstImage={thinking} secondImage={leadership}/>
-            <RockstarSkills firstTitle='STRONG WORK ETHIC' secondTitle='TEAM WORK' firstImage={idea} secondImage={team}/>
+            <Questions title='When you’re not working, what do you enjoy doing the most?'/>
+            <RockstarSkills firstTitle='PHOTOGRAPHY' secondTitle='READING' firstImage={photography} secondImage={reading}/>
+            <RockstarSkills firstTitle='NETWORKING' secondTitle='MOVIES' firstImage={network} secondImage={movies}/>
+            <RockstarSkills firstTitle='GAMING' secondTitle='CINEMATOGRAPHY' firstImage={gaming} secondImage={videography}/>
+            <RockstarSkills firstTitle='HIKING' secondTitle='OTHERS' firstImage={hiking} />
             {/* <RockstarSkills firstTitle='OTHERS'   /> */}
         </View>
         <View>
-            <Footer powered={{color:'black'}} ensemble={{color:'black'}} iconName={'chevron-right'} onPress={()=>navigation.navigate('enjoy')}/>
+            <Footer powered={{color:'black'}} ensemble={{color:'black'}} iconName={'chevron-right'} onPress={()=>navigation.navigate('describeyourjob')}/>
         </View>
     </View>
   )

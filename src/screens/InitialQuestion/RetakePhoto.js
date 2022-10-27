@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,Image } from 'react-native'
 import React from 'react'
 import QuestionHeader from '../../components/Header/QuestionHeader'
 import Footer from '../../components/footer/Footer'
@@ -8,6 +8,7 @@ import InputField from '../../components/Input Fields/InputField'
 import { moderateVerticalScale, scale, verticalScale } from 'react-native-size-matters'
 import { ButtonColor } from '../../../assets/colors/colors'
 import Button from '../../components/Button'
+import { picture } from '../../../assets/images/images'
 
 const RetakePhoto = () => {
     const navigation = useNavigation();
@@ -17,6 +18,7 @@ const RetakePhoto = () => {
                 <QuestionHeader />
 
                 <View style={styles.buttonView}>
+                    <Image source={picture} style={{alignSelf:'center',marginBottom:verticalScale(50)}}/>
 
                     <Button buttonStyle={styles.button} title={'Continue'} onPress={() => navigation.navigate('drawer')} />
                     <Button buttonStyle={styles.secondButton} title={'Retake'} />
@@ -57,12 +59,12 @@ const styles = StyleSheet.create({
 
     },
     buttonView: {
-        marginTop: verticalScale(50),
+        marginTop:verticalScale(80),
     },
     button: {
         width: '85%',
         backgroundColor: ButtonColor,
-        marginBottom: verticalScale(10)
+        // marginBottom: verticalScale(10)
 
 
     },
@@ -70,6 +72,6 @@ const styles = StyleSheet.create({
         color:'#505050',
         width: '85%',
         backgroundColor: '#F1F1F1',
-        marginBottom: verticalScale(10)
+        // marginBottom: verticalScale(10)
     },
 })

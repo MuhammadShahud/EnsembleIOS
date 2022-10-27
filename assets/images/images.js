@@ -54,6 +54,8 @@ export const leadership = require('./leadership.png')
 export const gaming = require('./gaming.png')
 export const network = require('./network.png')
 export const communication = require('./communication.png')
+export const picture = require('./picture.png')
+
 
 
 
