@@ -23,7 +23,7 @@ const Camera = () => {
                 <View style={styles.buttonView}>
 
                     <Button buttonStyle={styles.button} title={'Take Photo'} onPress={() => navigation.navigate('retake')} />
-                    <Button buttonStyle={styles.secondButton} title={'Choose from camera roll'} />
+                    <Button buttonStyle={styles.secondButton} title={'Choose from camera roll'}  />
                 </View>
             </View>
 
