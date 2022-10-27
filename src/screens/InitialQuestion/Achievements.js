@@ -11,8 +11,8 @@ const Achievements = () => {
     const navigation=useNavigation();
   return (
     <View style={styles.mainView}>
-        <View>
             <QuestionHeader/>
+        <View>
             <Questions title='Whats’s an achievement you are proud of?'/>
             <InputField inputStyle={styles.input} placeholder='Don’t be shy. You can tell us'/>
         </View>

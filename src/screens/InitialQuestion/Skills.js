@@ -11,8 +11,8 @@ const Skills = () => {
     const navigation=useNavigation();
   return (
     <View style={styles.mainView}>
-        <View>
             <QuestionHeader/>
+        <View>
             <Questions title='What are your rockstar skills?'/>
             <RockstarSkills firstTitle='COMMUNICATION' secondTitle='MANAGEMENT' firstImage={communication} secondImage={management}/>
             <RockstarSkills firstTitle='PROBLEM SOLVING' secondTitle='PROFESSIONALISM' firstImage={idea} secondImage={profession}/>

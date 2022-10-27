@@ -11,8 +11,8 @@ const DescribeYourJob = () => {
     const navigation=useNavigation();
   return (
     <View style={styles.mainView}>
-        <View>
             <QuestionHeader/>
+        <View>
             <Questions title='How would you describe your job/role to a group of 5 years olds?'/>
             <InputField inputStyle={styles.input} placeholder='“I give machines a brain to help them learn and be smarter.”'/>
         </View>

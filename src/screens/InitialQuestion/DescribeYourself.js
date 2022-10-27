@@ -12,9 +12,9 @@ export default function DescribeYourself() {
     
   return (
     <View style={styles.mainView}>
+        <QuestionHeader/>
         <View>
 
-        <QuestionHeader/>
         <Questions title={'Describe yourself in 3 words or less.'} questionText={styles.questionText}/>
         <InputField placeholder='Googler, Loyal, Smart, Sensitive...' inputStyle={styles.input} placeholderTextColor={'#414141'}/>
         </View>

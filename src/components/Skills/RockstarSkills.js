@@ -6,37 +6,37 @@ import { ButtonColor } from '../../../assets/colors/colors'
 // import communication from '../../../assets/images/communication'
 
 const RockstarSkills = (props) => {
-    const [btnState,setBtnState]=useState('white')
-    const [btnState1,setBtnState1]=useState('white')
-    const [btnTextColor,setBtnTextColor]=useState('black')
-    const [btnTextColor1,setBtnTextColor1]=useState('black')
+    const [btnState,setBtnState]=useState(false)
+    const [btnState1,setBtnState1]=useState(false)
+    const [btnTextColor,setBtnTextColor]=useState(false)
+    const [btnTextColor1,setBtnTextColor1]=useState(false)
     const changeButtonColor=()=>{
-        setBtnState(ButtonColor)
+        setBtnState(!btnState)
     }
     const changeButtonColor1=()=>{
-        setBtnState1(ButtonColor)
+        setBtnState1(!btnState1)
     }
 
     const changeTextColor=()=>{
-        setBtnTextColor('white')
+        setBtnTextColor(!btnTextColor)
     }
     const changeTextColor1=()=>{
-        setBtnTextColor1('white')
+        setBtnTextColor1(!btnTextColor1)
     }
     
   return (
     <View style={styles.mainView}>
 
     <View style={styles.firstView}>
-        <TouchableOpacity onPress={changeButtonColor} style={[styles.communicationView,{backgroundColor:btnState}]}>
+        <TouchableOpacity onPress={changeButtonColor} style={[styles.communicationView,{backgroundColor:btnState ? ButtonColor : 'white'}]}>
             <Image source={props.firstImage}/>
-            <Text style={[styles.text,{color:btnTextColor}]}>{props.firstTitle}</Text>
+            <Text  style={[styles.text,{color:btnTextColor?'white':'black'}]}>{props.firstTitle}</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={changeButtonColor1}  style={[styles.managementView,{backgroundColor:btnState1}]}>
+        <TouchableOpacity onPress={changeButtonColor1}  style={[styles.managementView,{backgroundColor:btnState1? ButtonColor: 'white'}]}>
 
         <Image source={props.secondImage}/>
-        <Text  style={styles.text}>{props.secondTitle}</Text>
+        <Text  style={[styles.text,{color:btnTextColor1?'white':'black'}]}>{props.secondTitle}</Text>
 
 
         </TouchableOpacity>

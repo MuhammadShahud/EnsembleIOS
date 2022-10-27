@@ -45,9 +45,9 @@ const Name = () => {
    
     return (
         <View style={styles.mainView}>
-            <View>
 
                 <QuestionHeader />
+            <View>
                 {/* <Image source={first} style={{alignSelf:'center'}}/> */}
                 <Questions title={'What is your preferred name?'}/>
                 <InputField placeholderTextColor={'#414141'} placeholder={' "Michael Scott" '} inputStyle={styles.input} />

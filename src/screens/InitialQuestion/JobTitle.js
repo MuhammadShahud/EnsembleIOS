@@ -12,9 +12,9 @@ const JobTitle = () => {
     const navigation = useNavigation();
   return (
     <View style={styles.mainView}>
+        <QuestionHeader title={'The Plum Tree Group'}/>
         <View>
 
-        <QuestionHeader title={'The Plum Tree Group'}/>
         {/* <Image source={second} style={{alignSelf:'center'}}/> */}
         <Questions  title='What is your job title?'/>
         <InputField placeholder='UI/UX Designer' placeholderTextColor='#414141' inputStyle={styles.input}/>

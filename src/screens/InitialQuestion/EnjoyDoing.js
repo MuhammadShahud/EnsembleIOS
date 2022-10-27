@@ -11,8 +11,8 @@ const Skills = () => {
     const navigation=useNavigation();
   return (
     <View style={styles.mainView}>
-        <View>
             <QuestionHeader/>
+        <View>
             <Questions title='When you’re not working, what do you enjoy doing the most?'/>
             <RockstarSkills firstTitle='PHOTOGRAPHY' secondTitle='READING' firstImage={photography} secondImage={reading}/>
             <RockstarSkills firstTitle='NETWORKING' secondTitle='MOVIES' firstImage={network} secondImage={movies}/>
