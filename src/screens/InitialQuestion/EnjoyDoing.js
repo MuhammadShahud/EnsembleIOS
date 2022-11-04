@@ -14,10 +14,13 @@ const Skills = () => {
             <QuestionHeader/>
         <View>
             <Questions title='When you’re not working, what do you enjoy doing the most?'/>
-            <RockstarSkills firstTitle='PHOTOGRAPHY' secondTitle='READING' firstImage={photography} secondImage={reading}/>
+            
+
+            <RockstarSkills firstTitle='PHOTOGRAPHY' secondTitle='READING' firstImage={photography} secondImage={reading} />
             <RockstarSkills firstTitle='NETWORKING' secondTitle='MOVIES' firstImage={network} secondImage={movies}/>
             <RockstarSkills firstTitle='GAMING' secondTitle='CINEMATOGRAPHY' firstImage={gaming} secondImage={videography}/>
             <RockstarSkills firstTitle='HIKING' secondTitle='OTHERS' firstImage={hiking} />
+            
             {/* <RockstarSkills firstTitle='OTHERS'   /> */}
         </View>
         <View>

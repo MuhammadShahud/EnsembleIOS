@@ -28,12 +28,12 @@ const RockstarSkills = (props) => {
     <View style={styles.mainView}>
 
     <View style={styles.firstView}>
-        <TouchableOpacity onPress={changeButtonColor} style={[styles.communicationView,{backgroundColor:btnState ? ButtonColor : 'white'}]}>
+        <TouchableOpacity onPress={()=>{changeButtonColor();changeTextColor() }} style={[styles.communicationView,{backgroundColor:btnState ? ButtonColor : 'white'}]}>
             <Image source={props.firstImage}/>
             <Text  style={[styles.text,{color:btnTextColor?'white':'black'}]}>{props.firstTitle}</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={changeButtonColor1}  style={[styles.managementView,{backgroundColor:btnState1? ButtonColor: 'white'}]}>
+        <TouchableOpacity onPress={()=>{changeButtonColor1(); changeTextColor1()}}  style={[styles.managementView,{backgroundColor:btnState1? ButtonColor: 'white'}]}>
 
         <Image source={props.secondImage}/>
         <Text  style={[styles.text,{color:btnTextColor1?'white':'black'}]}>{props.secondTitle}</Text>
