@@ -17,8 +17,10 @@ import {
 } from 'react-native-responsive-screen';
 import {styles} from '../../styles/GeneralStyle';
 import {style} from '../Header/headerStyle';
+import { useNavigation } from '@react-navigation/native';
 
 const CustomDrawer = props => {
+  const navigation = useNavigation()
   const filteredProps = {
     ...props,
     state: {
@@ -71,6 +73,7 @@ const CustomDrawer = props => {
               Bruce Wayne
             </Text>
             <Text
+            onPress={()=>navigation.navigate('editprofile')}
               style={{
                 color: '#1B1B1B',
                 fontFamily: 'Poppins',
