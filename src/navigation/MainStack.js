@@ -1,6 +1,6 @@
 import React from 'react';
 import Splash from '../screens/splash/Splash';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from '../screens/login/login';
 import DrawerStack from './DrawerStack';
 import TabStack from './TabStack';
@@ -42,116 +42,116 @@ const MainStack = () => {
       <Main.Screen
         name="auth"
         component={AuthStack}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="tab"
         component={TabStack}
-        options={{headerShown: false}}
-        
+        options={{ headerShown: false }}
+
       />
       <Main.Screen
         name="drawer"
         component={DrawerStack}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
-      
+
       <Main.Screen
         name="name"
         component={Name}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="describeyourself"
         component={DescribeYourself}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="achievements"
         component={Achievements}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="describeyourjob"
         component={DescribeYourJob}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="jobtitle"
         component={JobTitle}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="enjoy"
         component={EnjoyDoing}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="skills"
         component={Skills}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="camera"
         component={Camera}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Main.Screen
         name="about"
         component={About}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
 
-       <Main.Screen
+      <Main.Screen
         name="newGoal"
         component={NewGoal}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
-       <Main.Screen
+      <Main.Screen
         name="retake"
         component={RetakePhoto}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
-       <Main.Screen
+      <Main.Screen
         name="personalgoals"
         component={PersonalGoals}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
-       <Main.Screen
+      <Main.Screen
         name="successGoal"
         component={SuccessGoal}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
-       <Main.Screen
+      <Main.Screen
         name="calender"
         component={Calen}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
-       <Main.Screen
+      <Main.Screen
         name="footer"
         component={Footer}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
-       <Main.Screen
+      <Main.Screen
         name="discovergoals"
         component={DiscoverGoals}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
-       <Main.Screen
-        name="duedate"
-        component={GoalsDueDate}
-        options={{headerShown: false}}
-      />
-       <Main.Screen
-        name="editgoal"
-        component={EditGoal}
-        options={{headerShown: false}}
-      />
-       {/* <Main.Screen
+      <Main.Screen
         name="editprofile"
         component={EditProfile}
-        options={{headerShown: false}}
-      /> */}
+        options={{ headerShown: false }}
+      />
+      <Main.Screen
+        name="duedate"
+        component={GoalsDueDate}
+        options={{ headerShown: false }}
+      />
+      <Main.Screen
+        name="editgoal"
+        component={EditGoal}
+        options={{ headerShown: false }}
+      />
     </Main.Navigator>
   );
 };
@@ -167,27 +167,27 @@ export const AuthStack = () => {
       <Auth.Screen
         name="splash"
         component={Splash}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Auth.Screen
         name="login"
         component={Login}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Auth.Screen
         name="verifyemail"
         component={VerifyEmail}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Auth.Screen
         name="verificationcode"
         component={VerificationCode}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
       <Auth.Screen
         name="resetpassword"
         component={ResetPassword}
-        options={{headerShown: false}}
+        options={{ headerShown: false }}
       />
     </Auth.Navigator>
   );

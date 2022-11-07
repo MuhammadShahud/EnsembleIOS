@@ -55,6 +55,10 @@ export const gaming = require('./gaming.png')
 export const network = require('./network.png')
 export const communication = require('./communication.png')
 export const picture = require('./picture.png')
+export const editPicture = require('./editPicture.png')
+export const edit = require('./edit.png')
+export const add = require('./add.png')
+export const search = require('./search.png')
 
 
 

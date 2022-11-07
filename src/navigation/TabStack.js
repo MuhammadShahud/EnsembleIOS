@@ -31,9 +31,11 @@ if(previousRoute[0]==="Home"){
       initialRoute = 'home'
 }if(previousRoute[0]==="Survey"){
       initialRoute= "surveys"
-}if(previousRoute[0]==="People"){
-      initialRoute="teams"
-}if(previousRoute[0]==="Goals"){
+}
+// if(previousRoute[0]==="People"){
+//       initialRoute="teams"
+// }
+if(previousRoute[0]==="Goals"){
       initialRoute="goals"
 }
 
