@@ -17,22 +17,10 @@ import {
 } from 'react-native-responsive-screen';
 import {styles} from '../../styles/GeneralStyle';
 import {style} from '../Header/headerStyle';
-import {
-  fun,
-  goals,
-  people,
-  profDev,
-  resource,
-  setting,
-  survey,
-} from '../../../assets/images/images';
 import { useNavigation } from '@react-navigation/native';
 
 const CustomDrawer = props => {
-
-
-const navigation = useNavigation();
-
+  const navigation = useNavigation()
   const filteredProps = {
     ...props,
     state: {
@@ -45,23 +33,12 @@ const navigation = useNavigation();
     },
   };
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#F1F1F1',
-        padding: wp('4%'),
-        borderTopLeftRadius: 16,
-        borderBottomLeftRadius: 16,
-      }}>
+    <View style={{flex: 1, backgroundColor: '#F1F1F1', padding: wp('4%'), borderTopLeftRadius:16,borderBottomLeftRadius:16}}>
       <DrawerContentScrollView
         {...props}
         contentContainerStyle={{backgroundColor: '#F1F1F1'}}>
         <View style={{height: hp('4%')}}></View>
-        <View
-          style={[
-            style.halfHeader,
-            {justifyContent: 'flex-start', paddingLeft: wp('4%')},
-          ]}>
+        <View style={[style.halfHeader, {justifyContent: 'flex-start',paddingLeft:wp('4%')}]}>
           <Image
             style={{marginRight: wp('3%')}}
             resizeMode="contain"
@@ -79,7 +56,7 @@ const navigation = useNavigation();
             flexDirection: 'row',
             justifyContent: 'flex-start',
             alignItems: 'center',
-            paddingLeft: wp('4%'),
+            paddingLeft:wp('4%')
           }}>
           <Image
             source={drawerPP}
@@ -96,6 +73,7 @@ const navigation = useNavigation();
               Bruce Wayne
             </Text>
             <Text
+            onPress={()=>navigation.navigate('editprofile')}
               style={{
                 color: '#1B1B1B',
                 fontFamily: 'Poppins',
@@ -105,65 +83,15 @@ const navigation = useNavigation();
               View your profile
             </Text>
           </View>
-        </View>
-        <View
+        </View> 
+         <View
           style={{
             flex: 1,
             backgroundColor: '#F1F1F1',
             paddingTop: 10,
-          }}></View>
-
-          <View>
-
-        <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('teams')} >
-          <View style={style.tabImage}>
-          <Image source={people}  />
-          </View>
-          <Text style={style.tabText}>People</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('goals')}>
-        <View style={style.tabImage}>
-          <Image source={goals}  />
-          </View>
-          <Text style={style.tabText}>Goals</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('surveys')}>
-        <View style={style.tabImage}>
-          <Image source={survey}  />
-          </View>
-          <Text style={style.tabText}>Survey</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={style.drawerTabs}>
-        <View style={style.tabImage}>
-          <Image source={resource}  />
-          </View>
-          <Text style={style.tabText}>Resources</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={style.drawerTabs}>
-        <View style={style.tabImage}>
-          <Image source={fun}  />
-          </View>
-          <Text style={style.tabText}>Fun stuff</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={style.drawerTabs}>
-        <View style={style.tabImage}>
-          <Image source={profDev}  />
-          </View>
-          <Text style={style.tabText}>Professional Development</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={style.drawerTabs}>
-        <View style={style.tabImage}>
-          <Image source={setting}  />
-          </View>
-          <Text style={style.tabText}>Settings</Text>
-        </TouchableOpacity>
-        
+            
+          }}>
+          <DrawerItemList {...filteredProps} />
         </View>
       </DrawerContentScrollView>
       <View style={{padding: wp('4%')}}>
@@ -204,7 +132,7 @@ const navigation = useNavigation();
             style={{
               fontSize: 12,
               fontFamily: 'Poppins',
-              color: '#000000',
+              color:'#000000'
             }}>
             Powered by
           </Text>
@@ -212,8 +140,8 @@ const navigation = useNavigation();
             style={{
               fontSize: 16,
               fontFamily: 'Poppins',
-              fontWeight: 'bold',
-              color: '#000000',
+              fontWeight:'bold',
+              color:'#000000'
             }}>
             Ensemble{' '}
           </Text>
