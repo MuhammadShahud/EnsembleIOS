@@ -1,16 +1,15 @@
-import { StyleSheet, Text, View ,TextInput,Image} from 'react-native'
+import { StyleSheet, Text, View ,TextInput} from 'react-native'
 import React from 'react'
-import Fontisto from 'react-native-vector-icons/Fontisto'
-
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
-import { search } from '../../../assets/images/images'
 
 const InputField = (props) => {
+  console.log(props.onChangeText,"asdasdas");
   return (
     <View>
       
 
-      <TextInput  placeholderTextColor={props.placeholderTextColor}  style={[styles.input,props.inputStyle]} placeholder={props.placeholder} />
+      <TextInput value = {props.value? props.value :null} onChangeText={props.onChangeText? (e)=>props.onChangeText(e):null} style={[styles.input,props.inputStyle]} placeholder={props.placeholder} />      
+      
     </View>
   )
 }
@@ -26,10 +25,10 @@ const styles = StyleSheet.create({
     marginHorizontal: scale(20),
     borderColor: 'white',
     borderRadius: moderateScale(25),
-   paddingHorizontal:scale(20),
+    paddingLeft: scale(20),
     marginTop: verticalScale(10),
     textAlignVertical: 'top',
-    paddingBottom:verticalScale(35),
+    paddingBottom:verticalScale(35)
 
 
 },

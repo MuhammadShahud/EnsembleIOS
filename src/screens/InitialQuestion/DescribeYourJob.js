@@ -6,13 +6,15 @@ import { useNavigation } from '@react-navigation/native'
 import Questions from '../../components/Question Text/Questions'
 import InputField from '../../components/Input Fields/InputField'
 import { scale, verticalScale } from 'react-native-size-matters'
+import Dashes from '../../components/Question Text/dashes'
 
 const DescribeYourJob = () => {
     const navigation=useNavigation();
   return (
     <View style={styles.mainView}>
             <QuestionHeader/>
-        <View>
+            <Dashes color={6}/>
+            <View style={{justifyContent:'center',height:'75%'}}>
             <Questions title='How would you describe your job/role to a group of 5 years olds?'/>
             <InputField inputStyle={styles.input} placeholder='“I give machines a brain to help them learn and be smarter.”'/>
         </View>

@@ -6,6 +6,7 @@ import Questions from '../../components/Question Text/Questions'
 import { moderateScale, moderateVerticalScale, verticalScale } from 'react-native-size-matters'
 import InputField from '../../components/Input Fields/InputField'
 import { useNavigation } from '@react-navigation/native'
+import Dashes from '../../components/Question Text/dashes'
 
 export default function DescribeYourself() {
     const navigation=useNavigation();
@@ -13,7 +14,8 @@ export default function DescribeYourself() {
   return (
     <View style={styles.mainView}>
         <QuestionHeader/>
-        <View>
+        <Dashes color={3}/>
+        <View style={{justifyContent:'center',height:'75%'}}>
 
         <Questions title={'Describe yourself in 3 words or less.'} questionText={styles.questionText}/>
         <InputField placeholder='Googler, Loyal, Smart, Sensitive...' inputStyle={styles.input} placeholderTextColor={'#414141'}/>

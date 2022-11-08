@@ -9,8 +9,8 @@ const Footer = (props) => {
   return (
     <View style={styles.mainView}>
         <View>
-      <Text style={[styles.powered,props.powered]}>Powered by</Text>
-      <Text style={[styles.ensemble,props.ensemble]}>ENSEMBLE</Text>
+      <Text>Powered by</Text>
+      <Text style={styles.ensemble}>ENSEMBLE</Text>
         </View>
         <TouchableOpacity style={styles.arrow} onPress={props.onPress}>
             <Feather style={styles.iconarrow} name={props.iconName} size={25} color={'white'}/>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         alignItems:'center',
         marginHorizontal:scale(20),
-        marginBottom:verticalScale(20)
+        marginBottom:verticalScale(15)
 
     },
     arrow:{
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     ensemble:{
       fontWeight:'bold',
-      color:'#8C8C8C',
+      color:'#000000',
       fontSize:moderateScale(20)
     },
     iconarrow:{

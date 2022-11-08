@@ -13,12 +13,14 @@ import { ProgressBar, MD3Colors } from 'react-native-paper';
 
 
 
-const GoalsDueDate = () => {
+const GoalsDueDate = (props) => {
     const navigation = useNavigation();
+    const goal = props.route.params.goal;
 
     const [form, setForm] = useState([])
     const options = ['Read Employ Handbook', 'Fill Employ Information Form', 'Submit Attested Documents', 'Submit Passport Size Image'];
     function pickForm(selectedForm) {
+        console.log(selectedForm);
         // const index = form.findIndex(form => form == selectedForm)
         if (form.includes(selectedForm)) {
             setForm(form.filter(form => form !== selectedForm))
@@ -26,6 +28,7 @@ const GoalsDueDate = () => {
         }
         setForm(form => form.concat(selectedForm))
     }
+    console.log("goallll",goal);
     return (
         <View>
             <Header />
@@ -46,11 +49,11 @@ const GoalsDueDate = () => {
                 </View>
                 <View style={styles.boxContainer}>
 
-                    <Text style={styles.design}>Complete UX Design Course</Text>
+                    <Text style={styles.design}>{goal.goal}</Text>
                     <View style={styles.iconView}>
 
                         <Ionicons name='time' size={15} style={styles.icon} />
-                        <Text style={styles.date}>8 Dec, 2022</Text>
+                        <Text style={styles.date}>{goal.dueDate}</Text>
                     </View>
                 </View>
             </View>
@@ -70,7 +73,7 @@ const GoalsDueDate = () => {
                 <View>
                     <Text style={styles.steps}>Steps</Text>
                 </View>
-                <TouchableOpacity onPress={() => navigation.navigate('editgoal')}>
+                <TouchableOpacity onPress={() => navigation.navigate('editgoal',{goal:goal})}>
                     <Feather name='edit-2' size={18} style={styles.editIcon} />
                     <Text style={styles.edit}>Edit</Text>
                 </TouchableOpacity>
@@ -78,12 +81,12 @@ const GoalsDueDate = () => {
 
             <View style={styles.select}>
 
-                {options.map(option => (
-                    <View key={option} style={styles.checkboxView}>
-                        <TouchableOpacity style={styles.checkBox} onPress={() => pickForm(option)}>
-                            {form.includes(option) && <Text style={styles.tick}>✔</Text>}
+                {goal.steps.map(step => (
+                    <View key={step.step} style={styles.checkboxView}>
+                        <TouchableOpacity style={styles.checkBox} onPress={() => pickForm(step.step)}>
+                            {form.includes(step.step) && <Text style={styles.tick}>✔</Text>}
                         </TouchableOpacity>
-                        <Text style={styles.optionText}>{option}</Text>
+                        <Text style={styles.optionText}>{step.step}</Text>
                     </View>
 
 
@@ -133,10 +136,10 @@ const styles = StyleSheet.create({
         marginHorizontal: scale(20),
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
         // paddingVertical:verticalScale(15),
         borderRadius: moderateScale(20),
         marginTop: verticalScale(20),
+        paddingHorizontal: scale(10),
         height: verticalScale(80)
     },
 

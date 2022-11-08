@@ -1,6 +1,6 @@
 import {View, Text, Image} from 'react-native';
-import React from 'react';
-import {useSelector} from 'react-redux';
+import React, { useCallback } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {USER} from '../../redux/Reducers/AuthReducer';
 import {style} from './homeStyle';
 import {styles} from '../../styles/GeneralStyle';
@@ -11,12 +11,22 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import HomeBox from '../../components/HomeBox/homeBox';
+import { GetGoals } from '../../redux/Actions/AuthAction';
+import { useFocusEffect } from '@react-navigation/native';
 
 
 export default function Home() {
   const userData = useSelector(USER);
-
+const dispatch = useDispatch();
+const token = 
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWh1ZEBwbHVtdHJlZWdyb3VwLm5ldCIsImlhdCI6MTY2NDU2NzExNSwiZXhwIjoxNjk2MTAzMTE1fQ.bG940Pi5-Tf6CX4AMxLSZ2vLHZJr3XfgkBsIRvtkNeA';
   
+  useFocusEffect(
+    useCallback(() => {
+     dispatch(GetGoals(token))
+    }, []),
+  );
+
   return (
     <View style={style.container}>
       <Header />

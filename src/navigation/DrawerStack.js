@@ -7,8 +7,7 @@ import CustomDrawer from '../components/CustomDrawer/customDrawer';
 import TabStack from './TabStack'
 import { Image } from 'react-native';
 import { fun, goals, people, profDev, resource, setting, survey } from '../../assets/images/images';
-import NewGoal from '../screens/Goals/NewGoal';
-import PersonalGoals from '../screens/Goals/PersonalGoals';
+
 
 const Drawer = createDrawerNavigator();
 

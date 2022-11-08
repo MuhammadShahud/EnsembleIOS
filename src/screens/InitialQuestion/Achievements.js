@@ -6,13 +6,15 @@ import { useNavigation } from '@react-navigation/native'
 import Questions from '../../components/Question Text/Questions'
 import InputField from '../../components/Input Fields/InputField'
 import { scale, verticalScale } from 'react-native-size-matters'
+import Dashes from '../../components/Question Text/dashes'
 
 const Achievements = () => {
     const navigation=useNavigation();
   return (
     <View style={styles.mainView}>
             <QuestionHeader/>
-        <View>
+            <Dashes color={7}/>
+            <View style={{justifyContent:'center',height:'75%'}}>
             <Questions title='Whats’s an achievement you are proud of?'/>
             <InputField inputStyle={styles.input} placeholder='Don’t be shy. You can tell us'/>
         </View>

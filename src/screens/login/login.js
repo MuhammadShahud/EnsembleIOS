@@ -48,7 +48,7 @@ const Login = () => {
     };
     console.log('workingggg', newObj);
 
-    dispatch(LoginFunction(newObj, navigation, 'drawer'));
+    dispatch(LoginFunction(newObj, navigation, 'name'));
   };
 
   return (

@@ -6,13 +6,15 @@ import { useNavigation } from '@react-navigation/native'
 import Questions from '../../components/Question Text/Questions'
 import RockstarSkills from '../../components/Skills/RockstarSkills'
 import { communication, idea, leadership, management, profession, team, thinking } from '../../../assets/images/images'
+import Dashes from '../../components/Question Text/dashes'
 
 const Skills = () => {
     const navigation=useNavigation();
   return (
     <View style={styles.mainView}>
             <QuestionHeader/>
-        <View>
+            <Dashes color={4}/>
+            <View style={{justifyContent:'center',height:'75%'}}>
             <Questions title='What are your rockstar skills?'/>
             <RockstarSkills firstTitle='COMMUNICATION' secondTitle='MANAGEMENT' firstImage={communication} secondImage={management}/>
             <RockstarSkills firstTitle='PROBLEM SOLVING' secondTitle='PROFESSIONALISM' firstImage={idea} secondImage={profession}/>
