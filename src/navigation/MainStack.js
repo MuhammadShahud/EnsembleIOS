@@ -25,6 +25,7 @@ import Achievements from '../screens/InitialQuestion/Achievements';
 import About from '../screens/InitialQuestion/About';
 import Camera from '../screens/InitialQuestion/Camera';
 import RetakePhoto from '../screens/InitialQuestion/RetakePhoto';
+import EditProfile from '../screens/Goals/EditProfile';
 
 const Main = createNativeStackNavigator();
 const Goal = createNativeStackNavigator();
@@ -135,6 +136,11 @@ const MainStack = () => {
         name="discovergoals"
         component={DiscoverGoals}
         options={{headerShown: false}}
+      />
+      <Main.Screen
+        name="editprofile"
+        component={EditProfile}
+        options={{ headerShown: false }}
       />
        <Main.Screen
         name="duedate"
