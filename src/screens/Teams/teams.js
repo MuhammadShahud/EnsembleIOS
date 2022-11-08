@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image, ScrollView } from 'react-native'
 import React from 'react'
 import Header from '../../components/Header/header'
 import { awardLogo, notiLogo, search, timeLogo } from '../../../assets/images/images'
 import SearchInput from '../../components/Input Fields/SearchInput'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
+import ProfileButton from '../../components/ProfileButton'
+import { ButtonColor } from '../../../assets/colors/colors'
 
 
 const teams = () => {
@@ -27,7 +29,7 @@ const teams = () => {
 
     },
 
-    
+
     {
       id: 4,
       Name: 'Tena Mars',
@@ -43,36 +45,93 @@ const teams = () => {
       Description1: 'Lorem ipsum dolor sit amet',
       Description2: 'consectetur adipiscing elit',
       image: require('../../../assets/images/steven.png')
-  
+
     },
   ]
 
 
+
+
+  const colleague = [
+
+    {
+      id: 1,
+      name: 'Ahmed Akram',
+      Intrest: 'You both have similar intrest',
+      image: require('../../../assets/images/akram.png'),
+      Status: 'Online',
+      newImage: require('../../../assets/images/new.png'),
+      statusImage: require('../../../assets/images/online.png'),
+      thunderImage: require('../../../assets/images/thunder.png')
+    },
+    {
+      id: 2,
+      name: 'Allison Fernandez',
+      Status: 'Away',
+      Intrest: 'You both have similar intrest',
+
+      image: require('../../../assets/images/alison.png'),
+      newImage: require('../../../assets/images/new.png'),
+      statusImage: require('../../../assets/images/away.png'),
+      thunderImage: require('../../../assets/images/thunder.png')
+
+
+
+    },
+
+
+    {
+      id: 3,
+      name: 'Jahanzaib Salman',
+      Intrest: 'You both have similar intrest',
+      image: require('../../../assets/images/jonathan.png'),
+      Status: 'Accepted',
+      statusImage: require('../../../assets/images/accepted.png'),
+      thunderImage: require('../../../assets/images/thunder.png')
+
+    },
+    {
+      id: 4,
+      name: 'Jonathan',
+      Intrest: 'You both have similar intrest',
+      image: require('../../../assets/images/tena.png'),
+      Status: 'Busy',
+      statusImage: require('../../../assets/images/busy.png'),
+      thunderImage: require('../../../assets/images/thunder.png')
+
+    },
+   
+
+  ]
+
+
+
   return (
     <View style={styles.mainView}>
-      <View>
 
         <Header source={notiLogo} />
+<ScrollView>
 
 
-        <View style={styles.search}>
+          <View style={styles.search}>
 
-          <SearchInput placeholder='Search by name' source={search} />
-        </View>
-        <View>
-          <Text style={styles.team}> My Team</Text>
+            <SearchInput placeholder='Search by name' source={search} />
+          </View>
+
+          <View>
+            <Text style={styles.team}> My Team</Text>
 
 
-          <FlatList
-            style={styles.flatList}
-            data={team}
-            keyExtractor={item => item.id}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            renderItem={({ item, index }) => {
-              return (
-                <View style={styles.teamView}>
-                
+            <FlatList
+              style={styles.flatList}
+              data={team}
+              keyExtractor={item => item.id}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              renderItem={({ item, index }) => {
+                return (
+                  <View style={styles.teamView}>
+
 
                     <Image source={item.image} />
                     <Text style={styles.Name}>{item.Name}</Text>
@@ -81,16 +140,58 @@ const teams = () => {
                     <Text style={styles.description}>{item.Description2}</Text>
                   </View>
 
-              );
-            }}
-          />
-        </View>
+                );
+              }}
+            />
+          </View>
 
-      </View>
+
+          <View>
+            <Text style={styles.colleague}>  Colleague </Text>
+
+
+            <FlatList
+              style={styles.flatList}
+              data={colleague}
+              keyExtractor={item => item.id}
+              
+              renderItem={({ item, index }) => {
+                return (
+                  <View style={styles.teamView1}>
+
+                    <View>
+
+                      <Image source={item.image} />
+                    </View>
+                    <View style={styles.introView}>
+
+                      <Image source={item.newImage} style={styles.newImage}/>
+                      <Text style={styles.Name1}>{item.name}</Text>
+                      <View style={{flexDirection:'row',alignItems:'center'}}>
+                    <Image source={item.thunderImage}/>
+                      <Text style={styles.intrest}>{item.Intrest}</Text>
+                      </View>
+                      <View style={{flexDirection:'row',alignItems:'center'}}>
+                    <Image source={item.statusImage} style={{marginLeft:1}}/>
+                      <Text style={styles.status}>{item.Status}</Text>
+                      </View>
+                    </View>
+                    <ProfileButton/>
+                  </View>
+
+                );
+              }}
+            />
+
+
+
+          </View>
+
       <View style={styles.footerView}>
         <Text style={styles.powered}>Powered by</Text>
         <Text style={styles.ensemble}>ENSEMBLE</Text>
       </View>
+</ScrollView>
     </View>
   )
 }
@@ -131,13 +232,13 @@ const styles = StyleSheet.create({
 
   },
   teamView: {
-    paddingVertical:verticalScale(25),
-    backgroundColor:'white',
-    alignItems:'center',
-    marginVertical: verticalScale(20),
-    marginHorizontal:scale(20),
-    borderRadius:moderateScale(25),
-    paddingHorizontal:scale(20)
+    paddingVertical: verticalScale(25),
+    backgroundColor: 'white',
+    alignItems: 'center',
+    marginVertical: verticalScale(15),
+    marginHorizontal: scale(20),
+    borderRadius: moderateScale(25),
+    paddingHorizontal: scale(20)
 
 
 
@@ -147,18 +248,60 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: '700',
     fontSize: moderateScale(20),
-    paddingVertical: verticalScale(10),
+    paddingTop: verticalScale(10),
+    paddingBottom: verticalScale(5),
 
   },
   position: {
-    paddingBottom: verticalScale(15),
+    paddingBottom: verticalScale(10),
     color: 'black',
 
   },
   description: {
     color: '#4E4E4E',
   },
- 
+  colleague: {
+    color: 'black',
+    fontWeight: '700',
+    fontSize: moderateScale(20),
+    marginHorizontal: scale(20),
+    marginTop: verticalScale(10)
+  },
+  teamView1:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    marginHorizontal:scale(20),
+    alignItems:'center',
+    marginVertical:verticalScale(20)
+  },
+  button:{
+    borderWidth:1,
+    
+  },
+  Name1:{
+    color:'black',
+    fontWeight:'700',
+    fontSize:moderateScale(15),
+    marginHorizontal:scale(5)
+  },
+  intrest:{
+    fontSize:moderateScale(10),
+    marginHorizontal:scale(3)
+  },
+  status:{
+    fontSize:moderateScale(10),
+    marginHorizontal:scale(5),
+    fontWeight:'500',
+    color:'black'
+  },
+  newImage:{
+    marginHorizontal:scale(5)
+  },
+  introView:{
+    marginLeft:scale(10),
+    marginRight:scale(20)
+  }
+
 
 
 

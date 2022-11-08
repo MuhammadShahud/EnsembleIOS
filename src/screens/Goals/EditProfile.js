@@ -24,9 +24,9 @@ const EditProfile = () => {
                     {/* <EditDetails detail1='Lorem ipsum dolor sit amet. In impedit aliquid nam minima iure At quas obcaecati aut iste eveniet ut voluptates expedita. Quo asperiores.' title='Describe Yourself in 3 Words' source={edit} /> */}
                     <EditButtons title='Tools' addImage={add} button1={'Figma'} button2={'Adobe XD'} button3={'Miro'} button4={'Illustrator'} button5={'Photoshop'}/>
                     <EditButtons title='Rockstar Skills' addImage={add} button1={'Communication'} button2={'Problem Solving'} button3={'Collaboration'} button4={'Emotional Intelligence'} button5={'Leadership'}/>
-                    <EditButtons title='When you’re not working, what do you enjoy doing the most?'  addImage={add} button1={'Photography'} button2={'Networking'} button3={'Gaming'} button4={'Reading'} button5={'Photoshop'}/>
-                    <EditDetails detail1='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.' title='How Would you describe the job to the group of 5 years olds?' source={edit} />
-                    <EditDetails detail1='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.' title='What is ONE of the coolest things you’ve ever done?' source={edit} />
+                    <EditButtons title='What you enjoy doing the most?'  addImage={add} button1={'Photography'} button2={'Networking'} button3={'Gaming'} button4={'Reading'} button5={'Photoshop'}/>
+                    <EditDetails detail1='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.' title='How Would you describe job?' source={edit} />
+                    <EditDetails detail1='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.' title='What is ONE of the coolest things?' source={edit} />
                    
 
                 </View>

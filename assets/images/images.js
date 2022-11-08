@@ -59,6 +59,8 @@ export const editPicture = require('./editPicture.png')
 export const edit = require('./edit.png')
 export const add = require('./add.png')
 export const search = require('./search.png')
+export const ahmed = require('./ahmed.png')
+export const steven = require('./steven.png')
 
 
 
