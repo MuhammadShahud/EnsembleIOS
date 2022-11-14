@@ -11,7 +11,7 @@ const Splash = () => {
 
   const onStart = () => {
     console.log('working')
-    navigation.navigate('newGoal')
+    navigation.navigate('name')
   }
 
   return (
