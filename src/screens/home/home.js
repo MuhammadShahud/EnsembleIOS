@@ -23,7 +23,7 @@ const token =
   
   useFocusEffect(
     useCallback(() => {
-     dispatch(GetGoals(token))
+    //  dispatch(GetGoals(token))
     }, []),
   );
 

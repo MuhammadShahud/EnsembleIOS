@@ -14,6 +14,7 @@ import {useRef} from 'react';
 import Button from '../../components/Button';
 import {ButtonColor} from '../../../assets/colors/colors';
 import Dashes from '../../components/Question Text/dashes';
+import { FiraSansBlack, FiraSansBlackItalic, FiraSansBold, FiraSansLight, FiraSansMediumItalic, InterBlack, PoppinsBlack, PoppinsBold, PoppinsExtraBold, PoppinsLight, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 
 const Name = () => {
   const navigation = useNavigation();
@@ -133,14 +134,18 @@ const styles = StyleSheet.create({
     paddingTop: verticalScale(10),
     marginHorizontal: scale(20),
     color: 'black',
+    fontFamily:PoppinsMedium,
     textAlignVertical: 'center',
+    color:'#414141'
   },
   pronounText: {
     color: 'black',
     marginHorizontal: scale(20),
     marginTop: verticalScale(25),
     fontSize: moderateScale(20),
-    fontWeight: '700',
+    // fontWeight: '700',
+    fontFamily:PoppinsSemiBold
+    
   },
   boxStyle: {
     backgroundColor: 'white',
@@ -164,6 +169,7 @@ const styles = StyleSheet.create({
   },
   dropdownTextStyles: {
     color: 'black',
+    fontFamily:PoppinsRegular
   },
   dropdownItemStyles: {
     paddingVertical: verticalScale(10),
@@ -173,22 +179,25 @@ const styles = StyleSheet.create({
   },
   georgeText: {
     marginTop: verticalScale(10),
-    fontSize: moderateScale(40),
-    marginBottom: verticalScale(-10),
+    fontSize: moderateScale(35),
+    marginBottom: verticalScale(-15),
     color: 'black',
-    fontWeight: 'bold',
+    fontFamily:PoppinsBold
   },
   georgeText1: {
-    fontSize: moderateScale(40),
+    fontSize: moderateScale(35),
     color: 'black',
-    fontWeight: 'bold',
+    fontFamily:PoppinsBold
+
+    // fontWeight: 'bold',
   },
   textBoard: {
     color: 'black',
     fontSize: moderateScale(15),
     lineHeight: verticalScale(20),
-    marginTop: verticalScale(15),
-    marginBottom: verticalScale(10),
+    marginTop: verticalScale(7),
+    marginBottom: verticalScale(15),
+    fontFamily:PoppinsMedium
   },
   button: {
     backgroundColor: ButtonColor,

@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
+import { PoppinsBlack, PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
 
 const Questions = (props) => {
   return (
@@ -17,7 +18,8 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: moderateScale(35),
         marginHorizontal: scale(20),
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
+        fontFamily:PoppinsSemiBold,
         marginBottom:verticalScale(10)
     },
 })

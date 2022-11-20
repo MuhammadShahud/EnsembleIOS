@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     input:{
         borderRadius: moderateScale(15),
         paddingBottom:verticalScale(60),
-        paddingTop:verticalScale(10)
+        paddingTop:verticalScale(10),
+        placeholderTextColor:'#414141'
 
     }
 })

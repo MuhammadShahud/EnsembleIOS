@@ -3,6 +3,7 @@ import React,{useState} from 'react'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { communication, management } from '../../../assets/images/images'
 import { ButtonColor } from '../../../assets/colors/colors'
+import { PoppinsSemiBold } from '../../../assets/fonts/Fonts'
 // import communication from '../../../assets/images/communication'
 
 const RockstarSkills = (props) => {
@@ -79,8 +80,9 @@ const styles = StyleSheet.create({
 
 },
 text:{
-    // color:'black',
-    fontWeight:'900',
+    // color:'yellow',
+    // fontWeight:'900',
+    fontFamily:PoppinsSemiBold,
     fontSize:moderateScale(12.5)
 
 

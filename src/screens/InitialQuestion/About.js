@@ -1,5 +1,5 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, TextInput, View ,Alert, StatusBar,} from 'react-native'
+import React,{useState,useEffect} from 'react'
 import QuestionHeader from '../../components/Header/QuestionHeader'
 import Footer from '../../components/footer/Footer'
 import { useNavigation } from '@react-navigation/native'
@@ -9,10 +9,50 @@ import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { color } from 'react-native-reanimated'
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import Feather from 'react-native-vector-icons/Feather'
+import { PoppinsRegular } from '../../../assets/fonts/Fonts'
+// import {Dropdown} from 'react-native-element-dropdown';
+// import axios from 'axios';
 
 
 
 const About = () => {
+    // const [countryData, setCountryData] = useState([]);
+    // const [country, setCountry] = useState(null);
+    // const [countryName, setCountryName] = useState(null);
+    // const [stateName, setStateName] = useState(null);
+    // const [cityName, setCityName] = useState(null);
+    // const [isFocus, setIsFocus] = useState(false);
+
+    // useEffect(() => {
+    //     var config = {
+    //       method: 'get',
+    //       url:'https://api.countrystatecity.in/v1/countries',
+    //       headers: {
+    //         'X-CSCAPI-KEY': 'RDBzdTRGMHU2Nkg5WGR6VXBjMlhLSEZuek51RFJGSllSUlVaZ1JNRw=='
+    //       },
+    //     };
+
+
+    //     axios(config)
+    //     .then(response => {
+    //       console.log(JSON.stringify(response.data));
+    //       var count = Object.keys(response.data).length;
+    //       let countryArray = [];
+    //       for (var i = 0; i < count; i++) {
+    //         countryArray.push({
+    //           value: response.data[i].iso2,
+    //           label: response.data[i].name,
+    //         });
+    //       }
+    //       setCountryData(countryArray);
+    //     })
+    //     .catch(error => {
+    //       console.log(error);
+    //     });
+    // }, []);
+
+
+
     const navigation = useNavigation();
     return (
         <View style={styles.mainView}>
@@ -27,7 +67,7 @@ const About = () => {
                 </View>
 
 
-                <View style={styles.phoneView}>
+                {/* <View style={styles.phoneView}>
                     <Text style={styles.phoneText}>Your date of birth</Text>
                     <View style={styles.dateView}>
 
@@ -36,8 +76,9 @@ const About = () => {
 
                     </View>
 
-                </View>
-                <View style={styles.phoneView}>
+                </View> */}
+
+                {/* <View style={styles.phoneView}>
                     <Text style={styles.phoneText}>Your Location</Text>
                     <View style={styles.dateView}>
 
@@ -45,7 +86,56 @@ const About = () => {
                         <Feather name='chevron-down' size={20} style={styles.dateIcon} color='black' />
 
                     </View>
-                </View>
+                </View> */}
+
+
+
+
+                {/* for dropdown country */}
+
+                {/* <Dropdown
+          style={[styles.dropdown, isFocus && {borderColor: 'blue'}]}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          inputSearchStyle={styles.inputSearchStyle}
+          iconStyle={styles.iconStyle}
+          data={countryData}
+          search
+          maxHeight={300}
+          labelField="label"
+          valueField="value"
+          placeholder={!isFocus ? 'Select country' : '...'}
+          searchPlaceholder="Search..."
+          value={country}
+          onFocus={() => setIsFocus(true)}
+          onBlur={() => setIsFocus(false)}
+          onChange={item => {
+            setCountry(item.value);
+            handleState(item.value);
+            setCountryName(item.label);
+            setIsFocus(false);
+          }}
+        /> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <View style={styles.phoneView}>
                     <Text style={styles.publicText}>Anything else you want to publicly share about yourself?</Text>
                     <InputField inputStyle={styles.orangeInput} placeholder='I like oranges' />
@@ -80,22 +170,26 @@ const styles = StyleSheet.create({
     },
     Text: {
         marginHorizontal: scale(20),
-        color: '#5C5C5C'
+        color: '#5C5C5C',
+        fontFamily:PoppinsRegular
     },
     phoneText: {
-        marginHorizontal: scale(17),
+        marginHorizontal: scale(20),
         color: 'black',
+        fontFamily:PoppinsRegular
 
     },
     phoneView: {
         marginTop: verticalScale(20)
     },
     publicText: {
-        marginHorizontal: scale(17),
+        marginHorizontal: scale(20),
         // marginLeft:scale(17),
         // marginRight:scale(100),
         color: 'black',
-        lineHeight: verticalScale(20)
+        lineHeight: verticalScale(20),
+        fontFamily:PoppinsRegular
+
     },
     firstView: {
     },

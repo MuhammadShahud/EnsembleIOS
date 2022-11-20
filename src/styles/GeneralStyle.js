@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
   medium: {
     fontSize: wp('4%'),
     fontFamily: 'Poppins',
-    textAlign: 'center',
+    // textAlign: 'center',
   },
   spaceHeight: {
     height: hp('2%'),

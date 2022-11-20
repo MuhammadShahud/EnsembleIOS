@@ -14,6 +14,7 @@ import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import {camera} from '../../../assets/images/images';
 import Button from '../../components/Button';
 import {ButtonColor} from '../../../assets/colors/colors';
+import { PoppinsMedium, PoppinsRegular } from '../../../assets/fonts/Fonts';
 
 const Camera = () => {
   const navigation = useNavigation();
@@ -130,13 +131,16 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
     fontSize: moderateScale(25),
+    fontFamily:PoppinsMedium,
+
     marginTop: verticalScale(50),
   },
   lorem: {
     color: '#5C5C5C',
     marginHorizontal: scale(30),
     textAlign: 'center',
-    marginTop: verticalScale(10),
+    // marginTop: verticalScale(10),
+    fontFamily:PoppinsRegular,
     lineHeight: verticalScale(20),
   },
   button: {
@@ -144,7 +148,7 @@ const styles = StyleSheet.create({
     backgroundColor: ButtonColor,
     marginBottom: verticalScale(10),
     borderRadius: moderateScale(40),
-    paddingVertical: verticalScale(14),
+    // paddingVertical: verticalScale(14),
   },
   secondButton: {
     width: '85%',
