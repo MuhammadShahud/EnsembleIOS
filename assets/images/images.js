@@ -57,6 +57,12 @@ export const communication = require('./communication.png')
 export const picture = require('./picture.png')
 export const greyDash = require('./greyDash.png')
 export const colorDash = require('./colorDash.png')
+export const star = require('./star.png')
+export const smallstar = require('./smallstar.png')
+export const sketch = require('./sketch.png')
+export const halfloading = require('./halfloading.png')
+export const rightArrow = require('./rightArrow.png')
+
 
 
 

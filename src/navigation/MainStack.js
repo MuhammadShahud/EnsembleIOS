@@ -26,6 +26,10 @@ import About from '../screens/InitialQuestion/About';
 import Camera from '../screens/InitialQuestion/Camera';
 import RetakePhoto from '../screens/InitialQuestion/RetakePhoto';
 import EditProfile from '../screens/Goals/EditProfile';
+import Survey from '../screens/survey/Survey';
+import Review from '../screens/survey/Review';
+import SurveySuceed from '../screens/survey/SurveySuceed';
+import Notification from '../screens/notification/Notification';
 
 const Main = createNativeStackNavigator();
 const Goal = createNativeStackNavigator();
@@ -150,6 +154,26 @@ const MainStack = () => {
        <Main.Screen
         name="editgoal"
         component={EditGoal}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
+        name="survey"
+        component={Survey}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
+        name="review"
+        component={Review}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
+        name="surveysuceed"
+        component={SurveySuceed}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
+        name="notification"
+        component={Notification}
         options={{headerShown: false}}
       />
     </Main.Navigator>

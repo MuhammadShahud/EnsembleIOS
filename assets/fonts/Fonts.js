@@ -43,5 +43,14 @@ export const PoppinsSemiBold = 'Poppins-SemiBold'
 export const PoppinsSemiBoldItalic = 'Poppins-SemiBoldItalic'
 export const PoppinsThin = 'Poppins-Thin'
 export const PoppinsThinItalic = 'Poppins-ThinItalic'
+export const OutfitBold = 'Outfit-Bold'
+export const OutfitExtraBold = 'Outfit-ExtraBold'
+export const OutfitBlack = 'Outfit-Black'
+export const OutfitMedium = 'Outfit-Medium'
+export const OutfitRegular = 'Outfit-Regular'
+export const OutfitExtraLight = 'Outfit-ExtraLight'
+export const OutfitSemiBold = 'Outfit-SemiBold'
+export const OutfitThin = 'Outfit-Thin'
+
 
 

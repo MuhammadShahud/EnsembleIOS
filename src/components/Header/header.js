@@ -29,11 +29,15 @@ const Header = props => {
         </Text>
       </View>
       <View style={style.halfHeader}>
+        <TouchableOpacity onPress={()=>navigation.navigate('notification')}
+>
+
         <Image
           style={{ marginRight: wp('3%') }}
           resizeMode="contain"
           source={props.source}
-        />
+          />
+          </TouchableOpacity>
         <TouchableOpacity onPress={()=>navigation.openDrawer()}>
         <Image resizeMode="contain" source={menuLogo} />
         </TouchableOpacity>

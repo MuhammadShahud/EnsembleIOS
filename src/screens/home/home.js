@@ -5,7 +5,7 @@ import {USER} from '../../redux/Reducers/AuthReducer';
 import {style} from './homeStyle';
 import {styles} from '../../styles/GeneralStyle';
 import Header from '../../components/Header/header';
-import {pp,task,medal,findPeople} from '../../../assets/images/images';
+import {pp,task,medal,findPeople, notiLogo} from '../../../assets/images/images';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -29,7 +29,7 @@ const token =
 
   return (
     <View style={style.container}>
-      <Header />
+      <Header source={notiLogo} />
 
       <View style={style.innerView}>
 

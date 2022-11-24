@@ -10,8 +10,8 @@ const Footer = (props) => {
   return (
     <View style={styles.mainView}>
         <View>
-      <Text style={styles.powered}>Powered by</Text>
-      <Text style={styles.ensemble}>ENSEMBLE</Text>
+      <Text style={[styles.powered,props.powered]}>Powered by</Text>
+      <Text style={[styles.ensemble,props.ensemble]}>ENSEMBLE</Text>
         </View>
         <TouchableOpacity style={styles.arrow} onPress={props.onPress}>
             <Feather style={styles.iconarrow} name={props.iconName} size={25} color={'white'}/>
