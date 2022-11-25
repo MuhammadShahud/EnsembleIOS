@@ -1,12 +1,13 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import Survey from '../screens/survey/survey';
+import Survey from '../screens/survey/Survey';
 
 import CustomDrawer from '../components/CustomDrawer/customDrawer';
 import TabStack from './TabStack'
 import { Image } from 'react-native';
 import { fun, goals, people, profDev, resource, setting, survey } from '../../assets/images/images';
+import Settings from '../screens/settings/Settings';
 
 
 const Drawer = createDrawerNavigator();
@@ -58,7 +59,7 @@ const DrawerStack = () => {
       />
       <Drawer.Screen
         name="Survey"
-        component={TabStack}
+        component={Survey}
         options={{
           drawerIcon: ({color}) => (
             <Image source={survey} style = {{height:21,width:21}}/>
@@ -84,22 +85,22 @@ const DrawerStack = () => {
         }}
       />
         <Drawer.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          drawerIcon: ({color}) => (
+            <Image source={setting} style = {{height:21,width:21}}/>
+            ),
+        }}
+      />
+        <Drawer.Screen
         name="Professional Development"
         component={Survey}
         options={{
           drawerIcon: ({color}) => (
             <Image source={profDev} style = {{height:21,width:21}}/>
             ),
-        }}
-      />
-        <Drawer.Screen
-        name="Settings"
-        component={Survey}
-        options={{
-          drawerIcon: ({color}) => (
-            <Image source={setting} style = {{height:21,width:21}}/>
-            ),
-        }}
+          }}
       />
       
     </Drawer.Navigator>

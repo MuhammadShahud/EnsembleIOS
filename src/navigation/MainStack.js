@@ -30,6 +30,8 @@ import Survey from '../screens/survey/Survey';
 import Review from '../screens/survey/Review';
 import SurveySuceed from '../screens/survey/SurveySuceed';
 import Notification from '../screens/notification/Notification';
+import Settings from '../screens/settings/Settings';
+import ChangePassword from '../screens/settings/ChangePassword';
 
 const Main = createNativeStackNavigator();
 const Goal = createNativeStackNavigator();
@@ -174,6 +176,16 @@ const MainStack = () => {
        <Main.Screen
         name="notification"
         component={Notification}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
+        name="Settings"
+        component={Settings}
+        options={{headerShown: false}}
+      />
+       <Main.Screen
+        name="changepassword"
+        component={ChangePassword}
         options={{headerShown: false}}
       />
     </Main.Navigator>

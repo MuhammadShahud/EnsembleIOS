@@ -3,7 +3,7 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 
 import Home from '../screens/home/home';
 import Goals from '../screens/Goals/goals';
-import Survey from '../screens/survey/survey';
+import Survey from '../screens/survey/Survey';
 import Teams from '../screens/Teams/teams';
 import {
   widthPercentageToDP as wp,
@@ -11,6 +11,7 @@ import {
 } from 'react-native-responsive-screen';
 import {
   greenHome,
+  setting,
   tabGoal,
   tabSurvey,
   tabTeam,
@@ -20,6 +21,7 @@ import {useNavigation} from '@react-navigation/native';
 import NewGoal from '../screens/Goals/NewGoal';
 import PersonalGoals from '../screens/Goals/PersonalGoals';
 import {GoalStack} from './MainStack';
+import Settings from '../screens/settings/Settings';
 
 const TabStack = () => {
   const Tab = createMaterialBottomTabNavigator();
@@ -57,6 +59,7 @@ const TabStack = () => {
           ),
         }}
       />
+   
       <Tab.Screen
         name="teams"
         component={Teams}

@@ -11,6 +11,7 @@ import {
   PURPLECOLOR,
   SECONDARYCOLOR,
 } from '../../assets/colors/colors';
+import { PoppinsSemiBold } from '../../assets/fonts/Fonts';
 
 export const styles = StyleSheet.create({
  
@@ -21,7 +22,7 @@ export const styles = StyleSheet.create({
   },
   medium: {
     fontSize: wp('4%'),
-    fontFamily: 'Poppins',
+    fontFamily: PoppinsSemiBold ,
     // textAlign: 'center',
   },
   spaceHeight: {

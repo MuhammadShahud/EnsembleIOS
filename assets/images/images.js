@@ -62,6 +62,18 @@ export const smallstar = require('./smallstar.png')
 export const sketch = require('./sketch.png')
 export const halfloading = require('./halfloading.png')
 export const rightArrow = require('./rightArrow.png')
+export const goalLogo = require('./goalLogo.png')
+export const feedback = require('./feedback.png')
+export const colleagues = require('./colleagues.png')
+export const ship = require('./ship.png')
+export const notification = require('./notification.png')
+export const darkmode = require('./darkmode.png')
+export const help = require('./help.png')
+export const privacy = require('./privacy.png')
+export const accessiblity = require('./accessiblity.png')
+export const terms = require('./terms.png')
+export const lock = require('./lock.png')
+export const right = require('./right.png')
 
 
 

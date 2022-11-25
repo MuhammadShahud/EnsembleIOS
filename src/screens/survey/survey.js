@@ -271,6 +271,7 @@ const styles = StyleSheet.create({
   },
   footerView: {
     marginHorizontal: scale(20),
+    marginVertical:verticalScale(15)
     // marginBottom: verticalScale(40),
 
   },
