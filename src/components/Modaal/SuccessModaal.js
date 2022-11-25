@@ -17,7 +17,7 @@ const SuccessModaal = props => {
   const navigation = useNavigation();
   const submitLogin = () => {
     props.setVisible(!props.visible);
-    navigation.navigate('login');
+    navigation.navigate('home');
   };
   return (
     <View style={styles.centeredView}>
@@ -31,15 +31,15 @@ const SuccessModaal = props => {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Password Changed Succesfully</Text>
+            <Text style={[styles.modalText,props.modalText]}>{props.successText}</Text>
 
             <View style={styles.imageView}>
               <Image style={styles.imageView2} source={tickLogo} />
             </View>
             <View style={{width:'80%'}}>
             <PrimaryButton
-              title="Go Back To Login"
-              backgroundColor="#2B2F86"
+              title={props.buttonTitle}
+              backgroundColor={props.backgroundButtonColor}
               color="white"
               onPress={submitLogin}
             />

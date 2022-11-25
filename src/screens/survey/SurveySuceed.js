@@ -30,7 +30,7 @@ const SuccessGoal = () => {
         <View style={styles.buttonView}>
           <Button
             title="Home"
-            onPress={navigate}
+            onPress={()=>navigation.navigate('home')}
             buttonStyle={styles.homeButton}
           />
           <Button

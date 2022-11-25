@@ -129,7 +129,7 @@ const ResetPassword = props => {
             />
           </View>
         </View>
-        <SuccessModaal visible={modalVisible} setVisible={setModalVisible} />
+        <SuccessModaal successText={'Password Changed Successfully'} backgroundButtonColor='#2B2F86' buttonTitle={'Go Back To Login'}  visible={modalVisible} setVisible={setModalVisible} />
       </ScrollView>
     </View>
   );

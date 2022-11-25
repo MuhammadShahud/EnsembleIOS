@@ -22,6 +22,8 @@ import NewGoal from '../screens/Goals/NewGoal';
 import PersonalGoals from '../screens/Goals/PersonalGoals';
 import {GoalStack} from './MainStack';
 import Settings from '../screens/settings/Settings';
+import Review from '../screens/survey/Review';
+import SurveySuceed from '../screens/survey/SurveySuceed';
 
 const TabStack = () => {
   const Tab = createMaterialBottomTabNavigator();
@@ -59,6 +61,8 @@ const TabStack = () => {
           ),
         }}
       />
+     
+    
    
       <Tab.Screen
         name="teams"
