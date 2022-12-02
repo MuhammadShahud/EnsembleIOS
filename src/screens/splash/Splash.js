@@ -30,7 +30,7 @@ const Splash = () => {
 
   const onStart = () => {
     console.log('working')
-    navigation.navigate('drawer')
+    navigation.navigate('name')
     // navigation.navigate('survey')
   }
 
