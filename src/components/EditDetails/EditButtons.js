@@ -6,6 +6,8 @@ import { ButtonColor } from '../../../assets/colors/colors'
 
 
 const EditButtons = (props) => {
+    const values = props.properties;
+    console.log(values);
     return (
         <View style={{flex:1}}>
             <View 
@@ -19,9 +21,14 @@ const EditButtons = (props) => {
                 <View
                     style={{ flexDirection: 'row',flexWrap:'wrap' }}>
 
-                
+                {props.properties.map(v=>(
+                    <View style={styles.button}>
+                    <Text style={styles.text}>{v}</Text>
+                </View>
+                )
+                )}
 
-                    <TouchableOpacity style={styles.button}>
+                    {/* <TouchableOpacity style={styles.button}>
                         <Text style={styles.text}>{props.button1}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button}>
@@ -38,7 +45,7 @@ const EditButtons = (props) => {
                     </TouchableOpacity >
                     <TouchableOpacity style={styles.button}>
                         <Text style={styles.text}>{props.button5}</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
               
 

@@ -3,7 +3,6 @@ import React from 'react'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import  { PRIMARYCOLOR } from '../../assets/colors/colors'
 import Feather from 'react-native-vector-icons/Feather'
-import { PoppinsSemiBold } from '../../assets/fonts/Fonts'
 
 const Button = (props) => {
   console.log(props.onPress,"ONnnPRess");
@@ -30,8 +29,8 @@ const styles = StyleSheet.create({
         color:'white',
         alignSelf:'center',
         borderRadius:moderateScale(20),
+        fontWeight:'bold',
         fontSize:moderateScale(15),
-        textAlign:'center',
-        fontFamily:PoppinsSemiBold
+        textAlign:'center'
     }
 })

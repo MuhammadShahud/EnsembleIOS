@@ -3,6 +3,8 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
 } from 'react-native-responsive-screen'
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
+
 import { PRIMARYCOLOR } from '../../../assets/colors/colors'
 
 export const style = StyleSheet.create({
@@ -15,6 +17,12 @@ export const style = StyleSheet.create({
     height:hp('100%'),
     padding:wp('5%'),
     
+  },
+  pp:{
+    width: scale(65),
+    height: verticalScale(65),
+    overflow:'hidden',
+    borderRadius: moderateScale(33),
   },
  hey: {
   flexDirection:'row',

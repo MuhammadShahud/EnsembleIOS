@@ -68,12 +68,12 @@ const PersonalGoals = () => {
 
   const data = goalsData;
 
-  // data.forEach(e => {
-  //   let date = e.dueDate.split('T');
-  //   console.log("dateeee",date);
-  //   e.dueDate =date[0];
-  //   console.log("dataaaa",data);
-  // });
+  data.forEach(e => {
+    let date = e.dueDate.split('T');
+    console.log("dateeee",date);
+    e.dueDate =date[0];
+    console.log("dataaaa",data);
+  });
   console.log('userrr', user.token);
   useFocusEffect(
     useCallback(() => {

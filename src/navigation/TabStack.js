@@ -3,7 +3,7 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 
 import Home from '../screens/home/home';
 import Goals from '../screens/Goals/goals';
-import Survey from '../screens/survey/Survey';
+import Survey from '../screens/survey/survey';
 import Teams from '../screens/Teams/teams';
 import {
   widthPercentageToDP as wp,
@@ -24,7 +24,6 @@ import {GoalStack} from './MainStack';
 import Settings from '../screens/settings/Settings';
 import Review from '../screens/survey/Review';
 import SurveySuceed from '../screens/survey/SurveySuceed';
-import { verticalScale } from 'react-native-size-matters';
 
 const TabStack = () => {
   const Tab = createMaterialBottomTabNavigator();
@@ -36,7 +35,7 @@ const TabStack = () => {
       barStyle={{backgroundColor: '#000000', height: hp('7%')}}
       initialRouteName={initialRoute}>
       <Tab.Screen
-        name="Home"
+        name="home"
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
@@ -45,7 +44,7 @@ const TabStack = () => {
         }}
       />
       <Tab.Screen
-        name="Goals"
+        name="goals"
         component={PersonalGoals}
         options={{
           tabBarIcon: ({focused}) => (
@@ -54,7 +53,7 @@ const TabStack = () => {
         }}
       />
       <Tab.Screen
-        name="Surveys"
+        name="surveys"
         component={Survey}
         options={{
           tabBarIcon: ({focused}) => (
@@ -66,7 +65,7 @@ const TabStack = () => {
     
    
       <Tab.Screen
-        name="Teams"
+        name="teams"
         component={Teams}
         options={{
           tabBarIcon: ({focused}) => (
@@ -79,8 +78,7 @@ const TabStack = () => {
 };
 
 const styles = StyleSheet.create({
-  tabImageStyle: {
-  },
+  tabImageStyle: {},
 });
 
 export default TabStack;

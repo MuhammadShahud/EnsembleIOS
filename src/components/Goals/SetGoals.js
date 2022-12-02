@@ -20,7 +20,7 @@ const SetGoals = ({visible , setVisible}) => {
       <View style={styles.container}>
         <View style={styles.GoalView}>
           <Text style={styles.GoalText}>Goals</Text>
-          <Text style={styles.SetGoalText}>Let set your goals</Text>
+          <Text style={styles.SetGoalText}>Lets set your goals</Text>
         </View>
       
           <GoalButton

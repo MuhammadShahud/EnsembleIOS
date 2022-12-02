@@ -88,7 +88,7 @@ const NewGoal = () => {
         <DashesGoals color={1}/>
         <View style={styles.firstView}>
           <Text style={styles.goal}>Set a New Goal</Text>
-          <Text style={styles.setGoal}>Let set your new goal</Text>
+          <Text style={styles.setGoal}>Lets set your new goal</Text>
           <TextInput
             style={styles.input}
             onChangeText={e => setGoalInput(e)}

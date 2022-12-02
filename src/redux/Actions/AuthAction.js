@@ -16,6 +16,20 @@ export const Goals = data => {
   };
 };
 
+export const Company = data => {
+  return {
+    type: 'Company',
+    load: data,
+  };
+};
+
+export const Team = data => {
+  return {
+    type: 'Team',
+    load: data,
+  };
+};
+
 export const FlashMessage = data => {
   showMessage(data);
 };
@@ -31,8 +45,8 @@ export const LoginFunction = (newObj, navigation, destination) => {
         .then(async res => {
           console.log('responssseee', res);
 
-          await AsyncStorage.setItem('user', JSON.stringify(res.data));
-          dispatch(Login(res.data));
+          await AsyncStorage.setItem('user', JSON.stringify(res.data.message));
+          dispatch(Login(res.data.message));
           navigation.reset({
             index: 0,
             routes: [{name:destination}]
@@ -143,10 +157,7 @@ export const GetGoals = (token) => {
         });
     } catch (err) {
       console.log(`Err in getGoal function: `, err.response.data);
-      FlashMessage({
-        message: err.response.data.message,
-        type: 'danger',
-      });
+     
     }
   };
 };
@@ -175,6 +186,51 @@ export const PatchGoal = (newObj, navigation, destination, token,id,setVisible) 
         message: err.response.data.message,
         type: 'danger',
       });
+    }
+  };
+};
+
+
+export const GetCompany = (id) => {
+  return async (dispatch, state) => {
+    console.log('L',id);
+    try {
+
+      const response = await axios
+        .get(`${state().AuthReducer.baseUrl}company/${id}`     
+        )
+        .then(async res => {
+          console.log("responseCompany",res.data);
+          dispatch(Company(res.data))
+        });
+    } catch (err) {
+      console.log(`Err in getCompany function: `, err.message);
+      // FlashMessage({
+      //   message: err,
+      //   type: 'danger',
+      // });
+    }
+  };
+};
+
+export const GetTeam = (id) => {
+  return async (dispatch, state) => {
+    console.log('L',id);
+    try {
+
+      const response = await axios
+        .get(`${state().AuthReducer.baseUrl}team/${id}`     
+        )
+        .then(async res => {
+          console.log("responseTeam",res.data);
+          dispatch(Team(res.data))
+        });
+    } catch (err) {
+      console.log(`Err in getTeam function: `, err);
+      // FlashMessage({
+      //   message: err,
+      //   type: 'danger',
+      // });
     }
   };
 };

@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     borderRadius: moderateScale(30),
     width: '100%',
-    paddingVertical: verticalScale(7),
+    paddingVertical: verticalScale(11),
     marginTop: verticalScale(10),
     fontFamily: PoppinsSemiBold
   },
