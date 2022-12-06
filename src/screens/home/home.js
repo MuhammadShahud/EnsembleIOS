@@ -29,33 +29,33 @@ export default function Home() {
   useFocusEffect(
     useCallback(() => {
        dispatch(GetGoals(token));
-       dispatch(GetCompany(userData.companyId));
-       dispatch(GetTeam(userData.teamId));
+       dispatch(GetCompany(userData?.companyId));
+       dispatch(GetTeam(userData?.teamId));
 
     }, []),
   );
 
   return (
     <View style={style.container}>
-      <Header source={notiLogo} />
+      <Header source={notiLogo} title='The Plum Tree Group' />
 
       <View style={style.innerView}>
         <View>
           <View style={style.hey}>
             <View>
               <Text style={style.morning}>Morning,</Text>
-              <Text style={style.name}>{userData.name}</Text>
+              <Text style={style.name}>{userData?.name}</Text>
             </View>
             <Image
               source={{
-                uri: `https://onboard-backendd.herokuapp.com/${userData.profilePic}`,
+                uri: `https://onboard-backendd.herokuapp.com/${userData?.profilePic}`,
               }}
               style={{borderRadius: 32,height:64, width:64}}
 
             />
           </View>
           <View style={{height: hp('1%')}}></View>
-          <Text>{userData.questions.jobTitle} | The Plum Tree Group </Text>
+          <Text style={style.position}>{userData?.questions.jobTitle} | The Plum Tree Group </Text>
         </View>
 
         <View style={{height: hp('3%')}}></View>

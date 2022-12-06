@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View ,TextInput} from 'react-native'
+import { StyleSheet, Text, View ,TextInput,Image} from 'react-native'
 import React from 'react'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { PoppinsRegular } from '../../../assets/fonts/Fonts';
+import { thinking } from '../../../assets/images/images';
 
 const InputField = (props) => {
   console.log(props.onChangeText,"asdasdas");
@@ -9,8 +10,7 @@ const InputField = (props) => {
     <View>
       
 
-      <TextInput placeholderTextColor='#414141' value = {props.value? props.value :null} onChangeText={props.onChangeText? (e)=>props.onChangeText(e):null} style={[styles.input,props.inputStyle]} placeholder={props.placeholder} />      
-      
+      <TextInput placeholderTextColor='#414141' value = {props.value? props.value :null} onChangeText={props.onChangeText? (e)=>props.onChangeText(e):null} style={[styles.input,props.inputStyle]} placeholder={props.placeholder} multiline={true} />      
     </View>
   )
 }
@@ -36,4 +36,5 @@ const styles = StyleSheet.create({
 
 
 },
+
 })

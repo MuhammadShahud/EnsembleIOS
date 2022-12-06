@@ -23,7 +23,7 @@ const EditProfile = (props) => {
                 <Image source={{uri:`https://onboard-backendd.herokuapp.com/${userData.profilePic}`}} style={styles.editImage} />
                 <View>
 
-                    <EditDetails  detail1={userData.questions.jobTitle} detail2={company.companyName} title={userData.name} source={edit} />
+                    <EditDetails  detail1={userData.questions.jobTitle} detail2={company?.companyName} title={userData.name} source={edit} />
                     <EditDetails detail1={userData.profileData.number}  title='Phone Number' source={edit} />
                     <EditDetails detail1={userData.profileData.dOB} title='Date Of Birth' source={edit} />
                     <EditDetails detail1={userData.profileData.location}  title='Location' source={edit} />

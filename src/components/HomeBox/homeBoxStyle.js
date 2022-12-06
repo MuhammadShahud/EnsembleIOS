@@ -5,6 +5,7 @@ import {
 } from 'react-native-responsive-screen'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import { PRIMARYCOLOR } from '../../../assets/colors/colors'
+import { FiraSansMedium, PoppinsRegular } from '../../../assets/fonts/Fonts'
 
 export const style = StyleSheet.create({
   BackHeaderBG: {
@@ -25,7 +26,7 @@ export const style = StyleSheet.create({
 
   },
   text1:{
-      fontFamily: 'Fira Sans',
+      fontFamily: FiraSansMedium,
       fontSize:23,
       fontWeight:'600',
       color:'#000000'
@@ -35,7 +36,8 @@ export const style = StyleSheet.create({
       fontSize:9,
       fontWeight:'300',
       color:'#1B1B1B',
-      maxWidth:wp('55%')
+      maxWidth:wp('55%'),
+      fontFamily:PoppinsRegular
       
   }
 })

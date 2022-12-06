@@ -14,6 +14,7 @@ import {useRef} from 'react';
 import Button from '../../components/Button';
 import {ButtonColor} from '../../../assets/colors/colors';
 import Dashes from '../../components/Question Text/dashes';
+import { PoppinsBold, PoppinsMedium, PoppinsRegular } from '../../../assets/fonts/Fonts';
 
 const Name = () => {
   const navigation = useNavigation();
@@ -173,22 +174,26 @@ const styles = StyleSheet.create({
   },
   georgeText: {
     marginTop: verticalScale(10),
-    fontSize: moderateScale(40),
+    fontSize: moderateScale(36),
     marginBottom: verticalScale(-10),
     color: 'black',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:PoppinsBold,
   },
   georgeText1: {
-    fontSize: moderateScale(40),
+    fontSize: moderateScale(36),
     color: 'black',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:PoppinsBold,
+    marginTop:verticalScale(-5)
   },
   textBoard: {
     color: 'black',
     fontSize: moderateScale(15),
     lineHeight: verticalScale(20),
-    marginTop: verticalScale(15),
+    marginTop: verticalScale(5),
     marginBottom: verticalScale(10),
+    fontFamily:PoppinsRegular
   },
   button: {
     backgroundColor: ButtonColor,

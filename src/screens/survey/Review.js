@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, CheckBox } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React, { useState } from 'react'
 import Header from '../../components/Header/header'
 import { halfloading, sketch } from '../../../assets/images/images'
@@ -11,12 +11,13 @@ import { Checkbox } from 'react-native-paper';
 import { ButtonColor } from '../../../assets/colors/colors'
 
 
+
+
 const Review = () => {
-    const [checked, setChecked] = React.useState(false);
-    const [checked1, setChecked1] = React.useState(false);
-    const [checked2, setChecked2] = React.useState(false);
-    const [checked3, setChecked3] = React.useState(false);
-    const [checked4, setChecked4] = React.useState(false);
+    const [checked, setChecked] = React.useState(0);
+
+
+   
 
     const navigation = useNavigation();
     return (
@@ -30,16 +31,22 @@ const Review = () => {
                 </View>
                 <Text style={styles.text}>My organization takes measures to attract diverse talent.</Text>
 
+               
+
+
+
+
+
                 <View style={styles.checkboxView}>
 
                     <View>
 
                         <Checkbox
-                            status={checked ? 'checked' : 'unchecked'}
+                            status={checked === 1 ? 'checked' : 'unchecked'}
                             color={ButtonColor}
 
                             onPress={() => {
-                                setChecked(!checked);
+                                setChecked(1);
                             }}
                         />
                         <Text style={styles.text1}>Strongly </Text>
@@ -49,11 +56,11 @@ const Review = () => {
                     <View>
 
                         <Checkbox
-                            status={checked1 ? 'checked' : 'unchecked'}
+                            status={checked === 2 ? 'checked' : 'unchecked'}
                             color={ButtonColor}
 
                             onPress={() => {
-                                setChecked1(!checked1);
+                                setChecked(2);
                             }}
                         />
                         <Text style={styles.text1}>Disagree </Text>
@@ -62,11 +69,11 @@ const Review = () => {
                     <View>
 
                         <Checkbox
-                            status={checked2 ? 'checked' : 'unchecked'}
+                            status={checked === 3 ? 'checked' : 'unchecked'}
                             color={ButtonColor}
 
                             onPress={() => {
-                                setChecked2(!checked2);
+                                setChecked(3);
                             }}
                         />
                         <Text style={styles.text1}>Neutral </Text>
@@ -76,10 +83,10 @@ const Review = () => {
                     <View>
 
                         <Checkbox
-                            status={checked3 ? 'checked' : 'unchecked'}
+                            status={checked === 4 ? 'checked' : 'unchecked'}
                             color={ButtonColor}
                             onPress={() => {
-                                setChecked3(!checked3);
+                                setChecked(4);
                             }}
                         />
                         <Text style={styles.text1}>Agree </Text>
@@ -89,11 +96,11 @@ const Review = () => {
                     <View>
 
                         <Checkbox
-                            status={checked4 ? 'checked' : 'unchecked'}
+                            status={checked === 5 ? 'checked' : 'unchecked'}
                             color={ButtonColor}
 
                             onPress={() => {
-                                setChecked4(!checked4);
+                                setChecked(5);
                             }}
                         />
                         <Text style={styles.text1}>Strongly </Text>
@@ -107,12 +114,7 @@ const Review = () => {
 
 
 
-                {/* <Image style={{ alignSelf: 'center' }} source={halfloading} />
-                <View style={styles.loadingView}>
-                    <Text style={styles.loadingText}>Not at all</Text>
-                    <Text style={styles.loadingText}>Absolutely</Text>
-                </View> */}
-
+              
 
 
             </View>
@@ -153,11 +155,36 @@ const styles = StyleSheet.create({
     checkboxView: {
         flexDirection: 'row',
         marginHorizontal: scale(20),
-        justifyContent:'space-between',
-        marginVertical:verticalScale(25)
+        justifyContent: 'space-between',
+        marginVertical: verticalScale(25)
     },
-    text1:{
-        fontFamily:InterRegular,
-        color:'#616161'
-    }
+    text1: {
+        fontFamily: InterRegular,
+        color: '#616161'
+    },
+
+
+
+
+
+
+
+
+
+    // container: {
+    //     flex: 1,
+    //     alignItems: "center",
+    //     justifyContent: "center",
+    //   },
+    //   checkboxContainer: {
+    //     flexDirection: "row",
+    //     marginBottom: 20,
+    //   },
+    //   checkbox: {
+    //     alignSelf: "center",
+    //   },
+    //   label: {
+    //     margin: 8,
+    //   },
+
 })

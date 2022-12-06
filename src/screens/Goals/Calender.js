@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  PatchGoal, PostGoal } from '../../redux/Actions/AuthAction';
 import { USER } from '../../redux/Reducers/AuthReducer';
 import DashesGoals from '../../components/Goals/dashesGoals';
+import { PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 
 const Calen = (props) => {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ dispatch(PostGoal(goal,navigation,'successGoal',user))
             enableSwipeMonths={true}
             style={{
               backgroundColor :'#F1F1F1',
+              fontFamily:PoppinsRegular
             }}
             
             selectedColor="red"
@@ -100,16 +102,19 @@ const styles = StyleSheet.create({
     // color: colors.textgrey,
     alignSelf: 'center',
     // fontFamily: 'Montserrat-Bold',
-    fontSize: 20,
+    fontSize: moderateScale(20),
+
     marginBottom: 15,
     color: 'black',
-    fontWeight: 'bold',
+    fontFamily:PoppinsSemiBold
   },
   remindedText: {
     marginHorizontal: scale(20),
     marginTop: verticalScale(12),
     color: 'black',
-    fontWeight: 'bold'
+    fontFamily:PoppinsSemiBold,
+    fontSize:moderateScale(14)
+
 
   },
   button: {
@@ -123,7 +128,8 @@ const styles = StyleSheet.create({
     paddingVertical: verticalScale(5),
     alignSelf: 'center',
     borderRadius: moderateScale(20),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:PoppinsSemiBold,
     fontSize: moderateScale(15),
     textAlign: 'center',
 
@@ -136,7 +142,9 @@ const styles = StyleSheet.create({
   },
   reminder: {
     marginTop: verticalScale(10),
-    marginHorizontal: scale(20)
+    marginHorizontal: scale(20),
+    fontFamily:PoppinsRegular,
+    fontSize:moderateScale(13)
   }
 
 });

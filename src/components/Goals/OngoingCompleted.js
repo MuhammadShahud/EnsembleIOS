@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { ButtonColor } from '../../../assets/colors/colors'
+import { PoppinsMedium, PoppinsRegular } from '../../../assets/fonts/Fonts'
 
 const OngoingCompleted = (props) => {
     return (
@@ -60,12 +61,14 @@ const styles = StyleSheet.create({
     },
     whiteText: {
         color: 'white',
-        paddingVertical: verticalScale(10)
+        paddingVertical: verticalScale(10),
+        fontFamily:PoppinsMedium
     },
     greyText: {
         color: ButtonColor,
         paddingVertical: verticalScale(10),
-        color: '#858585'
+        color: '#858585',
+        fontFamily:PoppinsRegular
 
 
 

@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import { ForgetPass } from '../../redux/Actions/AuthAction'
 import { PRIMARYCOLOR } from '../../../assets/colors/colors'
+import { PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
 
 
 const VerifyEmail = () => {
@@ -133,7 +134,8 @@ const styles = StyleSheet.create({
   
     color:'black',
     alignSelf:'flex-start',  
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:PoppinsSemiBold,
       fontSize: wp('6%'), 
       paddingHorizontal:scale(25),
       marginTop:verticalScale(25)
@@ -142,7 +144,8 @@ const styles = StyleSheet.create({
   
   verificationProcessText:{
     color: '#939393', 
-    marginLeft: 10
+    marginLeft: 10,
+    fontFamily:PoppinsRegular
   },
   confirmationCodeText:{
     color: '#939393',
@@ -151,7 +154,8 @@ const styles = StyleSheet.create({
   },
   workEmailText:{
     color: 'black', 
-    marginLeft: 10
+    marginLeft: 10,
+    fontFamily:PoppinsRegular,
   },
   
   

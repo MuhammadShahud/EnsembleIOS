@@ -11,7 +11,7 @@ import {
   PURPLECOLOR,
   SECONDARYCOLOR,
 } from '../../assets/colors/colors';
-import { PoppinsSemiBold } from '../../assets/fonts/Fonts';
+import { PoppinsRegular, PoppinsSemiBold } from '../../assets/fonts/Fonts';
 
 export const styles = StyleSheet.create({
  
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
   },
   small: {
     fontSize: wp('3.5%'),
-    fontFamily: 'Poppins',
+    fontFamily: PoppinsRegular,
     textAlign: 'left',
   },
   absolute: {

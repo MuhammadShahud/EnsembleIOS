@@ -23,6 +23,7 @@ import {
   useBlurOnFulfill,
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
+import { PoppinsLight, PoppinsMedium, PoppinsRegular, PoppinsSemiBold, PoppinsSemiBoldItalic } from '../../../assets/fonts/Fonts'
 
 
 const VerificationCode = (props) => {
@@ -53,7 +54,7 @@ const VerificationCode = (props) => {
 
 console.log("inputCode",value);
 const forgetCode = props.route.params;
-console.log('code',forgetCode.forgetCode);
+// console.log('code',forgetCode.forgetCode);
 
 
   const submitLogin = () => {
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
   cell: {
     width: 50,
     height: 60,
-    borderColor: 'black',
+    borderColor: '#D8D8D8',
     textAlignVertical: 'center',
     fontSize: moderateScale(30),
     borderWidth: 1,
@@ -151,8 +152,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: verticalScale(10),
     marginHorizontal: scale(13),
-    fontWeight: 'bold',
-    color: 'black'
+    // fontWeight: 'bold',
+    fontFamily:PoppinsLight,
+    color: '#636363'
   },
 
   focusCell: {
@@ -167,7 +169,8 @@ const styles = StyleSheet.create({
   verificationCodeText: {
     color: 'black',
     alignSelf: 'flex-start',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:PoppinsSemiBold,
     fontSize: wp('6%'),
     paddingHorizontal: scale(25),
     marginTop: verticalScale(30)
@@ -177,7 +180,8 @@ const styles = StyleSheet.create({
 
     alignSelf: 'flex-start',
     paddingHorizontal: scale(25),
-    paddingTop: verticalScale(10)
+    paddingTop: verticalScale(10),
+    fontFamily:PoppinsRegular
   },
   btn: {
     width: wp('80%')

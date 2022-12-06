@@ -6,6 +6,7 @@ import {
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 
 import { PRIMARYCOLOR } from '../../../assets/colors/colors'
+import { FiraSansBold, PoppinsBold, PoppinsLight, PoppinsRegular } from '../../../assets/fonts/Fonts'
 
 export const style = StyleSheet.create({
   container: {
@@ -30,20 +31,24 @@ export const style = StyleSheet.create({
   justifyContent: 'space-between'
  },
  morning : {
-  fontFamily:'Poppins',
+  fontFamily:PoppinsLight,
   fontSize:30,
   color:'#1B1B1B'
  },
  name: {
-  fontFamily:'Poppins',
+  fontFamily:PoppinsBold,
   fontSize:30,
   color:'#1B1B1B',
-  fontWeight:'bold'
+  fontWeight:'bold',
+  marginTop:verticalScale(-10)
  },
  overview : {
-  fontFamily:'Poppins',
+  fontFamily:FiraSansBold,
   fontSize:26,
   color:'#1B1B1B',
   fontWeight:'bold'
+ },
+ position:{
+  fontFamily:PoppinsRegular
  }
 })

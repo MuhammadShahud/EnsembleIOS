@@ -33,17 +33,17 @@ const Teams = () => {
   const userData = useSelector(USER);
   const [searchPhrase, setSearchPhrase] = useState('');
   const [clicked, setClicked] = useState(false);
-  console.log('Dataaaaa', teamData.employeeId, company.employeeId);
+  console.log('Dataaaaa', teamData?.employeeId, company?.employeeId);
 
-  const checking = teamData.employeeId.filter(e => {
-    e.id === userData.id;
+  const checking = teamData?.employeeId?.filter(e => {
+    e.id === userData?.id;
   });
 
   console.log('checking', userData);
 
-  const team = teamData.employeeId.filter(e => e.id !== userData.id);
+  const team = teamData?.employeeId?.filter(e => e.id !== userData?.id);
 
-  const colleague = company.employeeId.filter(e => e.id !== userData.id);
+  const colleague = company?.employeeId?.filter(e => e.id !== userData?.id);
 
   console.log('Dataaaaa', team, colleague);
   return (

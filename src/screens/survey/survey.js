@@ -303,13 +303,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     borderRadius: moderateScale(30),
     width: '100%',
-    paddingVertical: verticalScale(11),
-    marginTop: verticalScale(10),
+    paddingVertical: verticalScale(8),
+    marginTop: verticalScale(8),
+    marginBottom:verticalScale(10),
     fontFamily: PoppinsSemiBold
   },
   goalParagraph: {
     fontFamily: PoppinsRegular,
-    color: 'black'
+    color: 'black',
   },
   flatListCompleted:{
     marginTop:verticalScale(20)

@@ -3,6 +3,7 @@ import React from 'react'
 import Entypo from 'react-native-vector-icons/Entypo'
 import { ButtonColor } from '../../../assets/colors/colors'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
+import { PoppinsBold } from '../../../assets/fonts/Fonts'
 
 
 const GoalButton = (props) => {
@@ -29,6 +30,8 @@ const styles = StyleSheet.create({
     setText:{
         color:'white',
         fontSize:moderateScale(15),
-        fontWeight:'bold',
+        // fontWeight:'bold',
+        fontFamily:PoppinsBold,
+
 paddingHorizontal:scale(5)    }
 })

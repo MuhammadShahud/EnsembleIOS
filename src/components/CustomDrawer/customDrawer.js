@@ -251,7 +251,7 @@ console.log("userrrr",userData);
             paddingLeft: wp('4%'),
           }}>
           <Image
-            source={{uri:`https://onboard-backendd.herokuapp.com/${userData.profilePic}`}}
+            source={{uri:`https://onboard-backendd.herokuapp.com/${userData?.profilePic}`}}
             style={{borderRadius: 23, marginBottom: 10, height:50, width:50}}
           />
           <TouchableOpacity style={{paddingLeft: wp('3%')}}
@@ -263,7 +263,7 @@ console.log("userrrr",userData);
                 fontWeight: 'bold',
                 fontSize: wp('4.5%'),
               }}>
-              {userData.name}
+              {userData?.name}
             </Text>
             <Text
               style={{

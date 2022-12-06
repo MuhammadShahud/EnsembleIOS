@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp
 } from 'react-native-responsive-screen'
 import { PRIMARYCOLOR } from '../../../assets/colors/colors'
+import { PoppinsBold } from '../../../assets/fonts/Fonts'
 
 export const style = StyleSheet.create({
   container: {
@@ -50,7 +51,8 @@ export const style = StyleSheet.create({
   },
   heading: {
     color: 'black',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:PoppinsBold,
     fontSize: wp('8%')
   },
   eye :{

@@ -17,10 +17,11 @@ import {
 import PrimaryButton from '../../components/PrimaryButton';
 import {useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {scale, verticalScale} from 'react-native-size-matters';
+import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import {ResetPass} from '../../redux/Actions/AuthAction';
 import {PRIMARYCOLOR} from '../../../assets/colors/colors';
 import {appLogo, yellowLine} from '../../../assets/images/images';
+import { PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 
 const ResetPassword = props => {
   const dispatch = useDispatch();
@@ -160,7 +161,8 @@ const styles = StyleSheet.create({
   },
   resetPasswordText: {
     alignSelf: 'flex-start',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:PoppinsSemiBold,
     color: 'black',
     fontSize: wp('6%'),
     paddingHorizontal: scale(25),
@@ -176,6 +178,8 @@ const styles = StyleSheet.create({
   confirmPassword: {
     color: 'black',
     marginLeft: 10,
+    fontFamily:PoppinsRegular,
+    fontSize:moderateScale(14)
   },
 
   firsteye: {

@@ -23,6 +23,7 @@ import GoalUpdateModaal from '../../components/Modaal/GoalUpdateModaal';
 import {addIcon, cross} from '../../../assets/images/images';
 import { useDispatch } from 'react-redux';
 import { PatchGoal } from '../../redux/Actions/AuthAction';
+import { PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 
 const EditGoal = props => {
   const goal = props.route.params.goal;
@@ -202,22 +203,25 @@ const styles = StyleSheet.create({
   editGoalText: {
     marginHorizontal: scale(20),
     color: 'black',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:PoppinsSemiBold,
     fontSize: moderateScale(25),
     marginTop: verticalScale(30),
   },
   steps: {
     color: 'black',
     fontSize: moderateScale(20),
-    fontWeight: '500',
+    // fontWeight: '500',
     marginHorizontal: scale(20),
     marginTop: verticalScale(15),
-    // marginBottom:scale(30)
+    // marginBottom:scale(30),
+    fontFamily:PoppinsMedium
   },
   stepsText: {
     color: 'black',
     fontSize: moderateScale(20),
-    fontWeight: '500',
+    // fontWeight: '500',
+    fontFamily:PoppinsMedium,
     marginHorizontal: scale(20),
     marginTop: verticalScale(15),
     marginBottom: scale(30),
@@ -225,12 +229,13 @@ const styles = StyleSheet.create({
   editGoalDate: {
     color: 'black',
     textAlign: 'center',
-    fontWeight: '500',
+    fontFamily:PoppinsMedium,
     marginVertical: verticalScale(60),
-    width: '38%',
+    width: '40%',
     borderBottomWidth: 1,
-    marginLeft: '53%',
-    // width:'50%'
+    marginLeft: '50%',
+    // width:'50%',
+    fontSize:moderateScale(13)
   },
   stepView: {
     // marginTop: verticalScale(20),
@@ -250,6 +255,7 @@ const styles = StyleSheet.create({
   },
   step: {
     color: 'black',
+    fontFamily:PoppinsRegular
   },
   crossIcon: {
     color: 'black',
@@ -284,6 +290,7 @@ const styles = StyleSheet.create({
   },
   anotherstep: {
     paddingLeft: scale(5),
+    fontFamily:PoppinsRegular
   },
   input: {
     paddingBottom: verticalScale(50),

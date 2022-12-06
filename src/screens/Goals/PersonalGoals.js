@@ -30,6 +30,7 @@ import {ButtonColor} from '../../../assets/colors/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import {GetGoals} from '../../redux/Actions/AuthAction';
 import {GOALS, USER} from '../../redux/Reducers/AuthReducer';
+import { FiraSansBold, FiraSansRegular, FiraSansSemiBold, PoppinsBold } from '../../../assets/fonts/Fonts';
 const PersonalGoals = () => {
   const user =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWh1ZEBwbHVtdHJlZWdyb3VwLm5ldCIsImlhdCI6MTY2NDU2NzExNSwiZXhwIjoxNjk2MTAzMTE1fQ.bG940Pi5-Tf6CX4AMxLSZ2vLHZJr3XfgkBsIRvtkNeA';
@@ -66,14 +67,17 @@ const PersonalGoals = () => {
     },
   ];
 
-  const data = goalsData;
+  const data = goalsData? goalsData: null;
 
-  data.forEach(e => {
+  if(goalsData.dueDate){
+    console.log("workingg");
+ data.forEach(e => {
     let date = e.dueDate.split('T');
     console.log("dateeee",date);
     e.dueDate =date[0];
     console.log("dataaaa",data);
   });
+}
   console.log('userrr', user.token);
   useFocusEffect(
     useCallback(() => {
@@ -85,7 +89,7 @@ const PersonalGoals = () => {
   return (
     <View style={styles.mainView}>
       <View>
-        <Header title={'The Plum Tree Group '} source={notiLogo} />
+        <Header  source={notiLogo} />
         <SetGoals visible={visible} setVisible={setVisible} />
 
         <OngoingCompleted
@@ -109,7 +113,8 @@ const PersonalGoals = () => {
             return (
               <TouchableOpacity
                 style={styles.box}
-                onPress={() => navigation.navigate('duedate',{goal: item})}>
+                onPress={() => navigation.navigate('duedate',{goal: item})}
+                >
                 <View style={styles.imageView}>
                   <Image source={awardLogo} />
                 </View>
@@ -138,9 +143,10 @@ const PersonalGoals = () => {
           keyExtractor={item => item.id}
           renderItem={({item}) => {
             return (
-              <TouchableOpacity
+              <View
                 style={styles.laptopBox}
-                onPress={() => navigation.navigate('duedate')}>
+                // onPress={() => navigation.navigate('duedate')}
+                >
                 <View style={styles.checkView}>
                   <Image source={checkMark} />
                 </View>
@@ -150,7 +156,7 @@ const PersonalGoals = () => {
                     <Text style={styles.laptopDate}>{item.date}</Text>
                   </View>
                 </View>
-              </TouchableOpacity>
+              </View>
             );
           }}
         />
@@ -215,7 +221,9 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(20),
     marginBottom: verticalScale(5),
     fontSize: moderateScale(20),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:FiraSansBold
+
   },
 
   box: {
@@ -229,12 +237,14 @@ const styles = StyleSheet.create({
   title: {
     color: 'black',
     fontSize: moderateScale(17),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:FiraSansSemiBold,
     paddingTop: verticalScale(5),
   },
   date: {
     color: 'black',
     paddingLeft: scale(8),
+    fontFamily:FiraSansRegular
   },
   dateView: {
     flexDirection: 'row',
@@ -257,6 +267,7 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(40),
     color: 'black',
     fontWeight: 'bold',
+    // fontFamily:PoppinsBold
   },
   smartText: {
     color: 'black',

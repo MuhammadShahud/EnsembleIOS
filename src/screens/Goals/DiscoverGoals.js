@@ -8,6 +8,7 @@ import { ProgressBar, MD3Colors } from 'react-native-paper';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { useNavigation } from '@react-navigation/native'
 import { awardLogo, loading, notiLogo, timeLogo } from '../../../assets/images/images'
+import { FiraSansRegular, FiraSansSemiBold, PoppinsBold } from '../../../assets/fonts/Fonts';
 const PersonalGoals = () => {
   const navigation = useNavigation()
   const [show, setShow] = useState(true)
@@ -105,7 +106,8 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(20),
     marginBottom: verticalScale(10),
     fontSize: moderateScale(30),
-    fontWeight: 'bold'
+    // fontWeight: 'bold',
+    fontFamily:PoppinsBold
   },
 
   box: {
@@ -119,12 +121,14 @@ const styles = StyleSheet.create({
   title: {
     color: 'black',
     fontSize: moderateScale(17),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:FiraSansSemiBold,
     paddingTop: verticalScale(5)
   },
   date: {
     color: 'black',
     paddingLeft: scale(8),
+    fontFamily:FiraSansRegular
     
 
   },

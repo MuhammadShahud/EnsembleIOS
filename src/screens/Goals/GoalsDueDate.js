@@ -13,6 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import {useNavigation} from '@react-navigation/native';
 import {ProgressBar, MD3Colors} from 'react-native-paper';
+import { FiraSansMedium, FiraSansRegular, FiraSansSemiBold, PoppinsBold, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 
 const GoalsDueDate = props => {
   const navigation = useNavigation();
@@ -106,7 +107,8 @@ const styles = StyleSheet.create({
   duedateText: {
     color: 'black',
     fontSize: moderateScale(25),
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    fontFamily:PoppinsSemiBold,
     marginHorizontal: scale(20),
     marginTop: verticalScale(30),
   },
@@ -118,18 +120,23 @@ const styles = StyleSheet.create({
   number: {
     color: ButtonColor,
     fontSize: moderateScale(50),
-    fontWeight: '900',
+    // fontWeight: '900',
+    fontFamily:PoppinsBold
   },
   dateText: {
     paddingLeft: scale(5),
     color: 'black',
-    fontWeight: '500',
+    marginTop:verticalScale(-5),
+    // fontWeight: '500',
+    fontFamily:PoppinsMedium
     // paddingTop:scale(5)
   },
   timeText: {
     paddingLeft: scale(5),
     color: 'black',
-    fontWeight: '400',
+    // fontWeight: '400',
+    fontFamily:PoppinsRegular,
+    marginTop:verticalScale(-5)
   },
   boxView: {
     backgroundColor: ButtonColor,
@@ -148,12 +155,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: moderateScale(15),
     paddingLeft: scale(10),
+    fontFamily:FiraSansSemiBold
   },
   date: {
     color: 'white',
     fontWeight: '400',
     fontSize: moderateScale(10),
     paddingLeft: scale(10),
+    fontFamily:FiraSansRegular
   },
   circle: {
     marginTop: verticalScale(20),
@@ -177,12 +186,14 @@ const styles = StyleSheet.create({
     // marginHorizontal: scale(20),
     marginTop: verticalScale(15),
     fontSize: moderateScale(20),
-    fontWeight: '500',
+    // fontWeight: '500',
+    fontFamily:PoppinsMedium
   },
   steps: {
     color: 'black',
     fontSize: moderateScale(20),
-    fontWeight: '500',
+    // fontWeight: '500',
+    fontFamily:PoppinsMedium
   },
   editView: {
     flexDirection: 'row',
@@ -194,7 +205,8 @@ const styles = StyleSheet.create({
   },
   edit: {
     color: ButtonColor,
-    fontWeight: '500',
+    // fontWeight: '500',
+    fontFamily:FiraSansMedium
     // fontSize:moderateScale(15)
   },
   editIcon: {
@@ -229,6 +241,7 @@ const styles = StyleSheet.create({
     color: 'black',
     paddingLeft: scale(15),
     fontSize: moderateScale(15),
+    fontFamily:PoppinsRegular
   },
 
   progressView: {

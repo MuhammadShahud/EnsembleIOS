@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     },
     input:{
         paddingBottom:verticalScale(50),
+        // width:'80%'
         // paddingHorizontal:scale(20)
     }
 })
