@@ -74,6 +74,20 @@ export const accessiblity = require('./accessiblity.png')
 export const terms = require('./terms.png')
 export const lock = require('./lock.png')
 export const right = require('./right.png')
+export const blackHome = require('./blackHome.png')
+export const blackGoals = require('./blackGoals.png')
+export const blackTeams = require('./blackTeams.png')
+export const blackSurvey = require('./blackSurvey.png')
+export const blackBriefCase = require('./blackBriefCase.png')
+export const blackPeople = require('./blackPeople.png')
+export const drawerGoals = require('./drawerGoals.png')
+export const drawerSurvey = require('./drawerSurvey.png')
+export const blackResources = require('./blackResources.png')
+export const blackSetting = require('./blackSetting.png')
+export const blackFun = require('./blackFun.png')
+export const blackLogout = require('./blackLogout.png')
+export const filledHome = require('./filledHome.png')
+
 
 
 

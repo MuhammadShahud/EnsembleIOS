@@ -23,6 +23,7 @@
     "@reduxjs/toolkit": "^1.8.3",
     "@types/react-native": "^0.70.4",
     "axios": "^0.27.2",
+    "lottie-react-native": "^5.1.4",
     "moment": "^2.29.4",
     "react": "18.0.0",
     "react-native": "0.69.1",

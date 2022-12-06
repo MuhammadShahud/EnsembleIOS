@@ -5,6 +5,9 @@ import PrimaryButton from '../../components/PrimaryButton'
 import { styles } from './splashStyle'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import Lottie from 'lottie-react-native';
+import { verticalScale } from 'react-native-size-matters'
+
 
 const Splash = () => {
   const splash = [{
@@ -30,7 +33,7 @@ const Splash = () => {
 
   const onStart = () => {
     console.log('working')
-    navigation.navigate('name')
+    navigation.navigate('drawer')
     // navigation.navigate('survey')
   }
 
@@ -42,56 +45,62 @@ const Splash = () => {
           resizeMode="contain"
           source={ensembleLogo}
         />
-        {/* <Image style={styles.imageStyle} source={boat} /> */}
+      
       </View>
 
-    {/* <View>
-              <Image style={styles.imageStyle} source={ship} />
 
-    </View> */}
+      <Lottie source={require('../../../assets/lootiefile/splashLootie.json')}
+        style={styles.lootie}
+        
+        autoPlay
+        loop
+        speed={2.0} />
 
-      <View>
 
-        <FlatList
-          style={styles.flatListCompleted}
-          data={splash}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.boxView}>
-                <Image style={styles.imageView} source={item.imageURL} />
 
-                <View>
-                  <Text style={styles.setGoals}>{item.title}</Text>
-                  <Text style={styles.monthly}>{item.text}</Text>
-                  <Text style={styles.company}>{item.text1}</Text>
+
+        <View style={styles.flatlistView}>
+
+          <FlatList
+            style={styles.flatListCompleted}
+            data={splash}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => {
+              return (
+                <View style={styles.boxView}>
+                  <Image style={styles.imageView} source={item.imageURL} />
+
+                  <View>
+                    <Text style={styles.setGoals}>{item.title}</Text>
+                    <Text style={styles.monthly}>{item.text}</Text>
+                    <Text style={styles.company}>{item.text1}</Text>
+                  </View>
                 </View>
-              </View>
-            );
-          }}
-        />
+              );
+            }}
+          />
 
 
 
+
+        </View>
+
+
+
+
+
+
+
+        <View style={styles.btn}>
+          <PrimaryButton
+            title="Let's Get Started"
+            backgroundColor="#2B2F86"
+            color="white"
+            onPress={onStart}
+          />
+        </View>
 
       </View>
-
-
-
-
-
-
-
-      <View style={styles.btn}>
-        <PrimaryButton
-          title="Let's Get Started"
-          backgroundColor="#2B2F86"
-          color="white"
-          onPress={onStart}
-        />
-      </View>
-
-    </View>
   )
 }
 

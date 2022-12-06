@@ -10,6 +10,10 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {
+  blackGoals,
+  blackHome,
+  blackSurvey,
+  blackTeams,
   greenHome,
   setting,
   tabGoal,
@@ -24,6 +28,7 @@ import {GoalStack} from './MainStack';
 import Settings from '../screens/settings/Settings';
 import Review from '../screens/survey/Review';
 import SurveySuceed from '../screens/survey/SurveySuceed';
+import { verticalScale } from 'react-native-size-matters';
 
 const TabStack = () => {
   const Tab = createMaterialBottomTabNavigator();
@@ -32,32 +37,32 @@ const TabStack = () => {
 
   return (
     <Tab.Navigator
-      barStyle={{backgroundColor: '#000000', height: hp('7%')}}
+      barStyle={{backgroundColor: 'white', height: hp('8%')}}
       initialRouteName={initialRoute}>
       <Tab.Screen
-        name="home"
+        name="Home"
         component={Home}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image source={greenHome} style={styles.tabImageStyle} />
+            <Image source={blackHome} style={styles.tabImageStyle} />
           ),
         }}
       />
       <Tab.Screen
-        name="goals"
+        name="Goals"
         component={PersonalGoals}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image source={tabGoal} style={styles.tabImageStyle} />
+            <Image source={blackGoals} style={styles.tabImageStyle} />
           ),
         }}
       />
       <Tab.Screen
-        name="surveys"
+        name="Surveys"
         component={Survey}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image source={tabSurvey} style={styles.tabImageStyle} />
+            <Image source={blackSurvey} style={styles.tabImageStyle} />
           ),
         }}
       />
@@ -65,11 +70,11 @@ const TabStack = () => {
     
    
       <Tab.Screen
-        name="teams"
+        name="Teams"
         component={Teams}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image source={tabTeam} style={styles.tabImageStyle} />
+            <Image source={blackTeams} style={styles.tabImageStyle} />
           ),
         }}
       />
@@ -78,7 +83,10 @@ const TabStack = () => {
 };
 
 const styles = StyleSheet.create({
-  tabImageStyle: {},
+  tabImageStyle: {
+    // marginBottom:verticalScale(30)
+    marginTop:verticalScale(-5)
+  },
 });
 
 export default TabStack;

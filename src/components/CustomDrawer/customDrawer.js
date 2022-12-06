@@ -178,7 +178,7 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {logout, drawerPP, drawerPT} from '../../../assets/images/images';
+import {logout, drawerPP, drawerPT, blackPeople, drawerGoals, blackSurvey, drawerSurvey, blackResources, blackFun, blackBriefCase, blackSetting, blackLogout} from '../../../assets/images/images';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -197,6 +197,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { USER } from '../../redux/Reducers/AuthReducer';
+import { black } from 'react-native-paper/lib/typescript/styles/colors';
 
 const CustomDrawer = props => {
 
@@ -287,49 +288,49 @@ console.log("userrrr",userData);
 
         <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('teams')} >
           <View style={style.tabImage}>
-          <Image source={people}  />
+          <Image source={blackPeople}  />
           </View>
           <Text style={style.tabText}>People</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('goals')}>
         <View style={style.tabImage}>
-          <Image source={goals}  />
+          <Image source={drawerGoals}  />
           </View>
           <Text style={style.tabText}>Goals</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('surveys')}>
         <View style={style.tabImage}>
-          <Image source={survey}  />
+          <Image source={drawerSurvey}  />
           </View>
           <Text style={style.tabText}>Survey</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs}>
         <View style={style.tabImage}>
-          <Image source={resource}  />
+          <Image source={blackResources}  />
           </View>
           <Text style={style.tabText}>Resources</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs}>
         <View style={style.tabImage}>
-          <Image source={fun}  />
+          <Image source={blackFun}  />
           </View>
           <Text style={style.tabText}>Fun stuff</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs}>
         <View style={style.tabImage}>
-          <Image source={profDev}  />
+          <Image source={blackBriefCase}  />
           </View>
           <Text style={style.tabText}>Professional Development</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('Settings')}>
         <View style={style.tabImage}>
-          <Image source={setting}  />
+          <Image source={blackSetting}  />
           </View>
           <Text style={style.tabText}>Settings</Text>
         </TouchableOpacity>
@@ -342,7 +343,7 @@ console.log("userrrr",userData);
           style={{
             paddingVertical: wp('4%'),
             borderWidth: 1,
-            borderColor: '#2AB579',
+            borderColor: 'black',
             borderRadius: 38,
           }}>
           <View
@@ -351,13 +352,13 @@ console.log("userrrr",userData);
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <Image source={logout} />
+            <Image source={blackLogout} />
             <Text
               style={{
                 fontSize: 15,
                 fontFamily: 'Poppins',
                 marginLeft: 5,
-                color: '#2AB579',
+                color: 'black',
                 fontWeight: 'bold',
               }}>
               Logout
