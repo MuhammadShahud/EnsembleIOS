@@ -87,6 +87,10 @@ export const blackSetting = require('./blackSetting.png')
 export const blackFun = require('./blackFun.png')
 export const blackLogout = require('./blackLogout.png')
 export const filledHome = require('./filledHome.png')
+export const filledGoals = require('./filledGoals.png')
+export const filledSurvey = require('./filledSurvey.png')
+export const filledTeam = require('./filledTeam.png')
+
 
 
 

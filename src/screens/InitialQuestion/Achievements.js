@@ -13,7 +13,7 @@ const Achievements = () => {
   return (
     <View style={styles.mainView}>
             <QuestionHeader/>
-            <Dashes color={7}/>
+            <Dashes color={5}/>
             <View style={{justifyContent:'center',height:'75%'}}>
             <Questions title='Whats’s an achievement you are proud of?'/>
             <InputField inputStyle={styles.input} placeholder='Don’t be shy. You can tell us'/>

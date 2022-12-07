@@ -73,7 +73,7 @@ const Name = () => {
           powered={{color: 'black'}}
           ensemble={{color: 'black'}}
           iconName={'chevron-right'}
-          onPress={() => navigation.navigate('jobtitle')}
+          onPress={() => navigation.navigate('skills')}
         />
       </View>
 

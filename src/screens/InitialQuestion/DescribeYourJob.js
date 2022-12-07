@@ -13,7 +13,7 @@ const DescribeYourJob = () => {
   return (
     <View style={styles.mainView}>
             <QuestionHeader/>
-            <Dashes color={6}/>
+            <Dashes color={4}/>
             <View style={{justifyContent:'center',height:'75%'}}>
             <Questions title='How would you describe your job/role to a group of 5 years olds?'/>
             <InputField inputStyle={styles.input} placeholder='“I give machines a brain to help them learn and be smarter.”'/>

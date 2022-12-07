@@ -32,7 +32,7 @@ const Skills = (props) => {
     return (
         <View style={styles.mainView}>
             <QuestionHeader />
-            <Dashes color={4} />
+            <Dashes color={2} />
             <View style={{ justifyContent: 'center', height: '75%' }}>
                 <Questions title='What are your rockstar skills?' />
                 <RockstarSkills firstTitle='COMMUNICATION' secondTitle='MANAGEMENT' firstImage={communication} secondImage={management} />
@@ -56,7 +56,7 @@ const Skills = (props) => {
 
 
                 <TextInput placeholderTextColor='#414141' value={props.value ? props.value : null} onChangeText={props.onChangeText ? (e) => props.onChangeText(e) : null} style={[styles.input, props.inputStyle]} placeholder='Write other option here..' />
-                <TouchableOpacity style={styles.circleView} onPress={()=>setShow(false)}>
+                <TouchableOpacity style={styles.circleView} onPress={changeColor}>
 
                 <Entypo name='plus' size={20} color='white'/>
                 </TouchableOpacity>

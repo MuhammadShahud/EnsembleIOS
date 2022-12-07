@@ -10,14 +10,9 @@ import ResetPassword from '../screens/login/ResetPassword';
 import NewGoal from '../screens/Goals/NewGoal';
 import SuccessGoal from '../screens/Goals/SuccessGoal';
 import PersonalGoals from '../screens/Goals/PersonalGoals';
-import Calen from '../screens/Goals/Calender';
 import Footer from '../components/footer/Footer';
 import DiscoverGoals from '../screens/Goals/DiscoverGoals';
-import GoalsDueDate from '../screens/Goals/GoalsDueDate';
-import EditGoal from '../screens/Goals/EditGoal';
 import Name from '../screens/InitialQuestion/Name';
-import JobTitle from '../screens/InitialQuestion/JobTitle';
-import DescribeYourself from '../screens/InitialQuestion/DescribeYourself';
 import Skills from '../screens/InitialQuestion/Skills';
 import EnjoyDoing from '../screens/InitialQuestion/EnjoyDoing';
 import DescribeYourJob from '../screens/InitialQuestion/DescribeYourJob';
@@ -26,11 +21,8 @@ import About from '../screens/InitialQuestion/About';
 import Camera from '../screens/InitialQuestion/Camera';
 import RetakePhoto from '../screens/InitialQuestion/RetakePhoto';
 import EditProfile from '../screens/Goals/EditProfile';
-import Review from '../screens/survey/Review';
 import Settings from '../screens/settings/Settings';
-import SurveySuceed from '../screens/survey/SurveySuceed';
 import ChangePassword from '../screens/settings/ChangePassword';
-import Notification from '../screens/notification/Notification';
 
 
 const Main = createNativeStackNavigator();
@@ -66,11 +58,7 @@ const MainStack = () => {
         component={Name}
         options={{headerShown: false}}
       />
-      <Main.Screen
-        name="describeyourself"
-        component={DescribeYourself}
-        options={{headerShown: false}}
-      />
+      
       <Main.Screen
         name="achievements"
         component={Achievements}
@@ -81,11 +69,7 @@ const MainStack = () => {
         component={DescribeYourJob}
         options={{headerShown: false}}
       />
-      <Main.Screen
-        name="jobtitle"
-        component={JobTitle}
-        options={{headerShown: false}}
-      />
+     
       <Main.Screen
         name="enjoy"
         component={EnjoyDoing}

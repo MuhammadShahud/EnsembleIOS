@@ -64,27 +64,28 @@ export default function Home() {
           <Text style={style.overview}>Overview</Text>
           <View style={{height: hp('2%')}}></View>
           <HomeBox
-            navigate="teams"
+            navigate="Teams"
             image={findPeople}
             text1="Find your collegues!"
-            text2="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "
+            text2="Search your colleagues and get connected now "
           />
           <View style={{height: hp('2%')}}></View>
 
           <HomeBox
-            navigate="goals"
+            navigate="Goals"
             image={medal}
             text1="Set your Goals"
-            text2="Create a goal from scratch or choose goals from the templates"
+            text2="Create a goal from scratch or choose 
+            goals from the templates"
           />
 
           <View style={{height: hp('2%')}}></View>
 
           <HomeBox
-            navigate="surveys"
+            navigate="Surveys"
             image={task}
             text1="Start your Pulse survey!"
-            text2="Lorem Ipsum dolar sit Lorem Ipsum"
+            text2="Answer these pulse survey questions anonymously"
             color="#2AB679"
           />
         </View>

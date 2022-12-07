@@ -16,7 +16,7 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 
 const Review = () => {
-    // const [checked, setChecked] = React.useState(0);
+    const [checked, setChecked] = React.useState(0);
     // const [checked, setChecked] = React.useState(0);
 
     
@@ -53,12 +53,15 @@ const Review = () => {
                         /> */}
 
                         <BouncyCheckbox
-                          
+                          isChecked={checked === 1 ? true : false}
+                          disableBuiltInState={true}
                             style={styles.checkBox}
                             size={25}
                             fillColor="#2AB679"
                             innerIconStyle={{ borderWidth: 2, borderColor: '#808080' }}
-                        //   onPress={(isChecked: boolean) => {}}
+                            onPress={() => {
+                                checked === 1?
+                                setChecked(0): setChecked(1)}}
                       
                      
                         />
@@ -75,12 +78,16 @@ const Review = () => {
 
                         <BouncyCheckbox
                         
-                            
+                        isChecked={checked === 2 ? true : false}
+                        disableBuiltInState={true}
                             style={styles.checkBox}
                             size={25}
                             fillColor='#2AB679'
                             innerIconStyle={{ borderWidth: 2, borderColor: '#808080' }}
-                        //   onPress={(isChecked: boolean) => {}}
+                            onPress={() => {
+                                checked === 2?
+                                setChecked(0): 
+                                setChecked(2)}}
                        
                         />
                         <Text style={styles.text1}>Disagree </Text>
@@ -90,11 +97,16 @@ const Review = () => {
 
                       
                         <BouncyCheckbox
+                         isChecked={checked === 3 ? true : false}
+                         disableBuiltInState={true}
                             style={styles.checkBox}
                             size={25}
                             fillColor="#2AB679"
                             innerIconStyle={{ borderWidth: 2, borderColor: '#808080' }}
-                        //   onPress={(isChecked: boolean) => {}}
+                          onPress={() => {
+                            checked === 3?
+                                setChecked(0): 
+                            setChecked(3)}}
                       
                         />
                         <Text style={styles.text1}>Neutral </Text>
@@ -105,11 +117,16 @@ const Review = () => {
 
                        
                         <BouncyCheckbox
+                         isChecked={checked === 4 ? true : false}
+                         disableBuiltInState={true}
                             style={styles.checkBox}
                             size={25}
                             fillColor="#2AB679"
                             innerIconStyle={{ borderWidth: 2, borderColor: '#808080' }}
-                        //   onPress={(isChecked: boolean) => {}}
+                            onPress={() => {
+                                checked === 4?
+                                setChecked(0): 
+                                setChecked(4)}}
 
                        
                         />
@@ -121,12 +138,17 @@ const Review = () => {
 
                      
                         <BouncyCheckbox
+                         isChecked={checked === 5 ? true : false}
+                         disableBuiltInState={true}
                             style={styles.checkBox}
                             size={25}
                             fillColor="#2AB679"
                             innerIconStyle={{ borderWidth: 2, borderColor: '#808080' }}
                            
-                        //   onPress={(isChecked: boolean) => {}}
+                            onPress={() => {
+                                checked === 5?
+                                setChecked(0): 
+                                setChecked(5)}}
                         />
                         <Text style={styles.text1}>Strongly </Text>
                         <Text style={styles.text1}>Agree </Text>
