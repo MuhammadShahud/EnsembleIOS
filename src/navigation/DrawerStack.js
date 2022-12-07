@@ -6,7 +6,7 @@ import Survey from '../screens/survey/survey';
 import CustomDrawer from '../components/CustomDrawer/customDrawer';
 import TabStack from './TabStack'
 import { Image } from 'react-native';
-import { fun, goals, people, profDev, resource, setting, survey } from '../../assets/images/images';
+import { fun, goals, notiLogo, people, profDev, resource, setting, survey } from '../../assets/images/images';
 import EditProfile from '../screens/Goals/EditProfile';
 import Notification from '../screens/notification/Notification';
 import GoalsDueDate from '../screens/Goals/GoalsDueDate';

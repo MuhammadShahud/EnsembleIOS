@@ -9,15 +9,20 @@ import Footer from '../../components/footer/Footer'
 import { useNavigation } from '@react-navigation/native'
 import { Checkbox } from 'react-native-paper';
 import { ButtonColor } from '../../../assets/colors/colors'
+import BouncyCheckbox from "react-native-bouncy-checkbox";
+
 
 
 
 
 const Review = () => {
-    const [checked, setChecked] = React.useState(0);
+    // const [checked, setChecked] = React.useState(0);
+    // const [checked, setChecked] = React.useState(0);
+
+    
 
 
-   
+
 
     const navigation = useNavigation();
     return (
@@ -31,9 +36,6 @@ const Review = () => {
                 </View>
                 <Text style={styles.text}>My organization takes measures to attract diverse talent.</Text>
 
-               
-
-
 
 
 
@@ -41,40 +43,59 @@ const Review = () => {
 
                     <View>
 
-                        <Checkbox
+                        {/* <Checkbox
                             status={checked === 1 ? 'checked' : 'unchecked'}
                             color={ButtonColor}
 
                             onPress={() => {
                                 setChecked(1);
                             }}
+                        /> */}
+
+                        <BouncyCheckbox
+                          
+                            style={styles.checkBox}
+                            size={25}
+                            fillColor="#2AB679"
+                            innerIconStyle={{ borderWidth: 2, borderColor: '#808080' }}
+                        //   onPress={(isChecked: boolean) => {}}
+                      
+                     
                         />
+
+
+
                         <Text style={styles.text1}>Strongly </Text>
                         <Text style={styles.text1}>Disagree </Text>
 
                     </View>
                     <View>
 
-                        <Checkbox
-                            status={checked === 2 ? 'checked' : 'unchecked'}
-                            color={ButtonColor}
+                      
 
-                            onPress={() => {
-                                setChecked(2);
-                            }}
+                        <BouncyCheckbox
+                        
+                            
+                            style={styles.checkBox}
+                            size={25}
+                            fillColor='#2AB679'
+                            innerIconStyle={{ borderWidth: 2, borderColor: '#808080' }}
+                        //   onPress={(isChecked: boolean) => {}}
+                       
                         />
                         <Text style={styles.text1}>Disagree </Text>
 
                     </View>
                     <View>
 
-                        <Checkbox
-                            status={checked === 3 ? 'checked' : 'unchecked'}
-                            color={ButtonColor}
-
-                            onPress={() => {
-                                setChecked(3);
-                            }}
+                      
+                        <BouncyCheckbox
+                            style={styles.checkBox}
+                            size={25}
+                            fillColor="#2AB679"
+                            innerIconStyle={{ borderWidth: 2, borderColor: '#808080' }}
+                        //   onPress={(isChecked: boolean) => {}}
+                      
                         />
                         <Text style={styles.text1}>Neutral </Text>
 
@@ -82,12 +103,15 @@ const Review = () => {
 
                     <View>
 
-                        <Checkbox
-                            status={checked === 4 ? 'checked' : 'unchecked'}
-                            color={ButtonColor}
-                            onPress={() => {
-                                setChecked(4);
-                            }}
+                       
+                        <BouncyCheckbox
+                            style={styles.checkBox}
+                            size={25}
+                            fillColor="#2AB679"
+                            innerIconStyle={{ borderWidth: 2, borderColor: '#808080' }}
+                        //   onPress={(isChecked: boolean) => {}}
+
+                       
                         />
                         <Text style={styles.text1}>Agree </Text>
 
@@ -95,13 +119,14 @@ const Review = () => {
 
                     <View>
 
-                        <Checkbox
-                            status={checked === 5 ? 'checked' : 'unchecked'}
-                            color={ButtonColor}
-
-                            onPress={() => {
-                                setChecked(5);
-                            }}
+                     
+                        <BouncyCheckbox
+                            style={styles.checkBox}
+                            size={25}
+                            fillColor="#2AB679"
+                            innerIconStyle={{ borderWidth: 2, borderColor: '#808080' }}
+                           
+                        //   onPress={(isChecked: boolean) => {}}
                         />
                         <Text style={styles.text1}>Strongly </Text>
                         <Text style={styles.text1}>Agree </Text>
@@ -114,7 +139,7 @@ const Review = () => {
 
 
 
-              
+
 
 
             </View>
@@ -140,7 +165,8 @@ const styles = StyleSheet.create({
         fontFamily: InterBold,
         color: 'black',
         marginHorizontal: scale(20),
-        fontSize: moderateScale(24)
+        fontSize: moderateScale(24),
+        marginTop:verticalScale(15)
     },
     loadingView: {
         flexDirection: 'row',
@@ -162,6 +188,10 @@ const styles = StyleSheet.create({
         fontFamily: InterRegular,
         color: '#616161'
     },
+    checkBox:{
+        marginBottom:verticalScale(10),
+        alignSelf:'center'
+    }
 
 
 
@@ -186,5 +216,6 @@ const styles = StyleSheet.create({
     //   label: {
     //     margin: 8,
     //   },
+
 
 })

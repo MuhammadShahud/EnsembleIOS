@@ -6,6 +6,7 @@ import {ButtonColor} from '../../../assets/colors/colors';
 import Button from '../Button';
 import {frameLogo} from '../../../assets/images/images';
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import { PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 
 const SetGoalModaal = props => {
   const navigation = useNavigation();
@@ -115,7 +116,8 @@ const styles = StyleSheet.create({
   text:{
     color:'black',
     fontSize:moderateScale(25),
-    fontWeight:'bold',
+    // fontWeight:'bold',
+    fontFamily:PoppinsSemiBold,
     textAlign:'center',
     marginBottom:verticalScale(10)
   },
