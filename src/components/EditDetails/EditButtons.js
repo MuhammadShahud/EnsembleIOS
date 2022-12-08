@@ -3,6 +3,7 @@ import React from 'react'
 import { add, edit } from '../../../assets/images/images'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { ButtonColor } from '../../../assets/colors/colors'
+import { PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
 
 
 const EditButtons = (props) => {
@@ -71,12 +72,14 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'white',
-        fontWeight: '500'
+        // fontWeight: '500'
+        fontFamily:PoppinsRegular
     },
     title: {
         color: 'black',
         fontSize: moderateScale(20),
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
+        fontFamily:PoppinsSemiBold
         // textAlign:'center'
 
     },
