@@ -12,7 +12,6 @@ const Button = (props) => {
         <TouchableOpacity onPress={props.onPress}>
 
       <Text style={[styles.button,props.buttonStyle]}>{props.title}</Text>
-          {/* <Feather name='plus' size={15}/> */}
         </TouchableOpacity>
     </View>
   )
@@ -22,7 +21,6 @@ export default Button
 
 const styles = StyleSheet.create({
     button:{
-        // backgroundColor:'#2B2F86',
         backgroundColor:PRIMARYCOLOR,
         width:'100%',
         paddingHorizontal:scale(50),
@@ -30,7 +28,6 @@ const styles = StyleSheet.create({
         color:'white',
         alignSelf:'center',
         borderRadius:moderateScale(20),
-        // fontWeight:'bold',
         fontSize:moderateScale(15),
         textAlign:'center',
         fontFamily:PoppinsSemiBold

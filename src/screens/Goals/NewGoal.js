@@ -19,6 +19,7 @@ import {useNavigation} from '@react-navigation/native';
 import {ButtonColor} from '../../../assets/colors/colors';
 import {addIcon, cross} from '../../../assets/images/images';
 import DashesGoals from '../../components/Goals/dashesGoals';
+import { PoppinsBold, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 // import Entypo from 'react-native-vector-icons/Entypo'
 
 const NewGoal = () => {
@@ -93,6 +94,7 @@ const NewGoal = () => {
             style={styles.input}
             onChangeText={e => setGoalInput(e)}
             placeholder="Type your new goal..."
+            placeholderTextColor={'#BBBBBB'}
           />
           <Text style={styles.planText}>
             Plan the steps to achieve your goal
@@ -176,8 +178,8 @@ const styles = StyleSheet.create({
   },
   goal: {
     color: 'black',
-    fontSize: moderateScale(20),
-    fontWeight: 'bold',
+    fontSize: moderateScale(24),
+    fontFamily:PoppinsSemiBold,
     paddingHorizontal: scale(20),
   },
   firstView: {
@@ -186,6 +188,9 @@ const styles = StyleSheet.create({
   setGoal: {
     color: 'black',
     paddingHorizontal: scale(20),
+    fontFamily:PoppinsRegular,
+    fontSize:moderateScale(14),
+    marginTop:verticalScale(-3)
   },
   input: {
     // paddingHorizontal:scale(20),
@@ -205,7 +210,7 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(20),
     color: 'black',
     fontSize: moderateScale(25),
-    fontWeight: 'bold',
+    fontFamily:PoppinsSemiBold,
     paddingHorizontal: scale(20),
   },
   radioView: {
@@ -230,22 +235,18 @@ const styles = StyleSheet.create({
   anotherstep: {
     color: 'black',
     paddingLeft: scale(5),
+    color:'#696969',
+    fontFamily:PoppinsRegular
   },
   stepInput: {
-    // backgroundColor: 'white',
     color: 'black',
     width: '80%',
-    // borderWidth: 1,
     borderRadius: moderateScale(20),
-    // borderColor: 'red',
-    // marginHorizontal:10,
     paddingLeft: 0,
   },
   textInputView: {
-    // borderWidth: 1,
     marginRight: scale(20),
     marginLeft: scale(20),
-    // marginTop:20,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

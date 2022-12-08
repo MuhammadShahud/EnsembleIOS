@@ -21,6 +21,8 @@ const Skills = (props) => {
 
     const changeButtonColor = () => {
         setBtnState(!btnState)
+        setBtnTextColor(!btnTextColor)
+
     }
     const changeButtonColor1 = () => {
         setBtnState1(!btnState1)
@@ -34,6 +36,11 @@ const Skills = (props) => {
 
     const changeColor = () => {
         setBtnState1(!btnState1)
+        setBtnTextColor1(!btnTextColor1)
+
+
+
+
         setShow(!show)
 
     }

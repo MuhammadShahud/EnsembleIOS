@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: moderateScale(35),
         marginHorizontal: scale(20),
-        // fontWeight: 'bold',
         fontFamily:PoppinsSemiBold,
         marginBottom:verticalScale(10)
     },

@@ -47,9 +47,7 @@ const styles = StyleSheet.create({
   GoalText: {
     color: 'black',
     fontSize: moderateScale(30),
-    // fontWeight: '900',
     fontFamily:PoppinsBold,
-    // fontSize: moderateScale(35),
   },
   SetGoalText: {
     color: 'black',
@@ -57,7 +55,6 @@ const styles = StyleSheet.create({
     marginTop:verticalScale(-10)
   },
   GoalView: {
-    // marginHorizontal:scale(20),
   },
   button: {
     width: '100%',

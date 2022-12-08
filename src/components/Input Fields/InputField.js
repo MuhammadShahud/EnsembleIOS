@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderRadius: moderateScale(25),
     paddingLeft: scale(20),
+    paddingRight:scale(20),
+    paddingTop:verticalScale(10),
     marginTop: verticalScale(10),
     textAlignVertical: 'top',
     paddingBottom:verticalScale(35),

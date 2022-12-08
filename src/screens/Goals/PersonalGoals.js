@@ -30,7 +30,7 @@ import {ButtonColor} from '../../../assets/colors/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import {GetGoals} from '../../redux/Actions/AuthAction';
 import {GOALS, USER} from '../../redux/Reducers/AuthReducer';
-import { FiraSansBold, FiraSansRegular, FiraSansSemiBold, PoppinsBold } from '../../../assets/fonts/Fonts';
+import { FiraSansBold, FiraSansRegular, FiraSansSemiBold, PoppinsBold, PoppinsMedium, PoppinsRegular } from '../../../assets/fonts/Fonts';
 const PersonalGoals = () => {
   const user =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWh1ZEBwbHVtdHJlZWdyb3VwLm5ldCIsImlhdCI6MTY2NDU2NzExNSwiZXhwIjoxNjk2MTAzMTE1fQ.bG940Pi5-Tf6CX4AMxLSZ2vLHZJr3XfgkBsIRvtkNeA';
@@ -102,6 +102,7 @@ const PersonalGoals = () => {
           ongoingbordercolor={show ? ButtonColor : '#9F9F9F'}
         />
       </View>
+      
       <Text style={styles.personalText}>Personal Goals</Text>
 
       {show ? (
@@ -213,7 +214,6 @@ export default PersonalGoals;
 const styles = StyleSheet.create({
   mainView: {
     flex: 1,
-    // backgroundColor:'white'
   },
   personalText: {
     color: 'black',
@@ -221,7 +221,6 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(20),
     marginBottom: verticalScale(5),
     fontSize: moderateScale(20),
-    // fontWeight: 'bold',
     fontFamily:FiraSansBold
 
   },
@@ -232,12 +231,10 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(7),
     borderRadius: moderateScale(20),
     marginHorizontal: scale(20),
-    // alignItems:'center'
   },
   title: {
     color: 'black',
     fontSize: moderateScale(17),
-    // fontWeight: 'bold',
     fontFamily:FiraSansSemiBold,
     paddingTop: verticalScale(5),
   },
@@ -255,8 +252,6 @@ const styles = StyleSheet.create({
     paddingTop: verticalScale(10),
   },
   flatListCompleted: {
-    // marginBottom: verticalScale(20)
-    // height:'90%'
     marginTop: verticalScale(20),
   },
   loadingline: {
@@ -264,30 +259,32 @@ const styles = StyleSheet.create({
   },
   georgeText: {
     marginTop: verticalScale(10),
-    fontSize: moderateScale(40),
+    fontSize: moderateScale(35),
     color: 'black',
-    fontWeight: 'bold',
-    // fontFamily:PoppinsBold
+    fontFamily:PoppinsBold
   },
   smartText: {
     color: 'black',
-    fontWeight: 'bold',
+    fontFamily:PoppinsMedium,
   },
   goalsText: {
     color: 'black',
     marginTop: verticalScale(5),
+    fontFamily:PoppinsRegular,
+    marginTop:verticalScale(-5)
   },
   goalParagraph: {
     marginTop: verticalScale(10),
     color: 'black',
     fontSize: moderateScale(14),
     lineHeight: verticalScale(15),
+    fontFamily:PoppinsRegular
   },
   bottomsheet: {
     marginHorizontal: scale(5),
   },
   oneword: {
-    fontWeight: 'bold',
+    fontFamily:PoppinsBold
   },
   button: {
     backgroundColor: 'black',
@@ -303,11 +300,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(20),
     zIndex: 1,
   },
-  // ensemble:{
-  //   fontWeight:'bold',
-  //   color:'#8C8C8C',
-  //   fontSize:moderateScale(20)
-  // },
+ 
   checkView: {
     paddingHorizontal: scale(10),
     paddingVertical: verticalScale(10),
@@ -326,10 +319,13 @@ const styles = StyleSheet.create({
   },
   laptopTitle: {
     color: 'black',
-    // fontSize:moderateScale(15)
+    fontFamily:PoppinsRegular
   },
   laptopDate: {
     fontSize: moderateScale(10),
+    color:'#8C8C8C',
+    fontFamily:PoppinsRegular,
+    marginTop:verticalScale(-5)
   },
   progressBar: {
     borderRadius: 20,

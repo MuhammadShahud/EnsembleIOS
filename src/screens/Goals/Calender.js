@@ -144,8 +144,10 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(10),
     marginHorizontal: scale(20),
     fontFamily:PoppinsRegular,
-    fontSize:moderateScale(13)
-  }
+    fontSize:moderateScale(13),
+    color:'#777777'
+  },
+ 
 
 });
 export default Calen;

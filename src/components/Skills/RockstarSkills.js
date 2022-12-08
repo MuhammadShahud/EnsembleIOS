@@ -13,9 +13,13 @@ const RockstarSkills = (props) => {
     const [btnTextColor1, setBtnTextColor1] = useState(false)
     const changeButtonColor = () => {
         setBtnState(!btnState)
+        setBtnTextColor(!btnTextColor)
+
     }
     const changeButtonColor1 = () => {
         setBtnState1(!btnState1)
+        setBtnTextColor1(!btnTextColor1)
+
     }
 
     const changeTextColor = () => {

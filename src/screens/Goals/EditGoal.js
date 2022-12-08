@@ -187,7 +187,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   input2: {
-    // paddingHorizontal:scale(20),
     borderWidth: 1,
     backgroundColor: 'white',
     marginHorizontal: scale(20),
@@ -203,7 +202,6 @@ const styles = StyleSheet.create({
   editGoalText: {
     marginHorizontal: scale(20),
     color: 'black',
-    // fontWeight: 'bold',
     fontFamily:PoppinsSemiBold,
     fontSize: moderateScale(25),
     marginTop: verticalScale(30),
@@ -211,16 +209,13 @@ const styles = StyleSheet.create({
   steps: {
     color: 'black',
     fontSize: moderateScale(20),
-    // fontWeight: '500',
     marginHorizontal: scale(20),
     marginTop: verticalScale(15),
-    // marginBottom:scale(30),
     fontFamily:PoppinsMedium
   },
   stepsText: {
     color: 'black',
     fontSize: moderateScale(20),
-    // fontWeight: '500',
     fontFamily:PoppinsMedium,
     marginHorizontal: scale(20),
     marginTop: verticalScale(15),
@@ -234,12 +229,9 @@ const styles = StyleSheet.create({
     width: '40%',
     borderBottomWidth: 1,
     marginLeft: '50%',
-    // width:'50%',
     fontSize:moderateScale(13)
   },
   stepView: {
-    // marginTop: verticalScale(20),
-    // height: verticalScale(120)
     marginTop: verticalScale(-20),
   },
   radioButtonView: {
@@ -261,22 +253,16 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   textInputView: {
-    // borderWidth: 1,
     marginRight: scale(20),
     marginLeft: scale(20),
-    // marginTop:20,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   stepInput: {
-    // backgroundColor: 'white',
     color: 'black',
     width: '80%',
-    // borderWidth: 1,
     borderRadius: moderateScale(20),
-    // borderColor: 'red',
-    // marginHorizontal:10,
     paddingLeft: 0,
   },
   checkIcon: {

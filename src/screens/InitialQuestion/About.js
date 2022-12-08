@@ -312,7 +312,6 @@ const styles = StyleSheet.create({
         paddingBottom: verticalScale(30),
         borderRadius: moderateScale(15),
         marginBottom:verticalScale(20)
-        // textAlignVertical: 'center',
     },
     Text: {
         marginHorizontal: scale(20),
@@ -330,8 +329,6 @@ const styles = StyleSheet.create({
     },
     publicText: {
         marginHorizontal: scale(20),
-        // marginLeft:scale(17),
-        // marginRight:scale(100),
         color: 'black',
         lineHeight: verticalScale(20),
         fontFamily: PoppinsRegular
@@ -340,13 +337,8 @@ const styles = StyleSheet.create({
     firstView: {
     },
     dateInput: {
-        // borderWidth: 1,
-        // backgroundColor: 'white',
         marginHorizontal: scale(20),
-        // borderColor: 'white',
         borderRadius: moderateScale(25),
-        //    paddingHorizontal:scale(20),
-        // marginTop: verticalScale(10),
     },
     dateView: {
         flexDirection: 'row',
@@ -362,8 +354,6 @@ const styles = StyleSheet.create({
     },
     boxStyle: {
         backgroundColor: 'white',
-        // marginLeft:scale(20),
-        // marginRight:scale(80),
         marginVertical: verticalScale(10),
         placeholderTextColor: 'black',
         borderColor: 'white',

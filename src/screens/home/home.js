@@ -54,7 +54,7 @@ export default function Home() {
 
             />
           </View>
-          <View style={{height: hp('1%')}}></View>
+          <View style={{height: hp('0%')}}></View>
           <Text style={style.position}>{userData?.questions.jobTitle} | The Plum Tree Group </Text>
         </View>
 

@@ -37,13 +37,8 @@ justifyContent : 'center',
   boxView:{
     flexDirection:'row',
     alignItems:'center',
-    // justifyContent:'center',
-    // alignSelf:'center',
-    // width:'100%',
     backgroundColor: 'rgba(144, 148, 235, 0.1)',
-    // paddingHorizontal:scale(40),
     paddingVertical:verticalScale(17),
-    // borderRadius:moderateScale(20),
     marginVertical:verticalScale(7),
     marginHorizontal:scale(20),
     borderRadius:moderateScale(20),
@@ -58,7 +53,7 @@ justifyContent : 'center',
   },
   monthly:{
     color:'black',
-    // fontFamily:PoppinsRegular,
+    fontFamily:PoppinsRegular,
     paddingLeft:scale(10),
     fontSize:moderateScale(10),
 
@@ -67,9 +62,10 @@ justifyContent : 'center',
   },
   company:{
     color:'black',
-    // fontFamily:PoppinsRegular,
+    fontFamily:PoppinsRegular,
     paddingLeft:scale(10),
     fontSize:moderateScale(10),
+    marginTop:verticalScale(-2),
 
   },
   imageView:{
@@ -77,13 +73,10 @@ justifyContent : 'center',
     marginRight:scale(20)
   },
   flatListCompleted:{
-    // marginTop:verticalScale(170)
   },
   lootie:{
-    // height:'10%'
     marginTop:verticalScale(-170)
 
-    // marginTop:verticalScale(50)
   },
   flatlistView:{
     marginTop:verticalScale(170)

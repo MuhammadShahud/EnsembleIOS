@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
   duedateText: {
     color: 'black',
     fontSize: moderateScale(25),
-    // fontWeight: 'bold',
     fontFamily:PoppinsSemiBold,
     marginHorizontal: scale(20),
     marginTop: verticalScale(30),
@@ -120,21 +119,17 @@ const styles = StyleSheet.create({
   number: {
     color: ButtonColor,
     fontSize: moderateScale(50),
-    // fontWeight: '900',
     fontFamily:PoppinsBold
   },
   dateText: {
     paddingLeft: scale(5),
     color: 'black',
     marginTop:verticalScale(-5),
-    // fontWeight: '500',
     fontFamily:PoppinsMedium
-    // paddingTop:scale(5)
   },
   timeText: {
     paddingLeft: scale(5),
     color: 'black',
-    // fontWeight: '400',
     fontFamily:PoppinsRegular,
     marginTop:verticalScale(-5)
   },
@@ -143,7 +138,6 @@ const styles = StyleSheet.create({
     marginHorizontal: scale(20),
     flexDirection: 'row',
     alignItems: 'center',
-    // paddingVertical:verticalScale(15),
     borderRadius: moderateScale(20),
     marginTop: verticalScale(20),
     paddingHorizontal: scale(10),
@@ -179,25 +173,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   boxContainer: {
-    // marginTop: verticalScale(-5)
   },
   progress: {
     color: 'black',
-    // marginHorizontal: scale(20),
     marginTop: verticalScale(15),
     fontSize: moderateScale(20),
-    // fontWeight: '500',
     fontFamily:PoppinsMedium
   },
   steps: {
     color: 'black',
     fontSize: moderateScale(20),
-    // fontWeight: '500',
     fontFamily:PoppinsMedium
   },
   editView: {
     flexDirection: 'row',
-    // alignItems: 'center',
     justifyContent: 'space-between',
     marginHorizontal: scale(25),
     marginBottom: verticalScale(5),
@@ -205,9 +194,7 @@ const styles = StyleSheet.create({
   },
   edit: {
     color: ButtonColor,
-    // fontWeight: '500',
     fontFamily:FiraSansMedium
-    // fontSize:moderateScale(15)
   },
   editIcon: {
     color: ButtonColor,
@@ -216,21 +203,16 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     borderWidth: 1,
-    // borderColor:'blue',
     borderRadius: moderateScale(50),
-    // backgroundColor:ButtonColor
   },
   tick: {
     color: 'white',
     width: 23,
     height: 23,
     borderRadius: moderateScale(50),
-    // borderWidth:1,
-    // borderColor:'black',
 
     textAlign: 'center',
     backgroundColor: ButtonColor,
-    // borderRadius:moderateScale(100)
   },
   checkboxView: {
     flexDirection: 'row',
@@ -262,7 +244,6 @@ const styles = StyleSheet.create({
   },
   progressBarView: {
     width: '85%',
-    // marginTop: verticalScale(10)
   },
   mainProgressView: {
     flexDirection: 'row',

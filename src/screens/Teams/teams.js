@@ -25,6 +25,7 @@ import {useSelector} from 'react-redux';
 import {COMPANY, TEAM, USER} from '../../redux/Reducers/AuthReducer';
 import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
+import { InterLight, InterMedium, InterRegular, InterSemiBold, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 
 const Teams = () => {
   const navigation = useNavigation();
@@ -62,6 +63,8 @@ const Teams = () => {
             setClicked={setClicked}
             placeholder="Search by name"
             source={search}
+            
+            
           />
         </View>
 
@@ -257,7 +260,7 @@ const styles = StyleSheet.create({
   team: {
     color: 'black',
     fontSize: moderateScale(20),
-    fontWeight: '700',
+    fontFamily:PoppinsSemiBold,
     marginHorizontal: scale(20),
     marginTop: verticalScale(30),
   },
@@ -277,21 +280,25 @@ const styles = StyleSheet.create({
   },
   Name: {
     color: 'black',
-    fontWeight: '700',
-    fontSize: moderateScale(20),
+    // fontWeight: '700',
+    fontFamily:PoppinsSemiBold,
+    fontSize: moderateScale(18),
     paddingTop: verticalScale(10),
     paddingBottom: verticalScale(5),
   },
   position: {
     paddingBottom: verticalScale(10),
     color: 'black',
+    fontFamily:PoppinsRegular,
+    marginTop:verticalScale(-5)
   },
   description: {
     color: '#4E4E4E',
+    fontFamily:PoppinsRegular
   },
   colleague: {
     color: 'black',
-    fontWeight: '700',
+    fontFamily:PoppinsSemiBold,
     fontSize: moderateScale(20),
     marginHorizontal: scale(20),
     marginTop: verticalScale(10),
@@ -308,18 +315,21 @@ const styles = StyleSheet.create({
   },
   Name1: {
     color: 'black',
-    fontWeight: '700',
-    fontSize: moderateScale(15),
+    // fontWeight: '700',
+    fontFamily:InterSemiBold,
+    fontSize: moderateScale(14),
     marginHorizontal: scale(5),
   },
   intrest: {
-    fontSize: moderateScale(10),
+    fontSize: moderateScale(8),
     marginHorizontal: scale(3),
+    fontFamily:InterLight
   },
   status: {
-    fontSize: moderateScale(10),
+    fontSize: moderateScale(8),
     marginHorizontal: scale(5),
-    fontWeight: '500',
+    // fontWeight: '500',
+    fontFamily:InterRegular,
     color: 'black',
   },
   newImage: {

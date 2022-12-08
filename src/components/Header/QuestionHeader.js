@@ -6,9 +6,10 @@ import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
   } from 'react-native-responsive-screen';
-import { scale, verticalScale } from 'react-native-size-matters';
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { PoppinsBold } from '../../../assets/fonts/Fonts';
 
 const QuestionHeader = (props) => {
   const navigation=useNavigation();
@@ -41,10 +42,9 @@ const styles = StyleSheet.create({
 
     },
     text:{
-        fontSize: wp('4%'),
+        fontSize:moderateScale(14),
         color:'black',
-        fontWeight:'bold',
-        fontFamily: 'Poppins',
+        fontFamily: PoppinsBold,
         textAlign: 'center',
         paddingLeft:scale(10)
     }

@@ -32,23 +32,23 @@ export const style = StyleSheet.create({
  },
  morning : {
   fontFamily:PoppinsLight,
-  fontSize:30,
+  fontSize:moderateScale(25),
   color:'#1B1B1B'
  },
  name: {
   fontFamily:PoppinsBold,
-  fontSize:30,
+  // fontSize:30,
+  fontSize:moderateScale(25),
   color:'#1B1B1B',
-  fontWeight:'bold',
   marginTop:verticalScale(-10)
  },
  overview : {
   fontFamily:FiraSansBold,
-  fontSize:26,
+  fontSize:moderateScale(25),
   color:'#1B1B1B',
-  fontWeight:'bold'
  },
  position:{
-  fontFamily:PoppinsRegular
+  fontFamily:PoppinsRegular,
+  color:'#1B1B1B'
  }
 })
