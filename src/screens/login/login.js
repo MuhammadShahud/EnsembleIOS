@@ -22,6 +22,7 @@ import {styles} from '../../styles/GeneralStyle';
 import {useDispatch, useSelector} from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { LoginFunction } from '../../redux/Actions/AuthAction';
+import { scale, verticalScale } from 'react-native-size-matters';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -64,11 +65,11 @@ const Login = () => {
 <Image  source={yellowLine} />
 
         </View>
-        <Text style={[styles.large, style.heading,{marginTop:10}]}>Welcome To ENSEMBLE</Text>
+        <Text style={[styles.large, style.heading,{marginTop:verticalScale(10)}]}>Welcome To ENSEMBLE</Text>
         <View style={{ height: hp('4%') }} />
 
         <View style={style.div}>
-          <Text style={[styles.small, { color: 'black', marginLeft: 10 }]}>
+          <Text style={[styles.small, { color: 'black', marginLeft: scale(10) }]}>
             Work Email
           </Text>
           <View style={{ height: hp('1%') }} />
@@ -82,7 +83,7 @@ const Login = () => {
           />
           <View style={{ height: hp('2%') }} />
 
-          <Text style={[styles.small, { color: 'black', marginLeft: 10 }]}>
+          <Text style={[styles.small, { color: 'black', marginLeft: scale(10) }]}>
             Password
           </Text>
           <View style={{ height: hp('1%') }} />
@@ -107,7 +108,7 @@ const Login = () => {
               styles.small,
               {
                 color: 'black',
-                marginLeft: 10,
+                marginLeft: scale(10),
                 textDecorationLine: 'underline'
               }
             ]}>

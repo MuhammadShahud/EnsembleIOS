@@ -7,6 +7,7 @@ import EditDetails from '../../components/EditDetails/EditDetails'
 import EditButtons from '../../components/EditDetails/EditButtons'
 import { useSelector } from 'react-redux'
 import { COMPANY, USER } from '../../redux/Reducers/AuthReducer'
+import { PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
 
 const EditProfile = (props) => {
 
@@ -31,9 +32,9 @@ const EditProfile = (props) => {
                     {/* <EditDetails detail1='Lorem ipsum dolor sit amet. In impedit aliquid nam minima iure At quas obcaecati aut iste eveniet ut voluptates expedita. Quo asperiores.' title='Describe Yourself in 3 Words' source={edit} /> */}
                     <EditButtons title='Tools' addImage={add} properties={['Adobe XD','Miro','Illustrator','Figma','Photoshop']} />
                     <EditButtons title='Rockstar Skills' addImage={add} properties={userData.questions.rockstarSkills}/>
-                    <EditButtons title='What you enjoy doing the most?'  addImage={add} properties={userData.questions.Hobbies} />
-                    <EditDetails detail1={userData.questions.descKid} title='How Would you describe job?' source={edit} />
-                    <EditDetails detail1={userData.questions.achievment} title='What is ONE of the coolest things?' source={edit} />
+                    <EditButtons title='When you are not working, what do you enjoy doing the most?'  addImage={add} properties={userData.questions.Hobbies} />
+                    <EditDetails detail1={userData.questions.descKid} title='How Would you describe job to the group of 5 years old?' source={edit} />
+                    <EditDetails detail1={userData.questions.achievment} title='What is ONE of the coolest things you have ever done?' source={edit} />
                    
 
                 </View>
@@ -63,11 +64,14 @@ const styles = StyleSheet.create({
     },
     powered: {
         color: '#8C8C8C',
+        fontFamily:PoppinsRegular
     },
     ensemble: {
         color: '#8C8C8C',
-        fontWeight: 'bold',
-        fontSize: moderateScale(20)
+        // fontWeight: 'bold',
+        fontFamily:PoppinsSemiBold,
+        fontSize: moderateScale(20),
+        marginTop:verticalScale(-5)
 
 
     },

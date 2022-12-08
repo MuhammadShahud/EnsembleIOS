@@ -177,30 +177,31 @@ const styles = StyleSheet.create({
   },
   confirmPassword: {
     color: 'black',
-    marginLeft: 10,
+    marginLeft: scale(10),
     fontFamily:PoppinsRegular,
     fontSize:moderateScale(14)
   },
 
   firsteye: {
     position: 'absolute',
-    right: 20,
-    top: 43,
+    right: scale(20),
+    top: verticalScale(42),
   },
 
   inputField: {
     marginHorizontal: 'auto',
     width: wp('90%'),
     backgroundColor: '#F5F5F5',
-    margin: 5,
-    borderRadius: 42,
-    paddingLeft: 15,
+    marginHorizontal:scale(5),
+    marginVertical:verticalScale(5),
+    borderRadius: moderateScale(40),
+    paddingLeft: scale(15),
   },
 
   eye: {
     position: 'absolute',
-    right: 20,
-    top: 20,
+    right: scale(20),
+    top: verticalScale(15),
   },
   btn: {
     width: wp('80%'),

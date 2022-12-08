@@ -10,6 +10,7 @@ import {
   Image,
 } from 'react-native';
 import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
+import { PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 import { tickLogo } from '../../../assets/images/images';
 import PrimaryButton from '../PrimaryButton';
 
@@ -58,13 +59,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.70)',
 
-    // marginTop: 22
   },
   modalView: {
-    // margin: 20,
     backgroundColor: 'white',
-    borderRadius: 20,
-    // padding: 25,
+    borderRadius: moderateScale(20),
     paddingVertical: verticalScale(20),
     height: '45%',
     width: '80%',
@@ -79,8 +77,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   button: {
-    borderRadius: 20,
-    padding: 10,
+    borderRadius: moderateScale(20),
+    paddingHorizontal:scale(10),
+    paddingVertical:verticalScale(10),
     elevation: 2,
   },
   buttonOpen: {
@@ -95,11 +94,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalText: {
-    marginBottom: 15,
     textAlign: 'center',
     color: '#2B2F86',
     fontSize: moderateScale(20),
-    fontWeight: 'bold',
+    fontFamily:PoppinsSemiBold,
     paddingHorizontal: scale(10),
   },
   imageView: {

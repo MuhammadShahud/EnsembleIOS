@@ -3,6 +3,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
 } from 'react-native-responsive-screen'
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { PRIMARYCOLOR } from '../../../assets/colors/colors'
 import { PoppinsBold } from '../../../assets/fonts/Fonts'
 
@@ -25,9 +26,10 @@ export const style = StyleSheet.create({
     marginHorizontal: 'auto',
     width: wp('90%'),
     backgroundColor: '#F5F5F5',
-    margin: 5,
-    borderRadius: 42,
-    paddingLeft: 15
+    marginVertical:verticalScale(5),
+    marginHorizontal:scale(5),
+    borderRadius: moderateScale(40),
+    paddingLeft: scale(15)
   },
   inputContainer: {
     alignItems: 'center',
@@ -51,20 +53,19 @@ export const style = StyleSheet.create({
   },
   heading: {
     color: 'black',
-    // fontWeight: 'bold',
     fontFamily:PoppinsBold,
     fontSize: wp('8%')
   },
   eye :{
 position: 'absolute',
-right: 20,
-top:20,
+right: scale(20),
+top:verticalScale(15),
   },
   firsteye:{
   
       position: 'absolute',
-      right: 20,
-      top:43,
+      right: scale(20),
+      top:verticalScale(43),
         },
   
   btn: {

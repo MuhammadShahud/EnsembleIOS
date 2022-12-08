@@ -72,15 +72,12 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'white',
-        // fontWeight: '500'
         fontFamily:PoppinsRegular
     },
     title: {
         color: 'black',
         fontSize: moderateScale(20),
-        // fontWeight: 'bold',
         fontFamily:PoppinsSemiBold
-        // textAlign:'center'
 
     },
 

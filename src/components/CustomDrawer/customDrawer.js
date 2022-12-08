@@ -198,6 +198,8 @@ import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { USER } from '../../redux/Reducers/AuthReducer';
 import { black } from 'react-native-paper/lib/typescript/styles/colors';
+import { PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 
 const CustomDrawer = props => {
 
@@ -344,7 +346,7 @@ console.log("userrrr",userData);
             paddingVertical: wp('4%'),
             borderWidth: 1,
             borderColor: 'black',
-            borderRadius: 38,
+            borderRadius: moderateScale(40),
           }}>
           <View
             style={{
@@ -355,11 +357,10 @@ console.log("userrrr",userData);
             <Image source={blackLogout} />
             <Text
               style={{
-                fontSize: 15,
-                fontFamily: 'Poppins',
-                marginLeft: 5,
+                fontSize: moderateScale(13),
+                marginLeft: scale(5),
                 color: 'black',
-                fontWeight: 'bold',
+                fontFamily:PoppinsBold
               }}>
               Logout
             </Text>
@@ -369,21 +370,20 @@ console.log("userrrr",userData);
           style={{
             flexDirection: 'column',
             alignItems: 'center',
-            paddingVertical: 15,
+            paddingVertical: verticalScale(15),
           }}>
           <Text
             style={{
-              fontSize: 12,
-              fontFamily: 'Poppins',
+              fontSize: moderateScale(12),
+              fontFamily: PoppinsRegular,
               color: '#000000',
             }}>
             Powered by
           </Text>
           <Text
             style={{
-              fontSize: 16,
-              fontFamily: 'Poppins',
-              fontWeight: 'bold',
+              fontSize: moderateScale(16),
+              fontFamily: PoppinsSemiBold,
               color: '#000000',
             }}>
             Ensemble{' '}

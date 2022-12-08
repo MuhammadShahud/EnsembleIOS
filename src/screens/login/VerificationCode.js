@@ -142,19 +142,20 @@ const styles = StyleSheet.create({
 
 
   cell: {
-    width: 50,
-    height: 60,
+    width: '18%',
+    height: '85%',
     borderColor: '#D8D8D8',
     textAlignVertical: 'center',
     fontSize: moderateScale(30),
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: moderateScale(5),
     textAlign: 'center',
     marginVertical: verticalScale(10),
     marginHorizontal: scale(13),
     // fontWeight: 'bold',
     fontFamily:PoppinsLight,
-    color: '#636363'
+    color: '#636363',
+    backgroundColor:'#FAFAFA'
   },
 
   focusCell: {

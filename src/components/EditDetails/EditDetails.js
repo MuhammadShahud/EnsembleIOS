@@ -35,21 +35,20 @@ const styles = StyleSheet.create({
     title: {
         color: 'black',
         fontSize: moderateScale(20),
-        // fontWeight: 'bold',
         fontFamily:PoppinsSemiBold,
         paddingRight:scale(20)
     },
     detail1: {
         color: 'black',
-        // fontWeight: '400',
+        fontSize:moderateScale(14),
         fontFamily:PoppinsRegular,
         paddingTop: verticalScale(10),
-        // textAlign:'center',
         paddingRight:scale(30)
     },
     detail2: {
         color: 'black',
-        // fontWeight: '400'
+        fontSize:moderateScale(14),
+
         fontFamily:PoppinsRegular
 
     },
