@@ -33,8 +33,7 @@ const Splash = () => {
 
   const onStart = () => {
     console.log('working')
-    navigation.navigate('name')
-    // navigation.navigate('survey')
+    navigation.navigate('camera')
   }
 
   return (

@@ -30,6 +30,20 @@ export const Team = data => {
   };
 };
 
+export const Surveys = data => {
+  return {
+    type: 'Surveys',
+    load: data,
+  };
+};
+
+export const Noti = data => {
+  return {
+    type: 'Noti',
+    load: data,
+  };
+};
+
 export const FlashMessage = data => {
   showMessage(data);
 };
@@ -49,8 +63,7 @@ export const LoginFunction = (newObj, navigation, destination) => {
           dispatch(Login(res.data.message));
           navigation.reset({
             index: 0,
-            routes: [{name:destination}]
-
+            routes: [{name: destination}],
           });
         });
     } catch (err) {
@@ -137,32 +150,36 @@ export const PostGoal = (newObj, navigation, destination, token) => {
   };
 };
 
-export const GetGoals = (token) => {
+export const GetGoals = token => {
   return async (dispatch, state) => {
     console.log('L');
     try {
-      console.log('M',token);
+      console.log('M', token);
 
       const response = await axios
-        .get(`${state().AuthReducer.baseUrl}goals`,
-        {
+        .get(`${state().AuthReducer.baseUrl}goals`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
-        )
+        })
         .then(async res => {
           console.log(res.data);
-          dispatch(Goals(res.data.result))
+          dispatch(Goals(res.data.result));
         });
     } catch (err) {
       console.log(`Err in getGoal function: `, err.response.data);
-     
     }
   };
 };
 
-export const PatchGoal = (newObj, navigation, destination, token,id,setVisible) => {
+export const PatchGoal = (
+  newObj,
+  navigation,
+  destination,
+  token,
+  id,
+  setVisible,
+) => {
   return async (dispatch, state) => {
     console.log('L');
     try {
@@ -176,9 +193,8 @@ export const PatchGoal = (newObj, navigation, destination, token,id,setVisible) 
         })
         .then(async res => {
           console.log(res.data);
-          dispatch(GetGoals(token))
-      setVisible? setVisible(true):
-       navigation.navigate(destination);
+          dispatch(GetGoals(token));
+          setVisible ? setVisible(true) : navigation.navigate(destination);
         });
     } catch (err) {
       console.log(`Err in postGoal function: `, err.response.data);
@@ -190,18 +206,15 @@ export const PatchGoal = (newObj, navigation, destination, token,id,setVisible) 
   };
 };
 
-
-export const GetCompany = (id) => {
+export const GetCompany = id => {
   return async (dispatch, state) => {
-    console.log('L',id);
+    console.log('L', id);
     try {
-
       const response = await axios
-        .get(`${state().AuthReducer.baseUrl}company/${id}`     
-        )
+        .get(`${state().AuthReducer.baseUrl}company/${id}`)
         .then(async res => {
-          console.log("responseCompany",res.data);
-          dispatch(Company(res.data))
+          console.log('responseCompany', res.data);
+          dispatch(Company(res.data));
         });
     } catch (err) {
       console.log(`Err in getCompany function: `, err.message);
@@ -213,20 +226,131 @@ export const GetCompany = (id) => {
   };
 };
 
-export const GetTeam = (id) => {
+export const GetTeam = id => {
   return async (dispatch, state) => {
-    console.log('L',id);
+    console.log('L', id);
     try {
-
       const response = await axios
-        .get(`${state().AuthReducer.baseUrl}team/${id}`     
-        )
+        .get(`${state().AuthReducer.baseUrl}team/${id}`)
         .then(async res => {
-          console.log("responseTeam",res.data);
-          dispatch(Team(res.data))
+          console.log('responseTeam', res.data);
+          dispatch(Team(res.data));
         });
     } catch (err) {
       console.log(`Err in getTeam function: `, err);
+      // FlashMessage({
+      //   message: err,
+      //   type: 'danger',
+      // });
+    }
+  };
+};
+
+export const PatchUser = (newObj, navigation, destination, id) => {
+  return async (dispatch, state) => {
+    console.log('L');
+    try {
+      console.log('M', newObj);
+
+      const response = await axios
+        .patch(`${state().AuthReducer.baseUrl}user/${id}`, newObj)
+        .then(async res => {
+          console.log(res.data);
+          dispatch(Login(res.data));
+          navigation.navigate(destination);
+        });
+    } catch (err) {
+      console.log(`Err in patchUser function: `, err);
+      FlashMessage({
+        message: err.response.data.message,
+        type: 'danger',
+      });
+    }
+  };
+};
+
+export const PatchProfilePic = (newObj, navigation, destination, id) => {
+  return async (dispatch, state) => {
+    console.log('L');
+    try {
+      console.log('M', newObj,id);
+
+      const response = await axios
+        .patch(
+          `http://192.168.1.10:3005/api/user/profilePic/${id}`,
+          newObj,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          },
+        )
+    
+        .then(async res => {
+          console.log(res.data);
+          dispatch(Login(res.data));
+          navigation.navigate(destination);
+        });
+    } catch (err) {
+      console.log(`Err in PatchProfilePic function: `, err);
+      // FlashMessage({
+      //   message: err.response,
+      //   type: 'danger',
+      // });
+    }
+  };
+};
+
+export const GetSurveys = () => {
+  return async (dispatch, state) => {
+    console.log('L');
+    try {
+      const response = await axios
+        .get(`${state().AuthReducer.baseUrl}survey`)
+        .then(async res => {
+          console.log('responseSurveys', res.data.result);
+          dispatch(Surveys(res.data.result));
+        });
+    } catch (err) {
+      console.log(`Err in getSurvey function: `, err);
+      // FlashMessage({
+      //   message: err,
+      //   type: 'danger',
+      // });
+    }
+  };
+};
+
+export const PatchSurveys = (newObj, navigation, destination, id) => {
+  return async (dispatch, state) => {
+    console.log('L');
+    try {
+      console.log('M', newObj);
+
+      const response = await axios
+        .patch(`${state().AuthReducer.baseUrl}survey/${id}`, newObj)
+        .then(async res => {
+          console.log(res.data);
+          navigation.navigate(destination);
+        });
+    } catch (err) {
+      console.log(`Err in patchUser function: `, err.response);
+    }
+  };
+};
+
+export const GetNoti = () => {
+  return async (dispatch, state) => {
+    console.log('L');
+    try {
+      const response = await axios
+        .get(`${state().AuthReducer.baseUrl}noti`)
+        .then(async res => {
+          console.log('responseNoti', res.data.result);
+          dispatch(Noti(res.data.result));
+        });
+    } catch (err) {
+      console.log(`Err in getNoti function: `, err);
       // FlashMessage({
       //   message: err,
       //   type: 'danger',

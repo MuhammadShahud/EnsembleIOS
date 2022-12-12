@@ -2,6 +2,7 @@ const initialState = {
   baseUrl: 'https://onboard-backendd.herokuapp.com/api/',
   login: {
     name: 'Muhammad Shahud',
+    completedSurveys:['63937ba901b4f1a750484da4'],
     email: 'shahud@plumtreegroup.net',
     password: '$2b$10$4d9GIb8FdoCM.tLIdjW4cOJh6Sw.FxQcwzS34mJn1E1w8Gl5cjt.u',
     companyId: '636bee4fb501b64b83cc5004',
@@ -30,6 +31,8 @@ const initialState = {
   goals: {},
   team: {},
   company: {},
+  surveys:{},
+  noti:{}
 };
 
 export const BASE_URL = state => state.AuthReducer.baseUrl;
@@ -37,6 +40,10 @@ export const USER = state => state.AuthReducer.login;
 export const GOALS = state => state.AuthReducer.goals;
 export const COMPANY = state => state.AuthReducer.company;
 export const TEAM = state => state.AuthReducer.team;
+export const SURVEYS = state => state.AuthReducer.surveys;
+export const NOTI = state => state.AuthReducer.noti;
+
+
 
 export default function AuthReducer(state = initialState, action) {
   switch (action.type) {
@@ -69,6 +76,18 @@ export default function AuthReducer(state = initialState, action) {
         ...state,
         company: action.load,
       };
+
+    case 'Surveys':
+      return {
+        ...state,
+        surveys: action.load,
+      }; 
+      
+      case 'Noti':
+        return {
+          ...state,
+          noti: action.load,
+        };  
   }
 
   return state;

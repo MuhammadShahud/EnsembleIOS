@@ -1,69 +1,66 @@
 import {
-  StyleSheet, Text, View, FlatList, Image, TouchableOpacity, Dimensions
-} from 'react-native'
-import React, { useState, useEffect } from 'react'
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
+import React, {useState, useEffect} from 'react';
 import RBSheet from 'react-native-raw-bottom-sheet';
 
-import Header from '../../components/Header/header'
-import { checkMark, notiLogo, smallstar, star } from '../../../assets/images/images'
-import { FiraSansSemiBold, PoppinsBold, PoppinsLight, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
-import Footer from '../../components/footer/Footer'
-import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
-import OngoingCompleted from '../../components/Goals/OngoingCompleted'
-import { ButtonColor } from '../../../assets/colors/colors'
-import { useRef } from 'react';
-import Button from '../../components/Button'
-import { useNavigation } from '@react-navigation/native';
-
+import Header from '../../components/Header/header';
+import {
+  checkMark,
+  notiLogo,
+  smallstar,
+  star,
+} from '../../../assets/images/images';
+import {
+  FiraSansSemiBold,
+  PoppinsBold,
+  PoppinsLight,
+  PoppinsMedium,
+  PoppinsRegular,
+  PoppinsSemiBold,
+} from '../../../assets/fonts/Fonts';
+import Footer from '../../components/footer/Footer';
+import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
+import OngoingCompleted from '../../components/Goals/OngoingCompleted';
+import {ButtonColor} from '../../../assets/colors/colors';
+import {useRef} from 'react';
+import Button from '../../components/Button';
+import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
+import {SURVEYS, USER} from '../../redux/Reducers/AuthReducer';
+import {style} from '../home/homeStyle';
 
 const Survey = () => {
   const refRBSheet = useRef();
-  const navigation=useNavigation();
+  const navigation = useNavigation();
+  const userData = useSelector(USER);
+  const surveys = useSelector(SURVEYS);
   const height = Dimensions.get('screen').height;
+  console.log('surveysss', surveys);
 
   const [show, setShow] = useState(true);
-  useEffect(() => {
-    refRBSheet.current.open();
-  }, []);
+  // useEffect(() => {
+  //   refRBSheet.current.open();
+  // }, []);
 
-  const weeklySurvey = [{
-    id: 1,
-    imageUR: require('../../../assets/images/star.png'),
-    text: 'How do you feel working?',
-    text1: 'here?',
-    text2: 'Lets share',
-    dueDate: '08-12-2022'
-  }]
-  const laptop = [
-    {
-      id: 1,
-      title: 'Are you happy with the hp laptop?',
-      date: '07-08-2022',
-      // imageUR: require('../../../assets/images/star.png'),
+  const weeklySurvey = surveys;
+  let laptop = surveys;
 
-
-    },
-    {
-      id: 2,
-      title: 'Are you happy with the hp laptop?',
-      date: '07-08-2022',
-      // imageUR: require('../../../assets/images/star.png'),
-
-    },
-
-    {
-      id: 3,
-      title: 'Are you happy with the hp laptop?',
-      date: '07-08-2022',
-      // imageUR: require('../../../assets/images/star.png'),
-
-    },
-  ];
+  
+   !show? userData?.completedSurveys.forEach(e => {
+   laptop = laptop?.filter((s)=>s?.id === e  ) 
+   }): null
+  
 
   return (
     <View style={styles.mainView}>
       <View>
-
         <Header source={notiLogo} />
         <Text style={styles.george}>Ahoy, George!</Text>
         <OngoingCompleted
@@ -76,63 +73,40 @@ const Survey = () => {
           ongoingbordercolor={show ? ButtonColor : '#9F9F9F'}
         />
 
-        {show ? (<>
-        <Text
- 
-           style={styles.weeklySurvey}>Your, weekly survey is here </Text>
-          <FlatList
-            style={styles.flatList}
-            data={weeklySurvey}
-            keyExtractor={item => item._id}
-            renderItem={({ item }) => {
-              return (
-                <TouchableOpacity style={styles.flatView}
-                onPress={()=>navigation.navigate('review')}
-                >
-                  <View>
-                    <Image source={item.imageUR} />
-                  </View>
-                  <View>
-                    <Text style={styles.text1}>{item.text}</Text>
-                    <View style={styles.letshare}>
-                      <Text style={styles.text1}>{item.text1}</Text>
-                      <Text style={styles.text2}>{item.text2}</Text>
-
-                    </View>
-                    <Text style={styles.dueDate}><Text style={styles.due}>Due Date:</Text> <Text style={styles.date}>{item.dueDate}</Text></Text>
-                  </View>
-
-                </TouchableOpacity>
-              );
-            }}
+        {show ? (
+          <>
+            <Text style={styles.weeklySurvey}>
+              Your, weekly survey is here{' '}
+            </Text>
+            <FlatList
+              style={styles.flatList}
+              data={weeklySurvey}
+              renderItem={({item}) => {
+                return (
+                  <TouchableOpacity
+                    style={styles.flatView}
+                    onPress={() => navigation.navigate('review',{survey:item})}>
+                    <Image style={styles.starImg} source={star} />
+                    <Text style={styles.text1}>{item?.question}</Text>
+                  </TouchableOpacity>
+                );
+              }}
             />
-            </>
-
-
+          </>
         ) : (
           <FlatList
             style={styles.flatListCompleted}
             data={laptop}
             keyExtractor={item => item.id}
-            renderItem={({ item }) => {
+            renderItem={({item}) => {
               return (
                 <TouchableOpacity
                   style={styles.laptopBox}
-                // onPress={() => navigation.navigate('duedate')}
+                  // onPress={() => navigation.navigate('duedate')}
                 >
-
-                  <View style={styles.checkView}>
-                    <Image source={checkMark} />
-                  </View>
-                  <View>
-                    <Text style={styles.laptopTitle}>{item.title}</Text>
-                    <View style={styles.laptopDateView}>
-                      <Text style={styles.laptopDate}>{item.date}</Text>
-                    </View>
-                  </View>
-                  <View>
-                    <Image style={styles.star} source={smallstar} />
-                  </View>
+                  <Image style={styles.img1} source={checkMark} />
+                  <Text style={styles.laptopTitle}>{item?.question}</Text>
+                  <Image style={styles.star} source={smallstar} />
                 </TouchableOpacity>
               );
             }}
@@ -166,7 +140,9 @@ const Survey = () => {
           <Text style={styles.georgeText1}>Pulse Surveys?</Text> */}
             <Text style={styles.georgeText}>What are Pulse Surveys?</Text>
             <Text style={styles.goalParagraph}>
-              Pulse surveys are a mechanism for measuring feedback using shorter, more frequent check-ins, that's not bound to measuring specific topics or content.
+              Pulse surveys are a mechanism for measuring feedback using
+              shorter, more frequent check-ins, that's not bound to measuring
+              specific topics or content.
             </Text>
 
             <Button
@@ -176,46 +152,49 @@ const Survey = () => {
             />
           </View>
         </RBSheet>
-
       </View>
       <View style={styles.footerView}>
         <Text style={styles.powered}>Powered by</Text>
         <Text style={styles.ensemble}>ENSEMBLE</Text>
       </View>
-
     </View>
-  )
-}
+  );
+};
 
-export default Survey
+export default Survey;
 
 const styles = StyleSheet.create({
   mainView: {
     flex: 1,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   george: {
     color: 'black',
     fontFamily: FiraSansSemiBold,
     marginHorizontal: scale(20),
     marginTop: verticalScale(20),
-    fontSize: moderateScale(20)
+    fontSize: moderateScale(20),
   },
   weeklySurvey: {
     color: 'black',
     fontFamily: FiraSansSemiBold,
     marginHorizontal: scale(20),
+    marginBottom: verticalScale(10),
     marginTop: verticalScale(30),
     fontSize: moderateScale(20),
   },
+  starImg: {
+    paddingVertical: verticalScale(0),
+  },
   flatView: {
     flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: ButtonColor,
-    marginTop: verticalScale(20),
+    marginVertical: verticalScale(5),
     marginHorizontal: scale(20),
     borderRadius: moderateScale(15),
-    paddingVertical: verticalScale(18),
-    paddingHorizontal: scale(10)
+    paddingVertical: verticalScale(12),
+    paddingHorizontal: scale(10),
   },
   letshare: {
     flexDirection: 'row',
@@ -225,24 +204,23 @@ const styles = StyleSheet.create({
   },
   due: {
     fontFamily: PoppinsRegular,
-    color: 'white'
+    color: 'white',
   },
   date: {
     fontFamily: PoppinsMedium,
-    color: 'white'
+    color: 'white',
   },
   text1: {
     color: 'white',
-    fontFamily: PoppinsRegular
+    fontFamily: PoppinsRegular,
   },
   text2: {
     color: 'white',
     fontFamily: PoppinsSemiBold,
-    paddingLeft: scale(3)
+    paddingLeft: scale(3),
   },
   laptopBox: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     backgroundColor: 'white',
     marginVertical: verticalScale(7),
     borderRadius: moderateScale(20),
@@ -257,23 +235,23 @@ const styles = StyleSheet.create({
   laptopTitle: {
     color: 'black',
     fontFamily: PoppinsRegular,
-    fontSize: moderateScale(12)
+    fontSize: moderateScale(12),
+    width: '70%',
+    marginHorizontal: scale(5),
   },
+  img1: {},
   laptopDateView: {
     // paddingTop: verticalScale(5),
   },
   laptopDate: {
     fontSize: moderateScale(10),
-    fontFamily: PoppinsRegular
+    fontFamily: PoppinsRegular,
   },
-  star: {
-    // marginTop:verticalScale(5),
-  },
+  star: {},
   footerView: {
     marginHorizontal: scale(20),
-    marginVertical:verticalScale(15)
+    marginVertical: verticalScale(15),
     // marginBottom: verticalScale(40),
-
   },
   powered: {
     color: '#8C8C8C',
@@ -283,37 +261,32 @@ const styles = StyleSheet.create({
     color: '#8C8C8C',
     fontSize: moderateScale(20),
     fontFamily: PoppinsSemiBold,
-    marginTop: verticalScale(-3)
+    marginTop: verticalScale(-3),
   },
   bottomsheet: {
     marginHorizontal: scale(5),
   },
-
-
 
   georgeText: {
     fontSize: moderateScale(35),
     color: 'black',
     fontFamily: PoppinsBold,
     // marginRight:50
-
   },
 
   button: {
     backgroundColor: 'black',
     borderRadius: moderateScale(30),
-    width: '100%',
     paddingVertical: verticalScale(8),
     marginTop: verticalScale(8),
-    marginBottom:verticalScale(10),
-    fontFamily: PoppinsSemiBold
+    marginBottom: verticalScale(8),
+    fontFamily: PoppinsSemiBold,
   },
   goalParagraph: {
     fontFamily: PoppinsRegular,
     color: 'black',
   },
-  flatListCompleted:{
-    marginTop:verticalScale(20)
-  }
-
-})
+  flatListCompleted: {
+    marginTop: verticalScale(20),
+  },
+});

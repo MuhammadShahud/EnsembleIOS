@@ -46,7 +46,6 @@ const PersonalGoals = () => {
   }, []);
 
   const goalsData = useSelector(GOALS);
-  console.log("gaolsData",goalsData);
 
   const laptop = [
     {
@@ -69,10 +68,10 @@ const PersonalGoals = () => {
 
   const data = goalsData? goalsData: null;
 
-  if(goalsData.dueDate){
+  if(goalsData?.dueDate){
     console.log("workingg");
- data.forEach(e => {
-    let date = e.dueDate.split('T');
+ data?.forEach(e => {
+    let date = e?.dueDate.split('T');
     console.log("dateeee",date);
     e.dueDate =date[0];
     console.log("dataaaa",data);
@@ -120,10 +119,10 @@ const PersonalGoals = () => {
                   <Image source={awardLogo} />
                 </View>
                 <View>
-                  <Text style={styles.title}>{item.goal}</Text>
+                  <Text style={styles.title}>{item?.goal}</Text>
                   <View style={styles.dateView}>
                     <Image source={timeLogo} />
-                    <Text style={styles.date}>{item.dueDate}</Text>
+                    <Text style={styles.date}>{item?.dueDate}</Text>
                   </View>
                   <ProgressBar
                     style={styles.progressBar}
@@ -152,9 +151,9 @@ const PersonalGoals = () => {
                   <Image source={checkMark} />
                 </View>
                 <View>
-                  <Text style={styles.laptopTitle}>{item.title}</Text>
+                  <Text style={styles.laptopTitle}>{item?.title}</Text>
                   <View style={styles.laptopDateView}>
-                    <Text style={styles.laptopDate}>{item.date}</Text>
+                    <Text style={styles.laptopDate}>{item?.date}</Text>
                   </View>
                 </View>
               </View>

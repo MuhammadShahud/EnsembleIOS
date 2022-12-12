@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
-import { communication, management } from '../../../assets/images/images'
 import { ButtonColor } from '../../../assets/colors/colors'
 import { PoppinsSemiBold } from '../../../assets/fonts/Fonts'
 // import communication from '../../../assets/images/communication'
@@ -14,11 +13,40 @@ const RockstarSkills = (props) => {
     const changeButtonColor = () => {
         setBtnState(!btnState)
         setBtnTextColor(!btnTextColor)
+        setSkill();
 
     }
+
+const setSkill = () =>{
+    let skills = props.rockstarSkills;
+        if(!btnState){
+            console.log('1',skills);
+            skills.push(props.firstTitle)
+            console.log('2',skills);
+
+            props.setRockstarSkills(skills)
+
+        }if(btnState){
+            console.log('3',skills);
+
+           skills = skills.filter((s)=> s!==props.firstTitle)
+            console.log('4',skills);
+
+            props.setRockstarSkills(skills)
+        }
+}
+
     const changeButtonColor1 = () => {
         setBtnState1(!btnState1)
         setBtnTextColor1(!btnTextColor1)
+        let skills = props.rockstarSkills;
+        if(!btnState1){
+            skills.push(props.secondTitle)
+            props.setRockstarSkills(skills)
+        }if(btnState1){
+            skills = skills.filter((s)=> s!==props.secondTitle)
+            props.setRockstarSkills(skills)
+        }
 
     }
 

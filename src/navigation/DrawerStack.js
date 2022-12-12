@@ -14,6 +14,8 @@ import EditGoal from '../screens/Goals/EditGoal';
 import Calen from '../screens/Goals/Calender';
 import Review from '../screens/survey/Review';
 import SurveySuceed from '../screens/survey/SurveySuceed';
+import Teams from '../screens/Teams/teams';
+import PersonalGoals from '../screens/Goals/PersonalGoals';
 
 
 
@@ -24,7 +26,7 @@ const DrawerStack = () => {
       <Drawer.Navigator
       drawerContent={props => <CustomDrawer {...props} />}
       useLegacyImplementation
-      initialRouteName= 'Home'
+      initialRouteName= 'home'
       screenOptions={{
         headerShown: false,
         drawerBackgroundColor:'transparent',
@@ -42,7 +44,7 @@ const DrawerStack = () => {
         },
       }}>
       <Drawer.Screen
-        name="Home"
+        name="home"
         component={TabStack}
        
       />
@@ -62,7 +64,7 @@ const DrawerStack = () => {
       />
       <Drawer.Screen
         name="People"
-        component={TabStack}
+        component={Teams}
         options={{
           drawerIcon: ({color}) => (
        <Image source={people} style = {{height:21,width:21}}/>
@@ -86,8 +88,8 @@ const DrawerStack = () => {
         component={Calen}
       />
       <Drawer.Screen
-        name="Goals"
-        component={TabStack}
+        name="goals"
+        component={PersonalGoals}
         options={{
           drawerIcon: ({color}) => (
             <Image source={goals} style = {{height:21,width:21}}/>
@@ -95,8 +97,8 @@ const DrawerStack = () => {
         }}
       />
       <Drawer.Screen
-        name="Survey"
-        component={TabStack}
+        name="survey"
+        component={Survey}
         options={{
           drawerIcon: ({color}) => (
             <Image source={survey} style = {{height:21,width:21}}/>

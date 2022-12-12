@@ -14,12 +14,22 @@ import {useRef} from 'react';
 import Button from '../../components/Button';
 import {ButtonColor} from '../../../assets/colors/colors';
 import Dashes from '../../components/Question Text/dashes';
-import { PoppinsBold, PoppinsLight, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
+import {
+  PoppinsBold,
+  PoppinsLight,
+  PoppinsMedium,
+  PoppinsRegular,
+  PoppinsSemiBold,
+} from '../../../assets/fonts/Fonts';
 
 const Name = () => {
   const navigation = useNavigation();
   const refRBSheet = useRef();
   const height = Dimensions.get('screen').height;
+  const [name, setName] = useState('');
+  const [pronoun, setPronoun] = useState('');
+
+  let questions = {};
 
   useEffect(() => {
     refRBSheet.current.open();
@@ -29,22 +39,31 @@ const Name = () => {
 
   const data = [
     //   {key:'1',value:'Select One'},
-    {key: '2', value: 'he/him/his'},
-    {key: '3', value: 'she/her/hers'},
-    {key: '4', value: 'they/them/their'},
+    { value: 'he/him/his'},
+    {value: 'she/her/hers'},
+    {value: 'they/them/their'},
   ];
+
+  const forward = () => {
+    console.log('Asdsadsadas', name, selected);
+    questions.name = name;
+    questions.pronouns = selected;
+    console.log('questions', questions);
+    navigation.navigate('skills',{questions});
+  };
 
   return (
     <View style={styles.mainView}>
       <QuestionHeader />
       <Dashes color={1} />
-      <View style={{justifyContent:'center',height:'75%'}}>
+      <View style={{justifyContent: 'center', height: '75%'}}>
         {/* <Image source={first} style={{alignSelf:'center'}}/> */}
         <Questions title={'What is your preferred name?'} />
         <InputField
           placeholderTextColor={'#414141'}
           placeholder={' "Michael Scott" '}
           inputStyle={styles.input}
+          onChangeText={setName}
         />
         <Text style={styles.pronounText}>What are your pronouns?</Text>
         <View style={styles.dropDownView}>
@@ -73,7 +92,7 @@ const Name = () => {
           powered={{color: 'black'}}
           ensemble={{color: 'black'}}
           iconName={'chevron-right'}
-          onPress={() => navigation.navigate('skills')}
+          onPress={() => forward()}
         />
       </View>
 
@@ -141,7 +160,7 @@ const styles = StyleSheet.create({
     marginHorizontal: scale(20),
     marginTop: verticalScale(25),
     fontSize: moderateScale(23),
-    fontFamily:PoppinsSemiBold
+    fontFamily: PoppinsSemiBold,
   },
   boxStyle: {
     backgroundColor: 'white',
@@ -177,13 +196,13 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(36),
     marginBottom: verticalScale(-10),
     color: 'black',
-    fontFamily:PoppinsBold,
+    fontFamily: PoppinsBold,
   },
   georgeText1: {
     fontSize: moderateScale(36),
     color: 'black',
-    fontFamily:PoppinsBold,
-    marginTop:verticalScale(-5)
+    fontFamily: PoppinsBold,
+    marginTop: verticalScale(-5),
   },
   textBoard: {
     color: 'black',
@@ -191,11 +210,11 @@ const styles = StyleSheet.create({
     lineHeight: verticalScale(20),
     marginTop: verticalScale(5),
     marginBottom: verticalScale(10),
-    fontFamily:PoppinsRegular
+    fontFamily: PoppinsRegular,
   },
   button: {
     backgroundColor: ButtonColor,
     borderRadius: moderateScale(30),
-    fontFamily:PoppinsSemiBold
+    fontFamily: PoppinsSemiBold,
   },
 });

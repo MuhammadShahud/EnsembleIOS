@@ -90,6 +90,10 @@ export const filledHome = require('./filledHome.png')
 export const filledGoals = require('./filledGoals.png')
 export const filledSurvey = require('./filledSurvey.png')
 export const filledTeam = require('./filledTeam.png')
+export const bag = require('./bag.png')
+export const HR = require('./HR.png')
+
+
 
 
 

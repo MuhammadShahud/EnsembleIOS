@@ -26,9 +26,7 @@ const EditProfile = (props) => {
 
                     <EditDetails  detail1={userData.questions.jobTitle} detail2={company?.companyName} title={userData.name} source={edit} />
                     <EditDetails detail1={userData.profileData.number}  title='Phone Number' source={edit} />
-                    <EditDetails detail1={userData.profileData.dOB} title='Date Of Birth' source={edit} />
                     <EditDetails detail1={userData.profileData.location}  title='Location' source={edit} />
-                    <EditDetails detail1={userData.questions.threeDesc} title='Describe Yourself in 3 Words' source={edit} />
                     {/* <EditDetails detail1='Lorem ipsum dolor sit amet. In impedit aliquid nam minima iure At quas obcaecati aut iste eveniet ut voluptates expedita. Quo asperiores.' title='Describe Yourself in 3 Words' source={edit} /> */}
                     <EditButtons title='Tools' addImage={add} properties={['Adobe XD','Miro','Illustrator','Figma','Photoshop']} />
                     <EditButtons title='Rockstar Skills' addImage={add} properties={userData.questions.rockstarSkills}/>
