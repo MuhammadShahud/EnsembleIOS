@@ -28,7 +28,13 @@ const RetakePhoto = props => {
     // let type = match ? `image/${match[1]}` : `image`;
 console.log("result",result);
     let formData = new FormData();
-    formData.append('file', result);
+    formData.append('file',  {
+      name: result.fileName,
+      type: result.type,
+      uri:
+        Platform.OS === 'android' ? result.uri : result.uri.replace('file://', ''),
+    });
+
     return formData;
   };
 

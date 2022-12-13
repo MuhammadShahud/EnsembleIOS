@@ -273,26 +273,21 @@ export const PatchProfilePic = (newObj, navigation, destination, id) => {
   return async (dispatch, state) => {
     console.log('L');
     try {
-      console.log('M', newObj,id);
+      console.log('M', newObj, id);
 
       const response = await axios
-        .patch(
-          `http://192.168.1.10:3005/api/user/profilePic/${id}`,
-          newObj,
-          {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
+        .patch(`${state().AuthReducer.baseUrl}user/profilePic/${id}`, newObj, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
           },
-        )
-    
+        })
         .then(async res => {
           console.log(res.data);
           dispatch(Login(res.data));
           navigation.navigate(destination);
         });
     } catch (err) {
-      console.log(`Err in PatchProfilePic function: `, err);
+      console.log(`Err in PatchProfilePic function: `, err.response.data);
       // FlashMessage({
       //   message: err.response,
       //   type: 'danger',
