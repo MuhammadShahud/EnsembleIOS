@@ -10,7 +10,7 @@ import { PoppinsBold } from '../../../assets/fonts/Fonts'
 export const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: PRIMARYCOLOR
+    backgroundColor: PRIMARYCOLOR,
   },
   innerView: {
     width: wp('100%'),
@@ -39,7 +39,9 @@ export const style = StyleSheet.create({
     borderTopStartRadius: wp('10%'),
     paddingVertical: hp('1.5%'),
     borderTopEndRadius: wp('10%'),
-    flex: 1
+    flex: 1,
+    elevation:3,
+    zIndex:3
   },
   forgotWidth: {
     width: '90%',
@@ -49,12 +51,14 @@ export const style = StyleSheet.create({
   logo: {
     height: hp('43%'),
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   heading: {
     color: 'black',
     fontFamily:PoppinsBold,
-    fontSize: wp('8%')
+    fontSize: wp('10%'),
+    alignSelf:'flex-start',
+    marginHorizontal:scale(20),
   },
   eye :{
 position: 'absolute',
@@ -69,7 +73,7 @@ top:verticalScale(15),
         },
   
   btn: {
-    width: wp('80%')
+    width: wp('90%')
   },
   welcomeEnsemble:{}
 })

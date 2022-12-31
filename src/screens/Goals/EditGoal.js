@@ -225,11 +225,11 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
     fontFamily:PoppinsMedium,
-    marginVertical: verticalScale(60),
-    width: '40%',
+    marginVertical: verticalScale(100),
+    width: '38%',
     borderBottomWidth: 1,
     marginLeft: '50%',
-    fontSize:moderateScale(13)
+    fontSize:moderateScale(12)
   },
   stepView: {
     marginTop: verticalScale(-20),

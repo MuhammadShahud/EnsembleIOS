@@ -30,7 +30,8 @@ import {ButtonColor} from '../../../assets/colors/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import {GetGoals} from '../../redux/Actions/AuthAction';
 import {GOALS, USER} from '../../redux/Reducers/AuthReducer';
-import { FiraSansBold, FiraSansRegular, FiraSansSemiBold, PoppinsBold, PoppinsMedium, PoppinsRegular } from '../../../assets/fonts/Fonts';
+import { FiraSansBold, FiraSansRegular, FiraSansSemiBold, PoppinsBold, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
+import Footer from '../../components/footer/Footer';
 const PersonalGoals = () => {
   const user =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWh1ZEBwbHVtdHJlZWdyb3VwLm5ldCIsImlhdCI6MTY2NDU2NzExNSwiZXhwIjoxNjk2MTAzMTE1fQ.bG940Pi5-Tf6CX4AMxLSZ2vLHZJr3XfgkBsIRvtkNeA';
@@ -87,8 +88,10 @@ const PersonalGoals = () => {
 
   return (
     <View style={styles.mainView}>
-      <View>
         <Header  source={notiLogo} />
+        <ScrollView>
+
+      <View>
         <SetGoals visible={visible} setVisible={setVisible} />
 
         <OngoingCompleted
@@ -119,7 +122,12 @@ const PersonalGoals = () => {
                   <Image source={awardLogo} />
                 </View>
                 <View>
+                  <View style={{flexDirection:'row'}}>
+
                   <Text style={styles.title}>{item?.goal}</Text>
+                  </View>
+                  <View style={{marginTop:verticalScale(8)}}>
+
                   <View style={styles.dateView}>
                     <Image source={timeLogo} />
                     <Text style={styles.date}>{item?.dueDate}</Text>
@@ -128,7 +136,8 @@ const PersonalGoals = () => {
                     style={styles.progressBar}
                     progress={0.3}
                     color={'black'}
-                  />
+                    />
+                    </View>
 
                   {/* <Image style={styles.loadingline} source={loading} /> */}
                 </View>
@@ -159,8 +168,8 @@ const PersonalGoals = () => {
               </View>
             );
           }}
-        />
-      )}
+          />
+          )}
 
       <RBSheet
         ref={refRBSheet}
@@ -201,9 +210,14 @@ const PersonalGoals = () => {
             title={'Lets Go'}
             buttonStyle={styles.button}
             onPress={() => refRBSheet.current.close()}
-          />
+            />
         </View>
       </RBSheet>
+      <View style={styles.footerView}>
+        <Text style={styles.powered}>Powered by</Text>
+        <Text style={styles.ensemble}>ENSEMBLE</Text>
+      </View>
+            </ScrollView>
     </View>
   );
 };
@@ -230,12 +244,15 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(7),
     borderRadius: moderateScale(20),
     marginHorizontal: scale(20),
+    paddingBottom:verticalScale(8)
   },
   title: {
     color: 'black',
-    fontSize: moderateScale(17),
+    fontSize: moderateScale(16),
     fontFamily:FiraSansSemiBold,
     paddingTop: verticalScale(5),
+    flex:1,
+    flexWrap:'wrap'
   },
   date: {
     color: 'black',
@@ -245,10 +262,12 @@ const styles = StyleSheet.create({
   dateView: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: verticalScale(15),
+    marginTop: verticalScale(10),
   },
   imageView: {
-    paddingTop: verticalScale(10),
+    paddingTop: verticalScale(15),
+    paddingLeft:scale(15),
+    paddingRight:scale(12)
   },
   flatListCompleted: {
     marginTop: verticalScale(20),
@@ -332,5 +351,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#EBEBEB',
     width: '80%',
     marginTop: verticalScale(5),
+  },
+  footerView: {
+    marginHorizontal: scale(20),
+    marginVertical: verticalScale(15),
+    // marginBottom: verticalScale(40),
+  },
+  powered: {
+    color: 'black',
+    fontFamily: PoppinsRegular,
+  },
+  ensemble: {
+    color: 'black',
+    fontSize: moderateScale(20),
+    fontFamily: PoppinsSemiBold,
+    marginTop: verticalScale(-3),
   },
 });

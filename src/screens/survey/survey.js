@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     backgroundColor: ButtonColor,
     marginVertical: verticalScale(5),
     marginHorizontal: scale(20),
-    borderRadius: moderateScale(15),
+    borderRadius: moderateScale(20),
     paddingVertical: verticalScale(12),
     paddingHorizontal: scale(10),
   },
@@ -238,6 +238,7 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(12),
     width: '70%',
     marginHorizontal: scale(5),
+    paddingLeft:scale(5)
   },
   img1: {},
   laptopDateView: {
@@ -254,11 +255,11 @@ const styles = StyleSheet.create({
     // marginBottom: verticalScale(40),
   },
   powered: {
-    color: '#8C8C8C',
+    color: 'black',
     fontFamily: PoppinsRegular,
   },
   ensemble: {
-    color: '#8C8C8C',
+    color: 'black',
     fontSize: moderateScale(20),
     fontFamily: PoppinsSemiBold,
     marginTop: verticalScale(-3),

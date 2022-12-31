@@ -32,6 +32,7 @@ const SetGoalModaal = props => {
           
               <GoalButton
            title="Set New Goals"
+           buttonTextStyle={{fontSize:moderateScale(16)}}
            onPress={navigateNewGoal}
            buttonViewStyle={styles.buttonStyle}/>
 
@@ -120,6 +121,7 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(30),
     width: '100%',
     paddingHorizontal: scale(60),
+    fontSize:moderateScale(16)
   },
   
   buttonStyle:{

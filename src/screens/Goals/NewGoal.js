@@ -127,7 +127,6 @@ const NewGoal = () => {
               );
             }}
           />
-
           {addStep ? (
             <View style={styles.textInputView}>
               <RadioButton

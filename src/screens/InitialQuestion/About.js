@@ -246,8 +246,8 @@ const userData = useSelector(USER);
   };
   return (
     <View style={styles.mainView}>
-      <View style={styles.firstView}>
         <QuestionHeader />
+      <ScrollView style={styles.firstView}>
         <Questions
           title="Hi John!"
           questionText={{
@@ -298,7 +298,7 @@ const userData = useSelector(USER);
             placeholder="I like oranges"
           />
         </View>
-      </View>
+      </ScrollView>
       <View>
         <Footer
           powered={{color: 'black'}}

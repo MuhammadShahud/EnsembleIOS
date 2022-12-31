@@ -21,6 +21,8 @@ import {
   PoppinsRegular,
   PoppinsSemiBold,
 } from '../../../assets/fonts/Fonts';
+import { victory } from '../../../assets/images/images';
+import { ScrollView } from 'react-native';
 
 const Name = () => {
   const navigation = useNavigation();
@@ -56,11 +58,16 @@ const Name = () => {
     <View style={styles.mainView}>
       <QuestionHeader />
       <Dashes color={1} />
-      <View style={{justifyContent: 'center', height: '75%'}}>
+      <ScrollView>
+
+      <View 
+      // style={{justifyContent: 'center', height: '75%'}}
+      style={{marginTop:verticalScale(100)}}
+      >
         {/* <Image source={first} style={{alignSelf:'center'}}/> */}
         <Questions title={'What is your preferred name?'} />
         <InputField
-          placeholderTextColor={'#414141'}
+          placeholderTextColor={'#BBBBBB'}
           placeholder={' "Michael Scott" '}
           inputStyle={styles.input}
           onChangeText={setName}
@@ -82,11 +89,12 @@ const Name = () => {
             dropdownStyles={styles.dropdownStyles}
             dropdownTextStyles={styles.dropdownTextStyles}
             dropdownItemStyles={styles.dropdownItemStyles}
-          />
+            />
         </View>
       </View>
       {/* <DropDown/> */}
 
+        </ScrollView>
       <View>
         <Footer
           powered={{color: 'black'}}
@@ -122,8 +130,11 @@ const Name = () => {
           <Text style={styles.georgeText}>Let's get you</Text>
           <Text style={styles.georgeText1}>On Board!</Text>
           <Text style={styles.textBoard}>
-            Ten super fun questions that will tell us more about you ✌️
+            Ten super fun questions that will tell us more about you 
           </Text>
+          <Image source={victory} 
+          style={{position:'absolute',bottom:verticalScale(56), left:scale(117)}}
+          />
 
           <Button
             title={'Begin'}
@@ -152,13 +163,14 @@ const styles = StyleSheet.create({
     paddingBottom: verticalScale(10),
     paddingTop: verticalScale(10),
     marginHorizontal: scale(20),
-    color: 'black',
+    // color: 'black',
     textAlignVertical: 'center',
   },
   pronounText: {
     color: 'black',
     marginHorizontal: scale(20),
     marginTop: verticalScale(25),
+    marginBottom:verticalScale(-10),
     fontSize: moderateScale(23),
     fontFamily: PoppinsSemiBold,
   },

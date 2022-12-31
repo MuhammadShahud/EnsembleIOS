@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
         backgroundColor:ButtonColor,
         borderRadius:moderateScale(100),
         alignItems:'center',
+        paddingHorizontal:scale(5),
+        paddingVertical:verticalScale(5)
         
     },
     ensemble:{

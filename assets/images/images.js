@@ -92,6 +92,9 @@ export const filledSurvey = require('./filledSurvey.png')
 export const filledTeam = require('./filledTeam.png')
 export const bag = require('./bag.png')
 export const HR = require('./HR.png')
+export const victory = require('./victory.png')
+export const seerch = require('./seerch.png')
+export const greentick = require('./greentick.png')
 
 
 

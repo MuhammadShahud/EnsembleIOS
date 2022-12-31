@@ -19,7 +19,7 @@ const Header = props => {
     <View style={[style.BackHeaderBG,props.BackHeaderBG]}>
       <View style={style.halfHeader}>
         <Image
-          style={{ marginRight: wp('3%') }}
+          style={{ marginRight: wp('3%'), marginLeft: wp('3%') }}
           resizeMode="contain"
           source={ptLogo}
         />
@@ -39,7 +39,8 @@ const Header = props => {
           />
           </TouchableOpacity>
         <TouchableOpacity onPress={()=>navigation.openDrawer()}>
-        <Image resizeMode="contain" source={menuLogo} />
+        <Image resizeMode="contain" source={menuLogo} 
+        style={{marginRight: wp('3%')}}/>
         </TouchableOpacity>
       </View>
     </View>

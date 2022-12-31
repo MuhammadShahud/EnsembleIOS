@@ -13,7 +13,7 @@ const SuccessGoal = () => {
   const navigation = useNavigation();
   const navigate = () => {
     console.log('shahudd');
-    navigation.navigate('drawer');
+    navigation.navigate('tab');
   };
   const navigateGoal = () => {
     console.log('asdadasdas');

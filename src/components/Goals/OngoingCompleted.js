@@ -62,13 +62,16 @@ const styles = StyleSheet.create({
     whiteText: {
         color: 'white',
         paddingVertical: verticalScale(10),
-        fontFamily:PoppinsMedium
+        fontFamily:PoppinsMedium,
+        fontSize:moderateScale(9)
     },
     greyText: {
         color: ButtonColor,
         paddingVertical: verticalScale(10),
         color: '#858585',
-        fontFamily:PoppinsRegular
+        fontFamily:PoppinsRegular,
+        fontSize:moderateScale(9)
+
 
 
 

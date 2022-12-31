@@ -23,7 +23,6 @@ const HomeBox = props => {
 
             </View>
       </View>
-      
     </TouchableOpacity>
   )
 }

@@ -78,7 +78,7 @@ value === forgetCode.forgetCode.toString()?
 
         <Text style={styles.verificationCodeText}>Enter Verification Code</Text>
         <Text style={styles.recieveEmailText}>Enter the code that you recieved on your email.</Text>
-        <View style={{ height: hp('3%') }} />
+        <View style={{ height: hp('2%') }} />
 
         <CodeField
           ref={ref}
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     alignItems: 'center',
     width: wp('100%'),
-    minHeight: hp('80%'),
+    minHeight: hp('50%'),
     backgroundColor: '#fff',
     borderTopStartRadius: wp('10%'),
     paddingVertical: hp('1.5%'),
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     fontFamily:PoppinsRegular
   },
   btn: {
-    width: wp('80%')
+    width: wp('90%')
   },
 
 

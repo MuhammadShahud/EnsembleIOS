@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View,ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import QuestionHeader from '../../components/Header/QuestionHeader'
 import Footer from '../../components/footer/Footer'
@@ -7,6 +7,8 @@ import Questions from '../../components/Question Text/Questions'
 import InputField from '../../components/Input Fields/InputField'
 import { scale, verticalScale } from 'react-native-size-matters'
 import Dashes from '../../components/Question Text/dashes'
+import { KeyboardAvoidingView } from 'react-native';
+import { Platform } from 'react-native'
 
 const DescribeYourJob = (props) => {
   const [desc, setDesc] = useState()
@@ -21,17 +23,25 @@ const DescribeYourJob = (props) => {
         navigation.navigate('achievements', {questions});
       };
   return (
-    <View style={styles.mainView}>
+    <KeyboardAvoidingView style={styles.mainView} behavior={Platform.OS === "ios" ? "padding" : "height"}
+    keyboardVerticalOffset={Platform.OS === 'ios'? 40 : 0}> 
+
             <QuestionHeader/>
             <Dashes color={4}/>
-            <View style={{justifyContent:'center',height:'75%'}}>
+            <ScrollView>
+
+            <View 
+            // style={{justifyContent:'center',height:'75%'}}
+            style={{marginTop:verticalScale(100)}}
+            >
             <Questions title='How would you describe your job/role to a group of 5 years olds?'/>
             <InputField onChangeText={setDesc} inputStyle={styles.input} placeholder='“I give machines a brain to help them learn and be smarter.”'/>
         </View>
+              </ScrollView>
         <View>
             <Footer powered={{color:'black'}} ensemble={{color:'black'}} iconName={'chevron-right'} onPress={()=>forward()}/>
         </View>
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 

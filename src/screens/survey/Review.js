@@ -115,8 +115,8 @@ dispatch(PatchSurveys({response:response},navigation,'surveysuceed',survey.id))
       <View>
         <Footer
           iconName={'chevron-right'}
-          powered={{color: '#8C8C8C'}}
-          ensemble={{color: '#8C8C8C'}}
+          powered={{color: 'black'}}
+          ensemble={{color: 'black'}}
           onPress={() => forward()}
         />
       </View>

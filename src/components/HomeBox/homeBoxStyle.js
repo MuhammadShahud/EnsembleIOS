@@ -24,7 +24,9 @@ export const style = StyleSheet.create({
       borderRadius:moderateScale(40),
       paddingHorizontal:scale(13),
       paddingVertical:verticalScale(13),
-      marginRight:wp('4%')
+      marginRight:wp('4%'),
+      shadowColor: '#52006A',  
+      elevation: 7,  
 
   },
   text1:{

@@ -20,7 +20,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import {ResetPass} from '../../redux/Actions/AuthAction';
 import {PRIMARYCOLOR} from '../../../assets/colors/colors';
-import {appLogo, yellowLine} from '../../../assets/images/images';
+import {appLogo, greentick, tickLogo, yellowLine} from '../../../assets/images/images';
 import { PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 
 const ResetPassword = props => {
@@ -73,13 +73,13 @@ const ResetPassword = props => {
 
           <View>
             <Text style={styles.confirmPassword}>Password</Text>
-            <View style={{height: hp('1%')}} />
+            <View />
 
             <TextInput
               style={styles.inputField}
               onChangeText={setPassword}
               value={newPassword}
-              placeholder="********************"
+              placeholder=".........................."
               keyboardType="default"
               secureTextEntry={passwordVisibility}
               name={'Password'}
@@ -96,13 +96,13 @@ const ResetPassword = props => {
             <View style={{height: hp('4%')}} />
 
             <Text style={styles.confirmPassword}>Confirm Password</Text>
-            <View style={{height: hp('1%')}} />
+            <View  />
             <View>
               <TextInput
                 style={styles.inputField}
                 onChangeText={setConfirmPassword}
                 value={confirmPassword}
-                placeholder="********************"
+                placeholder="..........................."
                 keyboardType="default"
                 secureTextEntry={passwordVisibility}
                 name={'Confirm Password'}
@@ -130,7 +130,7 @@ const ResetPassword = props => {
             />
           </View>
         </View>
-        <SuccessModaal successText={'Password Changed Successfully'} backgroundButtonColor='#2B2F86' buttonTitle={'Go Back To Login'}  visible={modalVisible} setVisible={setModalVisible} />
+        <SuccessModaal source={tickLogo} successText={'Password Changed Successfully'} backgroundButtonColor='#2B2F86' buttonTitle={'Go Back To Login'}  visible={modalVisible} setVisible={setModalVisible} />
       </ScrollView>
     </View>
   );
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     alignItems: 'center',
     width: wp('100%'),
-    minHeight: hp('80%'),
+    minHeight: hp('65%'),
     backgroundColor: '#fff',
     borderTopStartRadius: wp('10%'),
     paddingVertical: hp('1.5%'),
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
   firsteye: {
     position: 'absolute',
     right: scale(20),
-    top: verticalScale(42),
+    top: verticalScale(32),
   },
 
   inputField: {
@@ -193,18 +193,18 @@ const styles = StyleSheet.create({
     width: wp('90%'),
     backgroundColor: '#F5F5F5',
     marginHorizontal:scale(5),
-    marginVertical:verticalScale(5),
     borderRadius: moderateScale(40),
-    paddingLeft: scale(15),
+    paddingLeft: scale(20),
+    
   },
 
   eye: {
     position: 'absolute',
     right: scale(20),
-    top: verticalScale(15),
+    top: verticalScale(10),
   },
   btn: {
-    width: wp('80%'),
+    width: wp('90%'),
   },
 });
 export default ResetPassword;

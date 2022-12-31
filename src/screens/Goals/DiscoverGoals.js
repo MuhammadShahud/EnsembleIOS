@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Dimensions, ScrollView } from 'react-native'
 import React, {useState } from 'react'
 import Header from '../../components/Header/header'
 import { ProgressBar, MD3Colors } from 'react-native-paper';
@@ -8,7 +8,7 @@ import { ProgressBar, MD3Colors } from 'react-native-paper';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { useNavigation } from '@react-navigation/native'
 import { awardLogo, loading, notiLogo, timeLogo } from '../../../assets/images/images'
-import { FiraSansRegular, FiraSansSemiBold, PoppinsBold } from '../../../assets/fonts/Fonts';
+import { FiraSansRegular, FiraSansSemiBold, PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 const PersonalGoals = () => {
   const navigation = useNavigation()
   const [show, setShow] = useState(true)
@@ -60,6 +60,8 @@ const PersonalGoals = () => {
 
       <Header  source={notiLogo}/>
       </View>
+      <ScrollView>
+
       <Text style={styles.personalText}>Discover Goals</Text>
       
 
@@ -85,10 +87,17 @@ const PersonalGoals = () => {
                 <ProgressBar style={styles.progressBar} progress={0.3} color={'black'} />
 
               </View>
+             
             </View>
           );
         }}
       />
+       <View style={styles.footerView}>
+        <Text style={styles.powered}>Powered by</Text>
+        <Text style={styles.ensemble}>ENSEMBLE</Text>
+      </View>
+      
+  </ScrollView>
     </View>
   )
 }
@@ -109,21 +118,24 @@ const styles = StyleSheet.create({
     // fontWeight: 'bold',
     fontFamily:PoppinsBold
   },
-
+  
   box: {
     flexDirection: 'row',
     backgroundColor: 'white',
     marginVertical: verticalScale(7),
     borderRadius: moderateScale(20),
     marginHorizontal: scale(20),
+    // paddingBottom:20
     
   },
   title: {
     color: 'black',
-    fontSize: moderateScale(17),
+    fontSize: moderateScale(16),
     // fontWeight: 'bold',
     fontFamily:FiraSansSemiBold,
-    paddingTop: verticalScale(5)
+    paddingTop: verticalScale(5),
+    // flex:1,
+    // flexWrap:'wrap'
   },
   date: {
     color: 'black',
@@ -139,7 +151,9 @@ const styles = StyleSheet.create({
 
   },
   imageView: {
-    paddingTop: verticalScale(10),
+    paddingTop: verticalScale(15),
+    paddingLeft:scale(15),
+    paddingRight:scale(12)
   },
   flatList: {
     // marginBottom: verticalScale(20)
@@ -153,6 +167,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#EBEBEB',
     width: '80%',
     marginTop:verticalScale(5)
+},
+footerView: {
+  marginHorizontal: scale(20),
+  marginVertical: verticalScale(15),
+  // marginBottom: verticalScale(40),
+},
+powered: {
+  color: 'black',
+  fontFamily: PoppinsRegular,
+},
+ensemble: {
+  color: 'black',
+  fontSize: moderateScale(20),
+  fontFamily: PoppinsSemiBold,
+  marginTop: verticalScale(-3),
 },
  
  

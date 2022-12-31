@@ -191,7 +191,7 @@ const navigation = useNavigation();
               style={{
                 fontSize: moderateScale(13),
                 marginLeft: scale(5),
-                color: 'black',
+                color:'#1B1B1B',
                 fontFamily:PoppinsBold
               }}>
               Logout

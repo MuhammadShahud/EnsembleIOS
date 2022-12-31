@@ -41,7 +41,7 @@ const VerifyEmail = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.logo}>
         <Image style={styles.logoStyle} resizeMode="contain" source={appLogo} />
 
@@ -54,7 +54,7 @@ const VerifyEmail = () => {
             <Image source={yellowLine} />
           </View>
           <Text style={styles.VerifyEmailText}>Verify Email</Text>
-          <View style={{ height: hp('4%') }} />
+          <View style={{ height: hp('2%') }} />
 
           <View>
             <Text style={styles.verificationProcessText}>
@@ -94,7 +94,7 @@ const VerifyEmail = () => {
           </View>
         </View>
       </ScrollView>
-    </View>
+    </ScrollView>
   )
 }
 
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     alignItems: 'center',
     width: wp('100%'),
-    minHeight: hp('80%'),
+    minHeight: hp('60%'),
     backgroundColor: '#fff',
     borderTopStartRadius: wp('10%'),
     paddingVertical: hp('1.5%'),
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     paddingLeft: scale(15)
   },
   btn: {
-    width: wp('80%')
+    width: wp('90%')
   },
 });
 export default VerifyEmail

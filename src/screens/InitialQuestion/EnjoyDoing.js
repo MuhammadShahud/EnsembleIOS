@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
   TextInput,
+  ScrollView,
 } from 'react-native';
 import React, {useState} from 'react';
 import QuestionHeader from '../../components/Header/QuestionHeader';
@@ -93,7 +94,12 @@ const Skills = props => {
     <View style={styles.mainView}>
       <QuestionHeader />
       <Dashes color={3} />
-      <View style={{justifyContent: 'center', height: '75%'}}>
+      <ScrollView>
+
+      <View 
+      // style={{justifyContent: 'center', height: '75%'}}
+      style={{marginTop:verticalScale(100)}}
+      >
         <Questions title="When you’re not working, what do you enjoy doing the most?" />
         <RockstarSkills
           firstTitle="PHOTOGRAPHY"
@@ -110,7 +116,7 @@ const Skills = props => {
           secondImage={movies}
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
-        />
+          />
         <RockstarSkills
           firstTitle="GAMING"
           secondTitle="CINEMATOGRAPHY"
@@ -118,7 +124,7 @@ const Skills = props => {
           secondImage={videography}
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
-        />
+          />
         {/* <RockstarSkills firstTitle='HIKING' secondTitle='OTHERS' firstImage={hiking} /> */}
 
         <View style={styles.firstView}>
@@ -159,13 +165,14 @@ const Skills = props => {
               style={[styles.input, props.inputStyle]}
               placeholder="Write other option here.."
               multiline={true}
-            />
+              />
             <TouchableOpacity style={styles.circleView} onPress={changeColor2}>
               <Entypo name="plus" size={20} color="white" />
             </TouchableOpacity>
           </View>
         ) : null}
       </View>
+        </ScrollView>
       <View>
         <Footer
           powered={{color: 'black'}}

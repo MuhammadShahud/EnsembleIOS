@@ -11,14 +11,14 @@ import {
 } from 'react-native';
 import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
 import { PoppinsSemiBold } from '../../../assets/fonts/Fonts';
-import { tickLogo } from '../../../assets/images/images';
+import { greentick, tickLogo } from '../../../assets/images/images';
 import PrimaryButton from '../PrimaryButton';
 
 const SuccessModaal = props => {
   const navigation = useNavigation();
   const submitLogin = () => {
     props.setVisible(!props.visible);
-    navigation.navigate('home');
+    navigation.navigate('login');
   };
   return (
     <View style={styles.centeredView}>
@@ -35,7 +35,7 @@ const SuccessModaal = props => {
             <Text style={[styles.modalText,props.modalText]}>{props.successText}</Text>
 
             <View style={styles.imageView}>
-              <Image style={styles.imageView2} source={tickLogo} />
+              <Image style={styles.imageView2} source={props.source} />
             </View>
             <View style={{width:'80%'}}>
             <PrimaryButton

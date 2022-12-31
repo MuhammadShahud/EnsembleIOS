@@ -15,6 +15,7 @@ import {
   notiLogo,
   online,
   search,
+  seerch,
   thunder,
   timeLogo,
 } from '../../../assets/images/images';
@@ -56,6 +57,7 @@ const Teams = () => {
       <Header source={notiLogo} />
       <ScrollView>
         <View style={styles.search}>
+          {/* <Image source={seerch} style={styles.seerch}/> */}
           <SearchInput
             searchPhrase={searchPhrase}
             setSearchPhrase={setSearchPhrase}
@@ -247,15 +249,16 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(28),
   },
   powered: {
-    color: '#8C8C8C',
+    color: 'black',
   },
   ensemble: {
-    color: '#8C8C8C',
+    color: 'black',
     fontWeight: 'bold',
     fontSize: moderateScale(18),
   },
   search: {
     marginTop: verticalScale(25),
+    // flexDirection:'row'
   },
   team: {
     color: 'black',
@@ -268,15 +271,15 @@ const styles = StyleSheet.create({
     // backgroundColor:'yellow',
   },
   teamView: {
-    paddingVertical: verticalScale(25),
+    paddingVertical: verticalScale(20),
     backgroundColor: 'white',
     alignItems: 'center',
-    marginVertical: verticalScale(15),
+    marginVertical: verticalScale(10),
     marginHorizontal: scale(20),
     borderRadius: moderateScale(25),
     paddingHorizontal: scale(20),
     minWidth: scale(190),
-    minHeight: verticalScale(220),
+    minHeight: verticalScale(200),
   },
   Name: {
     color: 'black',
@@ -338,5 +341,12 @@ const styles = StyleSheet.create({
   introView: {
     marginLeft: scale(10),
     marginRight: scale(20),
+    // backgroundColor:'red',
+    width:'40%'
   },
+  seerch:{
+    // position:'absolute',
+    // top:verticalScale(20),
+    // left:scale(20)
+  }
 });

@@ -1,4 +1,4 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, ScrollView} from 'react-native';
 import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {USER} from '../../redux/Reducers/AuthReducer';
@@ -72,7 +72,7 @@ export default function Home() {
     <View style={style.container}>
       <Header source={notiLogo} title='The Plum Tree Group' />
 
-      <View style={style.innerView}>
+      <ScrollView style={style.innerView}>
         <View>
           <View style={style.hey}>
             <View>
@@ -122,7 +122,16 @@ export default function Home() {
             color="#2AB679"
           />
         </View>
+          <View style={style.footerView}>
+        <Text style={style.powered}>Powered by</Text>
+        <Text style={style.ensemble}>ENSEMBLE</Text>
       </View>
+      </ScrollView>
+      {/* <View style={style.footerView}>
+        <Text style={style.powered}>Powered by</Text>
+        <Text style={style.ensemble}>ENSEMBLE</Text>
+      </View> */}
     </View>
   );
 }
+

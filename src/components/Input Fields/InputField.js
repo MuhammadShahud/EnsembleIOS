@@ -10,7 +10,7 @@ const InputField = (props) => {
     <View>
       
 
-      <TextInput placeholderTextColor='#414141' value = {props.value? props.value :null} onChangeText={props.onChangeText? (e)=>props.onChangeText(e):null} style={[styles.input,props.inputStyle]} placeholder={props.placeholder} multiline={true} />      
+      <TextInput placeholderTextColor='#BBBBBB' value = {props.value? props.value :null} onChangeText={props.onChangeText? (e)=>props.onChangeText(e):null} style={[styles.input,props.inputStyle]} placeholder={props.placeholder} multiline={true} />      
     </View>
   )
 }

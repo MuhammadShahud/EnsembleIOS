@@ -67,7 +67,12 @@ const [rockstarSkills, setRockstarSkills] = useState([])
     <View style={styles.mainView}>
       <QuestionHeader />
       <Dashes color={2} />
-      <View style={{justifyContent: 'center', height: '75%'}}>
+      <ScrollView>
+
+      <View
+      style={{marginTop:verticalScale(100)}} 
+      // style={{justifyContent: 'center', height: '75%'}}
+      >
         <Questions title="What are your rockstar skills?" />
         <RockstarSkills
           firstTitle="COMMUNICATION"
@@ -84,9 +89,9 @@ const [rockstarSkills, setRockstarSkills] = useState([])
           secondImage={profession}
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
-
-
-        />
+          
+          
+          />
         <RockstarSkills
           firstTitle="CRITICAL THINKING"
           secondTitle="LEADERSHIP"
@@ -95,8 +100,8 @@ const [rockstarSkills, setRockstarSkills] = useState([])
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
 
-
-        />
+          
+          />
         <RockstarSkills
           firstTitle="STRONG WORK ETHIC"
           secondTitle="TEAM WORK"
@@ -140,6 +145,7 @@ const [rockstarSkills, setRockstarSkills] = useState([])
           </View>
         ) : null}
       </View>
+      </ScrollView>
       <View>
         <Footer
           powered={{color: 'black'}}
