@@ -23,7 +23,10 @@ import {
   awardLogo,
   checkMark,
   loading,
+  medal,
+  medall,
   notiLogo,
+  seerch,
   timeLogo,
 } from '../../../assets/images/images';
 import {ButtonColor} from '../../../assets/colors/colors';

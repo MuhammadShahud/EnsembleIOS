@@ -22,14 +22,14 @@ export default Button
 const styles = StyleSheet.create({
     button:{
         backgroundColor:PRIMARYCOLOR,
-        width:'100%',
-        paddingHorizontal:scale(50),
-        paddingVertical:verticalScale(9),
+        // width:'100%',
+        // paddingHorizontal:scale(40),
+        // paddingVertical:verticalScale(9),
         color:'white',
         alignSelf:'center',
         borderRadius:moderateScale(20),
         fontSize:moderateScale(15),
         textAlign:'center',
-        fontFamily:PoppinsSemiBold
+        fontFamily:PoppinsSemiBold,
     }
 })

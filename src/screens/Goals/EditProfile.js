@@ -61,11 +61,11 @@ const styles = StyleSheet.create({
         marginTop:verticalScale(50)
     },
     powered: {
-        color: '#8C8C8C',
+        color: 'black',
         fontFamily:PoppinsRegular
     },
     ensemble: {
-        color: '#8C8C8C',
+        color: 'black',
         // fontWeight: 'bold',
         fontFamily:PoppinsSemiBold,
         fontSize: moderateScale(20),
