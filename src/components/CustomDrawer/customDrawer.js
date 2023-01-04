@@ -30,7 +30,6 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { USER } from '../../redux/Reducers/AuthReducer';
-import { black } from 'react-native-paper/lib/typescript/styles/colors';
 import { PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 

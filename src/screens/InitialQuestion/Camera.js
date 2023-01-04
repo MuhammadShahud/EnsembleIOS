@@ -11,10 +11,10 @@ import QuestionHeader from '../../components/Header/QuestionHeader';
 import * as ImagePicker from 'react-native-image-picker';
 import {useNavigation} from '@react-navigation/native';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
-import {camera} from '../../../assets/images/images';
 import Button from '../../components/Button';
 import {ButtonColor} from '../../../assets/colors/colors';
-import { PoppinsMedium, PoppinsRegular } from '../../../assets/fonts/Fonts';
+import Cameraa from '../../../assets/images/cameraa';
+import {PoppinsMedium, PoppinsRegular} from '../../../assets/fonts/Fonts';
 
 const Camera = () => {
   const navigation = useNavigation();
@@ -74,7 +74,9 @@ const Camera = () => {
       <View>
         <QuestionHeader />
         <View style={styles.cameraView}>
-          <Image source={camera} style={{alignSelf: 'center'}} />
+          <View style={{alignSelf: 'center'}}>
+            <Cameraa />
+          </View>
           <Text style={styles.photo}>A Photo Of you</Text>
           <Text style={styles.lorem}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -129,7 +131,7 @@ const styles = StyleSheet.create({
   photo: {
     color: 'black',
     // fontWeight: '500',
-    fontFamily:PoppinsMedium,
+    fontFamily: PoppinsMedium,
     textAlign: 'center',
     fontSize: moderateScale(30),
     marginTop: verticalScale(50),
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
   lorem: {
     color: '#5C5C5C',
     marginHorizontal: scale(30),
-    fontFamily:PoppinsRegular,
+    fontFamily: PoppinsRegular,
     textAlign: 'center',
     lineHeight: verticalScale(20),
   },
