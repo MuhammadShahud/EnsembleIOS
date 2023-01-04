@@ -2,12 +2,8 @@ import { StyleSheet, Text, View,Image } from 'react-native'
 import React from 'react'
 import { backArrow, ptLogo } from '../../../assets/images/images'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import {
-    widthPercentageToDP as wp,
-    heightPercentageToDP as hp,
-  } from 'react-native-responsive-screen';
+
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { PoppinsBold } from '../../../assets/fonts/Fonts';
 

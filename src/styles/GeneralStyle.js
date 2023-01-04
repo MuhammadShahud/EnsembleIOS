@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import { white } from 'react-native-paper/lib/typescript/styles/colors';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,

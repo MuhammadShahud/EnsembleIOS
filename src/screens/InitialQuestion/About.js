@@ -18,9 +18,9 @@ import Feather from 'react-native-vector-icons/Feather';
 import {PoppinsRegular} from '../../../assets/fonts/Fonts';
 import SelectList from 'react-native-dropdown-select-list';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { useDispatch, useSelector } from 'react-redux';
-import { USER } from '../../redux/Reducers/AuthReducer';
-import { PatchUser } from '../../redux/Actions/AuthAction';
+import {useDispatch, useSelector} from 'react-redux';
+import {USER} from '../../redux/Reducers/AuthReducer';
+import {PatchUser} from '../../redux/Actions/AuthAction';
 
 const About = props => {
   const [selected, setSelected] = React.useState('');
@@ -28,8 +28,8 @@ const About = props => {
   const [number, setNumber] = useState();
   const [bio, setBio] = useState();
   const navigation = useNavigation();
-const dispatch = useDispatch();
-const userData = useSelector(USER);
+  const dispatch = useDispatch();
+  const userData = useSelector(USER);
   let profileData = {};
 
   const data = [
@@ -242,14 +242,16 @@ const userData = useSelector(USER);
     };
 
 
-    dispatch(PatchUser(obj,navigation,'camera',userData?.id))
+    dispatch(PatchUser(obj, navigation, 'camera', userData?.id));
   };
+  const title = `Hi ${userData?.name}!`
+
   return (
     <View style={styles.mainView}>
-        <QuestionHeader />
+      <QuestionHeader />
       <ScrollView style={styles.firstView}>
         <Questions
-          title="Hi John!"
+          title={title}
           questionText={{
             fontSize: moderateScale(30),
             marginBottom: verticalScale(5),

@@ -30,7 +30,15 @@ import {ButtonColor} from '../../../assets/colors/colors';
 import {useDispatch, useSelector} from 'react-redux';
 import {GetGoals} from '../../redux/Actions/AuthAction';
 import {GOALS, USER} from '../../redux/Reducers/AuthReducer';
-import { FiraSansBold, FiraSansRegular, FiraSansSemiBold, PoppinsBold, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
+import {
+  FiraSansBold,
+  FiraSansRegular,
+  FiraSansSemiBold,
+  PoppinsBold,
+  PoppinsMedium,
+  PoppinsRegular,
+  PoppinsSemiBold,
+} from '../../../assets/fonts/Fonts';
 import Footer from '../../components/footer/Footer';
 const PersonalGoals = () => {
   const user =
@@ -67,17 +75,17 @@ const PersonalGoals = () => {
     },
   ];
 
-  const data = goalsData? goalsData: null;
+  const data = goalsData ? goalsData : null;
 
-  if(goalsData?.dueDate){
-    console.log("workingg");
- data?.forEach(e => {
-    let date = e?.dueDate.split('T');
-    console.log("dateeee",date);
-    e.dueDate =date[0];
-    console.log("dataaaa",data);
-  });
-}
+  if (goalsData?.dueDate) {
+    console.log('workingg');
+    data?.forEach(e => {
+      let date = e?.dueDate.split('T');
+      console.log('dateeee', date);
+      e.dueDate = date[0];
+      console.log('dataaaa', data);
+    });
+  }
   console.log('userrr', user.token);
   useFocusEffect(
     useCallback(() => {
@@ -88,136 +96,129 @@ const PersonalGoals = () => {
 
   return (
     <View style={styles.mainView}>
-        <Header  source={notiLogo} />
-        <ScrollView>
+      <Header source={notiLogo} />
+      <ScrollView>
+        <View>
+          <SetGoals visible={visible} setVisible={setVisible} />
 
-      <View>
-        <SetGoals visible={visible} setVisible={setVisible} />
-
-        <OngoingCompleted
-          onPress={() => setShow(!show)}
-          CompletedtextColor={show ? '#858585' : 'white'}
-          OngoingtextColor={show ? 'white' : '#858585'}
-          CompletedbackgroundColor={show ? 'white' : ButtonColor}
-          OngoingbackgroundColor={show ? ButtonColor : 'white'}
-          completedborderColor={show ? '#9F9F9F' : ButtonColor}
-          ongoingbordercolor={show ? ButtonColor : '#9F9F9F'}
-        />
-      </View>
-      
-      <Text style={styles.personalText}>Personal Goals</Text>
-
-      {show ? (
-        <FlatList
-          style={styles.flatList}
-          data={data}
-          keyExtractor={item => item._id}
-          renderItem={({item}) => {
-            return (
-              <TouchableOpacity
-                style={styles.box}
-                onPress={() => navigation.navigate('duedate',{goal: item})}
-                >
-                <View style={styles.imageView}>
-                  <Image source={awardLogo} />
-                </View>
-                <View>
-                  <View style={{flexDirection:'row'}}>
-
-                  <Text style={styles.title}>{item?.goal}</Text>
-                  </View>
-                  <View style={{marginTop:verticalScale(8)}}>
-
-                  <View style={styles.dateView}>
-                    <Image source={timeLogo} />
-                    <Text style={styles.date}>{item?.dueDate}</Text>
-                  </View>
-                  <ProgressBar
-                    style={styles.progressBar}
-                    progress={0.3}
-                    color={'black'}
-                    />
-                    </View>
-
-                  {/* <Image style={styles.loadingline} source={loading} /> */}
-                </View>
-              </TouchableOpacity>
-            );
-          }}
-        />
-      ) : (
-        <FlatList
-          style={styles.flatListCompleted}
-          data={laptop}
-          keyExtractor={item => item.id}
-          renderItem={({item}) => {
-            return (
-              <View
-                style={styles.laptopBox}
-                // onPress={() => navigation.navigate('duedate')}
-                >
-                <View style={styles.checkView}>
-                  <Image source={checkMark} />
-                </View>
-                <View>
-                  <Text style={styles.laptopTitle}>{item?.title}</Text>
-                  <View style={styles.laptopDateView}>
-                    <Text style={styles.laptopDate}>{item?.date}</Text>
-                  </View>
-                </View>
-              </View>
-            );
-          }}
+          <OngoingCompleted
+            onPress={() => setShow(!show)}
+            CompletedtextColor={show ? '#858585' : 'white'}
+            OngoingtextColor={show ? 'white' : '#858585'}
+            CompletedbackgroundColor={show ? 'white' : ButtonColor}
+            OngoingbackgroundColor={show ? ButtonColor : 'white'}
+            completedborderColor={show ? '#9F9F9F' : ButtonColor}
+            ongoingbordercolor={show ? ButtonColor : '#9F9F9F'}
           />
-          )}
-
-      <RBSheet
-        ref={refRBSheet}
-        closeOnDragDown={true}
-        closeOnPressMask={false}
-        customStyles={{
-          wrapper: {
-            backgroundColor: 'rgba(0,0,0,0.5)',
-          },
-          draggableIcon: {
-            backgroundColor: '#000',
-            width: '40%',
-            marginTop: verticalScale(15),
-          },
-          container: {
-            backgroundColor: 'white',
-            borderTopLeftRadius: moderateScale(45),
-            borderTopRightRadius: moderateScale(45),
-            paddingHorizontal: scale(20),
-            zIndex: 1,
-          },
-        }}
-        height={height * 0.35}>
-        <View style={styles.bottomsheet}>
-          <Text style={styles.georgeText}>Ahoy, George!</Text>
-          <Text style={styles.goalsText}>
-            What are <Text style={styles.smartText}>S.M.A.R.T</Text> Goals
-          </Text>
-          <Text style={styles.goalParagraph}>
-            A SMART goal is used to help guide goal setting. SMART is an acronym
-            that stands for <Text style={styles.oneword}>S</Text>pecific,{' '}
-            <Text style={styles.oneword}>M</Text>easurable,{' '}
-            <Text style={styles.oneword}>A</Text>chievable,{' '}
-            <Text style={styles.oneword}>R</Text>ealistic, and{' '}
-            <Text style={styles.oneword}>T</Text>imely.{' '}
-          </Text>
-          <Button
-            title={'Lets Go'}
-            buttonStyle={styles.button}
-            onPress={() => refRBSheet.current.close()}
-            />
         </View>
-      </RBSheet>
-      <View style={styles.footerView}>
-        <Text style={styles.powered}>Powered by</Text>
-        <Text style={styles.ensemble}>ENSEMBLE</Text>
-      </View>
-            </ScrollView>
+
+        <Text style={styles.personalText}>Personal Goals</Text>
+
+        {show ? (
+          <FlatList
+            style={styles.flatList}
+            data={data}
+            keyExtractor={item => item._id}
+            renderItem={({item}) => {
+              return (
+                <TouchableOpacity
+                  style={styles.box}
+                  onPress={() => navigation.navigate('duedate', {goal: item})}>
+                  <View style={styles.imageView}>
+                    <Image source={awardLogo} />
+                  </View>
+                  <View>
+                    <Text style={styles.title}>{item?.goal}</Text>
+
+                    <View style={styles.dateView}>
+                      <Image source={timeLogo} />
+                      <Text style={styles.date}>{item?.dueDate}</Text>
+                    </View>
+                    <ProgressBar
+                      style={styles.progressBar}
+                      progress={0.3}
+                      color={'black'}
+                    />
+
+                    {/* <Image style={styles.loadingline} source={loading} /> */}
+                  </View>
+                </TouchableOpacity>
+              );
+            }}
+          />
+        ) : (
+          <FlatList
+            style={styles.flatListCompleted}
+            data={laptop}
+            keyExtractor={item => item.id}
+            renderItem={({item}) => {
+              return (
+                <View
+                  style={styles.laptopBox}
+                  // onPress={() => navigation.navigate('duedate')}
+                >
+                  <View style={styles.checkView}>
+                    <Image source={checkMark} />
+                  </View>
+                  <View>
+                    <Text style={styles.laptopTitle}>{item?.title}</Text>
+                    <View style={styles.laptopDateView}>
+                      <Text style={styles.laptopDate}>{item?.date}</Text>
+                    </View>
+                  </View>
+                </View>
+              );
+            }}
+          />
+        )}
+
+        <RBSheet
+          ref={refRBSheet}
+          closeOnDragDown={true}
+          closeOnPressMask={false}
+          customStyles={{
+            wrapper: {
+              backgroundColor: 'rgba(0,0,0,0.5)',
+            },
+            draggableIcon: {
+              backgroundColor: '#000',
+              width: '40%',
+              marginTop: verticalScale(15),
+            },
+            container: {
+              backgroundColor: 'white',
+              borderTopLeftRadius: moderateScale(45),
+              borderTopRightRadius: moderateScale(45),
+              paddingHorizontal: scale(20),
+              zIndex: 1,
+            },
+          }}
+          height={height * 0.35}>
+          <View style={styles.bottomsheet}>
+            <Text style={styles.georgeText}>Ahoy, George!</Text>
+            <Text style={styles.goalsText}>
+              What are <Text style={styles.smartText}>S.M.A.R.T</Text> Goals
+            </Text>
+            <Text style={styles.goalParagraph}>
+              A SMART goal is used to help guide goal setting. SMART is an
+              acronym that stands for <Text style={styles.oneword}>S</Text>
+              pecific, <Text style={styles.oneword}>M</Text>easurable,{' '}
+              <Text style={styles.oneword}>A</Text>chievable,{' '}
+              <Text style={styles.oneword}>R</Text>ealistic, and{' '}
+              <Text style={styles.oneword}>T</Text>imely.{' '}
+            </Text>
+            <Button
+              title={'Lets Go'}
+              buttonStyle={styles.button}
+              onPress={() => refRBSheet.current.close()}
+            />
+          </View>
+        </RBSheet>
+        <View style={styles.footerView}>
+          <Text style={styles.powered}>Powered by</Text>
+          <Text style={styles.ensemble}>ENSEMBLE</Text>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -234,8 +235,7 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(20),
     marginBottom: verticalScale(5),
     fontSize: moderateScale(20),
-    fontFamily:FiraSansBold
-
+    fontFamily: FiraSansBold,
   },
 
   box: {
@@ -244,20 +244,19 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(7),
     borderRadius: moderateScale(20),
     marginHorizontal: scale(20),
-    paddingBottom:verticalScale(8)
+    paddingBottom: verticalScale(8),
   },
   title: {
     color: 'black',
     fontSize: moderateScale(16),
-    fontFamily:FiraSansSemiBold,
+    fontFamily: FiraSansSemiBold,
     paddingTop: verticalScale(5),
-    flex:1,
-    flexWrap:'wrap'
+    flex: 1,
   },
   date: {
     color: 'black',
     paddingLeft: scale(8),
-    fontFamily:FiraSansRegular
+    fontFamily: FiraSansRegular,
   },
   dateView: {
     flexDirection: 'row',
@@ -266,8 +265,8 @@ const styles = StyleSheet.create({
   },
   imageView: {
     paddingTop: verticalScale(15),
-    paddingLeft:scale(15),
-    paddingRight:scale(12)
+    paddingLeft: scale(15),
+    paddingRight: scale(12),
   },
   flatListCompleted: {
     marginTop: verticalScale(20),
@@ -279,30 +278,30 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(10),
     fontSize: moderateScale(35),
     color: 'black',
-    fontFamily:PoppinsBold
+    fontFamily: PoppinsBold,
   },
   smartText: {
     color: 'black',
-    fontFamily:PoppinsMedium,
+    fontFamily: PoppinsMedium,
   },
   goalsText: {
     color: 'black',
     marginTop: verticalScale(5),
-    fontFamily:PoppinsRegular,
-    marginTop:verticalScale(-5)
+    fontFamily: PoppinsRegular,
+    marginTop: verticalScale(-5),
   },
   goalParagraph: {
     marginTop: verticalScale(10),
     color: 'black',
     fontSize: moderateScale(14),
     lineHeight: verticalScale(15),
-    fontFamily:PoppinsRegular
+    fontFamily: PoppinsRegular,
   },
   bottomsheet: {
     marginHorizontal: scale(5),
   },
   oneword: {
-    fontFamily:PoppinsBold
+    fontFamily: PoppinsBold,
   },
   button: {
     backgroundColor: 'black',
@@ -318,7 +317,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(20),
     zIndex: 1,
   },
- 
+
   checkView: {
     paddingHorizontal: scale(10),
     paddingVertical: verticalScale(10),
@@ -337,13 +336,13 @@ const styles = StyleSheet.create({
   },
   laptopTitle: {
     color: 'black',
-    fontFamily:PoppinsRegular
+    fontFamily: PoppinsRegular,
   },
   laptopDate: {
     fontSize: moderateScale(10),
-    color:'#8C8C8C',
-    fontFamily:PoppinsRegular,
-    marginTop:verticalScale(-5)
+    color: '#8C8C8C',
+    fontFamily: PoppinsRegular,
+    marginTop: verticalScale(-5),
   },
   progressBar: {
     borderRadius: 20,
