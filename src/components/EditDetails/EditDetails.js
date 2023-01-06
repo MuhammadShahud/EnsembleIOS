@@ -22,9 +22,12 @@ const EditDetails = (props) => {
 
 
             </View>
-            <View style={{ width: '200%', height: '1%', backgroundColor: '#E0E0E0', marginTop: verticalScale(20) }}>{props.line}
+            {props.name? null : 
+
+                <View style={{ width: '200%', height: '1%', backgroundColor: '#E0E0E0', marginTop: verticalScale(20) }}>{props.line}
                 
             </View>
+            }
         </View>
     )
 }

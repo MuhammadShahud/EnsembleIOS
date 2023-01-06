@@ -18,13 +18,13 @@ import {
   PoppinsRegular,
   PoppinsSemiBold,
 } from '../../../assets/fonts/Fonts';
-import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
-import {ButtonColor} from '../../../assets/colors/colors';
-import {awardLogo, bag, HR, rightArrow} from '../../../assets/images/images';
-import {useNavigation} from '@react-navigation/native';
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
+import { ButtonColor } from '../../../assets/colors/colors';
+import { awardLogo, bag, HR, rightArrow } from '../../../assets/images/images';
+import { useNavigation } from '@react-navigation/native';
 import Home from '../home/home';
-import {useSelector} from 'react-redux';
-import {NOTI} from '../../redux/Reducers/AuthReducer';
+import { useSelector } from 'react-redux';
+import { NOTI } from '../../redux/Reducers/AuthReducer';
 
 const Notification = () => {
   const navigation = useNavigation();
@@ -61,17 +61,17 @@ const Notification = () => {
     },
   ];
 
-const onClick = (title) =>{
- 
-title==="Complete Your Goal"?
-navigation.navigate('Goals') :
-title==="Start a New Survey"?
-navigation.navigate('Surveys') :
-null
+  const onClick = (title) => {
+
+    title === "Complete Your Goal" ?
+      navigation.navigate('Goals') :
+      title === "Start a New Survey" ?
+        navigation.navigate('Surveys') :
+        null
 
 
 
-}
+  }
 
   return (
     <View>
@@ -80,28 +80,31 @@ null
         <Text style={styles.notiText}>Notifications</Text>
         <FlatList
           style={styles.flatListCompleted}
+          // onPress={navigation.navigate('welcome')}
+
           data={notiToday}
           keyExtractor={item => item.id}
-          renderItem={({item}) => {
+          renderItem={({ item }) => {
             return (
-              <TouchableOpacity 
-              onPress={()=>{onClick(item.title)}}
-              style={styles.todayView}>
+              <TouchableOpacity
+                // onPress={()=>{onClick(item.title)}}
+                onPress={()=>navigation.navigate('welcome')}
+                style={styles.todayView}>
                 <View >
                   <Image
                     source={
                       item.title === 'HR ANNOUNCEMENT'
                         ? HR
                         : item.title === 'Complete Your Goal'
-                        ? awardLogo
-                        : bag
+                          ? awardLogo
+                          : bag
                     }
                   />
                 </View>
                 <View style={styles.setup}>
                   <Text style={styles.flatText}>{item.text}</Text>
                   <Text style={styles.date}>{item.date}</Text>
-                  </View>
+                </View>
               </TouchableOpacity>
             );
           }}
@@ -155,7 +158,7 @@ const styles = StyleSheet.create({
   todayView: {
     flexDirection: 'row',
     backgroundColor: 'white',
-    flexShrink:1,
+    flexShrink: 1,
     marginHorizontal: scale(20),
     marginVertical: verticalScale(8),
     paddingTop: verticalScale(15),
@@ -165,7 +168,7 @@ const styles = StyleSheet.create({
   },
   flatText: {
     color: 'black',
-    flexShrink:1,
+    flexShrink: 1,
     fontFamily: PoppinsRegular,
   },
   date: {
@@ -175,7 +178,7 @@ const styles = StyleSheet.create({
   },
   setup: {
     // justifyContent: 'space-between',
-    flexShrink:1,
+    flexShrink: 1,
   },
   survey: {
     fontSize: moderateScale(10),

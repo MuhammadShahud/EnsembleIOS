@@ -121,12 +121,15 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(30),
     width: '100%',
     paddingHorizontal: scale(60),
-    fontSize:moderateScale(16)
+    fontSize:moderateScale(16),
+    paddingTop:verticalScale(8),
+    paddingBottom:verticalScale(5)
   },
   
   buttonStyle:{
     paddingHorizontal:scale(45),
     marginBottom:verticalScale(10),
+    // paddingTop:verticalScale(10)
   }
 });
 

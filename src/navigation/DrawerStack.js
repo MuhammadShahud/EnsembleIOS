@@ -16,6 +16,8 @@ import Review from '../screens/survey/Review';
 import SurveySuceed from '../screens/survey/SurveySuceed';
 import Teams from '../screens/Teams/teams';
 import PersonalGoals from '../screens/Goals/PersonalGoals';
+import Welcome from '../screens/notification/Welcome';
+import UpdateProfile from '../screens/Goals/UpdateProfile';
 
 
 
@@ -83,6 +85,11 @@ const DrawerStack = () => {
         name="editgoal"
         component={EditGoal}
       />
+         <Drawer.Screen
+        name="welcome"
+        component={Welcome}
+      />
+       
       <Drawer.Screen
         name="calender"
         component={Calen}

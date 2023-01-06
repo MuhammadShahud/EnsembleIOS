@@ -33,7 +33,7 @@ const Splash = () => {
 
   const onStart = () => {
     console.log('working')
-    navigation.navigate('camera')
+    navigation.navigate('drawer')
   }
 
   return (

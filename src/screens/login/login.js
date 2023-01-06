@@ -24,6 +24,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { LoginFunction } from '../../redux/Actions/AuthAction';
 import { scale, verticalScale } from 'react-native-size-matters';
 import Button from '../../components/Button';
+import Eyee from '../../../assets/images/eyee'
+import EyeeSlash from '../../../assets/images/noteyee'
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -99,7 +101,18 @@ const Login = () => {
                 secureTextEntry={passwordVisibility}
               />
               <TouchableOpacity onPress={handlePasswordVisibility} style={style.eye}>
-                {rightIcon ? <Icon name='eye' size={20} /> : <Icon name='eye-slash' size={20} />}
+                <View style={{marginTop:verticalScale(5),marginRight:scale(10)}}>
+                {rightIcon ? 
+
+                <Eyee />
+
+                 : 
+
+                 <EyeeSlash/>
+                }
+                </View>
+
+                
               </TouchableOpacity>
             </View>
             <View style={{ height: hp('1%') }} />

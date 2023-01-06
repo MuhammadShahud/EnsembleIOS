@@ -23,6 +23,8 @@ import RetakePhoto from '../screens/InitialQuestion/RetakePhoto';
 import EditProfile from '../screens/Goals/EditProfile';
 import Settings from '../screens/settings/Settings';
 import ChangePassword from '../screens/settings/ChangePassword';
+import Welcome from '../screens/notification/Welcome';
+import UpdateProfile from '../screens/Goals/UpdateProfile';
 
 
 const Main = createNativeStackNavigator();
@@ -166,6 +168,17 @@ const MainStack = () => {
         component={Notification}
         options={{headerShown: false}}
       /> */}
+        <Main.Screen
+        name="welcome"
+        component={Welcome}
+        options={{headerShown: false}}
+      />
+        <Main.Screen
+        name="updateprofile"
+        component={UpdateProfile}
+        options={{headerShown: false}}
+      />
+
     </Main.Navigator>
   );
 };

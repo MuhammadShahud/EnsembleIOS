@@ -8,8 +8,11 @@ import EditButtons from '../../components/EditDetails/EditButtons'
 import { useSelector } from 'react-redux'
 import { COMPANY, USER } from '../../redux/Reducers/AuthReducer'
 import { PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
+import EditProfileButton from '../../components/EditProfileButton'
+import { useNavigation } from '@react-navigation/native'
 
 const EditProfile = (props) => {
+    const navigation=useNavigation();
 
     const userData = props.route.params.userData;
     const company = useSelector(COMPANY)
@@ -21,10 +24,14 @@ const EditProfile = (props) => {
 
                 <Header source={notiLogo} />
             <ScrollView >
-                <Image source={{uri:`https://onboard-backendd.herokuapp.com/${userData.profilePic}`}} style={styles.editImage} />
                 <View>
+                    <View style={{flexDirection:'row'}}>
 
-                    <EditDetails  detail1={userData.questions.jobTitle} detail2={company?.companyName} title={userData.name} source={edit} />
+                <Image source={{uri:`https://onboard-backendd.herokuapp.com/${userData.profilePic}`}} style={styles.editImage} />
+
+                    <EditDetails  detail1={userData.questions.jobTitle} detail2={company?.companyName} title={userData.name} source={edit} name='kuchbhi'/>
+                    </View>
+                    <EditProfileButton onPress={()=>navigation.navigate('updateprofile',{userData})} EditText={'Edit Profile'}/>
                     <EditDetails detail1={userData.profileData.number}  title='Phone Number' source={edit} />
                     <EditDetails detail1={userData.profileData.location}  title='Location' source={edit} />
                     {/* <EditDetails detail1='Lorem ipsum dolor sit amet. In impedit aliquid nam minima iure At quas obcaecati aut iste eveniet ut voluptates expedita. Quo asperiores.' title='Describe Yourself in 3 Words' source={edit} /> */}

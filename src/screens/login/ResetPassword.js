@@ -22,6 +22,9 @@ import {ResetPass} from '../../redux/Actions/AuthAction';
 import {PRIMARYCOLOR} from '../../../assets/colors/colors';
 import {appLogo, greentick, tickLogo, yellowLine} from '../../../assets/images/images';
 import { PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
+import Eyee from '../../../assets/images/eyee';
+import EyeeSlash from '../../../assets/images/noteyee'
+
 
 const ResetPassword = props => {
   const dispatch = useDispatch();
@@ -30,7 +33,9 @@ const ResetPassword = props => {
   const [newPassword, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordVisibility, setPasswordVisibility] = useState(true);
+  const [passwordVisibility1, setPasswordVisibility1] = useState(true);
   const [rightIcon, setRightIcon] = useState(true);
+  const [rightIcon1, setRightIcon1] = useState(true);
   const [modalVisible, setModalVisible] = useState(false);
 
   const handlePasswordVisibility = () => {
@@ -42,6 +47,19 @@ const ResetPassword = props => {
       setPasswordVisibility(!passwordVisibility);
     }
   };
+
+
+  const handlePasswordVisibility1 = () => {
+    if (rightIcon1 === true) {
+      setRightIcon1(false);
+      setPasswordVisibility1(!passwordVisibility1);
+    } else if (rightIcon1 === false) {
+      setRightIcon1(true);
+      setPasswordVisibility1(!passwordVisibility1);
+    }
+  };
+
+
 
   const submitLogin = () => {
     const newObj = {
@@ -87,11 +105,17 @@ const ResetPassword = props => {
             <TouchableOpacity
               onPress={handlePasswordVisibility}
               style={styles.firsteye}>
+                <View style={{marginTop:verticalScale(5),marginRight:scale(10)}}>
+
               {rightIcon ? (
-                <Icon name="eye" size={20} />
-              ) : (
-                <Icon name="eye-slash" size={20} />
-              )}
+                <Eyee/>
+                
+                ) : (
+                  <EyeeSlash/>
+                  
+                  )}
+                  </View>
+              
             </TouchableOpacity>
             <View style={{height: hp('4%')}} />
 
@@ -104,17 +128,25 @@ const ResetPassword = props => {
                 value={confirmPassword}
                 placeholder="..........................."
                 keyboardType="default"
-                secureTextEntry={passwordVisibility}
+                secureTextEntry={passwordVisibility1}
                 name={'Confirm Password'}
               />
               <TouchableOpacity
-                onPress={handlePasswordVisibility}
+
+                onPress={handlePasswordVisibility1}
                 style={styles.eye}>
-                {rightIcon ? (
-                  <Icon name="eye" size={20} />
-                ) : (
-                  <Icon name="eye-slash" size={20} />
-                )}
+                  <View style={{marginTop:verticalScale(5),marginRight:scale(10)}}>
+
+
+                {rightIcon1 ? (
+                  <Eyee/>
+                  ) : (
+                    <EyeeSlash/>
+                    
+                    )}
+                    </View>
+
+
               </TouchableOpacity>
             </View>
             <View style={{height: hp('2%')}} />
