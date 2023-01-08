@@ -14,8 +14,12 @@ const QuestionHeader = (props) => {
   const navigation=useNavigation();
   return (
     <View style={styles.mainView}>
-    <MaterialCommunityIcons
-      name='keyboard-backspace' size={25} color={'black'} onPress={()=>navigation.goBack()}/>
+      {props.arrow? <View></View>
+      :
+
+        <MaterialCommunityIcons
+        name='keyboard-backspace' size={25} color={'black'} onPress={()=>navigation.goBack()}/>
+      }
 
       <View style={styles.header}>
         <Image  source={{

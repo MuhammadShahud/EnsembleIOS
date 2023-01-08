@@ -89,6 +89,10 @@ const DrawerStack = () => {
         name="welcome"
         component={Welcome}
       />
+         <Drawer.Screen
+        name="updateprofile"
+        component={UpdateProfile}
+      />
        
       <Drawer.Screen
         name="calender"

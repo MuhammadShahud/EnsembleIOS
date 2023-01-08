@@ -1,19 +1,22 @@
-import {StyleSheet, Text, View, Image, Dimensions} from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 import QuestionHeader from '../../components/Header/QuestionHeader';
-import React, {useCallback, useEffect, useState} from 'react';
-import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
+import React, { useCallback, useEffect, useState } from 'react';
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import InputField from '../../components/Input Fields/InputField';
 import Footer from '../../components/footer/Footer';
 import SelectList from 'react-native-dropdown-select-list';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import Questions from '../../components/Question Text/Questions';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import {useRef} from 'react';
+import { useRef } from 'react';
 import Button from '../../components/Button';
-import {ButtonColor} from '../../../assets/colors/colors';
+import { ButtonColor } from '../../../assets/colors/colors';
 import Dashes from '../../components/Question Text/dashes';
+// import Twofingers from '../../../assets/images/twofingers'
+import Twofingers from '../../../assets/images/twofingers'
+
 import {
   PoppinsBold,
   PoppinsRegular,
@@ -38,13 +41,14 @@ const Name = () => {
 
   const data = [
     //   {key:'1',value:'Select One'},
-    { value: 'he/him/his'},
-    {value: 'she/her/hers'},
-    {value: 'they/them/their'},
+    { value: 'he/him/his' },
+    { value: 'she/her/hers' },
+    { value: 'they/them/their' },
   ];
 
   const forward = () => {
     console.log('Asdsadsadas', name, selected);
+<<<<<<< HEAD
     if(name && selected){
       questions.name = name;
       questions.pronouns = selected;
@@ -57,53 +61,57 @@ const Name = () => {
       });
     }
    
+=======
+    questions.name = name;
+    questions.pronouns = selected;
+    console.log('questions', questions);
+    navigation.navigate('skills', { questions });
+>>>>>>> c0fc238a3558248de7b0398023b420bc6c488a62
   };
 
   return (
     <View style={styles.mainView}>
-      <QuestionHeader />
+      <QuestionHeader arrow={'notshow'} />
       <Dashes color={1} />
       <ScrollView>
 
-      <View 
-      // style={{justifyContent: 'center', height: '75%'}}
-      style={{marginTop:verticalScale(100)}}
-      >
-        {/* <Image source={first} style={{alignSelf:'center'}}/> */}
-        <Questions title={'What is your preferred name?'} />
-        <InputField
-          placeholderTextColor={'#BBBBBB'}
-          placeholder={' "Michael Scott" '}
-          inputStyle={styles.input}
-          onChangeText={setName}
-        />
-        <Text style={styles.pronounText}>What are your pronouns?</Text>
-        <View style={styles.dropDownView}>
-          <SelectList
-            style={styles.inside}
-            //   onSelect={() => alert(selected)}
-            setSelected={setSelected}
-            data={data}
-            arrowicon={
-              <Feather name="chevron-down" size={15} color={'black'} />
-            }
-            searchicon={<FontAwesome name="search" size={12} color={'black'} />}
-            search={false}
-            boxStyles={styles.boxStyle} //override default styles
-            defaultOption={{value: 'Select One'}} //default selected option
-            dropdownStyles={styles.dropdownStyles}
-            dropdownTextStyles={styles.dropdownTextStyles}
-            dropdownItemStyles={styles.dropdownItemStyles}
-            />
-        </View>
-      </View>
-      {/* <DropDown/> */}
+        <View style={{ marginTop: verticalScale(100) }}>
+          {/* <Image source={first} style={{alignSelf:'center'}}/> */}
+          <Questions title={'What is your preferred name?'} />
 
-        </ScrollView>
+          <InputField
+            placeholderTextColor={'#BBBBBB'}
+            placeholder={' "Michael Scott" '}
+            inputStyle={styles.input}
+            onChangeText={setName}
+            />
+          <Text style={styles.pronounText}>What are your pronouns?</Text>
+          <View style={styles.dropDownView}>
+            <SelectList
+              style={styles.inside}
+              //   onSelect={() => alert(selected)}
+              setSelected={setSelected}
+              data={data}
+              arrowicon={
+                <Feather name="chevron-down" size={15} color={'black'} />
+              }
+              searchicon={<FontAwesome name="search" size={12} color={'black'} />}
+              search={false}
+              boxStyles={styles.boxStyle} //override default styles
+              defaultOption={{ value: 'Select One' }} //default selected option
+              dropdownStyles={styles.dropdownStyles}
+              dropdownTextStyles={styles.dropdownTextStyles}
+              dropdownItemStyles={styles.dropdownItemStyles}
+            />
+          </View>
+        </View>
+        {/* <DropDown/> */}
+
+      </ScrollView>
       <View>
         <Footer
-          powered={{color: 'black'}}
-          ensemble={{color: 'black'}}
+          powered={{ color: 'black' }}
+          ensemble={{ color: 'black' }}
           iconName={'chevron-right'}
           onPress={() => forward()}
         />
@@ -134,9 +142,21 @@ const Name = () => {
         <View style={styles.bottomsheet}>
           <Text style={styles.georgeText}>Let's get you</Text>
           <Text style={styles.georgeText1}>On Board!</Text>
+<<<<<<< HEAD
           <Text style={styles.textBoard}>
             Ten super fun questions that will tell us more about you ✌️
           </Text>
+=======
+          <View style={{ flexDirection: 'row', alignItems: 'center', position: 'relative' }}>
+            <Text style={styles.textBoard}>
+              Ten super fun questions that will tell us more about you
+            </Text>
+            <View style={{ position: 'absolute', left: scale(115), bottom: verticalScale(12) }}>
+
+              <Twofingers />
+            </View>
+          </View>
+>>>>>>> c0fc238a3558248de7b0398023b420bc6c488a62
 
           <Button
             title={'Begin'}
@@ -172,7 +192,7 @@ const styles = StyleSheet.create({
     color: 'black',
     marginHorizontal: scale(20),
     marginTop: verticalScale(25),
-    marginBottom:verticalScale(-10),
+    marginBottom: verticalScale(-10),
     fontSize: moderateScale(23),
     fontFamily: PoppinsSemiBold,
   },
@@ -230,5 +250,7 @@ const styles = StyleSheet.create({
     backgroundColor: ButtonColor,
     borderRadius: moderateScale(30),
     fontFamily: PoppinsSemiBold,
+    width: '100%',
+    paddingVertical: verticalScale(10)
   },
 });

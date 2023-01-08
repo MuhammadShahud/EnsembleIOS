@@ -4,6 +4,10 @@ import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { PoppinsSemiBold } from '../../assets/fonts/Fonts'
 
 const UpdateInput = (props) => {
+
+
+
+
     return (
         <View style={styles.inputView}>
 
@@ -53,6 +57,7 @@ const styles = StyleSheet.create({
     },
     inputView: {
         marginTop: verticalScale(30),
+        flex:1
 
 
 
