@@ -48,7 +48,6 @@ const Name = () => {
 
   const forward = () => {
     console.log('Asdsadsadas', name, selected);
-<<<<<<< HEAD
     if(name && selected){
       questions.name = name;
       questions.pronouns = selected;
@@ -61,12 +60,10 @@ const Name = () => {
       });
     }
    
-=======
     questions.name = name;
     questions.pronouns = selected;
     console.log('questions', questions);
     navigation.navigate('skills', { questions });
->>>>>>> c0fc238a3558248de7b0398023b420bc6c488a62
   };
 
   return (
@@ -142,11 +139,9 @@ const Name = () => {
         <View style={styles.bottomsheet}>
           <Text style={styles.georgeText}>Let's get you</Text>
           <Text style={styles.georgeText1}>On Board!</Text>
-<<<<<<< HEAD
-          <Text style={styles.textBoard}>
+          {/* <Text style={styles.textBoard}>
             Ten super fun questions that will tell us more about you ✌️
-          </Text>
-=======
+          </Text> */}
           <View style={{ flexDirection: 'row', alignItems: 'center', position: 'relative' }}>
             <Text style={styles.textBoard}>
               Ten super fun questions that will tell us more about you
@@ -156,7 +151,6 @@ const Name = () => {
               <Twofingers />
             </View>
           </View>
->>>>>>> c0fc238a3558248de7b0398023b420bc6c488a62
 
           <Button
             title={'Begin'}

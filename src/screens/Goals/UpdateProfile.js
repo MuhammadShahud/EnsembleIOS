@@ -84,7 +84,8 @@ import { useNavigation } from '@react-navigation/native'
 import UpdateInput from '../../components/UpdateInput'
 import SelectList from 'react-native-dropdown-select-list';
 import Feather from 'react-native-vector-icons/Feather'
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import EditCamera from '../../../assets/images/editcamera'
 
 
 const EditProfile = (props) => {
@@ -302,15 +303,17 @@ const EditProfile = (props) => {
 
             <Header source={notiLogo} />
             <ScrollView >
-                <View>
+                <View style={{position:'relative'}}>
                     <View style={{ flexDirection: 'row' }}>
 
                         <Image source={{ uri: `https://onboard-backendd.herokuapp.com/${userData.profilePic}` }} style={styles.editImage} />
-
                         <EditDetails detail1={userData.questions.jobTitle} detail2={company?.companyName} title={userData.name} source={edit} name='kuchbhi' />
                     </View>
+                    <View style={{ position: 'absolute', top: verticalScale(125), left: scale(115) }}>
+                        <EditCamera />
+                    </View>
                     <EditProfileButton onPress={() => navigation.navigate('updateprofile')} EditText={'Update'} edit={'hehe'} />
-                    <UpdateInput placeholder={'021 456 789'} title={'Phone Number'} line={'aa'}/>
+                    <UpdateInput placeholder={'021 456 789'} title={'Phone Number'} line={'aa'} />
                     {/* <UpdateInput placeholder={'Pakistan'} title={'Location'} /> */}
 
 
