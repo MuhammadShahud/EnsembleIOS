@@ -16,20 +16,17 @@ import {ButtonColor} from '../../../assets/colors/colors';
 import Dashes from '../../components/Question Text/dashes';
 import {
   PoppinsBold,
-  PoppinsLight,
-  PoppinsMedium,
   PoppinsRegular,
   PoppinsSemiBold,
 } from '../../../assets/fonts/Fonts';
-import { victory } from '../../../assets/images/images';
 import { ScrollView } from 'react-native';
+import { FlashMessage } from '../../redux/Actions/AuthAction';
 
 const Name = () => {
   const navigation = useNavigation();
   const refRBSheet = useRef();
   const height = Dimensions.get('screen').height;
   const [name, setName] = useState('');
-  const [pronoun, setPronoun] = useState('');
 
   let questions = {};
 
@@ -48,10 +45,18 @@ const Name = () => {
 
   const forward = () => {
     console.log('Asdsadsadas', name, selected);
-    questions.name = name;
-    questions.pronouns = selected;
-    console.log('questions', questions);
-    navigation.navigate('skills',{questions});
+    if(name && selected){
+      questions.name = name;
+      questions.pronouns = selected;
+      console.log('questions', questions);
+      navigation.navigate('skills',{questions});
+    }else{
+      FlashMessage({
+        message: "Must fill all the fields",
+        type: 'danger',
+      });
+    }
+   
   };
 
   return (
@@ -130,11 +135,8 @@ const Name = () => {
           <Text style={styles.georgeText}>Let's get you</Text>
           <Text style={styles.georgeText1}>On Board!</Text>
           <Text style={styles.textBoard}>
-            Ten super fun questions that will tell us more about you 
+            Ten super fun questions that will tell us more about you ✌️
           </Text>
-          <Image source={victory} 
-          style={{position:'absolute',bottom:verticalScale(56), left:scale(117)}}
-          />
 
           <Button
             title={'Begin'}
