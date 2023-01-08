@@ -5,7 +5,7 @@ const initialState = {
     completedSurveys:['63937ba901b4f1a750484da4'],
     email: 'shahud@plumtreegroup.net',
     password: '$2b$10$4d9GIb8FdoCM.tLIdjW4cOJh6Sw.FxQcwzS34mJn1E1w8Gl5cjt.u',
-    companyId: '636bee4fb501b64b83cc5004',
+    companyId: '63b84e444494c298f7dff733',
     teamId: '636c0dfc25e953503e7c89f2',
     profileData: {
       number: '123494302',
@@ -30,7 +30,25 @@ const initialState = {
   },
   goals: {},
   team: {},
-  company: {},
+  company: {
+    email: "testing@plumtreegroup.net",
+    firstTime: true,
+    teamId: [],
+    employeeId: [],
+    surveyId: [],
+    createdAt: "2023-01-06T16:37:24.194Z",
+    updatedAt: "2023-01-08T15:29:13.533Z",
+    forgetCode: 4929,
+    aboutCompany: "asdpoaskdopksaopdksapodkpaos",
+    brandColor: "3",
+    companyName: "Plum Tree Group",
+    designation: "HR Manager",
+    name: "Maha",
+    organizationType: "IT",
+    sizeOfCompany: 50,
+    profilePic: "uploads/PTG.png",
+    id: "63b84e444494c298f7dff733"
+},
   surveys:{},
   noti:{}
 };

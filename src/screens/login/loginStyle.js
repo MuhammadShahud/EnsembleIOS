@@ -49,7 +49,7 @@ export const style = StyleSheet.create({
     flexDirection: 'row'
   },
   logo: {
-    height: hp('43%'),
+    height: hp('40%'),
     justifyContent: 'center',
     alignItems: 'center',
   },
