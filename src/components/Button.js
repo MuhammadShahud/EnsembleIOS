@@ -22,9 +22,9 @@ export default Button
 const styles = StyleSheet.create({
     button:{
         backgroundColor:PRIMARYCOLOR,
-        // width:'100%',
+        width:'100%',
         // paddingHorizontal:scale(40),
-        // paddingVertical:verticalScale(9),
+        paddingVertical:verticalScale(9),
         color:'white',
         alignSelf:'center',
         borderRadius:moderateScale(20),
