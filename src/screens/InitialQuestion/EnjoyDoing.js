@@ -14,19 +14,14 @@ import {useNavigation} from '@react-navigation/native';
 import Questions from '../../components/Question Text/Questions';
 import RockstarSkills from '../../components/Skills/RockstarSkills';
 import {
-  communication,
   gaming,
   hiking,
-  idea,
-  leadership,
-  management,
+
   movies,
   network,
   photography,
-  profession,
   reading,
-  team,
-  thinking,
+ 
   videography,
 } from '../../../assets/images/images';
 import Dashes from '../../components/Question Text/dashes';
@@ -34,6 +29,7 @@ import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import {ButtonColor} from '../../../assets/colors/colors';
 import {PoppinsSemiBold} from '../../../assets/fonts/Fonts';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { FlashMessage } from '../../redux/Actions/AuthAction';
 
 const Skills = props => {
   const [btnState, setBtnState] = useState(false);
@@ -86,9 +82,18 @@ const Skills = props => {
 
   const forward = () => {
     console.log('Asdsadsadas', rockstarSkills);
+
+    if(rockstarSkills.length > 0){
+    console.log('Asdsadsadas', rockstarSkills);
     questions.Hobbies = rockstarSkills;
     console.log('questions', questions);
     navigation.navigate('describeyourjob', {questions});
+    }else{
+      FlashMessage({
+        message: "Must fill all the fields",
+        type: 'danger',
+      });
+    }
   };
   return (
     <View style={styles.mainView}>

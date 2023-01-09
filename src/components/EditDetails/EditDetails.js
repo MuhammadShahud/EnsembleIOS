@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { edit } from '../../../assets/images/images'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { ButtonColor } from '../../../assets/colors/colors'
 import { PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
@@ -11,8 +10,7 @@ const EditDetails = (props) => {
         <View style={{flex:1}}>
 
             <View
-             style={{ marginTop: verticalScale(20), marginHorizontal: scale(20), }}
-             >
+             style={[{ marginTop: verticalScale(20)},props.name? {marginHorizontal: scale(0)} : {marginHorizontal:scale(20)} ]}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
                     <Text style={styles.title}>{props.title}</Text>
                     <Image source={props.source} />

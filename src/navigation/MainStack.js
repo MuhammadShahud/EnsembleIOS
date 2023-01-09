@@ -128,11 +128,11 @@ const MainStack = () => {
         component={DiscoverGoals}
         options={{headerShown: false}}
       />
-      <Main.Screen
+      {/* <Main.Screen
         name="editprofile"
         component={EditProfile}
         options={{ headerShown: false }}
-      />
+      /> */}
        {/* <Main.Screen
         name="duedate"
         component={GoalsDueDate}
@@ -168,16 +168,16 @@ const MainStack = () => {
         component={Notification}
         options={{headerShown: false}}
       /> */}
-        <Main.Screen
+        {/* <Main.Screen
         name="welcome"
         component={Welcome}
         options={{headerShown: false}}
-      />
-        <Main.Screen
+      /> */}
+        {/* <Main.Screen
         name="updateprofile"
         component={UpdateProfile}
         options={{headerShown: false}}
-      />
+      /> */}
 
     </Main.Navigator>
   );

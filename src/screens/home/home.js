@@ -1,7 +1,7 @@
 import {View, Text, Image, ScrollView} from 'react-native';
 import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {USER} from '../../redux/Reducers/AuthReducer';
+import {COMPANY, USER} from '../../redux/Reducers/AuthReducer';
 import {style} from './homeStyle';
 import {styles} from '../../styles/GeneralStyle';
 import Header from '../../components/Header/header';
@@ -24,6 +24,7 @@ import messaging from '@react-native-firebase/messaging';
 
 export default function Home() {
   const userData = useSelector(USER);
+  const company = useSelector(COMPANY);
   const dispatch = useDispatch();
   const navigation =useNavigation();
   const token =
@@ -60,7 +61,7 @@ export default function Home() {
   useFocusEffect(
     useCallback(() => {
        dispatch(GetGoals(token));
-       dispatch(GetCompany(userData?.companyId));
+      //  dispatch(GetCompany(userData?.companyId));
        dispatch(GetTeam(userData?.teamId));
        dispatch(GetSurveys())
        dispatch(GetNoti());
@@ -70,7 +71,7 @@ export default function Home() {
 
   return (
     <View style={style.container}>
-      <Header source={notiLogo} title='The Plum Tree Group' />
+      <Header source={notiLogo} title={company.companyName} />
 
       <ScrollView style={style.innerView}>
         <View>
@@ -88,7 +89,7 @@ export default function Home() {
             />
           </View>
           <View style={{height: hp('0%')}}></View>
-          <Text style={style.position}>{userData?.questions.jobTitle} | The Plum Tree Group </Text>
+          <Text style={style.position}>{userData?.questions.jobTitle} | {company.companyName} </Text>
         </View>
 
         <View style={{height: hp('3%')}}></View>
@@ -119,7 +120,7 @@ export default function Home() {
             image={task}
             text1="Start your Pulse survey!"
             text2="Answer these pulse survey questions anonymously"
-            color="#2AB679"
+            color={company.brandColor}
           />
         </View>
           <View style={style.footerView}>

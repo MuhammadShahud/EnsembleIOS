@@ -9,6 +9,7 @@ import { scale, verticalScale } from 'react-native-size-matters'
 import Dashes from '../../components/Question Text/dashes'
 import { KeyboardAvoidingView } from 'react-native';
 import { Platform } from 'react-native'
+import { FlashMessage } from '../../redux/Actions/AuthAction'
 
 const DescribeYourJob = (props) => {
   const [desc, setDesc] = useState()
@@ -17,10 +18,17 @@ const DescribeYourJob = (props) => {
     const navigation=useNavigation();
 
     const forward = () => {
+      if(desc){
         console.log('Asdsadsadas', desc);
         questions.descKid = desc;
         console.log('questions', questions);
         navigation.navigate('achievements', {questions});
+      }else{
+        FlashMessage({
+          message: "This field is required",
+          type: 'danger',
+        });
+      }
       };
   return (
     <KeyboardAvoidingView style={styles.mainView} behavior={Platform.OS === "ios" ? "padding" : "height"}

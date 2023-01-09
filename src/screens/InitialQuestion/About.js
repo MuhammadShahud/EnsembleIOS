@@ -1,12 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  Alert,
-  StatusBar,
-  ScrollView,
-} from 'react-native';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import QuestionHeader from '../../components/Header/QuestionHeader';
 import Footer from '../../components/footer/Footer';
@@ -20,7 +12,7 @@ import SelectList from 'react-native-dropdown-select-list';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {useDispatch, useSelector} from 'react-redux';
 import {USER} from '../../redux/Reducers/AuthReducer';
-import {PatchUser} from '../../redux/Actions/AuthAction';
+import {FlashMessage, PatchUser} from '../../redux/Actions/AuthAction';
 
 const About = props => {
   const [selected, setSelected] = React.useState('');
@@ -231,6 +223,8 @@ const About = props => {
   ];
 
   const forward = () => {
+
+    if(number && selected && bio){
     console.log('Asdsadsadas', number, selected, bio);
     profileData.number = number;
     profileData.location = selected;
@@ -241,10 +235,15 @@ const About = props => {
       profileData,
     };
 
-
     dispatch(PatchUser(obj, navigation, 'camera', userData?.id));
+  }else{
+    FlashMessage({
+      message: "Must fill all the fields",
+      type: 'danger',
+    });
+  }
   };
-  const title = `Hi ${userData?.name}!`
+  const title = `Hi ${userData?.name}!`;
 
   return (
     <View style={styles.mainView}>

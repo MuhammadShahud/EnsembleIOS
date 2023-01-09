@@ -6,7 +6,9 @@ import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { OutfitBold, OutfitExtraBold, OutfitMedium, OutfitSemiBold, PoppinsLight, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
 
 
-const Welcome = () => {
+const Welcome = (props) => {
+  const item = props.route.params.data;
+  console.log('item',item);
   return (
     <View>
       <Header />
@@ -18,12 +20,11 @@ const Welcome = () => {
           </View>
           <View>
 
-            <Text style={styles.text}>Welcome onboard!</Text>
-            <Text style={styles.text1}>You are Champ!</Text>
-            <Text style={styles.timeText}>24 hours ago</Text>
+            <Text style={styles.text}>HR Announcement</Text>
+            <Text style={styles.timeText}>{item.date}</Text>
           </View>
         </View>
-        <Text style={styles.lorem}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet.</Text>
+        <Text style={styles.lorem}>{item.text}</Text>
       </View>
     </View>
   )

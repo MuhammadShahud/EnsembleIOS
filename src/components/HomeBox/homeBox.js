@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 const HomeBox = props => {
   const dispatch = useDispatch()
   const navigation = useNavigation()
-
+console.log(props.color);
   return (
     <TouchableOpacity 
     onPress={()=>navigation.navigate(props.navigate)}

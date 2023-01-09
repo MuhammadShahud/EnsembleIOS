@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   View,
@@ -11,32 +10,41 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {logout, drawerPP, drawerPT, blackPeople, drawerGoals, blackSurvey, drawerSurvey, blackResources, blackFun, blackBriefCase, blackSetting, blackLogout} from '../../../assets/images/images';
+import {
+  logout,
+  drawerPP,
+  drawerPT,
+  blackPeople,
+  drawerGoals,
+  blackSurvey,
+  drawerSurvey,
+  blackResources,
+  blackFun,
+  blackBriefCase,
+  blackSetting,
+  blackLogout,
+} from '../../../assets/images/images';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import {styles} from '../../styles/GeneralStyle';
 import {style} from '../Header/headerStyle';
+import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
+import {COMPANY, USER} from '../../redux/Reducers/AuthReducer';
 import {
-  fun,
-  goals,
-  people,
-  profDev,
-  resource,
-  setting,
-  survey,
-} from '../../../assets/images/images';
-import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
-import { USER } from '../../redux/Reducers/AuthReducer';
-import { PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
-import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
+  PoppinsBold,
+  PoppinsRegular,
+  PoppinsSemiBold,
+} from '../../../assets/fonts/Fonts';
+import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 
 const CustomDrawer = props => {
+  const company = useSelector(COMPANY);
 
   const userData = useSelector(USER);
-const navigation = useNavigation();
+  const navigation = useNavigation();
   const filteredProps = {
     ...props,
     state: {
@@ -66,13 +74,20 @@ const navigation = useNavigation();
             style.halfHeader,
             {justifyContent: 'flex-start', paddingLeft: wp('4%')},
           ]}>
-          <Image
+          {/* <Image
             style={{marginRight: wp('3%')}}
             resizeMode="contain"
             source={drawerPT}
+          /> */}
+          <Image
+            source={{
+              uri: `https://onboard-backendd.herokuapp.com/${company?.profilePic}`,
+            }}
+            style={{height: 40, width: 46, marginRight: wp('3%')}}
+            resizeMode="contain"
           />
           <Text style={[styles.large, style.companyName]}>
-            The Plum Tree Group
+            {company.companyName}{' '}
           </Text>
         </View>
 
@@ -85,11 +100,14 @@ const navigation = useNavigation();
             paddingLeft: wp('4%'),
           }}>
           <Image
-            source={{uri:`https://onboard-backendd.herokuapp.com/${userData?.profilePic}`}}
-            style={{borderRadius: 23, marginBottom: 10, height:50, width:50}}
+            source={{
+              uri: `https://onboard-backendd.herokuapp.com/${userData?.profilePic}`,
+            }}
+            style={{borderRadius: 23, marginBottom: 10, height: 50, width: 50}}
           />
-          <TouchableOpacity style={{paddingLeft: wp('3%')}}
-          onPress={() => navigation.navigate('Profile', {userData})}>
+          <TouchableOpacity
+            style={{paddingLeft: wp('3%')}}
+            onPress={() => navigation.navigate('Profile', {userData})}>
             <Text
               style={{
                 color: '#1B1B1B',
@@ -117,57 +135,63 @@ const navigation = useNavigation();
             paddingTop: 10,
           }}></View>
 
-          <View>
+        <View>
+          <TouchableOpacity
+            style={style.drawerTabs}
+            onPress={() => navigation.navigate('Teams')}>
+            <View style={style.tabImage}>
+              <Image source={blackPeople} />
+            </View>
+            <Text style={style.tabText}>People</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('Teams')} >
-          <View style={style.tabImage}>
-          <Image source={blackPeople}  />
-          </View>
-          <Text style={style.tabText}>People</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={style.drawerTabs}
+            onPress={() => navigation.navigate('Goals')}>
+            <View style={style.tabImage}>
+              <Image source={drawerGoals} />
+            </View>
+            <Text style={style.tabText}>Goals</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('Goals')}>
-        <View style={style.tabImage}>
-          <Image source={drawerGoals}  />
-          </View>
-          <Text style={style.tabText}>Goals</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={style.drawerTabs}
+            onPress={() => navigation.navigate('Surveys')}>
+            <View style={style.tabImage}>
+              <Image source={drawerSurvey} />
+            </View>
+            <Text style={style.tabText}>Survey</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('Surveys')}>
-        <View style={style.tabImage}>
-          <Image source={drawerSurvey}  />
-          </View>
-          <Text style={style.tabText}>Survey</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={style.drawerTabs}>
+            <View style={style.tabImage}>
+              <Image source={blackResources} />
+            </View>
+            <Text style={style.tabText}>Resources</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={style.drawerTabs}>
-        <View style={style.tabImage}>
-          <Image source={blackResources}  />
-          </View>
-          <Text style={style.tabText}>Resources</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={style.drawerTabs}>
+            <View style={style.tabImage}>
+              <Image source={blackFun} />
+            </View>
+            <Text style={style.tabText}>Fun stuff</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={style.drawerTabs}>
-        <View style={style.tabImage}>
-          <Image source={blackFun}  />
-          </View>
-          <Text style={style.tabText}>Fun stuff</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={style.drawerTabs}>
+            <View style={style.tabImage}>
+              <Image source={blackBriefCase} />
+            </View>
+            <Text style={style.tabText}>Professional Development</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={style.drawerTabs}>
-        <View style={style.tabImage}>
-          <Image source={blackBriefCase}  />
-          </View>
-          <Text style={style.tabText}>Professional Development</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('Settings')}>
-        <View style={style.tabImage}>
-          <Image source={blackSetting}  />
-          </View>
-          <Text style={style.tabText}>Settings</Text>
-        </TouchableOpacity>
-        
+          <TouchableOpacity
+            style={style.drawerTabs}
+            onPress={() => navigation.navigate('Settings')}>
+            <View style={style.tabImage}>
+              <Image source={blackSetting} />
+            </View>
+            <Text style={style.tabText}>Settings</Text>
+          </TouchableOpacity>
         </View>
       </DrawerContentScrollView>
       <View style={{padding: wp('4%')}}>
@@ -190,8 +214,8 @@ const navigation = useNavigation();
               style={{
                 fontSize: moderateScale(13),
                 marginLeft: scale(5),
-                color:'#1B1B1B',
-                fontFamily:PoppinsBold
+                color: '#1B1B1B',
+                fontFamily: PoppinsBold,
               }}>
               Logout
             </Text>
