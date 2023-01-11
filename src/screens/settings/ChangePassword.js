@@ -4,6 +4,8 @@ import SettingsHeader from '../../components/Header/SettingsHeader'
 import { PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Eyee from '../../../assets/images/eyee'
+import EyeeSlash from '../../../assets/images/noteyee'
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -79,9 +81,11 @@ const ChangePassword = () => {
             onPress={handlePasswordVisibility}
             style={styles.firsteye}>
             {rightIcon ? (
-              <Icon name="eye" size={20} />
+                              <Eyee/>
+
             ) : (
-              <Icon name="eye-slash" size={20} />
+              <EyeeSlash/>
+
             )}
           </TouchableOpacity>
         </View>
@@ -102,9 +106,9 @@ const ChangePassword = () => {
             onPress={handlePasswordVisibility1}
             style={styles.firsteye}>
             {rightIcon1 ? (
-              <Icon name="eye" size={20} />
+              <Eyee/>
             ) : (
-              <Icon name="eye-slash" size={20} />
+              <EyeeSlash/>
             )}
           </TouchableOpacity>
         </View>
@@ -124,9 +128,9 @@ const ChangePassword = () => {
             onPress={handlePasswordVisibility2}
             style={styles.firsteye}>
             {rightIcon2 ? (
-              <Icon name="eye" size={20} />
+              <Eyee/>
             ) : (
-              <Icon name="eye-slash" size={20} />
+              <EyeeSlash/>
             )}
           </TouchableOpacity>
         </View>
@@ -167,12 +171,12 @@ const styles = StyleSheet.create({
   },
   ensemble: {
     // fontWeight:'bold',
-    color: '#8C8C8C',
+    color: 'black',
     fontSize: moderateScale(20),
     fontFamily: PoppinsSemiBold
   },
   powered: {
-    color: '#8C8C8C',
+    color: 'black',
     fontFamily: PoppinsRegular,
     marginBottom: verticalScale(-5),
   },

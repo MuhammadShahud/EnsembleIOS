@@ -2,8 +2,8 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, Dimensions, 
 import React, {useState } from 'react'
 import Header from '../../components/Header/header'
 import { ProgressBar, MD3Colors } from 'react-native-paper';
-
-
+import Awardd from '../../../assets/images/Awardd'
+import Timee from '../../../assets/images/Timee'
 
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { useNavigation } from '@react-navigation/native'
@@ -58,7 +58,7 @@ const PersonalGoals = () => {
     <View style={styles.mainView}>
       <View>
 
-      <Header  source={notiLogo}/>
+      <Header  />
       </View>
       <ScrollView>
 
@@ -74,13 +74,14 @@ const PersonalGoals = () => {
             <View style={styles.box}>
 
               <View style={styles.imageView}>
-                <Image source={awardLogo} />
+                {/* <Image source={awardLogo} /> */}
+                <Awardd/>
               </View>
               <View>
                 <Text style={styles.title}>{item.title}</Text>
                 <View style={styles.dateView}>
-
-                  <Image source={timeLogo} />
+                <Timee/>
+                  {/* <Image source={timeLogo} /> */}
                   <Text style={styles.date}>{item.date}</Text>
                 </View>
                 {/* <Image style={styles.loadingline} source={loading} /> */}

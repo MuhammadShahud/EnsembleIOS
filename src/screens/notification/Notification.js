@@ -25,6 +25,9 @@ import { useNavigation } from '@react-navigation/native';
 import Home from '../home/home';
 import { useSelector } from 'react-redux';
 import { NOTI } from '../../redux/Reducers/AuthReducer';
+import HRR from '../../../assets/images/HRR'
+import BlueBrief from '../../../assets/images/BlueBrief'
+import BlueAward from '../../../assets/images/BlueAward'
 
 const Notification = () => {
   const navigation = useNavigation();
@@ -91,7 +94,7 @@ const Notification = () => {
                 onPress={()=>navigation.navigate('welcome')}
                 style={styles.todayView}>
                 <View >
-                  <Image
+                  {/* <Image
                     source={
                       item.title === 'HR ANNOUNCEMENT'
                         ? HR
@@ -99,7 +102,8 @@ const Notification = () => {
                           ? awardLogo
                           : bag
                     }
-                  />
+                  /> */}
+                  {item.title==='HR ANNOUNCEMENT'? <HRR/>: item.title==='Complete Your Goal' ? <BlueAward/>:<BlueBrief/>}
                 </View>
                 <View style={styles.setup}>
                   <Text style={styles.flatText}>{item.text}</Text>

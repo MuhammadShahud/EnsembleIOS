@@ -7,23 +7,26 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import Lottie from 'lottie-react-native';
 import { verticalScale } from 'react-native-size-matters'
+import Goals from '../../../assets/images/goals'
+import Feedback from '../../../assets/images/feedbackk'
+import Connect from '../../../assets/images/connect'
 
 
 const Splash = () => {
   const splash = [{
-    imageURL: require('../../../assets/images/goalLogo.png'),
+    imageURL: 'abc',
     title: 'Set Your Goals',
     text: 'Set your monthly goal and grow',
     text1: 'with company'
   },
   {
-    imageURL: require('../../../assets/images/feedback.png'),
+    imageURL: 'xyz',
     title: 'Share Feedback',
     text: 'Share your valueable',
     text1: 'feedback to the company'
   },
   {
-    imageURL: require('../../../assets/images/colleagues.png'),
+    imageURL: 'bbb',
     title: 'Connect Colleagues',
     text: 'Connect with your colleagues and',
     text1: 'more angaged at work'
@@ -67,8 +70,11 @@ const Splash = () => {
             renderItem={({ item }) => {
               return (
                 <View style={styles.boxView}>
-                  <Image style={styles.imageView} source={item.imageURL} />
+                  <View style={styles.imageView} >
 
+                  {/* <Image style={styles.imageView} source={item.imageURL} /> */}
+                {item.imageURL==='abc'?<Goals/>:item.imageURL==='xyz'?<Feedback/>:item.imageURL==='bbb'?<Connect/>:null}
+                  </View>
                   <View>
                     <Text style={styles.setGoals}>{item.title}</Text>
                     <Text style={styles.monthly}>{item.text}</Text>

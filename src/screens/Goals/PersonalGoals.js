@@ -15,6 +15,8 @@ import Header from '../../components/Header/header';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import {useRef} from 'react';
 import {ProgressBar, MD3Colors} from 'react-native-paper';
+import Check from '../../../assets/images/Check'
+import Awardd from '../../../assets/images/Awardd'
 
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import Button from '../../components/Button';
@@ -128,7 +130,8 @@ const PersonalGoals = () => {
                   style={styles.box}
                   onPress={() => navigation.navigate('duedate', {goal: item})}>
                   <View style={styles.imageView}>
-                    <Image source={awardLogo} />
+                    {/* <Image source={awardLogo} /> */}
+                    <Awardd/>
                   </View>
                   <View>
                     <Text style={styles.title}>{item?.goal}</Text>
@@ -161,7 +164,7 @@ const PersonalGoals = () => {
                   // onPress={() => navigation.navigate('duedate')}
                 >
                   <View style={styles.checkView}>
-                    <Image source={checkMark} />
+                    <Check/>
                   </View>
                   <View>
                     <Text style={styles.laptopTitle}>{item?.title}</Text>

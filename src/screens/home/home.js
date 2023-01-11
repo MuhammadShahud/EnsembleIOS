@@ -98,28 +98,31 @@ export default function Home() {
           <View style={{height: hp('2%')}}></View>
           <HomeBox
             navigate="Teams"
-            image={findPeople}
+            // image={findPeople}
             text1="Find your collegues!"
             text2="Search your colleagues and get connected now "
+            firstImage='aa'
           />
           <View style={{height: hp('2%')}}></View>
 
           <HomeBox
             navigate="Goals"
-            image={medal}
+            // image={medal}
             text1="Set your Goals"
             text2="Create a goal from scratch or choose 
             goals from the templates"
+            secondImage='qqq'
           />
 
           <View style={{height: hp('2%')}}></View>
 
           <HomeBox
             navigate="Surveys"
-            image={task}
+            // image={task}
             text1="Start your Pulse survey!"
             text2="Answer these pulse survey questions anonymously"
             color="#2AB679"
+            thirdImage='www'
           />
         </View>
           <View style={style.footerView}>

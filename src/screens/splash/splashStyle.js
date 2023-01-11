@@ -37,6 +37,7 @@ justifyContent : 'center',
   boxView:{
     flexDirection:'row',
     alignItems:'center',
+    // justifyContent:'center',
     backgroundColor: 'rgba(144, 148, 235, 0.1)',
     paddingVertical:verticalScale(17),
     marginVertical:verticalScale(7),

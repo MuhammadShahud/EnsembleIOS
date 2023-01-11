@@ -18,6 +18,7 @@ import Teams from '../screens/Teams/teams';
 import PersonalGoals from '../screens/Goals/PersonalGoals';
 import Welcome from '../screens/notification/Welcome';
 import UpdateProfile from '../screens/Goals/UpdateProfile';
+import People from '../../assets/images/PEOPLE'
 
 
 
@@ -70,6 +71,7 @@ const DrawerStack = () => {
         options={{
           drawerIcon: ({color}) => (
        <Image source={people} style = {{height:21,width:21}}/>
+      // <People/>
           ),
         }}
       />

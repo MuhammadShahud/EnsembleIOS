@@ -39,15 +39,15 @@ const styles = StyleSheet.create({
 
 
     inputFieldView: {
-        backgroundColor: 'white',
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginHorizontal: scale(20),
-        justifyContent: 'space-between',
-        borderRadius: moderateScale(20),
-        paddingHorizontal: scale(20),
-        marginTop: verticalScale(3),
-        marginBottom: verticalScale(10)
+        // backgroundColor: 'white',
+        // flexDirection: 'row',
+        // alignItems: 'center',
+        // marginHorizontal: scale(20),
+        // justifyContent: 'space-between',
+        // borderRadius: moderateScale(20),
+        // paddingHorizontal: scale(20),
+        // marginTop: verticalScale(3),
+        // marginBottom: verticalScale(10)
     },
     text: {
         color: 'black',
@@ -62,6 +62,17 @@ const styles = StyleSheet.create({
 
 
     },
+    inputField:{
+        backgroundColor: 'white',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginHorizontal: scale(20),
+        justifyContent: 'space-between',
+        borderRadius: moderateScale(20),
+        paddingHorizontal: scale(20),
+        marginTop: verticalScale(3),
+        marginBottom: verticalScale(10)
+    }
 
 
 

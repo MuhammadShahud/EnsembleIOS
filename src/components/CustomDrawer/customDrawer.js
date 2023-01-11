@@ -18,6 +18,12 @@ import {
 } from 'react-native-responsive-screen';
 import {styles} from '../../styles/GeneralStyle';
 import {style} from '../Header/headerStyle';
+import Survey from '../../../assets/images/Survey'
+import Resources from '../../../assets/images/resources'
+import Plugin from '../../../assets/images/plugin'
+import BriefCase from '../../../assets/images/briefcase'
+import Setting from '../../../assets/images/setting'
+import Logout from '../../../assets/images/logout'
 import {
   fun,
   goals,
@@ -28,8 +34,10 @@ import {
   survey,
 } from '../../../assets/images/images';
 import { useNavigation } from '@react-navigation/native';
+import PEOPLE from '../../../assets/images/PEOPLE'
 import { useSelector } from 'react-redux';
 import { USER } from '../../redux/Reducers/AuthReducer';
+import DrawerGoal from '../../../assets/images/DrawerGoal'
 import { PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 
@@ -121,49 +129,56 @@ const navigation = useNavigation();
 
         <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('Teams')} >
           <View style={style.tabImage}>
-          <Image source={blackPeople}  />
+          {/* <Image source={blackPeople}  /> */}
+          <PEOPLE/>
           </View>
           <Text style={style.tabText}>People</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('Goals')}>
         <View style={style.tabImage}>
-          <Image source={drawerGoals}  />
+          {/* <Image source={drawerGoals}  /> */}
+          <DrawerGoal/>
           </View>
           <Text style={style.tabText}>Goals</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('Surveys')}>
         <View style={style.tabImage}>
-          <Image source={drawerSurvey}  />
+          {/* <Image source={drawerSurvey}  /> */}
+          <Survey/>
           </View>
           <Text style={style.tabText}>Survey</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs}>
         <View style={style.tabImage}>
-          <Image source={blackResources}  />
+          {/* <Image source={blackResources}  /> */}
+          <Resources/>
           </View>
           <Text style={style.tabText}>Resources</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs}>
         <View style={style.tabImage}>
-          <Image source={blackFun}  />
+          {/* <Image source={blackFun}  /> */}
+          <Plugin/>
           </View>
           <Text style={style.tabText}>Fun stuff</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs}>
         <View style={style.tabImage}>
-          <Image source={blackBriefCase}  />
+          {/* <Image source={blackBriefCase}  /> */}
+          <BriefCase/>
           </View>
           <Text style={style.tabText}>Professional Development</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={style.drawerTabs} onPress={()=>navigation.navigate('Settings')}>
         <View style={style.tabImage}>
-          <Image source={blackSetting}  />
+          {/* <Image source={blackSetting}  /> */}
+          <Setting/>
           </View>
           <Text style={style.tabText}>Settings</Text>
         </TouchableOpacity>
@@ -185,7 +200,8 @@ const navigation = useNavigation();
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <Image source={blackLogout} />
+            {/* <Image source={blackLogout} /> */}
+            <Logout/>
             <Text
               style={{
                 fontSize: moderateScale(13),

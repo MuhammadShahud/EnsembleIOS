@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import { Text, TouchableOpacity, View, Image } from 'react-native'
+import { Text, TouchableOpacity, View, Image } from 'react-native';
+import Notii from '../../../assets/images/Notii'
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp
@@ -9,6 +10,7 @@ import { styles } from '../../styles/GeneralStyle'
 import { style } from './headerStyle'
 import { useDispatch, useSelector } from 'react-redux'
 import { menuLogo, notiLogo, ptLogo } from '../../../assets/images/images'
+import { scale } from 'react-native-size-matters';
 
 const Header = props => {
   const dispatch = useDispatch()
@@ -28,14 +30,17 @@ const Header = props => {
         </Text>
       </View>
       <View style={style.halfHeader}>
-        <TouchableOpacity onPress={()=>navigation.navigate('notification')}
+        <TouchableOpacity 
+        style={{marginRight:scale(8)}} 
+        onPress={()=>navigation.navigate('notification')}
 >
 
-        <Image
+        {/* <Image
           style={{ marginRight: wp('3%') }}
           resizeMode="contain"
           source={props.source}
-          />
+          /> */}
+          <Notii/>
           </TouchableOpacity>
         <TouchableOpacity onPress={()=>navigation.openDrawer()}>
         <Image resizeMode="contain" source={menuLogo} 

@@ -7,7 +7,7 @@ import Header from '../../components/Header/header';
 import {useNavigation} from '@react-navigation/native';
 import { checkLogo } from '../../../assets/images/images'
 import { PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
-
+import BlackCheck from '../../../assets/images/BlackCheck'
 
 const SuccessGoal = () => {
   const navigation = useNavigation();
@@ -26,7 +26,9 @@ const SuccessGoal = () => {
         <Text style={styles.yayy}>YAYY!</Text>
         <Text style={styles.newGoal}>You have set a new goal!</Text>
 
-        <Image style={styles.image} source={checkLogo} />
+        {/* <Image style={styles.image} source={checkLogo} /> */}
+        <BlackCheck style={styles.image}/>
+
         <View style={styles.buttonView}>
           <Button
             title="Home"
