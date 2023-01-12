@@ -96,6 +96,7 @@ export const HR = require('./HR.png')
 export const victory = require('./victory.png')
 export const seerch = require('./seerch.png')
 export const greentick = require('./greentick.png')
+export const communicationn = require('./communicationn.svg')
 
 
 

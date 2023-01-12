@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import RBSheet from 'react-native-raw-bottom-sheet';
-
+import Check from '../../../assets/images/Check'
 import Header from '../../components/Header/header';
 import {
   checkMark,
@@ -32,6 +32,8 @@ import Button from '../../components/Button';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import {SURVEYS, USER} from '../../redux/Reducers/AuthReducer';
+import WhiteMedal from '../../../assets/images/WhiteMedal'
+import LightBlueStar from '../../../assets/images/LightBlueStar'
 
 const Survey = () => {
   const refRBSheet = useRef();
@@ -88,7 +90,11 @@ const Survey = () => {
                   <TouchableOpacity
                     style={styles.flatView}
                     onPress={() => navigation.navigate('review',{survey:item})}>
-                    <Image style={styles.starImg} source={star} />
+                    {/* <Image style={styles.starImg} source={star} /> */}
+                    <View style={styles.starImg}>
+
+                    <WhiteMedal/>
+                    </View>
                     <Text style={styles.text1}>{item?.question}</Text>
                   </TouchableOpacity>
                 );
@@ -106,9 +112,11 @@ const Survey = () => {
                   style={styles.laptopBox}
                   // onPress={() => navigation.navigate('duedate')}
                 >
-                  <Image style={styles.img1} source={checkMark} />
+                  {/* <Image style={styles.img1} source={checkMark} /> */}
+                  <Check/>
                   <Text style={styles.laptopTitle}>{item?.question}</Text>
-                  <Image style={styles.star} source={smallstar} />
+                  {/* <Image style={styles.star} source={smallstar} /> */}
+                  <LightBlueStar/>
                 </TouchableOpacity>
               );
             }}
@@ -186,7 +194,7 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(20),
   },
   starImg: {
-    paddingVertical: verticalScale(0),
+    paddingTop:verticalScale(15)
   },
   flatView: {
     flexDirection: 'row',
@@ -195,7 +203,7 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(5),
     marginHorizontal: scale(20),
     borderRadius: moderateScale(20),
-    paddingVertical: verticalScale(12),
+    // paddingVertical: verticalScale(12),
     paddingHorizontal: scale(10),
   },
   letshare: {

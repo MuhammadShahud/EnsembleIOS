@@ -15,6 +15,7 @@ import Questions from '../../components/Question Text/Questions';
 import RockstarSkills from '../../components/Skills/RockstarSkills';
 import {
   communication,
+  communicationn,
   idea,
   leadership,
   management,
@@ -86,38 +87,38 @@ const [rockstarSkills, setRockstarSkills] = useState([])
         <RockstarSkills
           firstTitle="COMMUNICATION"
           secondTitle="MANAGEMENT"
-          firstImage={communication}
-          secondImage={management}
+          firstImage='eee'
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
+          firstPic='ABC'
         />
         <RockstarSkills
           firstTitle="PROBLEM SOLVING"
           secondTitle="PROFESSIONALISM"
-          firstImage={idea}
-          secondImage={profession}
+          firstImage='qqq'
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
+          secondPic='BBB'
           
           
           />
         <RockstarSkills
           firstTitle="CRITICAL THINKING"
           secondTitle="LEADERSHIP"
-          firstImage={thinking}
-          secondImage={leadership}
+          firstImage={'aass'}
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
+          thirdPic='ZZZ'
 
           
           />
         <RockstarSkills
           firstTitle="STRONG WORK ETHIC"
           secondTitle="TEAM WORK"
-          firstImage={idea}
-          secondImage={team}
+          firstImage={'qwqw'}
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
+          fourthPic='SSS'
 
 
         />

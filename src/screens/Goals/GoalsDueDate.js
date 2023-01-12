@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import Header from '../../components/Header/header';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import {ButtonColor} from '../../../assets/colors/colors';
+import Medaal from '../../../assets/images/Medaal'
 import {
   awardLogo,
   timeLogo,
@@ -73,7 +74,8 @@ const GoalsDueDate = props => {
 
       <View style={styles.boxView}>
         <View style={styles.circle}>
-          <Image source={greenMedal} style={styles.imageLogo} />
+          {/* <Image source={greenMedal} style={styles.imageLogo} /> */}
+          <Medaal  style={styles.imageLogo}/>
         </View>
         <View style={styles.boxContainer}>
           <Text style={styles.design}>{goal.goal}</Text>

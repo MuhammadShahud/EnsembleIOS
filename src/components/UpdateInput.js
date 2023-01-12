@@ -31,25 +31,45 @@ const UpdateInput = props => {
 export default UpdateInput;
 
 const styles = StyleSheet.create({
-  inputFieldView: {
-    backgroundColor: 'white',
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginHorizontal: scale(20),
-    justifyContent: 'space-between',
-    borderRadius: moderateScale(20),
-    paddingHorizontal: scale(20),
-    marginTop: verticalScale(3),
-    marginBottom: verticalScale(10),
-  },
-  text: {
-    color: 'black',
-    fontSize: moderateScale(18),
-    fontFamily: PoppinsSemiBold,
-    marginHorizontal: scale(20),
-  },
-  inputView: {
-    marginTop: verticalScale(30),
-    flex: 1,
-  },
-});
+
+
+    inputFieldView: {
+        // backgroundColor: 'white',
+        // flexDirection: 'row',
+        // alignItems: 'center',
+        // marginHorizontal: scale(20),
+        // justifyContent: 'space-between',
+        // borderRadius: moderateScale(20),
+        // paddingHorizontal: scale(20),
+        // marginTop: verticalScale(3),
+        // marginBottom: verticalScale(10)
+    },
+    text: {
+        color: 'black',
+        fontSize: moderateScale(18),
+        fontFamily: PoppinsSemiBold,
+        marginHorizontal: scale(20)
+    },
+    inputView: {
+        marginTop: verticalScale(30),
+        flex:1
+
+
+
+    },
+    inputField:{
+        backgroundColor: 'white',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginHorizontal: scale(20),
+        justifyContent: 'space-between',
+        borderRadius: moderateScale(20),
+        paddingHorizontal: scale(20),
+        marginTop: verticalScale(3),
+        marginBottom: verticalScale(10)
+    }
+
+
+
+
+})

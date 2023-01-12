@@ -19,6 +19,8 @@ import {useNavigation} from '@react-navigation/native';
 import {ButtonColor} from '../../../assets/colors/colors';
 import {addIcon, cross} from '../../../assets/images/images';
 import DashesGoals from '../../components/Goals/dashesGoals';
+import Cros from '../../../assets/images/Cros'
+import AdIcon from '../../../assets/images/AdIcon'
 import { PoppinsBold, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 import { useSelector } from 'react-redux';
 import { USER } from '../../redux/Reducers/AuthReducer';
@@ -127,7 +129,8 @@ const NewGoal = () => {
                     <Text style={styles.step}>{item.title}</Text>
                   </View>
                   <TouchableOpacity onPress={() => Remove_Item(index)}>
-                    <Image source={cross} />
+                    <Cros/>
+                    {/* <Image source={cross} /> */}
                     {/* <Entypo name='cross' size={20} style={styles.crossIcon} /> */}
                   </TouchableOpacity>
                 </View>
@@ -160,7 +163,8 @@ const NewGoal = () => {
                                 size={25}
                                 style={styles.circleIcon}
                             /> */}
-              <Image source={addIcon} />
+              {/* <Image source={addIcon} /> */}
+              <AdIcon/>
               <Text style={styles.anotherstep}>Add another step</Text>
             </TouchableOpacity>
           )}

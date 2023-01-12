@@ -29,6 +29,7 @@ import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import {ButtonColor} from '../../../assets/colors/colors';
 import {PoppinsSemiBold} from '../../../assets/fonts/Fonts';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Hikingg from '../../../assets/images/hikingg'
 import { FlashMessage } from '../../redux/Actions/AuthAction';
 
 const Skills = props => {
@@ -109,26 +110,34 @@ const Skills = props => {
         <RockstarSkills
           firstTitle="PHOTOGRAPHY"
           secondTitle="READING"
-          firstImage={photography}
-          secondImage={reading}
+          // firstImage={photography}
+          // secondImage={reading}
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
+          firstEnjoy="AA"
+          photographypic='eee'
         />
         <RockstarSkills
           firstTitle="NETWORKING"
           secondTitle="MOVIES"
-          firstImage={network}
-          secondImage={movies}
+          // firstImage={network}
+          // secondImage={movies}
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
+          secondEnjoy="aA"
+          networkpic='rrr'
+
           />
         <RockstarSkills
           firstTitle="GAMING"
           secondTitle="CINEMATOGRAPHY"
-          firstImage={gaming}
-          secondImage={videography}
+          // firstImage={gaming}
+          // secondImage={videography}
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
+          thirdEnjoy="xx"
+          gamingpic='www'
+
           />
         {/* <RockstarSkills firstTitle='HIKING' secondTitle='OTHERS' firstImage={hiking} /> */}
 
@@ -139,7 +148,8 @@ const Skills = props => {
               styles.communicationView,
               {backgroundColor: btnState ? ButtonColor : 'white'},
             ]}>
-            <Image source={hiking} />
+            {/* <Image source={hiking} /> */}
+            <Hikingg/>
             <Text
               style={[styles.text, {color: btnTextColor ? 'white' : 'black'}]}>
               HIKING

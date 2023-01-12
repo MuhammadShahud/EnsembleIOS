@@ -3,7 +3,20 @@ import React, { useState } from 'react'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import { ButtonColor } from '../../../assets/colors/colors'
 import { PoppinsSemiBold } from '../../../assets/fonts/Fonts'
-// import communication from '../../../assets/images/communication'
+import Communicationn from '../../../assets/images/communicationn'
+import Problemss from '../../../assets/images/problemss'
+import Critical from '../../../assets/images/criticall'
+import Strong from '../../../assets/images/strongg'
+import Managment from '../../../assets/images/managmentt'
+import Profession from '../../../assets/images/professionalss'
+import Leader from '../../../assets/images/leaderr'
+import Team from '../../../assets/images/teamss'
+import Reading from '../../../assets/images/readingg'
+import Movies from '../../../assets/images/moviess'
+import Cinema from '../../../assets/images/cinemaa'
+import Photography from '../../../assets/images/Photo'
+import Network from '../../../assets/images/networkk'
+import Gaming from '../../../assets/images/gamingg'
 
 const RockstarSkills = (props) => {
     const [btnState, setBtnState] = useState(false)
@@ -61,14 +74,31 @@ const setSkill = () =>{
         <View style={styles.mainView}>
 
             <View style={styles.firstView}>
-                <TouchableOpacity onPress={changeButtonColor} style={[styles.communicationView, { backgroundColor: btnState ? ButtonColor : 'white' }]}>
-                    <Image source={props.firstImage} />
+                
+
+                    <TouchableOpacity onPress={changeButtonColor} style={[styles.communicationView, { backgroundColor: btnState ? ButtonColor : 'white' }]}>
+                    {/* <Image source={props.firstImage} /> */}
+                    {props.photographypic?<Photography/>:null}
+                    {props.networkpic?<Network/>:null}
+                    {props.gamingpic?<Gaming/>:null}
+                    {props.firstPic?<Communicationn/>:null}
+                    {props.secondPic?<Problemss/>:null}
+                    {props.thirdPic?<Critical/>:null}
+                    {props.fourthPic?<Strong/>:null}
                     <Text style={[styles.text, { color: btnTextColor ? 'white' : 'black' }]}>{props.firstTitle}</Text>
                 </TouchableOpacity>
+                
 
                 <TouchableOpacity onPress={changeButtonColor1} style={[styles.managementView, { backgroundColor: btnState1 ? ButtonColor : 'white' }]}>
 
-                    <Image source={props.secondImage} />
+                    {/* <Image source={props.secondImage} /> */}
+                    {props.firstEnjoy?<Reading/>:null}
+                    {props.secondEnjoy?<Movies/>:null}
+                    {props.thirdEnjoy?<Cinema/>:null}
+                    {props.firstImage?<Managment/>:null}
+                    {props.secondImage?<Profession/>:null}
+                    {props.thirdImage?<Leader/>:null}
+                    {props.fourthImage?<Team/>:null}
                     <Text style={[styles.text, { color: btnTextColor1 ? 'white' : 'black' }]}>{props.secondTitle}</Text>
 
 

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, KeyboardAvoidingView } from 'react-native';
 import QuestionHeader from '../../components/Header/QuestionHeader';
 import React, { useCallback, useEffect, useState } from 'react';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
@@ -17,6 +17,7 @@ import Dashes from '../../components/Question Text/dashes';
 // import Twofingers from '../../../assets/images/twofingers'
 import Twofingers from '../../../assets/images/twofingers'
 
+
 import {
   PoppinsBold,
   PoppinsRegular,
@@ -24,6 +25,7 @@ import {
 } from '../../../assets/fonts/Fonts';
 import { ScrollView } from 'react-native';
 import { FlashMessage } from '../../redux/Actions/AuthAction';
+import { TextInput } from 'react-native';
 
 const Name = () => {
   const navigation = useNavigation();
@@ -77,7 +79,11 @@ const Name = () => {
             placeholder={' "Michael Scott" '}
             inputStyle={styles.input}
             onChangeText={setName}
-            />
+/>
+ 
+
+
+
           <Text style={styles.pronounText}>What are your pronouns?</Text>
           <View style={styles.dropDownView}>
             <SelectList

@@ -12,6 +12,7 @@ import {ButtonColor} from '../../../assets/colors/colors';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { useDispatch } from 'react-redux';
 import { PatchSurveys } from '../../redux/Actions/AuthAction';
+import Sketch  from '../../../assets/images/Sketch';
 
 const Review = props => {
   const [checked, setChecked] = React.useState(0);
@@ -30,7 +31,8 @@ dispatch(PatchSurveys({response:response},navigation,'surveysuceed',survey.id))
       <View>
         <Header />
         <View style={styles.sketch}>
-          <Image source={sketch} />
+          {/* <Image source={sketch} /> */}
+          <Sketch/>
         </View>
         <Text style={styles.text}>{survey.question}</Text>
 

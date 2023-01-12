@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {RadioButton} from 'react-native-paper';
+import Cros from '../../../assets/images/Cros'
+import AdIcon from '../../../assets/images/AdIcon'
 
 import Header from '../../components/Header/header';
 import Footer from '../../components/footer/Footer';
@@ -114,7 +116,8 @@ if(noDate===true){
                   </View>
                   <TouchableOpacity onPress={() => Remove_Item(index)}>
                     {/* <Entypo name='cross' size={20} style={styles.crossIcon} /> */}
-                    <Image source={cross} />
+                    {/* <Image source={cross} /> */}
+                    <Cros/>
                   </TouchableOpacity>
                 </View>
               );
@@ -147,7 +150,8 @@ if(noDate===true){
                                 size={25}
                                 style={styles.circleIcon}
                             /> */}
-              <Image source={addIcon} />
+              {/* <Image source={addIcon} /> */}
+              <AdIcon/>
               <Text style={styles.anotherstep}>Add another step</Text>
             </TouchableOpacity>
           )}

@@ -8,6 +8,7 @@ import {frameLogo} from '../../../assets/images/images';
 import Entypo from 'react-native-vector-icons/Entypo'
 import GoalButton from '../GoalButton/GoalButton';
 import { PoppinsBold } from '../../../assets/fonts/Fonts';
+import GoalFrame from '../../../assets/images/GoalFrame'
 
 const SetGoalModaal = props => {
   const navigation = useNavigation();
@@ -27,7 +28,8 @@ const SetGoalModaal = props => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.imageView}>
-              <Image source={frameLogo} />
+              {/* <Image source={frameLogo} /> */}
+              <GoalFrame/>
             </View>
           
               <GoalButton
@@ -101,8 +103,8 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(10),
     // alignSelf: 'center',
     marginBottom: verticalScale(20),
-    width:'50%',
-    height:'50%',
+    width:'54%',
+    height:'54%',
     backgroundColor:'rgba(43, 47, 134, 0.04)',
     borderRadius:moderateScale(200)
   },

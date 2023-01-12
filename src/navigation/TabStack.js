@@ -4,6 +4,14 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import Home from '../screens/home/home';
 import Survey from '../screens/survey/survey';
 import Teams from '../screens/Teams/teams';
+import Homee from '../../assets/images/Homee'
+import HomeFilled from '../../assets/images/HomeFilled'
+import Goalsss from '../../assets/images/Goalsss'
+import GoalsFilled from '../../assets/images/GoalsFilled'
+import SurveyFilled from '../../assets/images/SurveyFilled'
+import Surveyss from '../../assets/images/Surveyss'
+import Teamsss from '../../assets/images/Teamsss'
+import TeamFilled from '../../assets/images/TeamFilled'
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -19,7 +27,7 @@ import {
   filledTeam,
 
 } from '../../assets/images/images';
-import {Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import PersonalGoals from '../screens/Goals/PersonalGoals';
 import {verticalScale} from 'react-native-size-matters';
 import { HomeStack } from './DrawerStack';
@@ -41,10 +49,16 @@ const TabStack = () => {
         component={HomeStack}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image
-              source={focused ? filledHome : blackHome}
-              style={styles.tabImageStyle}
-            />
+            // <Image
+            //   source={focused ? filledHome : blackHome}
+            //   style={styles.tabImageStyle}
+            //   />
+            <View style={styles.tabImageStyle}>
+              {
+                focused?
+                <HomeFilled/>:<Homee/>
+              }
+            </View>
           ),
           tabBarAccessibilityLabel: 'Home',
         }}
@@ -54,10 +68,12 @@ const TabStack = () => {
         component={PersonalGoals}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image
-              source={focused ? filledGoals : blackGoals}
-              style={styles.tabImageStyle}
-            />
+            <View style={styles.tabImageStyle}>
+            {
+              focused?
+              <GoalsFilled/>:<Goalsss/>
+            }
+          </View>
           ),
         }}
       />
@@ -66,10 +82,12 @@ const TabStack = () => {
         component={Survey}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image
-              source={focused ? filledSurvey : blackSurvey}
-              style={styles.tabImageStyle}
-            />
+            <View style={styles.tabImageStyle}>
+              {
+                focused?
+                <SurveyFilled/>:<Surveyss/>
+              }
+            </View>
           ),
         }}
       />
@@ -79,10 +97,12 @@ const TabStack = () => {
         component={Teams}
         options={{
           tabBarIcon: ({focused}) => (
-            <Image
-              source={focused ? filledTeam : blackTeams}
-              style={styles.tabImageStyle}
-            />
+            <View style={styles.tabImageStyle}>
+              {
+                focused?
+                <TeamFilled/>:<Teamsss/>
+              }
+            </View>
           ),
         }}
       />
