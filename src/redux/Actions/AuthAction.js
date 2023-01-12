@@ -1,6 +1,8 @@
 import axios from 'axios';
 import {showMessage} from 'react-native-flash-message';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useSelector } from 'react-redux';
+import { USER } from '../Reducers/AuthReducer';
 
 export const Login = data => {
   return {
@@ -150,21 +152,21 @@ export const PostGoal = (newObj, navigation, destination, token) => {
   };
 };
 
-export const GetGoals = token => {
+export const GetGoals = (token,id) => {
   return async (dispatch, state) => {
     console.log('L');
     try {
       console.log('M', token);
 
       const response = await axios
-        .get(`${state().AuthReducer.baseUrl}goals`, {
+        .get(`${state().AuthReducer.baseUrl}goals/?employeeId=${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         })
         .then(async res => {
-          console.log(res.data);
-          dispatch(Goals(res.data.result));
+          console.log("GetGoals",res.data);
+          dispatch(Goals(res.data.results));
         });
     } catch (err) {
       console.log(`Err in getGoal function: `, err.response.data);
@@ -180,6 +182,7 @@ export const PatchGoal = (
   id,
   setVisible,
 ) => {
+  const userData = useSelector(USER);
   return async (dispatch, state) => {
     console.log('L');
     try {
@@ -193,7 +196,7 @@ export const PatchGoal = (
         })
         .then(async res => {
           console.log(res.data);
-          dispatch(GetGoals(token));
+          dispatch(GetGoals(token,userData.id));
           setVisible ? setVisible(true) : navigation.navigate(destination);
         });
     } catch (err) {
@@ -202,6 +205,38 @@ export const PatchGoal = (
         message: err.response.data.message,
         type: 'danger',
       });
+    }
+  };
+};
+
+export const PatchGoalSteps = (
+  newObj,
+  id,
+  userId
+) => {
+
+  return async (dispatch, state) => {
+    console.log('L');
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWh1ZEBwbHVtdHJlZWdyb3VwLm5ldCIsImlhdCI6MTY2NDU2NzExNSwiZXhwIjoxNjk2MTAzMTE1fQ.bG940Pi5-Tf6CX4AMxLSZ2vLHZJr3XfgkBsIRvtkNeA'; 
+    try {
+      console.log('M', newObj);
+
+      const response = await axios
+        .patch(`${state().AuthReducer.baseUrl}goals/steps/${id}`, newObj, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then(async res => {
+          console.log('res.data',res.data);
+          dispatch(GetGoals(token,userId));
+        });
+    } catch (err) {
+      console.log(`Err in patchGoalStep function: `, err.response.data);
+      // FlashMessage({
+      //   message: err.response.data.message,
+      //   type: 'danger',
+      // });
     }
   };
 };
@@ -250,21 +285,44 @@ export const PatchUser = (newObj, navigation, destination, id) => {
   return async (dispatch, state) => {
     console.log('L');
     try {
-      console.log('M', newObj);
+      console.log('M', newObj, destination, id);
 
       const response = await axios
         .patch(`${state().AuthReducer.baseUrl}user/${id}`, newObj)
         .then(async res => {
           console.log(res.data);
           dispatch(Login(res.data));
+        destination === "Profile"? navigation.navigate(destination,{userData : res.data}) :
           navigation.navigate(destination);
         });
     } catch (err) {
       console.log(`Err in patchUser function: `, err);
-      FlashMessage({
-        message: err.response.data.message,
-        type: 'danger',
-      });
+      // FlashMessage({
+      //   message: err.response.data.message,
+      //   type: 'danger',
+      // });
+    }
+  };
+};
+
+export const ChangeUserPass = (newObj, id,setModalVisible) => {
+  return async (dispatch, state) => {
+    console.log('L');
+    try {
+      console.log('M', newObj, id);
+
+      const response = await axios
+        .patch(`${state().AuthReducer.baseUrl}user/changePass/${id}`, newObj)
+        .then(async res => {
+          console.log(res.data);
+          setModalVisible(true)
+        });
+    } catch (err) {
+      console.log(`Err in patchUser function: `, err);
+      // FlashMessage({
+      //   message: err.response.data.message,
+      //   type: 'danger',
+      // });
     }
   };
 };

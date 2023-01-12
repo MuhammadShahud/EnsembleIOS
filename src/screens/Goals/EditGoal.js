@@ -107,7 +107,7 @@ if(noDate===true){
                     <RadioButton
                       color="black"
                       value="first"
-                      status={indexes.includes(index) ? 'checked' : 'unchecked'}
+                      status={'unchecked'}
                       onPress={() => radioValue(index)}
                     />
                     <Text style={styles.step}>{item.step}</Text>
@@ -126,7 +126,7 @@ if(noDate===true){
               <RadioButton
                 color="black"
                 value="first"
-                status={indexes.includes() ? 'checked' : 'unchecked'}
+                status={'unchecked'}
                 onPress={() => radioValue()}
               />
               <TextInput

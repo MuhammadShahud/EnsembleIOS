@@ -4,13 +4,12 @@ import SettingsHeader from '../../components/Header/SettingsHeader'
 import { PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import {useDispatch, useSelector} from 'react-redux';
 import Button from '../../components/Button'
 import { ButtonColor } from '../../../assets/colors/colors'
 import SuccessModaal from '../../components/Modaal/SuccessModaal'
+import {USER} from '../../redux/Reducers/AuthReducer';
+import {ChangeUserPass} from '../../redux/Actions/AuthAction';
 
 
 const ChangePassword = () => {
@@ -21,14 +20,15 @@ const ChangePassword = () => {
   const [passwordVisibility1, setPasswordVisibility1] = useState(true);
   const [passwordVisibility2, setPasswordVisibility2] = useState(true);
   const [oldPassword, setOldPassword] = useState('');
-
+ 
   const [confirmPassword, setConfirmPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
 
   const [modalVisible, setModalVisible] = useState(false);
 
 
-
+const dispatch = useDispatch();
+const userData = useSelector(USER)
 
   const handlePasswordVisibility = () => {
     if (rightIcon === true) {
@@ -57,6 +57,16 @@ const ChangePassword = () => {
       setPasswordVisibility2(!passwordVisibility2);
     }
   };
+
+
+  const changePass = ()=>{
+    const obj = {
+      oldPassword:oldPassword,
+      newPassword:newPassword,
+      confirmPassword:confirmPassword
+    }
+dispatch(ChangeUserPass(obj,userData?.id,setModalVisible))
+  }
 
   return (
     <View style={styles.mainView}>
@@ -91,8 +101,8 @@ const ChangePassword = () => {
 
           <TextInput
             style={styles.inputField}
-            onChangeText={setConfirmPassword}
-            value={confirmPassword}
+            onChangeText={setNewPassword}
+            value={newPassword}
             placeholder="********************"
             keyboardType="default"
             secureTextEntry={passwordVisibility1}
@@ -113,8 +123,8 @@ const ChangePassword = () => {
 
           <TextInput
             style={styles.inputField}
-            onChangeText={setNewPassword}
-            value={newPassword}
+            onChangeText={setConfirmPassword}
+            value={confirmPassword}
             placeholder="********************"
             keyboardType="default"
             secureTextEntry={passwordVisibility2}
@@ -133,7 +143,7 @@ const ChangePassword = () => {
 
         <Button
           title="Continue"
-          onPress={()=>setModalVisible(true)}
+          onPress={changePass}
           buttonStyle={styles.goalButton}
         />
         <SuccessModaal successText={'Password Updated Successfully'} backgroundButtonColor='#2AB679' buttonTitle={'Go Back To Home'} modalText={styles.modalText} visible={modalVisible} setVisible={setModalVisible} />

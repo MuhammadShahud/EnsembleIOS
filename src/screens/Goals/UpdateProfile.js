@@ -5,7 +5,7 @@ import {add, edit, editPicture, notiLogo} from '../../../assets/images/images';
 import Header from '../../components/Header/header';
 import EditDetails from '../../components/EditDetails/EditDetails';
 import EditButtons from '../../components/EditDetails/EditButtons';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {COMPANY, USER} from '../../redux/Reducers/AuthReducer';
 import {PoppinsRegular, PoppinsSemiBold} from '../../../assets/fonts/Fonts';
 import EditProfileButton from '../../components/EditProfileButton';
@@ -14,6 +14,7 @@ import UpdateInput from '../../components/UpdateInput';
 import SelectList from 'react-native-dropdown-select-list';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { PatchUser } from '../../redux/Actions/AuthAction';
 
 const EditProfile = props => {
 
@@ -218,6 +219,7 @@ const EditProfile = props => {
 
 
   const navigation = useNavigation();
+  const dispatch = useDispatch()
 
   const userData = props.route.params.userData;
   const company = useSelector(COMPANY);
@@ -228,6 +230,25 @@ const EditProfile = props => {
   const [skills, setSkills] = useState(userData.questions.rockstarSkills)
   const [enjoy, setEnjoy] = useState(userData.questions.Hobbies)
 
+  const updateFunction = () =>{
+    const obj = {
+        profileData: {
+            number: number,
+            location: selected,
+           
+          },
+          questions: {
+            descKid: desc,
+            achievment: achievment,
+            rockstarSkills: skills,
+            Hobbies: enjoy,
+          },
+    }
+
+    dispatch(PatchUser(obj, navigation, 'Profile', userData?.id));
+
+    console.log("object",obj);
+  }
 
 
   console.log('userDataaaaaaaa',skills,enjoy, number,desc,achievment,selected);
@@ -246,7 +267,7 @@ const EditProfile = props => {
             />
 
             <EditDetails
-              detail1={userData.questions.jobTitle}
+              detail1={userData.jobTitle}
               detail2={company?.companyName}
               title={userData.name}
               source={edit}
@@ -254,7 +275,7 @@ const EditProfile = props => {
             />
           </View>
           <EditProfileButton
-            onPress={() => navigation.navigate('updateprofile')}
+            onPress={updateFunction}
             EditText={'Update'}
             edit={'hehe'}
           />
@@ -298,7 +319,7 @@ const EditProfile = props => {
             title="Rockstar Skills"
             addImage={add}
             properties={skills}
-            setSkills = {()=>setSkills}
+            setSkills = {setSkills}
           />
           <EditButtons
             cross={'aa'}
@@ -307,7 +328,7 @@ const EditProfile = props => {
             title="When you are not working, what do you enjoy doing the most?"
             addImage={add}
             properties={enjoy}
-            setEnjoy={()=>setEnjoy}
+            setEnjoy={setEnjoy}
           />
           <UpdateInput
             placeholder={desc}

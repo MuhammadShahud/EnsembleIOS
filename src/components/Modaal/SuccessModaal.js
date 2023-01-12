@@ -18,7 +18,7 @@ const SuccessModaal = props => {
   const navigation = useNavigation();
   const submitLogin = () => {
     props.setVisible(!props.visible);
-    navigation.navigate('login');
+    navigation.navigate('drawer');
   };
   return (
     <View style={styles.centeredView}>

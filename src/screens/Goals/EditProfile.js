@@ -32,17 +32,17 @@ const EditProfile = props => {
             />
 
             <EditDetails
-              detail1={userData.questions.jobTitle}
+              detail1={userData.jobTitle}
               detail2={company?.companyName}
               title={userData.name}
               source={edit}
               name="kuchbhi"
             />
           </View>
-          <EditProfileButton
+         {!props.route.params.outside? <EditProfileButton
             onPress={() => navigation.navigate('updateprofile', {userData})}
             EditText={'Edit Profile'}
-          />
+          />: null}
           <EditDetails
             detail1={userData.profileData.number}
             title="Phone Number"

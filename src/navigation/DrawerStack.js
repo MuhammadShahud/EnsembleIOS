@@ -28,10 +28,49 @@ import PersonalGoals from '../screens/Goals/PersonalGoals';
 import Welcome from '../screens/notification/Welcome';
 import UpdateProfile from '../screens/Goals/UpdateProfile';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Home from '../screens/home/home';
 
 
 const Drawer = createDrawerNavigator();
-const Noti = createNativeStackNavigator();
+const HomeTab = createNativeStackNavigator();
+
+export const HomeStack = () => {
+  return (
+    <HomeTab.Navigator
+      initialRouteName="Homee"
+      headerMode="none"
+      options={{
+        animationEnabled: false,
+      }}>
+      <HomeTab.Screen
+        name="Profile"
+        component={EditProfile}
+        options={{headerShown: false}}
+      />
+      <HomeTab.Screen
+        name="Homee"
+        component={Home}
+        options={{headerShown: false}}
+      />
+       <HomeTab.Screen
+        name="notification"
+        component={Notification}
+        options={{headerShown: false}}
+      />
+       <HomeTab.Screen
+        name="updateprofile"
+        component={UpdateProfile}
+        options={{headerShown: false}}
+      />
+       <HomeTab.Screen
+        name="welcome"
+        component={Welcome}
+        options={{headerShown: false}}
+      />
+     
+    </HomeTab.Navigator>
+  );
+};
 
 
 const DrawerStack = () => {
@@ -57,7 +96,7 @@ const DrawerStack = () => {
         },
       }}>
       <Drawer.Screen name="home" component={TabStack} />
-      <Drawer.Screen name="Profile" component={EditProfile} />
+      {/* <Drawer.Screen name="Profile" component={EditProfile} /> */}
       <Drawer.Screen name="review" component={Review} />
       <Drawer.Screen
         name="surveysuceed"
@@ -73,12 +112,8 @@ const DrawerStack = () => {
           ),
         }}
       />
-      <Drawer.Screen name="notification" component={Notification} />
       <Drawer.Screen name="duedate" component={GoalsDueDate} />
       <Drawer.Screen name="editgoal" component={EditGoal} />
-      <Drawer.Screen name="welcome" component={Welcome} />
-      <Drawer.Screen name="updateprofile" component={UpdateProfile} />
-
       <Drawer.Screen name="calender" component={Calen} />
       <Drawer.Screen
         name="goals"

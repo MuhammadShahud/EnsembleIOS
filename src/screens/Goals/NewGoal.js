@@ -20,6 +20,8 @@ import {ButtonColor} from '../../../assets/colors/colors';
 import {addIcon, cross} from '../../../assets/images/images';
 import DashesGoals from '../../components/Goals/dashesGoals';
 import { PoppinsBold, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
+import { useSelector } from 'react-redux';
+import { USER } from '../../redux/Reducers/AuthReducer';
 // import Entypo from 'react-native-vector-icons/Entypo'
 
 const NewGoal = () => {
@@ -29,8 +31,11 @@ const NewGoal = () => {
   const [indexes, setIndex] = React.useState([]);
   const [data, setData] = React.useState([]);
   const [goalInput, setGoalInput] = React.useState('')
+  const userData = useSelector(USER);
+
 
   const toCalendar = () => {
+  
     let array = [];
 
     data.map((d, i) => {
@@ -46,6 +51,8 @@ const NewGoal = () => {
     });
     goal.steps = array;
     goal.goal = goalInput;
+    goal.employeeId = userData.id;
+    goal.companyId = userData.companyId;
     console.log('indexEnd2', goal);
 
     navigation.navigate('calender',{goal});
@@ -113,7 +120,7 @@ const NewGoal = () => {
                       color="black"
                       value="first"
                       status={
-                        indexes.includes(item.title) ? 'checked' : 'unchecked'
+                       'unchecked'
                       }
                       onPress={() => radioValue(item.title)}
                     />

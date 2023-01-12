@@ -20,12 +20,10 @@ import {
 import {
   FiraSansSemiBold,
   PoppinsBold,
-  PoppinsLight,
   PoppinsMedium,
   PoppinsRegular,
   PoppinsSemiBold,
 } from '../../../assets/fonts/Fonts';
-import Footer from '../../components/footer/Footer';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import OngoingCompleted from '../../components/Goals/OngoingCompleted';
 import {ButtonColor} from '../../../assets/colors/colors';
@@ -34,7 +32,6 @@ import Button from '../../components/Button';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import {SURVEYS, USER} from '../../redux/Reducers/AuthReducer';
-import {style} from '../home/homeStyle';
 
 const Survey = () => {
   const refRBSheet = useRef();
@@ -45,17 +42,22 @@ const Survey = () => {
   console.log('surveysss', surveys);
 
   const [show, setShow] = useState(true);
-  // useEffect(() => {
-  //   refRBSheet.current.open();
-  // }, []);
+  useEffect(() => {
+    refRBSheet.current.open();
+  }, []);
 
-  const weeklySurvey = surveys;
+  let weeklySurvey = surveys;
+
+  userData?.completedSurveys.forEach(e => {
+    weeklySurvey = weeklySurvey?.filter((s)=>s?.id === e  ) 
+    })
+
   let laptop = surveys;
 
   
-   !show? userData?.completedSurveys.forEach(e => {
+   userData?.completedSurveys.forEach(e => {
    laptop = laptop?.filter((s)=>s?.id === e  ) 
-   }): null
+   })
   
 
   return (

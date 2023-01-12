@@ -22,6 +22,7 @@ import {
 import {Image, StyleSheet} from 'react-native';
 import PersonalGoals from '../screens/Goals/PersonalGoals';
 import {verticalScale} from 'react-native-size-matters';
+import { HomeStack } from './DrawerStack';
 
 const TabStack = () => {
   const Tab = createMaterialBottomTabNavigator();
@@ -37,7 +38,7 @@ const TabStack = () => {
         
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeStack}
         options={{
           tabBarIcon: ({focused}) => (
             <Image

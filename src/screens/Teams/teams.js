@@ -85,7 +85,7 @@ const Teams = () => {
                   <TouchableOpacity
                     style={styles.teamView}
                     onPress={() =>
-                      navigation.navigate('Profile', {userData: item})
+                      navigation.navigate('Profile', {userData: item,outside:'outside'})
                     }>
                     <Image
                       source={{
@@ -114,7 +114,7 @@ const Teams = () => {
                   <TouchableOpacity
                     style={styles.teamView}
                     onPress={() =>
-                      navigation.navigate('Profile', {userData: item})
+                      navigation.navigate('Profile', {userData: item,outside:'outside'})
                     }>
                     <Image
                       source={{

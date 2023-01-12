@@ -42,53 +42,66 @@ import {
   PoppinsRegular,
   PoppinsSemiBold,
 } from '../../../assets/fonts/Fonts';
-import Footer from '../../components/footer/Footer';
 const PersonalGoals = () => {
   const user =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWh1ZEBwbHVtdHJlZWdyb3VwLm5ldCIsImlhdCI6MTY2NDU2NzExNSwiZXhwIjoxNjk2MTAzMTE1fQ.bG940Pi5-Tf6CX4AMxLSZ2vLHZJr3XfgkBsIRvtkNeA';
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const [show, setShow] = useState(true);
+  const [num, setNum] = useState(0);
+
   const refRBSheet = useRef();
   const height = Dimensions.get('screen').height;
-
+  let goalsData = useSelector(GOALS);
+  goalsData.reverse();
+  console.log('goalsData', goalsData[0]?.dueDate.split('T')[0].split('-'));
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     refRBSheet.current.open();
   }, []);
 
-  const goalsData = useSelector(GOALS);
-
-  const laptop = [
-    {
-      id: 1,
-      title: 'Are you happy with the hp laptop?',
-      date: '07-08-2022',
-    },
-    {
-      id: 2,
-      title: 'Are you happy with the hp laptop?',
-      date: '07-08-2022',
-    },
-
-    {
-      id: 3,
-      title: 'Are you happy with the hp laptop?',
-      date: '07-08-2022',
-    },
-  ];
-
-  const data = goalsData ? goalsData : null;
-
-  if (goalsData?.dueDate) {
-    console.log('workingg');
-    data?.forEach(e => {
-      let date = e?.dueDate.split('T');
-      console.log('dateeee', date);
-      e.dueDate = date[0];
-      console.log('dataaaa', data);
+  if (num === 0) {
+    goalsData.forEach((e, i) => {
+      let newDate = e.dueDate.split('T')[0].split('-');
+      newDate[1] === '01'
+        ? (newDate[1] = 'Jan')
+        : newDate[1] === '02'
+        ? (newDate[1] = 'Feb')
+        : newDate[1] === '03'
+        ? (newDate[1] = 'Mar')
+        : newDate[1] === '04'
+        ? (newDate[1] = 'Apr')
+        : newDate[1] === '05'
+        ? (newDate[1] = 'May')
+        : newDate[1] === '06'
+        ? (newDate[1] = 'Jun')
+        : newDate[1] === '07'
+        ? (newDate[1] = 'Jul')
+        : newDate[1] === '08'
+        ? (newDate[1] = 'Aug')
+        : newDate[1] === '09'
+        ? (newDate[1] = 'Sep')
+        : newDate[1] === '10'
+        ? (newDate[1] = 'Oct')
+        : newDate[1] === '11'
+        ? (newDate[1] = 'Nov')
+        : newDate[1] === '12'
+        ? (newDate[1] = 'Dec')
+        : null;
+      goalsData[i].dueDate = newDate[2] + ' ' + newDate[1] + ',' + newDate[0];
     });
+    setNum(1);
   }
+
+  console.log('working', goalsData[0].dueDate);
+  const data = goalsData;
+
+  goalsData = data.filter(e => e.isCompleted === false);
+
+  const laptop = data.filter(e => e.isCompleted === true);
+
+  console.log('laptop', laptop);
+
   console.log('userrr', user.token);
   useFocusEffect(
     useCallback(() => {
@@ -120,7 +133,7 @@ const PersonalGoals = () => {
         {show ? (
           <FlatList
             style={styles.flatList}
-            data={data}
+            data={goalsData}
             keyExtractor={item => item._id}
             renderItem={({item}) => {
               return (
@@ -139,7 +152,7 @@ const PersonalGoals = () => {
                     </View>
                     <ProgressBar
                       style={styles.progressBar}
-                      progress={0.3}
+                      progress={item.progress / 100}
                       color={'black'}
                     />
 
@@ -164,9 +177,9 @@ const PersonalGoals = () => {
                     <Image source={checkMark} />
                   </View>
                   <View>
-                    <Text style={styles.laptopTitle}>{item?.title}</Text>
+                    <Text style={styles.laptopTitle}>{item?.goal}</Text>
                     <View style={styles.laptopDateView}>
-                      <Text style={styles.laptopDate}>{item?.date}</Text>
+                      <Text style={styles.laptopDate}>{item?.dueDate}</Text>
                     </View>
                   </View>
                 </View>
@@ -244,6 +257,7 @@ const styles = StyleSheet.create({
   box: {
     flexDirection: 'row',
     backgroundColor: 'white',
+    alignItems: 'center',
     marginVertical: verticalScale(7),
     borderRadius: moderateScale(20),
     marginHorizontal: scale(20),
@@ -267,7 +281,7 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(10),
   },
   imageView: {
-    paddingTop: verticalScale(15),
+    paddingTop: verticalScale(20),
     paddingLeft: scale(15),
     paddingRight: scale(12),
   },
@@ -351,7 +365,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     height: verticalScale(7),
     backgroundColor: '#EBEBEB',
-    width: '80%',
+    width: '95%',
     marginTop: verticalScale(5),
   },
   footerView: {

@@ -13,19 +13,32 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import {useNavigation} from '@react-navigation/native';
 import {ProgressBar, MD3Colors} from 'react-native-paper';
-import { FiraSansMedium, FiraSansRegular, FiraSansSemiBold, PoppinsBold, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
+import {
+  FiraSansMedium,
+  FiraSansRegular,
+  FiraSansSemiBold,
+  PoppinsBold,
+  PoppinsMedium,
+  PoppinsRegular,
+  PoppinsSemiBold,
+} from '../../../assets/fonts/Fonts';
+import {useDispatch, useSelector} from 'react-redux';
+import {PatchGoalSteps} from '../../redux/Actions/AuthAction';
+import {USER} from '../../redux/Reducers/AuthReducer';
 
 const GoalsDueDate = props => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   const goal = props.route.params.goal;
+  const userData = useSelector(USER);
+  let array = [];
 
-  const [form, setForm] = useState([]);
-  const options = [
-    'Read Employ Handbook',
-    'Fill Employ Information Form',
-    'Submit Attested Documents',
-    'Submit Passport Size Image',
-  ];
+  goal?.steps.forEach(e => {
+    e.isDone ? array.push(e.step) : array.filter(f => f !== e.step);
+  });
+
+  const [form, setForm] = useState(array);
+
   function pickForm(selectedForm) {
     console.log(selectedForm);
     // const index = form.findIndex(form => form == selectedForm)
@@ -35,15 +48,25 @@ const GoalsDueDate = props => {
     }
     setForm(form => form.concat(selectedForm));
   }
+
+  const selectStep = (i, step) => {
+    let obj = {steps: goal.steps};
+
+    obj.steps[i].isDone = !goal.steps[i].isDone;
+    console.log('workinggg', obj);
+
+    dispatch(PatchGoalSteps(obj, goal.id, userData.id));
+    pickForm(step);
+  };
   console.log('goallll', goal);
   return (
     <View>
       <Header />
       <Text style={styles.duedateText}>Due Date</Text>
       <View style={styles.container}>
-        <Text style={styles.number}>08</Text>
+        <Text style={styles.number}>{goal.dueDate.split(' ')[0]}</Text>
         <View>
-          <Text style={styles.dateText}>December, 2022</Text>
+          <Text style={styles.dateText}>{goal.dueDate.split(' ')[1]}</Text>
           <Text style={styles.timeText}>12:00 Am</Text>
         </View>
       </View>
@@ -67,11 +90,11 @@ const GoalsDueDate = props => {
           <View style={styles.progressBarView}>
             <ProgressBar
               style={styles.progressBar}
-              progress={0.4}
+              progress={goal.progress / 100}
               color={'black'}
             />
           </View>
-          <Text style={styles.progressNumber}>50%</Text>
+          <Text style={styles.progressNumber}>{goal.progress}%</Text>
         </View>
       </View>
       <View style={styles.editView}>
@@ -86,11 +109,11 @@ const GoalsDueDate = props => {
       </View>
 
       <View style={styles.select}>
-        {goal.steps.map(step => (
+        {goal.steps.map((step, i) => (
           <View key={step.step} style={styles.checkboxView}>
             <TouchableOpacity
               style={styles.checkBox}
-              onPress={() => pickForm(step.step)}>
+              onPress={() => selectStep(i, step.step)}>
               {form.includes(step.step) && <Text style={styles.tick}>✔</Text>}
             </TouchableOpacity>
             <Text style={styles.optionText}>{step.step}</Text>
@@ -107,7 +130,7 @@ const styles = StyleSheet.create({
   duedateText: {
     color: 'black',
     fontSize: moderateScale(25),
-    fontFamily:PoppinsSemiBold,
+    fontFamily: PoppinsSemiBold,
     marginHorizontal: scale(20),
     marginTop: verticalScale(30),
   },
@@ -119,19 +142,19 @@ const styles = StyleSheet.create({
   number: {
     color: ButtonColor,
     fontSize: moderateScale(50),
-    fontFamily:PoppinsBold
+    fontFamily: PoppinsBold,
   },
   dateText: {
     paddingLeft: scale(5),
     color: 'black',
-    marginTop:verticalScale(-5),
-    fontFamily:PoppinsMedium
+    marginTop: verticalScale(-5),
+    fontFamily: PoppinsMedium,
   },
   timeText: {
     paddingLeft: scale(5),
     color: 'black',
-    fontFamily:PoppinsRegular,
-    marginTop:verticalScale(-5)
+    fontFamily: PoppinsRegular,
+    marginTop: verticalScale(-5),
   },
   boxView: {
     backgroundColor: ButtonColor,
@@ -149,14 +172,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: moderateScale(15),
     paddingLeft: scale(10),
-    fontFamily:FiraSansSemiBold
+    fontFamily: FiraSansSemiBold,
   },
   date: {
     color: 'white',
     fontWeight: '400',
     fontSize: moderateScale(10),
     paddingLeft: scale(10),
-    fontFamily:FiraSansRegular
+    fontFamily: FiraSansRegular,
   },
   circle: {
     marginTop: verticalScale(20),
@@ -172,18 +195,17 @@ const styles = StyleSheet.create({
   imageLogo: {
     alignItems: 'center',
   },
-  boxContainer: {
-  },
+  boxContainer: {},
   progress: {
     color: 'black',
     marginTop: verticalScale(15),
     fontSize: moderateScale(20),
-    fontFamily:PoppinsMedium
+    fontFamily: PoppinsMedium,
   },
   steps: {
     color: 'black',
     fontSize: moderateScale(20),
-    fontFamily:PoppinsMedium
+    fontFamily: PoppinsMedium,
   },
   editView: {
     flexDirection: 'row',
@@ -194,7 +216,7 @@ const styles = StyleSheet.create({
   },
   edit: {
     color: ButtonColor,
-    fontFamily:FiraSansMedium
+    fontFamily: FiraSansMedium,
   },
   editIcon: {
     color: ButtonColor,
@@ -223,7 +245,7 @@ const styles = StyleSheet.create({
     color: 'black',
     paddingLeft: scale(15),
     fontSize: moderateScale(15),
-    fontFamily:PoppinsRegular
+    fontFamily: PoppinsRegular,
   },
 
   progressView: {

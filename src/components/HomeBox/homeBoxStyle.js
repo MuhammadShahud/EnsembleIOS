@@ -21,7 +21,11 @@ export const style = StyleSheet.create({
   },
   imageView:{
       backgroundColor:'#F1F2FF',
-      borderRadius:moderateScale(40),
+      borderRadius:moderateScale(30),
+      height:verticalScale(55),
+      width:scale(55),
+      justifyContent:'center',
+      alignItems:'center',
       paddingHorizontal:scale(13),
       paddingVertical:verticalScale(13),
       marginRight:wp('4%'),

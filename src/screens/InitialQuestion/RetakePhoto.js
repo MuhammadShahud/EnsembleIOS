@@ -22,10 +22,7 @@ const RetakePhoto = props => {
   console.log('uriiii', urii, 'uri', uri);
 
   const createFormData = result => {
-    // let localUri = result.uri;
-    // let filename = localUri.split('/').pop();
-    // let match = /\.(\w+)$/.exec(filename);
-    // let type = match ? `image/${match[1]}` : `image`;
+ 
 console.log("result",result);
     let formData = new FormData();
     formData.append('file',  {

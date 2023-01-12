@@ -3,7 +3,6 @@ import React, {useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {COMPANY, USER} from '../../redux/Reducers/AuthReducer';
 import {style} from './homeStyle';
-import {styles} from '../../styles/GeneralStyle';
 import Header from '../../components/Header/header';
 import {
   pp,
@@ -60,8 +59,8 @@ export default function Home() {
     
   useFocusEffect(
     useCallback(() => {
-       dispatch(GetGoals(token));
-      //  dispatch(GetCompany(userData?.companyId));
+       dispatch(GetGoals(token,userData.id));
+       dispatch(GetCompany(userData?.companyId));
        dispatch(GetTeam(userData?.teamId));
        dispatch(GetSurveys())
        dispatch(GetNoti());
@@ -89,7 +88,7 @@ export default function Home() {
             />
           </View>
           <View style={{height: hp('0%')}}></View>
-          <Text style={style.position}>{userData?.questions.jobTitle} | {company.companyName} </Text>
+          <Text style={style.position}>{userData?.jobTitle} | {company.companyName} </Text>
         </View>
 
         <View style={{height: hp('3%')}}></View>
