@@ -11,7 +11,7 @@ import Medal from '../../../assets/images/medall'
 const HomeBox = props => {
   const dispatch = useDispatch()
   const navigation = useNavigation()
-
+console.log(props.color);
   return (
     <TouchableOpacity 
     onPress={()=>navigation.navigate(props.navigate)}

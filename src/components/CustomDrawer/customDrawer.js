@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   View,
@@ -11,7 +10,20 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {logout, drawerPP, drawerPT, blackPeople, drawerGoals, blackSurvey, drawerSurvey, blackResources, blackFun, blackBriefCase, blackSetting, blackLogout} from '../../../assets/images/images';
+import {
+  logout,
+  drawerPP,
+  drawerPT,
+  blackPeople,
+  drawerGoals,
+  blackSurvey,
+  drawerSurvey,
+  blackResources,
+  blackFun,
+  blackBriefCase,
+  blackSetting,
+  blackLogout,
+} from '../../../assets/images/images';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -24,6 +36,9 @@ import Plugin from '../../../assets/images/plugin'
 import BriefCase from '../../../assets/images/briefcase'
 import Setting from '../../../assets/images/setting'
 import Logout from '../../../assets/images/logout'
+import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
+import {COMPANY, USER} from '../../redux/Reducers/AuthReducer';
 import {
   fun,
   goals,
@@ -42,9 +57,10 @@ import { PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fo
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 
 const CustomDrawer = props => {
+  const company = useSelector(COMPANY);
 
   const userData = useSelector(USER);
-const navigation = useNavigation();
+  const navigation = useNavigation();
   const filteredProps = {
     ...props,
     state: {
@@ -74,13 +90,20 @@ const navigation = useNavigation();
             style.halfHeader,
             {justifyContent: 'flex-start', paddingLeft: wp('4%')},
           ]}>
-          <Image
+          {/* <Image
             style={{marginRight: wp('3%')}}
             resizeMode="contain"
             source={drawerPT}
+          /> */}
+          <Image
+            source={{
+              uri: `https://onboard-backendd.herokuapp.com/${company?.profilePic}`,
+            }}
+            style={{height: 40, width: 46, marginRight: wp('3%')}}
+            resizeMode="contain"
           />
           <Text style={[styles.large, style.companyName]}>
-            The Plum Tree Group
+            {company.companyName}{' '}
           </Text>
         </View>
 
@@ -93,11 +116,14 @@ const navigation = useNavigation();
             paddingLeft: wp('4%'),
           }}>
           <Image
-            source={{uri:`https://onboard-backendd.herokuapp.com/${userData?.profilePic}`}}
-            style={{borderRadius: 23, marginBottom: 10, height:50, width:50}}
+            source={{
+              uri: `https://onboard-backendd.herokuapp.com/${userData?.profilePic}`,
+            }}
+            style={{borderRadius: 23, marginBottom: 10, height: 50, width: 50}}
           />
-          <TouchableOpacity style={{paddingLeft: wp('3%')}}
-          onPress={() => navigation.navigate('Profile', {userData})}>
+          <TouchableOpacity
+            style={{paddingLeft: wp('3%')}}
+            onPress={() => navigation.navigate('Profile', {userData})}>
             <Text
               style={{
                 color: '#1B1B1B',
@@ -206,8 +232,8 @@ const navigation = useNavigation();
               style={{
                 fontSize: moderateScale(13),
                 marginLeft: scale(5),
-                color:'#1B1B1B',
-                fontFamily:PoppinsBold
+                color: '#1B1B1B',
+                fontFamily: PoppinsBold,
               }}>
               Logout
             </Text>

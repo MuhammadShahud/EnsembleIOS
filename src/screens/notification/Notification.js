@@ -64,13 +64,13 @@ const Notification = () => {
     },
   ];
 
-  const onClick = (title) => {
+  const onClick = (item) => {
 
-    title === "Complete Your Goal" ?
+    item.title === "Complete Your Goal" ?
       navigation.navigate('Goals') :
-      title === "Start a New Survey" ?
+      item.title === "Start a New Survey" ?
         navigation.navigate('Surveys') :
-        null
+        navigation.navigate('welcome',{data:item})
 
 
 
@@ -90,8 +90,8 @@ const Notification = () => {
           renderItem={({ item }) => {
             return (
               <TouchableOpacity
-                // onPress={()=>{onClick(item.title)}}
-                onPress={()=>navigation.navigate('welcome')}
+                onPress={()=>{onClick(item)}}
+                // onPress={()=>navigation.navigate('welcome')}
                 style={styles.todayView}>
                 <View >
                   {/* <Image

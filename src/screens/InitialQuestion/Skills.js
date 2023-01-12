@@ -27,8 +27,8 @@ import Dashes from '../../components/Question Text/dashes';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import {PoppinsSemiBold} from '../../../assets/fonts/Fonts';
 import {ButtonColor} from '../../../assets/colors/colors';
-import InputField from '../../components/Input Fields/InputField';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { FlashMessage } from '../../redux/Actions/AuthAction';
 
 const Skills = props => {
   const [btnState, setBtnState] = useState(false);
@@ -59,10 +59,19 @@ const [rockstarSkills, setRockstarSkills] = useState([])
   const navigation = useNavigation();
 
   const forward = () => {
-    console.log('Asdsadsadas', rockstarSkills);
-    questions.rockstarSkills = rockstarSkills;
-    console.log('questions', questions);
-    navigation.navigate('enjoy',{questions});
+
+    if(rockstarSkills.length >0){
+      console.log('Asdsadsadas', rockstarSkills);
+      questions.rockstarSkills = rockstarSkills;
+      console.log('questions', questions);
+      navigation.navigate('enjoy',{questions});
+    }else{
+      FlashMessage({
+        message: "Atleast select one option",
+        type: 'danger',
+      });
+    }
+   
   };
   return (
     <View style={styles.mainView}>

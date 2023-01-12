@@ -7,6 +7,7 @@ import Questions from '../../components/Question Text/Questions'
 import InputField from '../../components/Input Fields/InputField'
 import { scale, verticalScale } from 'react-native-size-matters'
 import Dashes from '../../components/Question Text/dashes'
+import { FlashMessage } from '../../redux/Actions/AuthAction'
 
 const Achievements = (props) => {
     const [desc, setDesc] = useState()
@@ -15,10 +16,17 @@ const Achievements = (props) => {
     const navigation = useNavigation();
 
     const forward = () => {
+        if(desc){
         console.log('Asdsadsadas', desc);
         questions.achievment = desc;
         console.log('questions', questions);
         navigation.navigate('about', { questions });
+        }else{
+            FlashMessage({
+              message: "Must fill all the fields",
+              type: 'danger',
+            });
+          }
     };
     return (
 

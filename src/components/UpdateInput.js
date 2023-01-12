@@ -1,39 +1,34 @@
-import { StyleSheet, Text, View, TextInput } from 'react-native'
-import React from 'react'
-import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
-import { PoppinsSemiBold } from '../../assets/fonts/Fonts'
+import {StyleSheet, Text, View, TextInput} from 'react-native';
+import React from 'react';
+import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
+import {PoppinsSemiBold} from '../../assets/fonts/Fonts';
 
-const UpdateInput = (props) => {
-
-
+const UpdateInput = props => {
 
 
-    return (
-        <View style={styles.inputView}>
+  return (
+    <View style={styles.inputView}>
+      <Text style={styles.text}>{props.title}</Text>
+        <TextInput
+          multiline={true}
+          onChangeText={props.onChangeText}
+          style={styles.inputFieldView}
+          value={props.placeholder}
+        />
+      {props.line ? null : (
+        <View
+          style={{
+            width: '200%',
+            height: '1%',
+            backgroundColor: '#E0E0E0',
+            marginTop: verticalScale(0),
+          }}></View>
+      )}
+    </View>
+  );
+};
 
-            <Text style={styles.text}>{props.title}</Text>
-            <View style={styles.inputFieldView}>
-
-
-                <TextInput
-                    multiline={true}
-                    style={styles.inputField}
-                    placeholder={props.placeholder}
-                />
-            </View>
-            {props.line ? null :
-
-                <View style={{ width: '200%', height: '1%', backgroundColor: '#E0E0E0', marginTop: verticalScale(0) }}>
-
-                </View>
-            }
-
-        </View>
-
-    )
-}
-
-export default UpdateInput
+export default UpdateInput;
 
 const styles = StyleSheet.create({
 

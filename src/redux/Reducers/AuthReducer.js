@@ -40,7 +40,7 @@ const initialState = {
     updatedAt: "2023-01-08T15:29:13.533Z",
     forgetCode: 4929,
     aboutCompany: "asdpoaskdopksaopdksapodkpaos",
-    brandColor: "3",
+    brandColor: "#2AB679",
     companyName: "Plum Tree Group",
     designation: "HR Manager",
     name: "Maha",
