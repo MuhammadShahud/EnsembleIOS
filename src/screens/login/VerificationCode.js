@@ -24,6 +24,7 @@ import {
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
 import { PoppinsLight, PoppinsMedium, PoppinsRegular, PoppinsSemiBold, PoppinsSemiBoldItalic } from '../../../assets/fonts/Fonts'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 const VerificationCode = (props) => {
@@ -70,7 +71,9 @@ value === forgetCode.forgetCode.toString()?
 
     </View>
 
-    <ScrollView>
+    {/* <ScrollView> */}
+    <KeyboardAwareScrollView enableOnAndroid={true}>
+
       <View style={styles.inputContainer}>
         <View>
           <Image source={yellowLine} />
@@ -105,10 +108,11 @@ value === forgetCode.forgetCode.toString()?
             backgroundColor="#2B2F86"
             color="white"
             onPress={submitLogin}
-          />
+            />
         </View>
       </View>
-    </ScrollView>
+    {/* </ScrollView> */}
+    </KeyboardAwareScrollView>
   </View>
   )
 }

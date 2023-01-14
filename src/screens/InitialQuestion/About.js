@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, KeyboardAvoidingView} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import QuestionHeader from '../../components/Header/QuestionHeader';
 import Footer from '../../components/footer/Footer';
@@ -13,6 +13,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {useDispatch, useSelector} from 'react-redux';
 import {USER} from '../../redux/Reducers/AuthReducer';
 import {FlashMessage, PatchUser} from '../../redux/Actions/AuthAction';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const About = props => {
   const [selected, setSelected] = React.useState('');
@@ -248,7 +249,10 @@ const About = props => {
   return (
     <View style={styles.mainView}>
       <QuestionHeader />
-      <ScrollView style={styles.firstView}>
+        {/* <KeyboardAvoidingView behavior='padding'> */}
+      {/* <ScrollView style={styles.firstView}> */}
+    <KeyboardAwareScrollView extraHeight={120} enableOnAndroid={true}>
+
         <Questions
           title={title}
           questionText={{
@@ -264,7 +268,7 @@ const About = props => {
             onChangeText={setNumber}
             inputStyle={styles.input}
             placeholder="0213 456 789"
-          />
+            />
         </View>
 
         <View style={styles.phoneView}>
@@ -286,7 +290,7 @@ const About = props => {
             dropdownStyles={styles.dropdownStyles}
             dropdownTextStyles={styles.dropdownTextStyles}
             dropdownItemStyles={styles.dropdownItemStyles}
-          />
+            />
         </View>
 
         <View style={styles.phoneView}>
@@ -297,9 +301,11 @@ const About = props => {
             onChangeText={setBio}
             inputStyle={styles.orangeInput}
             placeholder="I like oranges"
-          />
+            />
         </View>
-      </ScrollView>
+      {/* </ScrollView> */}
+            {/* </KeyboardAvoidingView> */}
+        </KeyboardAwareScrollView>
       <View>
         <Footer
           powered={{color: 'black'}}

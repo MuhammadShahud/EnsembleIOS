@@ -31,6 +31,7 @@ import {PoppinsSemiBold} from '../../../assets/fonts/Fonts';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Hikingg from '../../../assets/images/hikingg'
 import { FlashMessage } from '../../redux/Actions/AuthAction';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const Skills = props => {
   const [btnState, setBtnState] = useState(false);
@@ -100,7 +101,9 @@ const Skills = props => {
     <View style={styles.mainView}>
       <QuestionHeader />
       <Dashes color={3} />
-      <ScrollView>
+      {/* <ScrollView> */}
+      <KeyboardAwareScrollView enableOnAndroid={true}>
+
 
       <View 
       // style={{justifyContent: 'center', height: '75%'}}
@@ -116,7 +119,7 @@ const Skills = props => {
           setRockstarSkills={setRockstarSkills}
           firstEnjoy="AA"
           photographypic='eee'
-        />
+          />
         <RockstarSkills
           firstTitle="NETWORKING"
           secondTitle="MOVIES"
@@ -126,7 +129,7 @@ const Skills = props => {
           setRockstarSkills={setRockstarSkills}
           secondEnjoy="aA"
           networkpic='rrr'
-
+          
           />
         <RockstarSkills
           firstTitle="GAMING"
@@ -137,7 +140,7 @@ const Skills = props => {
           setRockstarSkills={setRockstarSkills}
           thirdEnjoy="xx"
           gamingpic='www'
-
+          
           />
         {/* <RockstarSkills firstTitle='HIKING' secondTitle='OTHERS' firstImage={hiking} /> */}
 
@@ -187,7 +190,8 @@ const Skills = props => {
           </View>
         ) : null}
       </View>
-        </ScrollView>
+        </KeyboardAwareScrollView>
+        {/* </ScrollView> */}
       <View>
         <Footer
           powered={{color: 'black'}}

@@ -24,6 +24,7 @@ import {appLogo, greentick, tickLogo, yellowLine} from '../../../assets/images/i
 import { PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 import Eyee from '../../../assets/images/eyee';
 import EyeeSlash from '../../../assets/images/noteyee'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 const ResetPassword = props => {
@@ -77,7 +78,9 @@ const ResetPassword = props => {
         <Image style={styles.logoStyle} resizeMode="contain" source={appLogo} />
       </View>
 
-      <ScrollView>
+      {/* <ScrollView> */}
+      <KeyboardAwareScrollView>
+      
         <View style={styles.inputContainer}>
           <View>
             <Image source={yellowLine} />
@@ -130,11 +133,11 @@ const ResetPassword = props => {
                 keyboardType="default"
                 secureTextEntry={passwordVisibility1}
                 name={'Confirm Password'}
-              />
+                />
               <TouchableOpacity
 
-                onPress={handlePasswordVisibility1}
-                style={styles.eye}>
+onPress={handlePasswordVisibility1}
+style={styles.eye}>
                   <View style={{marginTop:verticalScale(5),marginRight:scale(10)}}>
 
 
@@ -159,11 +162,13 @@ const ResetPassword = props => {
               backgroundColor="#2B2F86"
               color="white"
               onPress={submitLogin}
-            />
+              />
           </View>
         </View>
         <SuccessModaal source={tickLogo} successText={'Password Changed Successfully'} backgroundButtonColor='#2B2F86' buttonTitle={'Go Back To Login'}  visible={modalVisible} setVisible={setModalVisible} />
-      </ScrollView>
+              </KeyboardAwareScrollView>
+              
+      {/* </ScrollView> */}
     </View>
   );
 };

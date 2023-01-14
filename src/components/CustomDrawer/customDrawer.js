@@ -48,10 +48,10 @@ import {
   setting,
   survey,
 } from '../../../assets/images/images';
-import { useNavigation } from '@react-navigation/native';
+// import { useNavigation } from '@react-navigation/native';
 import PEOPLE from '../../../assets/images/PEOPLE'
-import { useSelector } from 'react-redux';
-import { USER } from '../../redux/Reducers/AuthReducer';
+// import { useSelector } from 'react-redux';
+// import { USER } from '../../redux/Reducers/AuthReducer';
 import DrawerGoal from '../../../assets/images/DrawerGoal'
 import { PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';

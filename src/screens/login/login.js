@@ -26,6 +26,7 @@ import { scale, verticalScale } from 'react-native-size-matters';
 import Button from '../../components/Button';
 import Eyee from '../../../assets/images/eyee'
 import EyeeSlash from '../../../assets/images/noteyee'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -62,7 +63,9 @@ const Login = () => {
 
       </View>
 
-      <ScrollView>
+      {/* <ScrollView> */}
+      <KeyboardAwareScrollView enableOnAndroid={true}>
+
         <View style={style.inputContainer}>
           <View>
             <Image source={yellowLine} />
@@ -104,9 +107,9 @@ const Login = () => {
                 <View style={{marginTop:verticalScale(5),marginRight:scale(10)}}>
                 {rightIcon ? 
 
-                <Eyee />
+<Eyee />
 
-                 : 
+: 
 
                  <EyeeSlash/>
                 }
@@ -137,12 +140,13 @@ const Login = () => {
               title="Login"
               backgroundColor="#2B2F86"
               color="white"
-
+              
               onPress={submitLogin}
-            />
+              />
           </View>
         </View>
-      </ScrollView>
+              </KeyboardAwareScrollView>
+      {/* </ScrollView> */}
     </View>
   );
 };

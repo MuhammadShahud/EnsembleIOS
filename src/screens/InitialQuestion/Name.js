@@ -26,6 +26,7 @@ import {
 import { ScrollView } from 'react-native';
 import { FlashMessage } from '../../redux/Actions/AuthAction';
 import { TextInput } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const Name = () => {
   const navigation = useNavigation();
@@ -68,7 +69,8 @@ const Name = () => {
     <View style={styles.mainView}>
       <QuestionHeader arrow={'notshow'} />
       <Dashes color={1} />
-      <ScrollView>
+      {/* <ScrollView> */}
+      <KeyboardAwareScrollView enableOnAndroid={true}>
 
         <View style={{ marginTop: verticalScale(100) }}>
           {/* <Image source={first} style={{alignSelf:'center'}}/> */}
@@ -106,7 +108,8 @@ const Name = () => {
         </View>
         {/* <DropDown/> */}
 
-      </ScrollView>
+      </KeyboardAwareScrollView>
+      {/* </ScrollView> */}
       <View>
         <Footer
           powered={{ color: 'black' }}
