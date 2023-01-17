@@ -11,20 +11,6 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {
-  logout,
-  drawerPP,
-  drawerPT,
-  blackPeople,
-  drawerGoals,
-  blackSurvey,
-  drawerSurvey,
-  blackResources,
-  blackFun,
-  blackBriefCase,
-  blackSetting,
-  blackLogout,
-} from '../../../assets/images/images';
-import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
@@ -39,15 +25,7 @@ import Logout from '../../../assets/images/logout'
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import {COMPANY, USER} from '../../redux/Reducers/AuthReducer';
-import {
-  fun,
-  goals,
-  people,
-  profDev,
-  resource,
-  setting,
-  survey,
-} from '../../../assets/images/images';
+
 import PEOPLE from '../../../assets/images/PEOPLE'
 import DrawerGoal from '../../../assets/images/DrawerGoal'
 import { PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';

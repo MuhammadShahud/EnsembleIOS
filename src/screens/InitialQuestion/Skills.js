@@ -29,6 +29,7 @@ import {PoppinsSemiBold} from '../../../assets/fonts/Fonts';
 import {ButtonColor} from '../../../assets/colors/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { FlashMessage } from '../../redux/Actions/AuthAction';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const Skills = props => {
   const [btnState, setBtnState] = useState(false);
@@ -77,7 +78,9 @@ const [rockstarSkills, setRockstarSkills] = useState([])
     <View style={styles.mainView}>
       <QuestionHeader />
       <Dashes color={2} />
-      <ScrollView>
+      {/* <ScrollView> */}
+      <KeyboardAwareScrollView enableOnAndroid={true}>
+
 
       <View
       style={{marginTop:verticalScale(100)}} 
@@ -91,7 +94,7 @@ const [rockstarSkills, setRockstarSkills] = useState([])
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
           firstPic='ABC'
-        />
+          />
         <RockstarSkills
           firstTitle="PROBLEM SOLVING"
           secondTitle="PROFESSIONALISM"
@@ -119,9 +122,9 @@ const [rockstarSkills, setRockstarSkills] = useState([])
           rockstarSkills={rockstarSkills}
           setRockstarSkills={setRockstarSkills}
           fourthPic='SSS'
-
-
-        />
+          
+          
+          />
 
         <TouchableOpacity
           // onPress={()=>setShow(true)}
@@ -148,14 +151,15 @@ const [rockstarSkills, setRockstarSkills] = useState([])
               style={[styles.input, props.inputStyle]}
               placeholder="Write other option here.."
               multiline={true}
-            />
+              />
             <TouchableOpacity style={styles.circleView} onPress={changeColor2}>
               <Entypo name="plus" size={20} color="white" />
             </TouchableOpacity>
           </View>
         ) : null}
       </View>
-      </ScrollView>
+      {/* </ScrollView> */}
+        </KeyboardAwareScrollView>
       <View>
         <Footer
           powered={{color: 'black'}}

@@ -10,6 +10,7 @@ import Dashes from '../../components/Question Text/dashes'
 import { KeyboardAvoidingView } from 'react-native';
 import { Platform } from 'react-native'
 import { FlashMessage } from '../../redux/Actions/AuthAction'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const DescribeYourJob = (props) => {
   const [desc, setDesc] = useState()
@@ -31,12 +32,15 @@ const DescribeYourJob = (props) => {
       }
       };
   return (
-    <KeyboardAvoidingView style={styles.mainView} behavior={Platform.OS === "ios" ? "padding" : "height"}
-    keyboardVerticalOffset={Platform.OS === 'ios'? 40 : 0}> 
+   
+      <View style={{justifyContent:'space-between',flex:1}}>
+
 
             <QuestionHeader/>
             <Dashes color={4}/>
-            <ScrollView>
+            {/* <ScrollView> */}
+            <KeyboardAwareScrollView enableOnAndroid={true}>
+
 
             <View 
             // style={{justifyContent:'center',height:'75%'}}
@@ -45,22 +49,23 @@ const DescribeYourJob = (props) => {
             <Questions title='How would you describe your job/role to a group of 5 years olds?'/>
             <InputField onChangeText={setDesc} inputStyle={styles.input} placeholder='“I give machines a brain to help them learn and be smarter.”'/>
         </View>
-              </ScrollView>
+              </KeyboardAwareScrollView>
+              {/* </ScrollView> */}
         <View>
             <Footer powered={{color:'black'}} ensemble={{color:'black'}} iconName={'chevron-right'} onPress={()=>forward()}/>
         </View>
-    </KeyboardAvoidingView>
-  )
+</View>
+    )
 }
 
 export default DescribeYourJob
 
 const styles = StyleSheet.create({
-    mainView:{
+  mainView:{
         flex:1,
         justifyContent:'space-between'
-    },
-    input:{
+      },
+      input:{
         paddingBottom:verticalScale(50),
         // width:'80%'
         // paddingHorizontal:scale(20)

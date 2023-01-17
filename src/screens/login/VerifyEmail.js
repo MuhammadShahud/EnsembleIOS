@@ -19,6 +19,7 @@ import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import { ForgetPass } from '../../redux/Actions/AuthAction'
 import { PRIMARYCOLOR } from '../../../assets/colors/colors'
 import { PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 const VerifyEmail = () => {
@@ -47,7 +48,9 @@ const VerifyEmail = () => {
 
       </View>
 
-      <ScrollView>
+    <KeyboardAwareScrollView enableOnAndroid={true}>
+
+      {/* <ScrollView> */}
         <View style={styles.inputContainer}>
 
           <View>
@@ -78,7 +81,7 @@ const VerifyEmail = () => {
                 value={email}
                 placeholder="michaelscott@papercompany.com"
                 keyboardType="email-address"
-              />
+                />
 
             </View>
             <View style={{ height: hp('2%') }} />
@@ -93,7 +96,8 @@ const VerifyEmail = () => {
             />
           </View>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
+      {/* </ScrollView> */}
     </ScrollView>
   )
 }

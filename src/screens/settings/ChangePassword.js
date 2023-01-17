@@ -12,6 +12,7 @@ import { ButtonColor } from '../../../assets/colors/colors'
 import SuccessModaal from '../../components/Modaal/SuccessModaal'
 import {USER} from '../../redux/Reducers/AuthReducer';
 import {ChangeUserPass} from '../../redux/Actions/AuthAction';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
 const ChangePassword = () => {
@@ -72,7 +73,7 @@ dispatch(ChangeUserPass(obj,userData?.id,setModalVisible))
 
   return (
     <View style={styles.mainView}>
-      <View>
+            <KeyboardAwareScrollView enableOnAndroid={true}>
         <SettingsHeader />
         <Text style={styles.change}>Change Password</Text>
         <Text style={styles.passwordText}>Enter Old Password</Text>
@@ -155,7 +156,7 @@ dispatch(ChangeUserPass(obj,userData?.id,setModalVisible))
 
 
 
-      </View>
+      </KeyboardAwareScrollView>
       <View style={styles.footerView}>
         <Text style={styles.powered}>Powered by</Text>
         <Text style={styles.ensemble}>ENSEMBLE</Text>

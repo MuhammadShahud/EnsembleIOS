@@ -8,6 +8,7 @@ import InputField from '../../components/Input Fields/InputField'
 import { scale, verticalScale } from 'react-native-size-matters'
 import Dashes from '../../components/Question Text/dashes'
 import { FlashMessage } from '../../redux/Actions/AuthAction'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const Achievements = (props) => {
     const [desc, setDesc] = useState()
@@ -34,16 +35,19 @@ const Achievements = (props) => {
 
             <QuestionHeader />
             <Dashes color={5} />
-        <ScrollView>
+        {/* <ScrollView> */}
+        <KeyboardAwareScrollView enableOnAndroid={true}>
+
 
             <View
             style={{marginTop:verticalScale(100)}}
             //  style={{ justifyContent: 'center', height: '100%' }}
-             >
+            >
                 <Questions title='Whats’s an achievement you are proud of?' />
                 <InputField onChangeText={setDesc} inputStyle={styles.input} placeholder='Don’t be shy. You can tell us' />
             </View>
-                 </ScrollView>
+                </KeyboardAwareScrollView>
+                 {/* </ScrollView> */}
             <View>
                 <Footer powered={{ color: 'black' }} ensemble={{ color: 'black' }} iconName={'chevron-right'} onPress={() => forward()} />
             </View>

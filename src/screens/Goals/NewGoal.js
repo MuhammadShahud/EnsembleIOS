@@ -24,7 +24,10 @@ import AdIcon from '../../../assets/images/AdIcon'
 import { PoppinsBold, PoppinsMedium, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
 import { useSelector } from 'react-redux';
 import { USER } from '../../redux/Reducers/AuthReducer';
+// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 // import Entypo from 'react-native-vector-icons/Entypo'
+
+
 
 const NewGoal = () => {
   const navigation = useNavigation();
@@ -58,7 +61,7 @@ const NewGoal = () => {
     console.log('indexEnd2', goal);
 
     navigation.navigate('calender',{goal});
-
+    
   };
 
   let goal = {
@@ -66,22 +69,22 @@ const NewGoal = () => {
     dueDate: '',
     steps: [],
   };
-
-
-
+  
+  
+  
   const Remove_Item = ind => {
     const inititial_state = data.filter((item, index) => {
       return index != ind;
     });
     setData(inititial_state);
   };
-
+  
   const addItem = async () => {
     setData(prev => [...prev, {title: value}]);
     setAddStep(false);
     setValue('');
   };
-
+  
   const radioValue = ind => {
     if (indexes.includes(ind)) {
       const filtered = indexes.filter(e => e !== ind);
@@ -96,6 +99,7 @@ const NewGoal = () => {
       <View>
         <Header />
         <DashesGoals color={1}/>
+
         <View style={styles.firstView}>
           <Text style={styles.goal}>Set a New Goal</Text>
           <Text style={styles.setGoal}>Lets set your new goal</Text>
@@ -125,7 +129,7 @@ const NewGoal = () => {
                        'unchecked'
                       }
                       onPress={() => radioValue(item.title)}
-                    />
+                      />
                     <Text style={styles.step}>{item.title}</Text>
                   </View>
                   <TouchableOpacity onPress={() => Remove_Item(index)}>
@@ -144,25 +148,25 @@ const NewGoal = () => {
                 value="first"
                 status={indexes.includes() ? 'checked' : 'unchecked'}
                 onPress={() => radioValue()}
-              />
+                />
               <TextInput
                 placeholder="Add"
                 onChangeText={text => setValue(text)}
                 value={value}
                 style={styles.stepInput}
-              />
+                />
               <TouchableOpacity onPress={addItem}>
                 <AntDesign name="check" size={20} style={styles.checkIcon} />
               </TouchableOpacity>
             </View>
           ) : (
             <TouchableOpacity
-              onPress={() => setAddStep(true)}
-              style={styles.icon}>
+            onPress={() => setAddStep(true)}
+            style={styles.icon}>
               {/* <Ionicons name='add-circle-outline'
                                 size={25}
                                 style={styles.circleIcon}
-                            /> */}
+                              /> */}
               {/* <Image source={addIcon} /> */}
               <AdIcon/>
               <Text style={styles.anotherstep}>Add another step</Text>

@@ -18,6 +18,7 @@ export const style = StyleSheet.create({
     borderBottomWidth: 1,
     paddingRight: wp('3%'),
     paddingLeft: wp('3%'),
+    // flex:1
   },
   companyName: {
     color: 'black',
