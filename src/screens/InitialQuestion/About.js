@@ -250,8 +250,8 @@ const About = props => {
     <View style={styles.mainView}>
       <QuestionHeader />
         {/* <KeyboardAvoidingView behavior='padding'> */}
-      {/* <ScrollView style={styles.firstView}> */}
-    <KeyboardAwareScrollView extraHeight={120} enableOnAndroid={true}>
+      <ScrollView contentContainerStyle={styles.firstView}>
+    {/* <KeyboardAwareScrollView extraHeight={120} enableOnAndroid={true}> */}
 
         <Questions
           title={title}
@@ -303,9 +303,9 @@ const About = props => {
             placeholder="I like oranges"
             />
         </View>
-      {/* </ScrollView> */}
+      </ScrollView>
             {/* </KeyboardAvoidingView> */}
-        </KeyboardAwareScrollView>
+        {/* </KeyboardAwareScrollView> */}
       <View>
         <Footer
           powered={{color: 'black'}}
@@ -355,7 +355,9 @@ const styles = StyleSheet.create({
     lineHeight: verticalScale(20),
     fontFamily: PoppinsRegular,
   },
-  firstView: {},
+  firstView: {
+    height:'150%'
+  },
   dateInput: {
     marginHorizontal: scale(20),
     borderRadius: moderateScale(25),

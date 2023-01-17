@@ -13,6 +13,8 @@ import SuccessModaal from '../../components/Modaal/SuccessModaal'
 import {USER} from '../../redux/Reducers/AuthReducer';
 import {ChangeUserPass} from '../../redux/Actions/AuthAction';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { ScrollView } from 'react-native'
+import { color } from 'react-native-reanimated'
 
 
 const ChangePassword = () => {
@@ -73,7 +75,10 @@ dispatch(ChangeUserPass(obj,userData?.id,setModalVisible))
 
   return (
     <View style={styles.mainView}>
+      
             <KeyboardAwareScrollView enableOnAndroid={true}>
+            {/* <ScrollView contentContainerStyle={{height:'110%'}}> */}
+
         <SettingsHeader />
         <Text style={styles.change}>Change Password</Text>
         <Text style={styles.passwordText}>Enter Old Password</Text>
@@ -87,17 +92,17 @@ dispatch(ChangeUserPass(obj,userData?.id,setModalVisible))
             keyboardType="default"
             secureTextEntry={passwordVisibility}
             name={'Password'}
-          />
+            />
           <TouchableOpacity
             onPress={handlePasswordVisibility}
             style={styles.firsteye}>
             {rightIcon ? (
                               <Eyee/>
-
+                              
             ) : (
               <EyeeSlash/>
 
-            )}
+              )}
           </TouchableOpacity>
         </View>
 
@@ -112,15 +117,15 @@ dispatch(ChangeUserPass(obj,userData?.id,setModalVisible))
             keyboardType="default"
             secureTextEntry={passwordVisibility1}
             name={'Password'}
-          />
+            />
           <TouchableOpacity
             onPress={handlePasswordVisibility1}
             style={styles.firsteye}>
             {rightIcon1 ? (
               <Eyee/>
-            ) : (
+              ) : (
               <EyeeSlash/>
-            )}
+              )}
           </TouchableOpacity>
         </View>
         <Text style={styles.passwordText}>Enter Confirm Password</Text>
@@ -134,7 +139,7 @@ dispatch(ChangeUserPass(obj,userData?.id,setModalVisible))
             keyboardType="default"
             secureTextEntry={passwordVisibility2}
             name={'Password'}
-          />
+            />
           <TouchableOpacity
             onPress={handlePasswordVisibility2}
             style={styles.firsteye}>
@@ -150,13 +155,14 @@ dispatch(ChangeUserPass(obj,userData?.id,setModalVisible))
           title="Continue"
           onPress={changePass}
           buttonStyle={styles.goalButton}
-        />
+          />
         <SuccessModaal successText={'Password Updated Successfully'} backgroundButtonColor='#2AB679' buttonTitle={'Go Back To Home'} modalText={styles.modalText} visible={modalVisible} setVisible={setModalVisible} />
 
 
 
 
       </KeyboardAwareScrollView>
+       {/* </ScrollView> */}
       <View style={styles.footerView}>
         <Text style={styles.powered}>Powered by</Text>
         <Text style={styles.ensemble}>ENSEMBLE</Text>

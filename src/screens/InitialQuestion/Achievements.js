@@ -35,8 +35,8 @@ const Achievements = (props) => {
 
             <QuestionHeader />
             <Dashes color={5} />
-        {/* <ScrollView> */}
-        <KeyboardAwareScrollView enableOnAndroid={true}>
+        <ScrollView contentContainerStyle={{height:'150%'}}>
+        {/* <KeyboardAwareScrollView enableOnAndroid={true}> */}
 
 
             <View
@@ -46,8 +46,8 @@ const Achievements = (props) => {
                 <Questions title='Whats’s an achievement you are proud of?' />
                 <InputField onChangeText={setDesc} inputStyle={styles.input} placeholder='Don’t be shy. You can tell us' />
             </View>
-                </KeyboardAwareScrollView>
-                 {/* </ScrollView> */}
+                {/* </KeyboardAwareScrollView> */}
+                 </ScrollView>
             <View>
                 <Footer powered={{ color: 'black' }} ensemble={{ color: 'black' }} iconName={'chevron-right'} onPress={() => forward()} />
             </View>

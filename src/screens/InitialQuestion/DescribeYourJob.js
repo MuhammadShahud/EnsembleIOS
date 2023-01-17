@@ -38,8 +38,8 @@ const DescribeYourJob = (props) => {
 
             <QuestionHeader/>
             <Dashes color={4}/>
-            {/* <ScrollView> */}
-            <KeyboardAwareScrollView enableOnAndroid={true}>
+            <ScrollView contentContainerStyle={{height:'150%'}}>
+            {/* <KeyboardAwareScrollView enableOnAndroid={true}> */}
 
 
             <View 
@@ -49,8 +49,8 @@ const DescribeYourJob = (props) => {
             <Questions title='How would you describe your job/role to a group of 5 years olds?'/>
             <InputField onChangeText={setDesc} inputStyle={styles.input} placeholder='“I give machines a brain to help them learn and be smarter.”'/>
         </View>
-              </KeyboardAwareScrollView>
-              {/* </ScrollView> */}
+              {/* </KeyboardAwareScrollView> */}
+              </ScrollView>
         <View>
             <Footer powered={{color:'black'}} ensemble={{color:'black'}} iconName={'chevron-right'} onPress={()=>forward()}/>
         </View>

@@ -93,10 +93,12 @@ const EditGoal = props => {
 
   const navigation = useNavigation();
   return (
-    <View style={styles.mainView}>
+    <ScrollView contentContainerStyle={styles.mainView}>
       <View>
         <Header />
-<KeyboardAwareScrollView enableOnAndroid={true}>
+{/* <KeyboardAwareScrollView enableOnAndroid={true}> */}
+{/* <ScrollView contentContainerStyle={{height:'120%'}}> */}
+
 
           <Text style={styles.editGoalText}>Edit Goal</Text>
           <Text style={styles.stepsText}>Steps</Text>
@@ -115,7 +117,7 @@ const EditGoal = props => {
                         value="first"
                         status={'unchecked'}
                         onPress={() => radioValue(index)}
-                      />
+                        />
                       <Text style={styles.step}>{item.step}</Text>
                     </View>
                     <TouchableOpacity onPress={() => Remove_Item(index)}>
@@ -148,8 +150,8 @@ const EditGoal = props => {
               </View>
             ) : (
               <TouchableOpacity
-                onPress={() => setAddStep(true)}
-                style={styles.icon}>
+              onPress={() => setAddStep(true)}
+              style={styles.icon}>
                 {/* <Ionicons name='add-circle-outline'
                                 size={25}
                                 style={styles.circleIcon}
@@ -174,7 +176,8 @@ const EditGoal = props => {
             </Text>
           </View>
         {/* </ScrollView> */}
-      </KeyboardAwareScrollView>
+      {/* </KeyboardAwareScrollView> */}
+        {/* </ScrollView> */}
       </View>
 
       <View>
@@ -185,7 +188,7 @@ const EditGoal = props => {
           />
         <Footer iconName={'check'} onPress={() => toCalendar(true)} />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -195,6 +198,7 @@ const styles = StyleSheet.create({
   mainView: {
     flex: 1,
     justifyContent: 'space-between',
+    // height:'500%'
   },
   input2: {
     borderWidth: 1,

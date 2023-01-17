@@ -71,8 +71,8 @@ value === forgetCode.forgetCode.toString()?
 
     </View>
 
-    {/* <ScrollView> */}
-    <KeyboardAwareScrollView enableOnAndroid={true}>
+    <ScrollView contentContainerStyle={{height:'170%'}}>
+    {/* <KeyboardAwareScrollView enableOnAndroid={true}> */}
 
       <View style={styles.inputContainer}>
         <View>
@@ -111,8 +111,8 @@ value === forgetCode.forgetCode.toString()?
             />
         </View>
       </View>
-    {/* </ScrollView> */}
-    </KeyboardAwareScrollView>
+    </ScrollView>
+    {/* </KeyboardAwareScrollView> */}
   </View>
   )
 }

@@ -63,8 +63,8 @@ const Login = () => {
 
       </View>
 
-      {/* <ScrollView> */}
-      <KeyboardAwareScrollView enableOnAndroid={true}>
+      <ScrollView contentContainerStyle={{height:'150%'}}>
+      {/* <KeyboardAwareScrollView enableOnAndroid={true}> */}
 
         <View style={style.inputContainer}>
           <View>
@@ -145,8 +145,8 @@ const Login = () => {
               />
           </View>
         </View>
-              </KeyboardAwareScrollView>
-      {/* </ScrollView> */}
+              {/* </KeyboardAwareScrollView> */}
+      </ScrollView>
     </View>
   );
 };
