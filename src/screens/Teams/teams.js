@@ -10,14 +10,11 @@ import {
 import React from 'react';
 import Header from '../../components/Header/header';
 import {
-  awardLogo,
   newImage,
   notiLogo,
   online,
   search,
-  seerch,
   thunder,
-  timeLogo,
 } from '../../../assets/images/images';
 import SearchInput from '../../components/Input Fields/SearchInput';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';

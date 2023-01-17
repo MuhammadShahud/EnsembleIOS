@@ -10,21 +10,23 @@ import {useNavigation} from '@react-navigation/native';
 import {Checkbox} from 'react-native-paper';
 import {ButtonColor} from '../../../assets/colors/colors';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import { useDispatch } from 'react-redux';
-import { PatchSurveys } from '../../redux/Actions/AuthAction';
-import Sketch  from '../../../assets/images/Sketch';
+import {useDispatch} from 'react-redux';
+import {PatchSurveys} from '../../redux/Actions/AuthAction';
+import Sketch from '../../../assets/images/Sketch';
 
 const Review = props => {
   const [checked, setChecked] = React.useState(0);
   const survey = props.route.params.survey;
-  const dispatch =useDispatch();
+  const dispatch = useDispatch();
   const navigation = useNavigation();
-  const forward = () =>{
-const response = survey.response;
-response.push(checked)
-dispatch(PatchSurveys({response:response},navigation,'surveysuceed',survey.id))
+  const forward = () => {
+    const response = survey.response;
+    response.push(checked);
+    dispatch(
+      PatchSurveys({response: response}, navigation, 'surveysuceed', survey.id),
+    );
     // navigation.navigate('surveysuceed')
-  }
+  };
 
   return (
     <View style={styles.mainView}>
@@ -32,7 +34,7 @@ dispatch(PatchSurveys({response:response},navigation,'surveysuceed',survey.id))
         <Header />
         <View style={styles.sketch}>
           {/* <Image source={sketch} /> */}
-          <Sketch/>
+          <Sketch />
         </View>
         <Text style={styles.text}>{survey.question}</Text>
 
