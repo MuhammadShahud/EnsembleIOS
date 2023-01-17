@@ -16,55 +16,62 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import HomeBox from '../../components/HomeBox/homeBox';
-import {GetCompany, GetGoals, GetNoti, GetSurveys, GetTeam} from '../../redux/Actions/AuthAction';
+import {
+  GetCompany,
+  GetGoals,
+  GetNoti,
+  GetSurveys,
+  GetTeam,
+} from '../../redux/Actions/AuthAction';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import messaging from '@react-native-firebase/messaging';
-
 
 export default function Home() {
   const userData = useSelector(USER);
   const company = useSelector(COMPANY);
   const dispatch = useDispatch();
-  const navigation =useNavigation();
+  const navigation = useNavigation();
   const token =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoYWh1ZEBwbHVtdHJlZWdyb3VwLm5ldCIsImlhdCI6MTY2NDU2NzExNSwiZXhwIjoxNjk2MTAzMTE1fQ.bG940Pi5-Tf6CX4AMxLSZ2vLHZJr3XfgkBsIRvtkNeA';
 
+  useEffect(() => {
+    // Assume a message-notification contains a "type" property in the data payload of the screen to open
 
-    useEffect(() => {
-      // Assume a message-notification contains a "type" property in the data payload of the screen to open
-  
-      messaging().onNotificationOpenedApp(remoteMessage => {
-        console.log(
-          'Notification caused app to open from background state:',
-          remoteMessage.notification,
-        );
-        remoteMessage.data.type === "Surveys"? dispatch(GetSurveys()) : null
-        
-        remoteMessage.data.type? navigation.navigate(remoteMessage.data.type): null;
+    messaging().onNotificationOpenedApp(remoteMessage => {
+      console.log(
+        'Notification caused app to open from background state:',
+        remoteMessage.notification,
+      );
+      remoteMessage.data.type === 'Surveys' ? dispatch(GetSurveys()) : null;
+
+      remoteMessage.data.type
+        ? navigation.navigate(remoteMessage.data.type)
+        : null;
+    });
+
+    // Check whether an initial notification is available
+    messaging()
+      .getInitialNotification()
+      .then(remoteMessage => {
+        if (remoteMessage) {
+          console.log(
+            'Notification caused app to open from quit state:',
+            remoteMessage.notification,
+          );
+          remoteMessage.data.type
+            ? navigation.navigate(remoteMessage.data.type)
+            : null;
+        }
       });
-  
-      // Check whether an initial notification is available
-      messaging()
-        .getInitialNotification()
-        .then(remoteMessage => {
-          if (remoteMessage) {
-            console.log(
-              'Notification caused app to open from quit state:',
-              remoteMessage.notification,
-            );
-            remoteMessage.data.type? navigation.navigate(remoteMessage.data.type): null;
-          }
-        });
-    }, []);
-    
+  }, []);
+
   useFocusEffect(
     useCallback(() => {
-       dispatch(GetGoals(token,userData.id));
-       dispatch(GetCompany(userData?.companyId));
-       dispatch(GetTeam(userData?.teamId));
-       dispatch(GetSurveys())
-       dispatch(GetNoti());
-
+      dispatch(GetGoals(token, userData.id));
+      dispatch(GetCompany(userData?.companyId));
+      dispatch(GetTeam(userData?.teamId));
+      dispatch(GetSurveys());
+      dispatch(GetNoti());
     }, []),
   );
 
@@ -83,12 +90,13 @@ export default function Home() {
               source={{
                 uri: `https://onboard-backendd.herokuapp.com/${userData?.profilePic}`,
               }}
-              style={{borderRadius: 32,height:64, width:64}}
-
+              style={{borderRadius: 32, height: 64, width: 64}}
             />
           </View>
           <View style={{height: hp('0%')}}></View>
-          <Text style={style.position}>{userData?.jobTitle} | {company.companyName} </Text>
+          <Text style={style.position}>
+            {userData?.jobTitle} | {company.companyName}{' '}
+          </Text>
         </View>
 
         <View style={{height: hp('3%')}}></View>
@@ -101,7 +109,7 @@ export default function Home() {
             // image={findPeople}
             text1="Find your collegues!"
             text2="Search your colleagues and get connected now "
-            firstImage='aa'
+            firstImage="aa"
           />
           <View style={{height: hp('2%')}}></View>
 
@@ -111,23 +119,23 @@ export default function Home() {
             text1="Set your Goals"
             text2="Create a goal from scratch or choose 
             goals from the templates"
-            secondImage='qqq'
+            secondImage="qqq"
           />
 
           <View style={{height: hp('2%')}}></View>
 
           <HomeBox
             navigate="Surveys"
-            // image={task}
+            thirdImage="sdadfd"
             text1="Start your Pulse survey!"
             text2="Answer these pulse survey questions anonymously"
             color={company.brandColor}
           />
         </View>
-          <View style={style.footerView}>
-        <Text style={style.powered}>Powered by</Text>
-        <Text style={style.ensemble}>ENSEMBLE</Text>
-      </View>
+        <View style={style.footerView}>
+          <Text style={style.powered}>Powered by</Text>
+          <Text style={style.ensemble}>ENSEMBLE</Text>
+        </View>
       </ScrollView>
       {/* <View style={style.footerView}>
         <Text style={style.powered}>Powered by</Text>
@@ -136,4 +144,3 @@ export default function Home() {
     </View>
   );
 }
-
