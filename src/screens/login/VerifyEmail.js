@@ -42,15 +42,15 @@ const VerifyEmail = () => {
   }
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.logo}>
         <Image style={styles.logoStyle} resizeMode="contain" source={appLogo} />
 
       </View>
 
-    <KeyboardAwareScrollView enableOnAndroid={true}>
+    {/* <KeyboardAwareScrollView enableOnAndroid={true}> */}
 
-      {/* <ScrollView> */}
+      <ScrollView contentContainerStyle={{height:'180%'}}>
         <View style={styles.inputContainer}>
 
           <View>
@@ -96,8 +96,8 @@ const VerifyEmail = () => {
             />
           </View>
         </View>
-      </KeyboardAwareScrollView>
-      {/* </ScrollView> */}
+      {/* </KeyboardAwareScrollView> */}
+      </ScrollView>
     </ScrollView>
   )
 }

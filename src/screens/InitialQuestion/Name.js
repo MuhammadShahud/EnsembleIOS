@@ -69,8 +69,8 @@ const Name = () => {
     <View style={styles.mainView}>
       <QuestionHeader arrow={'notshow'} />
       <Dashes color={1} />
-      {/* <ScrollView> */}
-      <KeyboardAwareScrollView enableOnAndroid={true}>
+      <ScrollView contentContainerStyle={{height:'150%'}}>
+      {/* <KeyboardAwareScrollView enableOnAndroid={true}> */}
 
         <View style={{ marginTop: verticalScale(100) }}>
           {/* <Image source={first} style={{alignSelf:'center'}}/> */}
@@ -108,8 +108,8 @@ const Name = () => {
         </View>
         {/* <DropDown/> */}
 
-      </KeyboardAwareScrollView>
-      {/* </ScrollView> */}
+      {/* </KeyboardAwareScrollView> */}
+      </ScrollView>
       <View>
         <Footer
           powered={{ color: 'black' }}

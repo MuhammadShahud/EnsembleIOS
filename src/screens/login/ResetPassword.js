@@ -78,8 +78,8 @@ const ResetPassword = props => {
         <Image style={styles.logoStyle} resizeMode="contain" source={appLogo} />
       </View>
 
-      {/* <ScrollView> */}
-      <KeyboardAwareScrollView>
+      <ScrollView contentContainerStyle={{height:'150%'}}>
+      {/* <KeyboardAwareScrollView> */}
       
         <View style={styles.inputContainer}>
           <View>
@@ -166,9 +166,9 @@ style={styles.eye}>
           </View>
         </View>
         <SuccessModaal source={tickLogo} successText={'Password Changed Successfully'} backgroundButtonColor='#2B2F86' buttonTitle={'Go Back To Login'}  visible={modalVisible} setVisible={setModalVisible} />
-              </KeyboardAwareScrollView>
+              {/* </KeyboardAwareScrollView> */}
               
-      {/* </ScrollView> */}
+      </ScrollView>
     </View>
   );
 };
