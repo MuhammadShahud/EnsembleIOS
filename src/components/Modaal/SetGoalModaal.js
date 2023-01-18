@@ -38,7 +38,6 @@ const SetGoalModaal = props => {
            onPress={navigateNewGoal}
            buttonViewStyle={styles.buttonStyle}/>
 
-            <Button title="Browse Goals" buttonStyle={styles.browseButton} onPress={()=>navigation.navigate('discovergoals')} />
           </View>
         </View>
       </Modal>
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(20),
     // padding: 25,
     paddingVertical: verticalScale(20),
-    height: '45%',
+    height: '40%',
     width: '80%',
     alignItems: 'center',
     shadowColor: '#000',
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
   imageView: {
     marginVertical: verticalScale(10),
     // alignSelf: 'center',
-    marginBottom: verticalScale(20),
+    marginBottom: verticalScale(40),
     width:'54%',
     height:'54%',
     backgroundColor:'rgba(43, 47, 134, 0.04)',

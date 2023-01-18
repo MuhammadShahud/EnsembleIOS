@@ -54,7 +54,7 @@ const PersonalGoals = () => {
 
   const refRBSheet = useRef();
   const height = Dimensions.get('screen').height;
-  let goalsData = useSelector(GOALS);
+  let goalsData = [];
   goalsData.reverse();
   console.log('goalsData', goalsData[0]?.dueDate.split('T')[0].split('-'));
   const [visible, setVisible] = useState(false);
@@ -95,7 +95,7 @@ const PersonalGoals = () => {
     setNum(1);
   }
 
-  console.log('working', goalsData[0].dueDate);
+  console.log('working', goalsData[0]?.dueDate);
   const data = goalsData;
 
   goalsData = data.filter(e => e.isCompleted === false);
@@ -132,7 +132,7 @@ const PersonalGoals = () => {
 
         <Text style={styles.personalText}>Personal Goals</Text>
 
-        {show ? (
+        {show? (
           <FlatList
             style={styles.flatList}
             data={goalsData}

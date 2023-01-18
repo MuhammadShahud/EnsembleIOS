@@ -51,15 +51,15 @@ const Survey = () => {
   let weeklySurvey = surveys;
 
   userData?.completedSurveys.forEach(e => {
-    weeklySurvey = weeklySurvey?.filter((s)=>s?.id === e  ) 
+    weeklySurvey = weeklySurvey?.filter((s)=>s?.id !== e  ) 
     })
 
   let laptop = surveys;
 
   
-   userData?.completedSurveys.forEach(e => {
-   laptop = laptop?.filter((s)=>s?.id === e  ) 
-   })
+  //  userData?.completedSurveys.forEach(e => {
+  //  laptop = laptop?.filter((s)=>s?.id === e  ) 
+  //  })
   
 
   return (

@@ -25,7 +25,6 @@ import Logout from '../../../assets/images/logout'
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import {COMPANY, USER} from '../../redux/Reducers/AuthReducer';
-
 import PEOPLE from '../../../assets/images/PEOPLE'
 import DrawerGoal from '../../../assets/images/DrawerGoal'
 import { PoppinsBold, PoppinsRegular, PoppinsSemiBold } from '../../../assets/fonts/Fonts';
